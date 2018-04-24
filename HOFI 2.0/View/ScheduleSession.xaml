@@ -1,0 +1,18 @@
+﻿<Window x:Class="View.ScheduleSession"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:View"
+        mc:Ignorable="d"
+        Title="ScheduleSession" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="tb_TypeMemberNumber" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="195,40,0,0" TextChanged="tb_TypeMemberNumber_TextChanged"/>
+        <Label x:Name="IndtastMedlemsnummer" Content="Indtast Medlemsnummer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,34,0,0" Width="157" RenderTransformOrigin="0.506,0.454"/>
+        <Label x:Name="IndtastDato" Content="Indtast Dato" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,65,0,0" Width="157"/>
+        <TextBox x:Name="tb_TypeBookingDate" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="195,65,0,0" TextChanged="tb_TypeBookingDate_TextChanged"/>
+        <TextBlock x:Name="txtb_BookingNotification" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Her skal stå en notification om booking" VerticalAlignment="Top" Margin="33,96,0,0" Width="264" Height="90"/>
+        <Button x:Name="btn_AppointSession" Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="377" Margin="323,40,0,0" Height="282" Click="btn_AppointSession_Click"/>
+
+    </Grid>
+</Window>

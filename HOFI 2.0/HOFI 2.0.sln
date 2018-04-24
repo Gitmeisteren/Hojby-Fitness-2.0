@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{883897B6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "BookingRepository\Model.csproj", "{1616C2F3-13BB-43AD-A621-AAB99C0F486F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{EC95D21B-9D78-4439-8181-6F994E7C82C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "Controller\ViewModel.csproj", "{EC95D21B-9D78-4439-8181-6F994E7C82C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{E0331202-33B7-43CA-85CE-14FD7A7E0A30}"
 EndProject

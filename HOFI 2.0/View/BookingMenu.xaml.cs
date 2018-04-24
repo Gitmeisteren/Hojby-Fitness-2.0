@@ -10,25 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for BookingMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BookingMenu : Window
     {
-        public MainWindow()
+        public BookingMenu()
         {
             InitializeComponent();
         }
 
-        private void btn_BookingMenu_Click(object sender, RoutedEventArgs e)
+        private void btn_ScheduleSession_Click(object sender, RoutedEventArgs e) //Book træningsforløb
         {
-            BookingMenu bookingMenu = new BookingMenu();
-            bookingMenu.Show();
+            ScheduleSession scheduleSession = new ScheduleSession();
+            scheduleSession.Show();
             this.Close();
         }
     }

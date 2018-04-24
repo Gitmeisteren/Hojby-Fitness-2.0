@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="296,194,0,0"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="422,194,0,0"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="548,194,0,0"/>
+        <Button x:Name="btn_BookingMenu" Content="Booking Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="155,180,0,0" Click="btn_BookingMenu_Click" Height="34"/>
+
     </Grid>
 </Window>

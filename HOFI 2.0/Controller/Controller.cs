@@ -26,5 +26,10 @@ namespace ViewModel
         {
             _databaseCon.ScheduleSession(NewBooking);
         }
+
+        public void CreateNewMember()
+        {
+            _databaseCon.CreateNewMember(NewMember, NewBooking);
+        }
     }
 }

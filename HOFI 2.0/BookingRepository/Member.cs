@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Member : INotifyPropertyChanged
+    public class Member : INotifyPropertyChanged
     {
         #region INotifyPropertyChanged Members
 
@@ -65,6 +65,19 @@ namespace Model
                 _PhoneNumber = value;
                 OnPropertyChanged("Phone Number");
             }
+        }
+        public int Age
+        {
+            get
+            {
+                return _Age;
+            }
+            set
+            {
+                _Age = value;
+                OnPropertyChanged("Age");
+            }
+
         }
     }
 }

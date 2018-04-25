@@ -9,13 +9,16 @@ namespace ViewModel
 {
     public class Controller
     {
-        public Booking NewBooking { get; set; }
         Booking member = new Booking();
+        public Booking NewBooking { get; set; }
+        public Member NewMember { get; set; }
+
         SQLDatabaseConnectionPoint _databaseCon = new SQLDatabaseConnectionPoint();
 
         public Controller()
         {
             NewBooking = new Booking();
+            NewMember = new Member();
         }
 
         

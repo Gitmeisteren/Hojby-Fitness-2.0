@@ -28,7 +28,7 @@ namespace View
         }
         
 
-        private void btn_AppointSession_Click(object sender, RoutedEventArgs e)
+        private void Btn_AppointSession_Click(object sender, RoutedEventArgs e)
         {
             BindingExpression bind_MemberNumber = tb_TypeMemberNumber.GetBindingExpression(TextBox.TextProperty);
 
@@ -41,6 +41,24 @@ namespace View
 
             
             
+        }
+
+        private void Btn_CreateMember(object sender, RoutedEventArgs e)
+        {
+            BindingExpression bind_MemberNumber = tb_CreateMemberNumber.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_Name = tb_CreateName.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_PhoneNumber = tb_CreatePhoneNumber.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_Email = tb_CreateEmail.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_Age = tb_CreateAge.GetBindingExpression(TextBox.TextProperty);
+
+            bind_MemberNumber.UpdateSource();
+            bind_Name.UpdateSource();
+            bind_PhoneNumber.UpdateSource();
+            bind_Email.UpdateSource();
+            bind_Age.UpdateSource();
+
+            controller.CreateNewMember();
+
         }
     }
 }

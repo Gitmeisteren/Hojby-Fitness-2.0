@@ -36,30 +36,73 @@ namespace Model
             }
         }
 
-        public void CreateNewMember(Member newMember, Booking NewBooking)
+        //string skal være en liste, og vi skal adde bookingobjekter til liste.
+        public string InitialRepoUpdate()
         {
+            string returnString = "";
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
                 {
+                    
+                    int bookingID = 0;
+                    string bookingDate = "";
+                    string memberNumber = "";
+
 
                     con.Open();
 
-                    SqlCommand _CreateMember = new SqlCommand("spCreateMember", con);
-                    _CreateMember.CommandType = System.Data.CommandType.StoredProcedure;
-                    _CreateMember.Parameters.Add(new SqlParameter("@I_MemberID", NewBooking.MemberNumber));
-                    _CreateMember.Parameters.Add(new SqlParameter("@I_Name", newMember.Name));
-                    _CreateMember.Parameters.Add(new SqlParameter("@I_PhoneNumber", newMember.PhoneNumber));
-                    _CreateMember.Parameters.Add(new SqlParameter("@I_Email", newMember.Email));
-                    _CreateMember.Parameters.Add(new SqlParameter("@I_Age", newMember.Age));
-                    _CreateMember.ExecuteNonQuery();
+                    SqlCommand _BookingRepoUpdate = new SqlCommand("spInitialBookingRepoUpdate", con);
+
+                    SqlDataReader reader = _BookingRepoUpdate.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            bookingID = int.Parse(reader["BookingID"].ToString());
+                            bookingDate = reader["Date"].ToString();
+                            memberNumber = reader["MemberID"].ToString();
+
+                        }
+                    }
+                    reader.Close();
+                    
+
                 }
                 catch (SqlException e)
                 {
 
                 }
+            }
 
+            return returnString;
+        }
+
+            public void CreateNewMember(Member newMember, Booking NewBooking)
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+
+                        con.Open();
+
+                        SqlCommand _CreateMember = new SqlCommand("spCreateMember", con);
+                        _CreateMember.CommandType = System.Data.CommandType.StoredProcedure;
+                        _CreateMember.Parameters.Add(new SqlParameter("@I_MemberID", NewBooking.MemberNumber));
+                        _CreateMember.Parameters.Add(new SqlParameter("@I_Name", newMember.Name));
+                        _CreateMember.Parameters.Add(new SqlParameter("@I_PhoneNumber", newMember.PhoneNumber));
+                        _CreateMember.Parameters.Add(new SqlParameter("@I_Email", newMember.Email));
+                        _CreateMember.Parameters.Add(new SqlParameter("@I_Age", newMember.Age));
+                        _CreateMember.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+
+                    }
+
+                }
             }
         }
     }
-}
+

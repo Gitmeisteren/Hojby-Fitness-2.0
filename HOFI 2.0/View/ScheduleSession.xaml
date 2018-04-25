@@ -7,12 +7,14 @@
         mc:Ignorable="d"
         Title="ScheduleSession" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="tb_TypeMemberNumber" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="195,40,0,0" TextChanged="tb_TypeMemberNumber_TextChanged"/>
+        <TextBox x:Name="tb_TypeMemberNumber" Text="{Binding NewMember.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="195,40,0,0" />
         <Label x:Name="IndtastMedlemsnummer" Content="Indtast Medlemsnummer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,34,0,0" Width="157" RenderTransformOrigin="0.506,0.454"/>
         <Label x:Name="IndtastDato" Content="Indtast Dato" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,65,0,0" Width="157"/>
-        <TextBox x:Name="tb_TypeBookingDate" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="195,65,0,0" TextChanged="tb_TypeBookingDate_TextChanged"/>
-        <TextBlock x:Name="txtb_BookingNotification" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Her skal stå en notification om booking" VerticalAlignment="Top" Margin="33,96,0,0" Width="264" Height="90"/>
-        <Button x:Name="btn_AppointSession" Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="377" Margin="323,40,0,0" Height="282" Click="btn_AppointSession_Click"/>
+        <TextBox x:Name="tb_TypeBookingDate" Text="{Binding NewMember.BookingDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="195,65,0,0"/>
+        <Button x:Name="btn_AppointSession" Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Margin="323,40,0,0" Height="51" Click="btn_AppointSession_Click"/>
+        <Label Content="Nyt medlem:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,119,0,0" Width="94" Height="25"/>
+        <Label Content="Medlemsnummer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,172,0,0" Width="116" Height="25"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding}" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="158,176,0,0"/>
 
     </Grid>
 </Window>

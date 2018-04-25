@@ -24,25 +24,22 @@ namespace View
         public ScheduleSession()
         {
             InitializeComponent();
+            this.DataContext = controller;
         }
         
-        public string tb_TypeMemberNumber_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            string memberNumber;
-            memberNumber = tb_TypeMemberNumber.Text;
-            return memberNumber;
-        }
-
-        private string tb_TypeBookingDate_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            string bookingDate;
-            bookingDate = tb_TypeBookingDate.Text;
-            return bookingDate;
-        }
 
         private void btn_AppointSession_Click(object sender, RoutedEventArgs e)
         {
-          
+            BindingExpression bind_MemberNumber = tb_TypeMemberNumber.GetBindingExpression(TextBox.TextProperty);
+
+            BindingExpression bind_BookingDate = tb_TypeBookingDate.GetBindingExpression(TextBox.TextProperty);
+
+            bind_MemberNumber.UpdateSource();
+            bind_BookingDate.UpdateSource();
+
+            controller.ScheduleSession();
+
+            
             
         }
     }

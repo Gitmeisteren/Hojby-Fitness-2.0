@@ -62,5 +62,12 @@ namespace View
             controller.CreateNewMember();
 
         }
+
+        private void ButtonReturnToBookingMenu_Click(object sender, RoutedEventArgs e)
+        {
+            BookingMenu bookingMenu = new BookingMenu();
+            bookingMenu.Show();
+           this.Close();
+        }
     }
 }

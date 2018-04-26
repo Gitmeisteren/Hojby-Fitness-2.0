@@ -30,5 +30,13 @@ namespace View
             scheduleSession.Show();
             this.Close();
         }
+
+        private void ButtonReturnToMainWindow_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+            
+        }
     }
 }

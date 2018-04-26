@@ -39,8 +39,12 @@ namespace ViewModel
         }
 
         private string _ReturnMessage;
+
+        
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
+
+      
 
         public string ReturnMessage {
             get {

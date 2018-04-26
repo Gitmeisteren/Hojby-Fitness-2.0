@@ -21,7 +21,7 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
-        BookingController bookingController = new BookingController();
+        BookingController bookingController = BookingController.GetInstance();
 
         public MainWindow()
         {

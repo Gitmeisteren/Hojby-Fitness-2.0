@@ -28,6 +28,16 @@ namespace ViewModel
 
         Booking member = new Booking();
 
+        private static BookingController instance;
+        public static BookingController GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new BookingController();
+            }
+            return instance;
+        }
+
         private string _ReturnMessage;
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
@@ -41,12 +51,13 @@ namespace ViewModel
             } }
 
 
-        BookingRepository bookingRepo = new BookingRepository();
+        BookingRepository bookingRepo;
         SQLDatabaseConnectionPoint _databaseCon = new SQLDatabaseConnectionPoint();
 
-        public BookingController()
+        private BookingController()
         {
             NewBooking = new Booking();
+            bookingRepo = new BookingRepository();
             NewMember = new Member();
         }
 

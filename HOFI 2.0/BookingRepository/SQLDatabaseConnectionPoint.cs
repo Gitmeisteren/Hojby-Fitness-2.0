@@ -44,7 +44,6 @@ namespace Model
             {
                 try
                 {
-                    Booking booking = new Booking();
                     
 
 
@@ -57,7 +56,8 @@ namespace Model
                     {
                         while (reader.Read())
                         {
-                            
+
+                            Booking booking = new Booking();
                             booking.BookingID = int.Parse(reader["BookingID"].ToString());
                             booking.BookingDate = reader["Date"].ToString();
                             booking.MemberNumber = reader["MemberID"].ToString();

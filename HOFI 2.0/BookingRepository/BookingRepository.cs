@@ -8,6 +8,7 @@ namespace Model
 {
    public class BookingRepository
     {
+        
        private List<Booking> bookingList = new List<Booking>();
 
 

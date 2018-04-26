@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModel;
 
 namespace View
 {
@@ -20,9 +21,12 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
+        BookingController bookingController = BookingController.GetInstance();
+
         public MainWindow()
         {
             InitializeComponent();
+            bookingController.IntitialRepoUpdate();
         }
 
         private void btn_BookingMenu_Click(object sender, RoutedEventArgs e)

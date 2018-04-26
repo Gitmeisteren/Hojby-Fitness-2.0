@@ -24,7 +24,7 @@
         <TextBox x:Name="tb_CreateAge" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding NewMember.Age, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="158,373,0,0"/>
         <Label Content="Alder" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,373,0,0" Width="96"/>
         <Button Content="Opret" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="323,175,0,0" Click="Btn_CreateMember"/>
-        <Label Content="{Binding Path=ReturnMessage, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="574,40,0,0" Height="89" Width="186"/>
+        <Label Content="{Binding Path=ReturnMessage, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="574,40,0,0" Height="89" Width="186" Background="#FFFBE400" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
 
     </Grid>
 </Window>

@@ -30,24 +30,22 @@ namespace Model
                 }
                 catch (SqlException e)
                 {
-
+                    //Recall exception message
                 }
 
             }
         }
 
         //string skal være en liste, og vi skal adde bookingobjekter til liste.
-        public string InitialRepoUpdate()
+        public List<Booking> InitialRepoUpdate()
         {
-            string returnString = "";
+           List<Booking> bookingRepo = new List<Booking>();
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
                 {
+                    Booking booking = new Booking();
                     
-                    int bookingID = 0;
-                    string bookingDate = "";
-                    string memberNumber = "";
 
 
                     con.Open();
@@ -59,10 +57,12 @@ namespace Model
                     {
                         while (reader.Read())
                         {
-                            bookingID = int.Parse(reader["BookingID"].ToString());
-                            bookingDate = reader["Date"].ToString();
-                            memberNumber = reader["MemberID"].ToString();
+                            
+                            booking.BookingID = int.Parse(reader["BookingID"].ToString());
+                            booking.BookingDate = reader["Date"].ToString();
+                            booking.MemberNumber = reader["MemberID"].ToString();
 
+                            bookingRepo.Add(booking);
                         }
                     }
                     reader.Close();
@@ -75,7 +75,7 @@ namespace Model
                 }
             }
 
-            return returnString;
+            return bookingRepo;
         }
 
             public void CreateNewMember(Member newMember, Booking NewBooking)

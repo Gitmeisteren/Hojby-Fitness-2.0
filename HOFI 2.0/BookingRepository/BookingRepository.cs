@@ -11,31 +11,43 @@ namespace Model
        private List<Booking> bookingList = new List<Booking>();
 
 
-
+        //Kunne optimere ved at fusionere til en.
         public void AddToRepo(Booking booking)
         {
             bookingList.Add(booking);
         }
 
+        public void AddBookingsToRepoFromDB(List<Booking> bookings)
+        {
+            foreach(Booking b in bookings)
+            {
+                bookingList.Add(b);
+            }
+
+
+        }
+
+
         public bool FindDate(Booking newBooking)
         {
             bool dateAvailable = true;
 
-            foreach(Booking b in bookingList)
+            foreach (Booking b in bookingList)
             {
-                if(b.BookingDate == newBooking.BookingDate)
+                if (b.BookingDate == newBooking.BookingDate)
                 {
                     dateAvailable = false;
-                    AddToRepo(newBooking);
-                    
-                }
-                
 
-                
+                }
+
+            }
+            if (dateAvailable)
+            {
+                AddToRepo(newBooking);
+
             }
 
-
-            return true;
+            return dateAvailable;
         }
 
         

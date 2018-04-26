@@ -25,10 +25,26 @@ namespace Model
 
         #endregion
 
+        int _BookingID = 0;
         string _MemberNumber = "";
         string _BookingDate = "";
-        
-            public string MemberNumber
+
+
+        public int BookingID
+        {
+            get
+            {
+                return _BookingID;
+            }
+            set
+            {
+                _BookingID = value;
+                OnPropertyChanged("BookingID");
+            }
+        }
+
+
+        public string MemberNumber
         {
             get
             {
@@ -55,5 +71,6 @@ namespace Model
         }
 
         
+
     }
 }

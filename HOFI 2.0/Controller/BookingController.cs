@@ -28,19 +28,23 @@ namespace ViewModel
 
         Booking member = new Booking();
 
-        private static BookingController instance;
+        private static BookingController _Instance;
         public static BookingController GetInstance()
         {
-            if (instance == null)
+            if (_Instance == null)
             {
-                instance = new BookingController();
+                _Instance = new BookingController();
             }
-            return instance;
+            return _Instance;
         }
 
         private string _ReturnMessage;
+
+        
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
+
+      
 
         public string ReturnMessage {
             get {
@@ -63,12 +67,15 @@ namespace ViewModel
 
         public void ScheduleSession()
         {
+            Booking bookingClone = new Booking();
+            bookingClone.BookingDate = NewBooking.BookingDate;
+            bookingClone.MemberNumber = NewBooking.MemberNumber;
 
-           bool dateAvailable = bookingRepo.FindDate(NewBooking);
+           bool dateAvailable = bookingRepo.FindDate(bookingClone);
             
             if (dateAvailable)
             {
-                _databaseCon.ScheduleSession(NewBooking);
+                _databaseCon.ScheduleSession(bookingClone);
                 ReturnMessage = "Booking Oprettet.";
             }
             else

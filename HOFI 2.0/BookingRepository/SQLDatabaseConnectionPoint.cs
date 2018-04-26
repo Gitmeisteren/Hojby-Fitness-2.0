@@ -10,11 +10,11 @@ namespace Model
 {
     public class SQLDatabaseConnectionPoint
     {
-        private static string connectionString = "Server= den1.mssql5.gear.host; Database= hofi; User ID = hofi; Password= Qg9OG4l~v-06;";
+        private static string _ConnectionString = "Server= den1.mssql5.gear.host; Database= hofi; User ID = hofi; Password= Qg9OG4l~v-06;";
 
         public void ScheduleSession(Booking NewBooking)
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
                 try
                 {
@@ -40,7 +40,7 @@ namespace Model
         public List<Booking> InitialRepoUpdate()
         {
            List<Booking> bookingRepo = new List<Booking>();
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
                 try
                 {
@@ -80,7 +80,7 @@ namespace Model
 
             public void CreateNewMember(Member newMember, Booking NewBooking)
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(_ConnectionString))
                 {
                     try
                     {

@@ -16,7 +16,7 @@ namespace TestCase1
             SqlConnection testCon = new SqlConnection(testConString);
 
             [TestMethod] //Tester forbindelsen til SQLDatabasen.
-            public void TestSqlConnection()
+            public void SqlConnectionTest()
             {
                 testCon.Open();
                 bool ConnecTest = false;
@@ -26,5 +26,24 @@ namespace TestCase1
                 }
                 Assert.AreEqual(true, ConnecTest);
             }
+
+        [TestMethod]
+        public void DoubleBookingTest()
+        {
+            string FakeMember1 = "Hofi1111";
+            string FakeMember2 = "Hofi2222";
+            string FakeBookingDate = "1010"; 
+            
+            BookingController bookingController = BookingController.GetInstance();
+            using (var scop = new System.Transactions.TransactionScope())
+            {
+                
+                // all your test code and Asserts that access the database, 
+                // writes and reads, from any class, ...
+                // to commit at the very end of this block,
+                // you would call
+                // scop.Complete();  // ..... but don't and all will be rolled back
+            }
+        }
     }
 }

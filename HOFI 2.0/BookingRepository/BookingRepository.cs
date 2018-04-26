@@ -9,20 +9,20 @@ namespace Model
    public class BookingRepository
     {
         
-       private List<Booking> bookingList = new List<Booking>();
+       private List<Booking> _BookingList = new List<Booking>();
 
 
         //Kunne optimere ved at fusionere til en.
         public void AddToRepo(Booking booking)
         {
-            bookingList.Add(booking);
+            _BookingList.Add(booking);
         }
 
         public void AddBookingsToRepoFromDB(List<Booking> bookings)
         {
             foreach(Booking b in bookings)
             {
-                bookingList.Add(b);
+                _BookingList.Add(b);
             }
 
 
@@ -33,7 +33,7 @@ namespace Model
         {
             bool dateAvailable = true;
 
-            foreach (Booking b in bookingList)
+            foreach (Booking b in _BookingList)
             {
                 if (b.BookingDate == newBooking.BookingDate)
                 {

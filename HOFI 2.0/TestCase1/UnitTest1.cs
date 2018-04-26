@@ -30,19 +30,20 @@ namespace TestCase1
         [TestMethod]
         public void DoubleBookingTest()
         {
-            string FakeMember1 = "Hofi1111";
-            string FakeMember2 = "Hofi2222";
-            string FakeBookingDate = "1010"; 
-            
+            Booking bookInfo = new Booking();
             BookingController bookingController = BookingController.GetInstance();
             using (var scop = new System.Transactions.TransactionScope())
             {
-                
+                bookInfo.MemberNumber = "hofi9002";
+                bookInfo.BookingDate = "01.01.2000";
+                bookingController.ScheduleSession();
+                Assert.AreEqual("Booking Oprettet.", bookingController.ReturnMessage);
+                bookInfo.MemberNumber = "hofi9002";
+                bookInfo.BookingDate = "01.01.2000";
+                bookingController.ScheduleSession();
+                Assert.AreEqual("Dagen er optaget.", bookingController.ReturnMessage);
                 // all your test code and Asserts that access the database, 
                 // writes and reads, from any class, ...
-                // to commit at the very end of this block,
-                // you would call
-                // scop.Complete();  // ..... but don't and all will be rolled back
             }
         }
     }

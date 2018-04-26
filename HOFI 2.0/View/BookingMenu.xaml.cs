@@ -31,9 +31,11 @@ namespace View
             this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonReturnToMainWindow_Click(object sender, RoutedEventArgs e)
         {
-          
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
             
         }
     }

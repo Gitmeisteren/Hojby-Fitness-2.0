@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="BookingMenu" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btn_ScheduleSession" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="309,60,0,0" Click="btn_ScheduleSession_Click"/>
+        <Button x:Name="btn_ScheduleSession" Content="Book forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="309,60,0,0" Click="btn_ScheduleSession_Click"/>
         <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="309,132,0,0"/>
         <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="309,209,0,0"/>
         <Button Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="677,10,0,0" Click="ButtonReturnToMainWindow_Click"/>

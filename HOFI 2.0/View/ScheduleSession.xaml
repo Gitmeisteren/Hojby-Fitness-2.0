@@ -7,25 +7,27 @@
         mc:Ignorable="d"
         Title="ScheduleSession" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="tb_TypeMemberNumber" Text="{Binding NewBooking.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="195,40,0,0" />
-        <Label x:Name="IndtastMedlemsnummer" Content="Indtast Medlemsnummer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,34,0,0" Width="157" RenderTransformOrigin="0.506,0.454"/>
-        <Label x:Name="IndtastDato" Content="Indtast Dato" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,65,0,0" Width="157"/>
-        <TextBox x:Name="tb_TypeBookingDate" Text="{Binding NewBooking.BookingDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="195,65,0,0"/>
-        <Button x:Name="btn_AppointSession" Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Margin="323,40,0,0" Height="51" Click="Btn_AppointSession_Click"/>
-        <Label Content="Nyt medlem:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,119,0,0" Width="94" Height="25"/>
-        <Label Content="Medlemsnummer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,172,0,0" Width="116" Height="25"/>
-        <TextBox x:Name="tb_CreateMemberNumber" HorizontalAlignment="Left" Text="{Binding NewBooking.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="158,176,0,0"/>
-        <TextBox x:Name="tb_CreateName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding NewMember.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}"  VerticalAlignment="Top" Width="120" Margin="158,225,0,0"/>
-        <Label Content="Navn" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,225,0,0" Width="96"/>
-        <TextBox x:Name="tb_CreatePhoneNumber" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding NewMember.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="158,274,0,0"/>
-        <Label Content="Tlf. Nr." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,271,0,0" Width="96"/>
-        <TextBox x:Name="tb_CreateEmail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding NewMember.Email, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="158,323,0,0"/>
-        <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,320,0,0" Width="85"/>
-        <TextBox x:Name="tb_CreateAge" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding NewMember.Age, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="158,373,0,0"/>
-        <Label Content="Alder" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,373,0,0" Width="96"/>
-        <Button Content="Opret" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="323,175,0,0" Click="Btn_CreateMember"/>
-        <Label Content="{Binding Path=ReturnMessage, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="574,40,0,0" Height="89" Width="186" Background="#FFFBE400" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
-        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="631,225,0,0" VerticalAlignment="Top" Width="75" Click="ButtonReturnToBookingMenu_Click"/>
+        <TextBox x:Name="tb_TypeMemberNumber" Text="{Binding NewBooking.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="461,40,0,0" />
+        <Label x:Name="IndtastMedlemsnummer" Content="Indtast Medlemsnummer (hofixxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,40,0,0" Width="179" RenderTransformOrigin="0.506,0.454" Height="24"/>
+        <Label x:Name="IndtastDato" Content="Indtast Dato (xx.xx.xxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,69,0,0" Width="154" Height="24"/>
+        <TextBox x:Name="tb_TypeBookingDate" Text="{Binding NewBooking.BookingDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="461,69,0,0"/>
+        <Button x:Name="btn_AppointSession" Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="607,53,0,0" Height="22" Click="Btn_AppointSession_Click"/>
+        <Label Content="Medlemsnummer (hofixxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,176,0,0" Width="179" Height="25"/>
+        <TextBox x:Name="tb_CreateMemberNumber" HorizontalAlignment="Left" Text="{Binding NewBooking.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="461,175,0,0"/>
+        <TextBox x:Name="tb_CreateName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding NewMember.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}"  VerticalAlignment="Top" Width="102" Margin="461,203,0,0"/>
+        <Label Content="Fulde navn" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,203,0,0" Width="154"/>
+        <TextBox x:Name="tb_CreatePhoneNumber" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding NewMember.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="102" Margin="461,231,0,0"/>
+        <Label Content="Telefonnummer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,231,0,0" Width="96"/>
+        <TextBox x:Name="tb_CreateEmail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding NewMember.Email, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="102" Margin="461,259,0,0"/>
+        <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,258,0,0" Width="85"/>
+        <TextBox x:Name="tb_CreateAge" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding NewMember.Age, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="102" Margin="461,287,0,0"/>
+        <Label Content="Alder" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,284,0,0" Width="96"/>
+        <Button Content="Opret" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="607,175,0,0" Click="Btn_CreateMember"/>
+        <Label Content="{Binding Path=ReturnMessage, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,344,0,0" Height="51" Width="215" Background="#FFFBE400" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="571,375,0,0" VerticalAlignment="Top" Width="75" Click="ButtonReturnToBookingMenu_Click"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="2" Margin="173,0,0,-0.333"/>
+        <Label Content="Er medlemmet allerede&#xD;&#xA;allerede oprettet i dette&#xD;&#xA;system kan forløb bookes&#xD;&#xA;vha. denne formular" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="158" Height="83"/>
+        <Label Content="Er medlemmet endnu ikke&#xD;&#xA;oprettet i dette system&#xD;&#xA;skal det først gøres via &#xD;&#xA;denne formular" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,175,0,0" Height="152" Width="158"/>
 
     </Grid>
 </Window>

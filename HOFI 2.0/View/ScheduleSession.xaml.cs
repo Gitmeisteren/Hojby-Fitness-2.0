@@ -28,7 +28,7 @@ namespace View
         }
         
 
-        private void Btn_AppointSession_Click(object sender, RoutedEventArgs e)
+        private void Btn_ScheduleSession_Click(object sender, RoutedEventArgs e)
         {
             BindingExpression bind_MemberNumber = tb_TypeMemberNumber.GetBindingExpression(TextBox.TextProperty);
 

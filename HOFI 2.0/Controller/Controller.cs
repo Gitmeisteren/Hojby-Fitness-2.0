@@ -85,6 +85,15 @@ namespace ViewModel
         {
             bookingHandler.IntitialRepoUpdate();
         }
+
+        public void UpdateCalendar()
+        {
+            bookingHandler.UpdateCalendar();
+
+
+        }
+
+
     }
 
 }

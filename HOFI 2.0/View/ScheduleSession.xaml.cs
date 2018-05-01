@@ -25,21 +25,22 @@ namespace View
         {
             InitializeComponent();
             this.DataContext = controller;
+            
         }
         
 
         private void Btn_AppointSession_Click(object sender, RoutedEventArgs e)
         {
-            BindingExpression bind_MemberNumber = tb_TypeMemberNumber.GetBindingExpression(TextBox.TextProperty);
+            //BindingExpression bind_MemberNumber = tb_TypeMemberNumber.GetBindingExpression(TextBox.TextProperty);
 
-            BindingExpression bind_BookingDate = tb_TypeBookingDate.GetBindingExpression(TextBox.TextProperty);
+            //BindingExpression bind_BookingDate = tb_TypeBookingDate.GetBindingExpression(TextBox.TextProperty);
 
-            bind_MemberNumber.UpdateSource();
-            bind_BookingDate.UpdateSource();
+            //bind_MemberNumber.UpdateSource();
+            //bind_BookingDate.UpdateSource();
 
-            controller.ScheduleSession();
+            //controller.ScheduleSession();
 
-            
+            controller.UpdateCalendar();
 
             
             

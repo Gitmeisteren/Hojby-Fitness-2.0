@@ -7,10 +7,32 @@
         mc:Ignorable="d"
         Title="BookingMenu" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btn_ScheduleSession" Content="Book forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="309,60,0,0" Click="btn_ScheduleSession_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="309,132,0,0"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="309,209,0,0"/>
-        <Button Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="677,10,0,0" Click="ButtonReturnToMainWindow_Click"/>
+        <Button x:Name="btn_ScheduleSession" Content="Book forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,32,0,0" Click="btn_ScheduleSession_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,90,0,0"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,148,0,0"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,390,0,0" Click="ButtonReturnToMainWindow_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="1" Margin="110,0,0,-0.333"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="116,0,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="171,0,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="231,0,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="291,0,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="351,0,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="411,0,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="471,0,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="116,36,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="171,36,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="231,36,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="291,36,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="351,36,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="411,36,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="471,36,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="116,74,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="171,74,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="231,74,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="291,74,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="351,74,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="411,74,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="471,74,0,0" VerticalAlignment="Top" Height="36" Width="55"/>
 
     </Grid>
 </Window>

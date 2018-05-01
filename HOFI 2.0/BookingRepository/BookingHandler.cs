@@ -81,5 +81,19 @@ namespace ViewModel
         {
             _databaseCon.CreateNewMember(NewMember, NewBooking);
         }
+
+        public List<string> UpdateCalendar()
+        {
+            Calendar calendar = Calendar.GetInstance();
+            List<string> retrivedCalendarDates = new List<string>();
+            List<string> updatedCalendarDates = new List<string>();
+
+
+           retrivedCalendarDates = bookingRepo.RetrieveCalendarDates();
+           updatedCalendarDates = calendar.UpdateCalendar(retrivedCalendarDates);
+
+            return updatedCalendarDates;
+        }
+
     }
 }

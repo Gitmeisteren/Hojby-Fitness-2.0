@@ -31,7 +31,7 @@ namespace TestCase1
         public void DoubleBookingTest()
         {
             Booking bookInfo = new Booking();
-            BookingController bookingController = BookingController.GetInstance();
+            BookingHandler bookingController = BookingHandler.GetInstance();
             using (var scop = new System.Transactions.TransactionScope())
             {
                 bookInfo.MemberNumber = "hofi9002";

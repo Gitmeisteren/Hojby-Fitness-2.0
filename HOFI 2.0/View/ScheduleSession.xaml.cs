@@ -20,7 +20,7 @@ namespace View
     /// </summary>
     public partial class ScheduleSession : Window
     {
-        BookingController controller = BookingController.GetInstance();
+        Controller controller = Controller.GetInstance();
         public ScheduleSession()
         {
             InitializeComponent();

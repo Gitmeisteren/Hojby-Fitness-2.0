@@ -21,12 +21,12 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
-        BookingController bookingController = BookingController.GetInstance();
+        Controller controller = Controller.GetInstance();
 
         public MainWindow()
         {
             InitializeComponent();
-            bookingController.IntitialRepoUpdate();
+            controller.IntitialRepoUpdate();
         }
 
         private void btn_BookingMenu_Click(object sender, RoutedEventArgs e)

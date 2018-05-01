@@ -57,7 +57,7 @@ namespace Model
             }
         }
 
-            public string BookingDate
+        public string BookingDate
         {
             get
             {

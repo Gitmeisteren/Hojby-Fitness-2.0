@@ -8,7 +8,7 @@ using Model;
 
 namespace ViewModel
 {
-    public class BookingController : INotifyPropertyChanged
+    public class BookingHandler : INotifyPropertyChanged
     {
         #region INotifyPropertyChanged Members
 
@@ -28,46 +28,30 @@ namespace ViewModel
 
         Booking member = new Booking();
 
-        private static BookingController _Instance;
-        public static BookingController GetInstance()
+        private static BookingHandler _Instance;
+        public static BookingHandler GetInstance()
         {
             if (_Instance == null)
             {
-                _Instance = new BookingController();
+                _Instance = new BookingHandler();
             }
             return _Instance;
         }
 
-        private string _ReturnMessage;
-
-        
-        public Booking NewBooking { get; set; }
-        public Member NewMember { get; set; }
-
-      
-
-        public string ReturnMessage {
-            get {
-                return _ReturnMessage;
-            }set {
-                _ReturnMessage = value;
-                OnPropertyChanged("ReturnMessage");
-            } }
 
 
-        BookingRepository bookingRepo;
+        BookingRepository bookingRepo = new BookingRepository();
         SQLDatabaseConnectionPoint _databaseCon = new SQLDatabaseConnectionPoint();
 
-        private BookingController()
+        private BookingHandler()
         {
-            NewBooking = new Booking();
-            bookingRepo = new BookingRepository();
-            NewMember = new Member();
+           
         }
 
-        public void ScheduleSession()
+        public string ScheduleSession(Booking NewBooking)
         {
             Booking bookingClone = new Booking();
+            string returnMessage = "";
             bookingClone.BookingDate = NewBooking.BookingDate;
             bookingClone.MemberNumber = NewBooking.MemberNumber;
 
@@ -75,13 +59,12 @@ namespace ViewModel
             
             if (dateAvailable)
             {
-                _databaseCon.ScheduleSession(bookingClone);
-                ReturnMessage = "Booking Oprettet.";
+                returnMessage = _databaseCon.ScheduleSession(bookingClone);
+               
             }
-            else
-            {
-                ReturnMessage = "Dagen er optaget.";
-            }
+
+            return returnMessage;
+
             
 
         }
@@ -94,7 +77,7 @@ namespace ViewModel
 
         }
 
-        public void CreateNewMember()
+        public void CreateNewMember(Member NewMember, Booking NewBooking)
         {
             _databaseCon.CreateNewMember(NewMember, NewBooking);
         }

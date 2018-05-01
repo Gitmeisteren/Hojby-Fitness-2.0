@@ -12,8 +12,9 @@ namespace Model
     {
         private static string _ConnectionString = "Server= den1.mssql5.gear.host; Database= hofi; User ID = hofi; Password= Qg9OG4l~v-06;";
 
-        public void ScheduleSession(Booking NewBooking)
+        public string ScheduleSession(Booking NewBooking)
         {
+            string returnMessage = "";
             using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
                 try
@@ -27,12 +28,26 @@ namespace Model
                     _scheduleSession.Parameters.Add(new SqlParameter("@I_Date", NewBooking.BookingDate));
 
                     _scheduleSession.ExecuteNonQuery();
+                
                 }
                 catch (SqlException e)
                 {
-                    //Recall exception message
+                    returnMessage = e.Message;
+                }
+                catch (FormatException f)
+                {
+                   
+                    returnMessage += f.Message;
+                }
+                if (returnMessage == "")
+                {
+                    returnMessage = "Booking er oprettet";
                 }
 
+                {
+                    returnMessage += "\nBOOKING ER IKKE OPRETTET";
+                }
+                return returnMessage;
             }
         }
 

@@ -23,8 +23,8 @@
         <TextBox x:Name="tb_CreateAge" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding NewMember.Age, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="102" Margin="461,287,0,0"/>
         <Label Content="Alder" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,284,0,0" Width="96"/>
         <Button Content="Opret" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="607,175,0,0" Click="Btn_CreateMember"/>
-        <Label Content="{Binding Path=ReturnMessage, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,344,0,0" Height="51" Width="215" Background="#FFFBE400" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
-        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="571,375,0,0" VerticalAlignment="Top" Width="75" Click="ButtonReturnToBookingMenu_Click"/>
+        <Label Content="{Binding Path=ReturnMessage, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,330,0,0" Height="70" Width="538" Background="#FFFBE400" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="75" Click="ButtonReturnToBookingMenu_Click"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="2" Margin="173,0,0,-0.333"/>
         <Label Content="Er medlemmet allerede&#xD;&#xA;allerede oprettet i dette&#xD;&#xA;system kan forløb bookes&#xD;&#xA;vha. denne formular" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="158" Height="83"/>
         <Label Content="Er medlemmet endnu ikke&#xD;&#xA;oprettet i dette system&#xD;&#xA;skal det først gøres via &#xD;&#xA;denne formular" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,175,0,0" Height="152" Width="158"/>

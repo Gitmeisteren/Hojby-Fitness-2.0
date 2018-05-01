@@ -17,7 +17,7 @@
         <Button Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,390,0,0" Click="ButtonReturnToMainWindow_Click"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="1" Margin="110,0,0,-0.333"/>
         <WrapPanel HorizontalAlignment="Left" Height="381" VerticalAlignment="Top" Width="614" Margin="146,14,0,0" Grid.ColumnSpan="2">
-            <Label Name="Label_1" Content="Label" Height="36" Width="55"/>
+            <Label Name="Label_1" Content="{Binding CalendarDates.Label_1, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Height="36" Width="55"/>
             <Label Name="Label_2" Content="Label" Height="36" Width="55"/>
             <Label Name="Label_3" Content="Label" Height="36" Width="55"/>
             <Label Name="Label_4" Content="Label" Height="36" Width="55"/>

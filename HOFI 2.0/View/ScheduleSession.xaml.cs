@@ -68,7 +68,7 @@ namespace View
         {
             BookingMenu bookingMenu = new BookingMenu();
             bookingMenu.Show();
-           this.Close();
+            this.Close();
         }
     }
 }

@@ -33,8 +33,6 @@ namespace Model
 
             for (int i = 0; i < 30; i++)
             {
-                
-                dates = dates.AddDays(1);
 
                 stringDates = dates.ToString("dd/MM");
 
@@ -45,8 +43,9 @@ namespace Model
                         stringDates += " - optaget";
                     }
                 }
-
                 updatedCalendarDates.Add(stringDates);
+
+                dates = dates.AddDays(1);
             }
 
             return updatedCalendarDates;

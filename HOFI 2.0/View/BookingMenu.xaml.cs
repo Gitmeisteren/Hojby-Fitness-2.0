@@ -24,6 +24,7 @@ namespace View
         public BookingMenu()
         {
             InitializeComponent();
+            controller.UpdateCalendar();
         }
 
         private void btn_ScheduleSession_Click(object sender, RoutedEventArgs e) //Book træningsforløb

@@ -60,11 +60,11 @@ namespace Model
         {
             get
             {
-                return Label_1;
+                return label_1;
             }
             set
             {
-                Label_1 = value;
+                label_1 = value;
                 OnPropertyChanged("Label 1");
             }
         }
@@ -72,11 +72,11 @@ namespace Model
         {
             get
             {
-                return Label_2;
+                return label_2;
             }
             set
             {
-                Label_2 = value;
+                label_2 = value;
                 OnPropertyChanged("Label 2");
             }
         }
@@ -84,11 +84,11 @@ namespace Model
         {
             get
             {
-                return Label_3;
+                return label_3;
             }
             set
             {
-                Label_3 = value;
+                label_3 = value;
                 OnPropertyChanged("Label 3");
             }
         }
@@ -96,11 +96,11 @@ namespace Model
         {
             get
             {
-                return Label_4;
+                return label_4;
             }
             set
             {
-                Label_4 = value;
+                label_4 = value;
                 OnPropertyChanged("Label 4");
             }
         }
@@ -108,11 +108,11 @@ namespace Model
         {
             get
             {
-                return Label_5;
+                return label_5;
             }
             set
             {
-                Label_5 = value;
+                label_5 = value;
                 OnPropertyChanged("Label 5");
             }
         }
@@ -120,11 +120,11 @@ namespace Model
         {
             get
             {
-                return Label_6;
+                return label_6;
             }
             set
             {
-                Label_6 = value;
+                label_6 = value;
                 OnPropertyChanged("Label 6");
             }
         }
@@ -132,11 +132,11 @@ namespace Model
         {
             get
             {
-                return Label_7;
+                return label_7;
             }
             set
             {
-                Label_7 = value;
+                label_7 = value;
                 OnPropertyChanged("Label 7");
             }
         }
@@ -144,11 +144,11 @@ namespace Model
         {
             get
             {
-                return Label_8;
+                return label_8;
             }
             set
             {
-                Label_8 = value;
+                label_8 = value;
                 OnPropertyChanged("Label 8");
             }
         }
@@ -156,11 +156,11 @@ namespace Model
         {
             get
             {
-                return Label_9;
+                return label_9;
             }
             set
             {
-                Label_9 = value;
+                label_9 = value;
                 OnPropertyChanged("Label 9");
             }
         }
@@ -168,11 +168,11 @@ namespace Model
         {
             get
             {
-                return Label_10;
+                return label_10;
             }
             set
             {
-                Label_10 = value;
+                label_10 = value;
                 OnPropertyChanged("Label 10");
             }
         }
@@ -180,11 +180,11 @@ namespace Model
         {
             get
             {
-                return Label_11;
+                return label_11;
             }
             set
             {
-                Label_11 = value;
+                label_11 = value;
                 OnPropertyChanged("Label 11");
             }
         }
@@ -192,11 +192,11 @@ namespace Model
         {
             get
             {
-                return Label_12;
+                return label_12;
             }
             set
             {
-                Label_12 = value;
+                label_12 = value;
                 OnPropertyChanged("Label 12");
             }
         }
@@ -204,11 +204,11 @@ namespace Model
         {
             get
             {
-                return Label_13;
+                return label_13;
             }
             set
             {
-                Label_13 = value;
+                label_13 = value;
                 OnPropertyChanged("Label 13");
             }
         }
@@ -216,11 +216,11 @@ namespace Model
         {
             get
             {
-                return Label_14;
+                return label_14;
             }
             set
             {
-                Label_14 = value;
+                label_14 = value;
                 OnPropertyChanged("Label 14");
             }
         }
@@ -228,11 +228,11 @@ namespace Model
         {
             get
             {
-                return Label_15;
+                return label_15;
             }
             set
             {
-                Label_15 = value;
+                label_15 = value;
                 OnPropertyChanged("Label 15");
             }
         }
@@ -240,11 +240,11 @@ namespace Model
         {
             get
             {
-                return Label_16;
+                return label_16;
             }
             set
             {
-                Label_16 = value;
+                label_16 = value;
                 OnPropertyChanged("Label 16");
             }
         }
@@ -252,11 +252,11 @@ namespace Model
         {
             get
             {
-                return Label_17;
+                return label_17;
             }
             set
             {
-                Label_17 = value;
+                label_17 = value;
                 OnPropertyChanged("Label 17");
             }
         }
@@ -264,11 +264,11 @@ namespace Model
         {
             get
             {
-                return Label_18;
+                return label_18;
             }
             set
             {
-                Label_18 = value;
+                label_18 = value;
                 OnPropertyChanged("Label 18");
             }
         }
@@ -276,11 +276,11 @@ namespace Model
         {
             get
             {
-                return Label_19;
+                return label_19;
             }
             set
             {
-                Label_19 = value;
+                label_19 = value;
                 OnPropertyChanged("Label 19");
             }
         }
@@ -288,11 +288,11 @@ namespace Model
         {
             get
             {
-                return Label_20;
+                return label_20;
             }
             set
             {
-                Label_20 = value;
+                label_20 = value;
                 OnPropertyChanged("Label 20");
             }
         }
@@ -300,11 +300,11 @@ namespace Model
         {
             get
             {
-                return Label_21;
+                return label_21;
             }
             set
             {
-                Label_21 = value;
+                label_21 = value;
                 OnPropertyChanged("Label 21");
             }
         }
@@ -312,11 +312,11 @@ namespace Model
         {
             get
             {
-                return Label_22;
+                return label_22;
             }
             set
             {
-                Label_22 = value;
+                label_22 = value;
                 OnPropertyChanged("Label 22");
             }
         }
@@ -324,11 +324,11 @@ namespace Model
         {
             get
             {
-                return Label_23;
+                return label_23;
             }
             set
             {
-                Label_23 = value;
+                label_23 = value;
                 OnPropertyChanged("Label 23");
             }
         }
@@ -336,11 +336,11 @@ namespace Model
         {
             get
             {
-                return Label_24;
+                return label_24;
             }
             set
             {
-                Label_24 = value;
+                label_24 = value;
                 OnPropertyChanged("Label 24");
             }
         }
@@ -348,11 +348,11 @@ namespace Model
         {
             get
             {
-                return Label_25;
+                return label_25;
             }
             set
             {
-                Label_25 = value;
+                label_25 = value;
                 OnPropertyChanged("Label 25");
             }
         }
@@ -360,11 +360,11 @@ namespace Model
         {
             get
             {
-                return Label_26;
+                return label_26;
             }
             set
             {
-                Label_26 = value;
+                label_26 = value;
                 OnPropertyChanged("Label 26");
             }
         }
@@ -372,11 +372,11 @@ namespace Model
         {
             get
             {
-                return Label_27;
+                return label_27;
             }
             set
             {
-                Label_27 = value;
+                label_27 = value;
                 OnPropertyChanged("Label 27");
             }
         }
@@ -384,11 +384,11 @@ namespace Model
         {
             get
             {
-                return Label_28;
+                return label_28;
             }
             set
             {
-                Label_28 = value;
+                label_28 = value;
                 OnPropertyChanged("Label 28");
             }
         }
@@ -396,11 +396,11 @@ namespace Model
         {
             get
             {
-                return Label_29;
+                return label_29;
             }
             set
             {
-                Label_29 = value;
+                label_29 = value;
                 OnPropertyChanged("Label 29");
             }
         }
@@ -408,23 +408,16 @@ namespace Model
         {
             get
             {
-                return Label_30;
+                return label_30;
             }
             set
             {
-                Label_30 = value;
+                label_30 = value;
                 OnPropertyChanged("Label 30");
             }
         }
 
-
-
-
-
-
-
-
-
+        
         private static Calendar _Instance;
 
         public static Calendar GetInstance()

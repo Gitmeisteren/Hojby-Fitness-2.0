@@ -428,6 +428,10 @@ namespace Model
 
                 dates = dates.AddDays(1);
             }
+            for (int i = 0; i < 30; i++)
+            {
+                OnPropertyChanged("Label_" + i + 1);
+            }
 
             return updatedCalendarDates;
 

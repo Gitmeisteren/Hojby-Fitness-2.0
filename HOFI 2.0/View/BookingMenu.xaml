@@ -8,15 +8,15 @@
         Title="BookingMenu" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="165*"/>
-            <ColumnDefinition Width="232*"/>
+            <ColumnDefinition Width="145*"/>
+            <ColumnDefinition Width="647*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_ScheduleSession" Content="Book forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,32,0,0" Click="btn_ScheduleSession_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,90,0,0"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,148,0,0"/>
-        <Button Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,390,0,0" Click="ButtonReturnToMainWindow_Click"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="1" Margin="110,0,0,-0.333"/>
-        <WrapPanel HorizontalAlignment="Left" Height="381" VerticalAlignment="Top" Width="614" Margin="146,14,0,0" Grid.ColumnSpan="2">
+        <Button x:Name="btn_ScheduleSession" Content="Book forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,32,0,0" Click="btn_ScheduleSession_Click" Height="20"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,90,0,0" Height="20"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,148,0,0" Height="20"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,390,0,0" Click="ButtonReturnToMainWindow_Click" Height="20"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="1" Margin="110,0,0,-2"/>
+        <WrapPanel HorizontalAlignment="Left" Height="381" VerticalAlignment="Top" Width="614" Margin="0,14,0,0" Grid.Column="1">
             <Label Name="Label_1" Content="{Binding CalendarDates.Label_1, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Height="36" Width="55"/>
             <Label Name="Label_2" Content="Label" Height="36" Width="55"/>
             <Label Name="Label_3" Content="Label" Height="36" Width="55"/>

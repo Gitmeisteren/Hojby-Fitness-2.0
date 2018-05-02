@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using ViewModel;
+using View;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -49,7 +50,9 @@ namespace TestCase1
         [TestMethod]
         public void CalenderRecieveDataTest()
         {
-
+            //Calendar cal = Calendar.GetInstance();
+            //cal.Label_1 = "11-11";
+            //Assert.AreEqual("11-11", cal.Label_1);
         }
     }
 }

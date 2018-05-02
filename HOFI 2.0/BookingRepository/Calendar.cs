@@ -13,7 +13,6 @@ namespace Model
         {
             
         }
-        List<string> updatedCalendarDates = new List<string>();
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -29,7 +28,7 @@ namespace Model
         }
 
         #endregion
-
+        List<string> updatedCalendarDates = new List<string>();
         public string Label_1
         {
             get
@@ -39,7 +38,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[0] = value;
-                OnPropertyChanged("Label 1");
+                OnPropertyChanged("Label_1");
             }
         }
         public string Label_2
@@ -51,7 +50,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[1] = value;
-                OnPropertyChanged("Label 2");
+                OnPropertyChanged("Label_2");
             }
         }
         public string Label_3
@@ -63,7 +62,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[2] = value;
-                OnPropertyChanged("Label 3");
+                OnPropertyChanged("Label_3");
             }
         }
         public string Label_4
@@ -75,7 +74,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[3] = value;
-                OnPropertyChanged("Label 4");
+                OnPropertyChanged("Label_4");
             }
         }
         public string Label_5
@@ -87,7 +86,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[4] = value;
-                OnPropertyChanged("Label 5");
+                OnPropertyChanged("Label_5");
             }
         }
         public string Label_6
@@ -99,7 +98,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[5] = value;
-                OnPropertyChanged("Label 6");
+                OnPropertyChanged("Label_6");
             }
         }
         public string Label_7
@@ -111,7 +110,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[6] = value;
-                OnPropertyChanged("Label 7");
+                OnPropertyChanged("Label_7");
             }
         }
         public string Label_8
@@ -123,7 +122,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[7] = value;
-                OnPropertyChanged("Label 8");
+                OnPropertyChanged("Label_8");
             }
         }
         public string Label_9
@@ -135,7 +134,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[8] = value;
-                OnPropertyChanged("Label 9");
+                OnPropertyChanged("Label_9");
             }
         }
         public string Label_10
@@ -147,7 +146,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[9] = value;
-                OnPropertyChanged("Label 10");
+                OnPropertyChanged("Label_10");
             }
         }
         public string Label_11
@@ -159,7 +158,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[10] = value;
-                OnPropertyChanged("Label 11");
+                OnPropertyChanged("Label_11");
             }
         }
         public string Label_12
@@ -171,7 +170,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[11] = value;
-                OnPropertyChanged("Label 12");
+                OnPropertyChanged("Label_12");
             }
         }
         public string Label_13
@@ -183,7 +182,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[12] = value;
-                OnPropertyChanged("Label 13");
+                OnPropertyChanged("Label_13");
             }
         }
         public string Label_14
@@ -195,7 +194,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[13] = value;
-                OnPropertyChanged("Label 14");
+                OnPropertyChanged("Label_14");
             }
         }
         public string Label_15
@@ -207,7 +206,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[14] = value;
-                OnPropertyChanged("Label 15");
+                OnPropertyChanged("Label_15");
             }
         }
         public string Label_16
@@ -219,7 +218,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[15] = value;
-                OnPropertyChanged("Label 16");
+                OnPropertyChanged("Label_16");
             }
         }
         public string Label_17
@@ -231,7 +230,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[16] = value;
-                OnPropertyChanged("Label 17");
+                OnPropertyChanged("Label_17");
             }
         }
         public string Label_18
@@ -243,7 +242,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[17] = value;
-                OnPropertyChanged("Label 18");
+                OnPropertyChanged("Label_18");
             }
         }
         public string Label_19
@@ -255,7 +254,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[18] = value;
-                OnPropertyChanged("Label 19");
+                OnPropertyChanged("Label_19");
             }
         }
         public string Label_20
@@ -267,7 +266,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[19] = value;
-                OnPropertyChanged("Label 20");
+                OnPropertyChanged("Label_20");
             }
         }
         public string Label_21
@@ -279,7 +278,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[20] = value;
-                OnPropertyChanged("Label 21");
+                OnPropertyChanged("Label_21");
             }
         }
         public string Label_22
@@ -291,7 +290,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[21] = value;
-                OnPropertyChanged("Label 22");
+                OnPropertyChanged("Label_22");
             }
         }
         public string Label_23
@@ -303,7 +302,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[22] = value;
-                OnPropertyChanged("Label 23");
+                OnPropertyChanged("Label_23");
             }
         }
         public string Label_24
@@ -315,7 +314,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[23] = value;
-                OnPropertyChanged("Label 24");
+                OnPropertyChanged("Label_24");
             }
         }
         public string Label_25
@@ -327,7 +326,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[24] = value;
-                OnPropertyChanged("Label 25");
+                OnPropertyChanged("Label_25");
             }
         }
         public string Label_26
@@ -339,7 +338,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[25] = value;
-                OnPropertyChanged("Label 26");
+                OnPropertyChanged("Label_26");
             }
         }
         public string Label_27
@@ -351,7 +350,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[26] = value;
-                OnPropertyChanged("Label 27");
+                OnPropertyChanged("Label_27");
             }
         }
         public string Label_28
@@ -363,7 +362,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[27] = value;
-                OnPropertyChanged("Label 28");
+                OnPropertyChanged("Label_28");
             }
         }
         public string Label_29
@@ -375,7 +374,7 @@ namespace Model
             set
             {
                 updatedCalendarDates[28] = value;
-                OnPropertyChanged("Label 29");
+                OnPropertyChanged("Label_29");
             }
         }
         public string Label_30
@@ -387,11 +386,11 @@ namespace Model
             set
             {
                 updatedCalendarDates[29] = value;
-                OnPropertyChanged("Label 30");
+                OnPropertyChanged("Label_30");
             }
         }
 
-        
+
         private static Calendar _Instance;
 
         public static Calendar GetInstance()

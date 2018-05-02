@@ -29,7 +29,7 @@ namespace ViewModel
         Booking booking = new Booking();
         Member member = new Member();
         BookingRepository bookingRepo = new BookingRepository();
-        Calendar calendar = new Calendar();
+        Calendar calendar = Calendar.GetInstance();
 
         private static Controller _Instance;
 
@@ -60,7 +60,7 @@ namespace ViewModel
             NewBooking = new Booking();
             bookingRepo = new BookingRepository();
             NewMember = new Member();
-            CalendarDates = new Calendar();
+            CalendarDates = Calendar.GetInstance();
         }
 
         public static Controller GetInstance()

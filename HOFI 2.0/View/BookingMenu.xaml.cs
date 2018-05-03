@@ -25,6 +25,7 @@ namespace View
         {
             InitializeComponent();
             controller.UpdateCalendar();
+            this.DataContext = controller;
         }
 
         private void btn_ScheduleSession_Click(object sender, RoutedEventArgs e) //Book træningsforløb

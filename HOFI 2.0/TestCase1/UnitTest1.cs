@@ -34,15 +34,16 @@ namespace TestCase1
             Booking bookInfo = new Booking();
             Controller bookingController = Controller.GetInstance();
             using (var scop = new System.Transactions.TransactionScope())
+
             {
                 bookInfo.MemberNumber = "hofi9002";
                 bookInfo.BookingDate = "01.01.2000";
                 bookingController.ScheduleSession();
-                Assert.AreEqual("Booking Oprettet.", bookingController.ReturnMessage);
+                Assert.AreEqual("Booking er oprettet.", bookingController.ReturnMessage);
                 bookInfo.MemberNumber = "hofi9002";
                 bookInfo.BookingDate = "01.01.2000";
                 bookingController.ScheduleSession();
-                Assert.AreEqual("Dagen er optaget.", bookingController.ReturnMessage);
+                Assert.AreEqual("dagen er optaget", bookingController.ReturnMessage);
                 // all your test code and Asserts that access the database, 
                 // writes and reads, from any class, ...
             }
@@ -50,9 +51,9 @@ namespace TestCase1
         [TestMethod]
         public void CalenderRecieveDataTest()
         {
-            //Calendar cal = Calendar.GetInstance();
-            //cal.Label_1 = "11-11";
-            //Assert.AreEqual("11-11", cal.Label_1);
+            Calendar cal = Calendar.GetInstance();
+            cal.Label_1 = "11";
+            Assert.AreEqual("11-11", cal.Label_1);
         }
     }
 }

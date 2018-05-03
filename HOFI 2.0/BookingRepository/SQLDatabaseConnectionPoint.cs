@@ -41,11 +41,11 @@ namespace Model
                 }
                 if (returnMessage == "")
                 {
-                    returnMessage = "Booking er oprettet";
+                    returnMessage = "Booking er oprettet.";
                 }
 
                 {
-                    returnMessage += "\nBOOKING ER IKKE OPRETTET";
+                   returnMessage += "\nBOOKING ER IKKE OPRETTET";
                 }
                 return returnMessage;
             }

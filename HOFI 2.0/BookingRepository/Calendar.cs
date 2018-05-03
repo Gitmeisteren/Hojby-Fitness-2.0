@@ -390,7 +390,6 @@ namespace Model
             }
         }
 
-
         private static Calendar _Instance;
 
         public static Calendar GetInstance()
@@ -407,10 +406,7 @@ namespace Model
             DateTime dates;
             string stringDates = "";
 
-
-
             dates = DateTime.Today;
-
 
             for (int i = 0; i < 30; i++)
             {

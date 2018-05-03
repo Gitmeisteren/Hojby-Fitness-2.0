@@ -43,9 +43,9 @@ namespace Model
                 {
                     returnMessage = "Booking er oprettet.";
                 }
-
+                else if (returnMessage != "")
                 {
-                   returnMessage += "\nBOOKING ER IKKE OPRETTET";
+                   returnMessage += " Booking er ikke oprettet.";
                 }
                 return returnMessage;
             }

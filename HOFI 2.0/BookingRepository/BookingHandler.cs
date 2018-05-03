@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 
-namespace ViewModel
+namespace Model
 {
     public class BookingHandler : INotifyPropertyChanged
     {
@@ -27,8 +27,13 @@ namespace ViewModel
         #endregion
 
         Booking member = new Booking();
+        SQLDatabaseConnectionPoint _databaseCon = new SQLDatabaseConnectionPoint();
+        BookingRepository bookingRepo = new BookingRepository();
 
         private static BookingHandler _Instance;
+
+
+
         public static BookingHandler GetInstance()
         {
             if (_Instance == null)
@@ -38,13 +43,11 @@ namespace ViewModel
             return _Instance;
         }
 
-        BookingRepository bookingRepo = new BookingRepository();
-        SQLDatabaseConnectionPoint _databaseCon = new SQLDatabaseConnectionPoint();
-
         private BookingHandler()
         {
            
         }
+
         public string ScheduleSession(Booking NewBooking)
         {
             Booking bookingClone = new Booking();
@@ -59,7 +62,11 @@ namespace ViewModel
                 returnMessage = _databaseCon.ScheduleSession(bookingClone);
                
             }
+
             return returnMessage;
+
+            
+
         }
 
         public void IntitialRepoUpdate()
@@ -67,6 +74,7 @@ namespace ViewModel
            List<Booking> bookingsFromDB = _databaseCon.InitialRepoUpdate();
 
             bookingRepo.AddBookingsToRepoFromDB(bookingsFromDB);
+
         }
 
         public void CreateNewMember(Member NewMember, Booking NewBooking)
@@ -80,10 +88,12 @@ namespace ViewModel
             List<string> retrivedCalendarDates = new List<string>();
             List<string> updatedCalendarDates = new List<string>();
 
+
            retrivedCalendarDates = bookingRepo.RetrieveCalendarDates();
            updatedCalendarDates = calendar.UpdateCalendar(retrivedCalendarDates);
 
             return updatedCalendarDates;
         }
+
     }
 }

@@ -31,7 +31,7 @@ namespace View
         {
             ScheduleSession scheduleSession = new ScheduleSession();
             scheduleSession.Show();
-            this.Close();
+            Close();
         }
 
         private void ButtonReturnToMainWindow_Click(object sender, RoutedEventArgs e)

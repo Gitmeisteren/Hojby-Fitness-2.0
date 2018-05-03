@@ -29,7 +29,7 @@ namespace View
             controller.IntitialRepoUpdate();
         }
 
-        private void btn_BookingMenu_Click(object sender, RoutedEventArgs e)
+        private void Btn_BookingMenu_Click(object sender, RoutedEventArgs e)
         {
             BookingMenu bookingMenu = new BookingMenu();
             bookingMenu.Show();

@@ -10,36 +10,35 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViewModel;
 
 namespace View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Members.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Members : Window
     {
         Controller controller = Controller.GetInstance();
-
-        public MainWindow()
+        public Members()
         {
             InitializeComponent();
-            controller.IntitialRepoUpdate();
+            DataContext = controller;
         }
 
-        private void btn_BookingMenu_Click(object sender, RoutedEventArgs e)
+        private void Btn_ReturnToMainWindow_Click(object sender, RoutedEventArgs e)
         {
-            BookingMenu bookingMenu = new BookingMenu();
-            bookingMenu.Show();
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show();
             this.Close();
+
         }
 
-        private void Btn_MembersWindow_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Members members = new Members();
-            members.Show();
+            MemberJournals memberJournals = new MemberJournals();
+            memberJournals.Show();
             this.Close();
         }
     }

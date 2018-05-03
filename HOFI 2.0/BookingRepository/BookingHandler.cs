@@ -38,8 +38,6 @@ namespace ViewModel
             return _Instance;
         }
 
-
-
         BookingRepository bookingRepo = new BookingRepository();
         SQLDatabaseConnectionPoint _databaseCon = new SQLDatabaseConnectionPoint();
 
@@ -47,7 +45,6 @@ namespace ViewModel
         {
            
         }
-
         public string ScheduleSession(Booking NewBooking)
         {
             Booking bookingClone = new Booking();
@@ -62,11 +59,7 @@ namespace ViewModel
                 returnMessage = _databaseCon.ScheduleSession(bookingClone);
                
             }
-
             return returnMessage;
-
-            
-
         }
 
         public void IntitialRepoUpdate()
@@ -74,7 +67,6 @@ namespace ViewModel
            List<Booking> bookingsFromDB = _databaseCon.InitialRepoUpdate();
 
             bookingRepo.AddBookingsToRepoFromDB(bookingsFromDB);
-
         }
 
         public void CreateNewMember(Member NewMember, Booking NewBooking)
@@ -88,12 +80,10 @@ namespace ViewModel
             List<string> retrivedCalendarDates = new List<string>();
             List<string> updatedCalendarDates = new List<string>();
 
-
            retrivedCalendarDates = bookingRepo.RetrieveCalendarDates();
            updatedCalendarDates = calendar.UpdateCalendar(retrivedCalendarDates);
 
             return updatedCalendarDates;
         }
-
     }
 }

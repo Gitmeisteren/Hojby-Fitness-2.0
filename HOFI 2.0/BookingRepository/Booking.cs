@@ -43,7 +43,6 @@ namespace Model
             }
         }
 
-
         public string MemberNumber
         {
             get
@@ -69,8 +68,5 @@ namespace Model
                 OnPropertyChanged("Booking Date");
             }
         }
-
-        
-
     }
 }

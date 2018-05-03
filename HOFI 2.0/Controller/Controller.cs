@@ -40,8 +40,6 @@ namespace ViewModel
 
         public Calendar CalendarDates { get; set; }
 
-
-
         public string ReturnMessage
         {
             get
@@ -54,7 +52,6 @@ namespace ViewModel
                 OnPropertyChanged("ReturnMessage");
             }
         }
-
         public Controller()
         {
             NewBooking = new Booking();
@@ -62,7 +59,6 @@ namespace ViewModel
             NewMember = new Member();
             CalendarDates = Calendar.GetInstance();
         }
-
         public static Controller GetInstance()
         {
             if (_Instance == null)
@@ -71,15 +67,12 @@ namespace ViewModel
             }
             return _Instance;
         }
-
-
         public void ScheduleSession()
-    {
+        {
 
-        ReturnMessage = bookingHandler.ScheduleSession(NewBooking);
+            ReturnMessage = bookingHandler.ScheduleSession(NewBooking);
         
-    }
-
+        }
         public void CreateNewMember()
         {
             bookingHandler.CreateNewMember(NewMember, NewBooking);
@@ -93,11 +86,6 @@ namespace ViewModel
         public void UpdateCalendar()
         {
             bookingHandler.UpdateCalendar();
-
-
         }
-
-
     }
-
 }

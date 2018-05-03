@@ -410,7 +410,6 @@ namespace Model
 
             for (int i = 0; i < 30; i++)
             {
-
                 stringDates = dates.ToString("dd/MM");
 
                 foreach(string date in retrievedCalendarList)
@@ -428,9 +427,7 @@ namespace Model
             {
                 OnPropertyChanged("Label_" + i + 1);
             }
-
             return updatedCalendarDates;
-
         }
     }
 }

@@ -59,9 +59,6 @@ namespace Model
             {
                 try
                 {
-                    
-
-
                     con.Open();
 
                     SqlCommand _BookingRepoUpdate = new SqlCommand("spInitialBookingRepoUpdate", con);
@@ -71,7 +68,6 @@ namespace Model
                     {
                         while (reader.Read())
                         {
-
                             Booking booking = new Booking();
                             booking.BookingID = int.Parse(reader["BookingID"].ToString());
                             booking.BookingDate = reader["Date"].ToString();
@@ -81,8 +77,6 @@ namespace Model
                         }
                     }
                     reader.Close();
-                    
-
                 }
                 catch (SqlException e)
                 {
@@ -99,7 +93,6 @@ namespace Model
                 {
                     try
                     {
-
                         con.Open();
 
                         SqlCommand _CreateMember = new SqlCommand("spCreateMember", con);
@@ -115,9 +108,7 @@ namespace Model
                     {
 
                     }
-
                 }
             }
         }
     }
-

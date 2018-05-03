@@ -34,7 +34,6 @@ namespace TestCase1
             Booking bookInfo = new Booking();
             Controller bookingController = Controller.GetInstance();
             using (var scop = new System.Transactions.TransactionScope())
-
             {
                 bookInfo.MemberNumber = "hofi9002";
                 bookInfo.BookingDate = "01.01.2000";

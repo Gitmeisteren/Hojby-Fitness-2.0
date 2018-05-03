@@ -8,9 +8,7 @@ namespace Model
 {
    public class BookingRepository
     {
-        
        private List<Booking> _BookingList = new List<Booking>();
-
 
         //Kunne optimere ved at fusionere til en.
         public void AddToRepo(Booking booking)
@@ -24,10 +22,7 @@ namespace Model
             {
                 _BookingList.Add(booking);
             }
-
-
         }
-
 
         public bool FindDate(Booking newBooking)
         {
@@ -38,14 +33,11 @@ namespace Model
                 if (booking.BookingDate == newBooking.BookingDate)
                 {
                     dateAvailable = false;
-
                 }
-
             }
             if (dateAvailable)
             {
                 AddToRepo(newBooking);
-
             }
 
             return dateAvailable;
@@ -59,13 +51,9 @@ namespace Model
             foreach(Booking booking in _BookingList)
             {
                dateTemp = booking.BookingDate.Split('-');
-                
-
                 RetrievedDates.Add(dateTemp[0] + "-" + dateTemp[1]);
-
             }
             return RetrievedDates;
-
         }
     }
 }

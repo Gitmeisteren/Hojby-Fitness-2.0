@@ -50,9 +50,9 @@ namespace TestCase1
         [TestMethod]
         public void CalenderRecieveDataTest()
         {
-            Calendar cal = Calendar.GetInstance();
-            cal.Label_1 = "11";
-            Assert.AreEqual("11-11", cal.Label_1);
+            Controller controller = Controller.GetInstance();
+            controller.Label_1 = "11";
+            Assert.AreEqual("11-11", controller.Label_1);
         }
     }
 }

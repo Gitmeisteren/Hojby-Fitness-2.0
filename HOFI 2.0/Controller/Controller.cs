@@ -487,6 +487,7 @@ namespace ViewModel
                 _TextHolder = value;
                 OnPropertyChanged("TextHolder");
             }
+        }
         #endregion
         public Controller()
         {

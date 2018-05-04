@@ -1,6 +1,9 @@
-﻿using System;
+﻿using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +29,7 @@ namespace Model
             XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
 
             // Draw the text
-            gfx.DrawString("Hello, World!", font, XBrushes.Black,
+            gfx.DrawString(TextHolder, font, XBrushes.Black,
               new XRect(0, 0, page.Width, page.Height),
               XStringFormat.Center);
 

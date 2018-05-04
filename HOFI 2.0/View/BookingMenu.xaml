@@ -8,45 +8,45 @@
         Title="BookingMenu" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="165*"/>
-            <ColumnDefinition Width="232*"/>
+            <ColumnDefinition Width="145*"/>
+            <ColumnDefinition Width="647*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_ScheduleSession" Content="Book forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,32,0,0" Click="btn_ScheduleSession_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,90,0,0"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,148,0,0"/>
-        <Button Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,390,0,0" Click="ButtonReturnToMainWindow_Click"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="1" Margin="110,0,0,-0.333"/>
-        <WrapPanel HorizontalAlignment="Left" Height="381" VerticalAlignment="Top" Width="614" Margin="146,14,0,0" Grid.ColumnSpan="2">
-            <Label Name="Label_1" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_2" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_3" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_4" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_5" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_6" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_7" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_8" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_9" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_10" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_11" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_12" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_13" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_14" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_15" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_16" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_17" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_18" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_19" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_20" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_21" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_22" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_23" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_24" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_25" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_26" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_27" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_28" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_29" Content="Label" Height="36" Width="55"/>
-            <Label Name="Label_30" Content="Label" Height="36" Width="55"/>
+        <Button x:Name="btn_ScheduleSession" Content="Book forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,32,0,0" Click="btn_ScheduleSession_Click" Height="20"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,90,0,0" Height="20"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,148,0,0" Height="20"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,390,0,0" Click="ButtonReturnToMainWindow_Click" Height="20"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="1" Margin="110,0,0,-2"/>
+        <WrapPanel HorizontalAlignment="Left" Height="381" VerticalAlignment="Top" Width="614" Margin="0,14,0,0" Grid.Column="1">
+            <Label Name="Label_1" Content="{Binding Path=Label_1, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_2" Content="{Binding Path=Label_2, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_3" Content="{Binding Path=Label_3, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_4" Content="{Binding Path=Label_4, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_5" Content="{Binding Path=Label_5, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_6" Content="{Binding Path=Label_6, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_7" Content="{Binding Path=Label_7, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_8" Content="{Binding Path=Label_8, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_9" Content="{Binding Path=Label_9, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_10" Content="{Binding Path=Label_10, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_11" Content="{Binding Path=Label_11, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_12" Content="{Binding Path=Label_12, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_13" Content="{Binding Path=Label_13, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_14" Content="{Binding Path=Label_14, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_15" Content="{Binding Path=Label_15, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_16" Content="{Binding Path=Label_16, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_17" Content="{Binding Path=Label_17, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_18" Content="{Binding Path=Label_18, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_19" Content="{Binding Path=Label_19, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_20" Content="{Binding Path=Label_20, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_21" Content="{Binding Path=Label_21, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_22" Content="{Binding Path=Label_22, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_23" Content="{Binding Path=Label_23, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_24" Content="{Binding Path=Label_24, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_25" Content="{Binding Path=Label_25, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_26" Content="{Binding Path=Label_26, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_27" Content="{Binding Path=Label_27, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_28" Content="{Binding Path=Label_28, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_29" Content="{Binding Path=Label_29, Mode=TwoWay}" Height="36" Width="55"/>
+            <Label Name="Label_30" Content="{Binding Path=Label_30, Mode=TwoWay}" Height="36" Width="55"/>
 
 
         </WrapPanel>

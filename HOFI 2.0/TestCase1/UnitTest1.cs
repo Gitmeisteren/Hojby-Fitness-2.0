@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using ViewModel;
+using View;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -31,20 +32,27 @@ namespace TestCase1
         public void DoubleBookingTest()
         {
             Booking bookInfo = new Booking();
-            BookingHandler bookingController = BookingHandler.GetInstance();
+            Controller bookingController = Controller.GetInstance();
             using (var scop = new System.Transactions.TransactionScope())
             {
                 bookInfo.MemberNumber = "hofi9002";
                 bookInfo.BookingDate = "01.01.2000";
                 bookingController.ScheduleSession();
-                Assert.AreEqual("Booking Oprettet.", bookingController.ReturnMessage);
+                Assert.AreEqual("Booking er oprettet.", bookingController.ReturnMessage);
                 bookInfo.MemberNumber = "hofi9002";
                 bookInfo.BookingDate = "01.01.2000";
                 bookingController.ScheduleSession();
-                Assert.AreEqual("Dagen er optaget.", bookingController.ReturnMessage);
+                Assert.AreEqual("dagen er optaget", bookingController.ReturnMessage);
                 // all your test code and Asserts that access the database, 
                 // writes and reads, from any class, ...
             }
+        }
+        [TestMethod]
+        public void CalenderRecieveDataTest()
+        {
+            Controller controller = Controller.GetInstance();
+            controller.Label_1 = "11";
+            Assert.AreEqual("11-11", controller.Label_1);
         }
     }
 }

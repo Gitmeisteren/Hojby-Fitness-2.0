@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViewModel;
 
 namespace View
 {
@@ -19,16 +20,19 @@ namespace View
     /// </summary>
     public partial class BookingMenu : Window
     {
+        Controller controller = Controller.GetInstance();
         public BookingMenu()
         {
             InitializeComponent();
+            controller.UpdateCalendar();
+            this.DataContext = controller;
         }
 
         private void btn_ScheduleSession_Click(object sender, RoutedEventArgs e) //Book træningsforløb
         {
             ScheduleSession scheduleSession = new ScheduleSession();
             scheduleSession.Show();
-            this.Close();
+            Close();
         }
 
         private void ButtonReturnToMainWindow_Click(object sender, RoutedEventArgs e)

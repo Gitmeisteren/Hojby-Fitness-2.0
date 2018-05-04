@@ -11,7 +11,7 @@
         <Label x:Name="IndtastMedlemsnummer" Content="Indtast Medlemsnummer (hofixxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,40,0,0" Width="179" RenderTransformOrigin="0.506,0.454" Height="24"/>
         <Label x:Name="IndtastDato" Content="Indtast Dato (xx.xx.xxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,69,0,0" Width="154" Height="24"/>
         <TextBox x:Name="tb_TypeBookingDate" Text="{Binding NewBooking.BookingDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="461,69,0,0"/>
-        <Button x:Name="btn_AppointSession" Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="607,53,0,0" Height="22" Click="Btn_AppointSession_Click"/>
+        <Button x:Name="btn_AppointSession" Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="607,53,0,0" Height="22" Click="Btn_ScheduleSession_Click"/>
         <Label Content="Medlemsnummer (hofixxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,176,0,0" Width="179" Height="25"/>
         <TextBox x:Name="tb_CreateMemberNumber" HorizontalAlignment="Left" Text="{Binding NewBooking.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="461,175,0,0"/>
         <TextBox x:Name="tb_CreateName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding NewMember.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}"  VerticalAlignment="Top" Width="102" Margin="461,203,0,0"/>

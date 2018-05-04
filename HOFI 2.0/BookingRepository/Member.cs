@@ -42,6 +42,7 @@ namespace Model
                 OnPropertyChanged("Name");
             }
         }
+
         public string Email
         {
             get

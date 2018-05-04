@@ -30,10 +30,11 @@ namespace ViewModel
         Member member = new Member();
         BookingRepository bookingRepo = new BookingRepository();
         FileExporter fileExporter = new FileExporter();
+        SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
 
         public void ExportToPDF()
         {
-            fileExporter.ExportToPDF(TextHolder);
+            fileExporter.ExportToPDF(Tb_MemberNumber, Tb_Name, Tb_Goal, Tb_TrainingProgram,Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
         }
 
         Calendar calendar = Calendar.GetInstance();
@@ -44,6 +45,11 @@ namespace ViewModel
 
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
+
+        public void SearchForMember()
+        {
+          ReturnMessage = _DatabaseCon.SearchForMember(NewBooking, NewMember);
+        }
 
         public Calendar CalendarDates { get; set; }
 
@@ -474,21 +480,103 @@ namespace ViewModel
         #endregion
         //Properties for journal
         #region
-        string _TextHolder = "";
+        string _TbMemberNumber = "";
+        string _TbName = "";
+        string _TbGoal = "";
+        string _TbTrainingProgram = "";
+        string _TbWeeklyTrainings = "";
+        string _TbTimePerTraining = "";
+        string _TbNotes = "";
 
-        public string TextHolder
+        public string Tb_MemberNumber
         {
             get
             {
-                return _TextHolder;
+                return _TbMemberNumber;
             }
             set
             {
-                _TextHolder = value;
-                OnPropertyChanged("TextHolder");
+                _TbMemberNumber = value;
+                OnPropertyChanged("Tb_MemberNumber");
             }
         }
+        public string Tb_Name
+        {
+            get
+            {
+                return _TbName;
+            }
+            set
+            {
+                _TbName = value;
+                OnPropertyChanged("Tb_Name");
+            }
+        }
+
+        public string Tb_Goal
+        {
+            get
+            {
+                return _TbGoal;
+            }
+            set
+            {
+                _TbGoal = value;
+                OnPropertyChanged("Tb_Goal");
+            }
+        }
+        public string Tb_TrainingProgram
+        {
+            get
+            {
+                return _TbTrainingProgram;
+            }
+            set
+            {
+                _TbTrainingProgram = value;
+                OnPropertyChanged("Tb_TrainingProgram");
+            }
+        }
+        public string Tb_WeeklyTrainings
+        {
+            get
+            {
+                return _TbWeeklyTrainings;
+            }
+            set
+            {
+                _TbWeeklyTrainings = value;
+                OnPropertyChanged("Tb_WeeklyTrainings");
+            }
+        }
+        public string Tb_TimePerTraining
+        {
+            get
+            {
+                return _TbTimePerTraining;
+            }
+            set
+            {
+                _TbTimePerTraining = value;
+                OnPropertyChanged("Tb_TimePerTraining");
+            }
+        }
+        public string Tb_Notes
+        {
+            get
+            {
+                return _TbNotes;
+            }
+            set
+            {
+                _TbNotes = value;
+                OnPropertyChanged("Tb_Notes");
+            }
+        }
+        
         #endregion
+
+    
         public Controller()
         {
             NewBooking = new Booking();

@@ -51,6 +51,50 @@ namespace Model
             }
         }
 
+        public string SearchForMember(Booking NewBooking, Member NewMember)
+        {
+            string _ReturnMessage = "";
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+                try
+                {
+
+                    con.Open();
+
+                    SqlCommand _GetMemberInfo = new SqlCommand("spGetMemberInfo", con);
+                    _GetMemberInfo.CommandType = System.Data.CommandType.StoredProcedure;
+                    _GetMemberInfo.Parameters.Add(new SqlParameter("@I_MemberID", NewBooking.MemberNumber));
+
+                    _GetMemberInfo.ExecuteNonQuery();
+
+                    SqlDataReader reader = _GetMemberInfo.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            NewMember.Name = reader["Name"].ToString();
+                            NewBooking.MemberNumber = reader["MemberID"].ToString();
+                        }
+                    }
+                    reader.Close();
+
+                }
+                catch (SqlException e)
+                {
+                    _ReturnMessage = e.Message;
+                }
+                catch (FormatException f)
+                {
+                    _ReturnMessage += f.Message;
+                }
+                if(_ReturnMessage != "")
+                {
+                    _ReturnMessage += " ----- Prøv igen";
+                }
+            }
+            return _ReturnMessage;
+        }
+
         //string skal være en liste, og vi skal adde bookingobjekter til liste.
         public List<Booking> InitialRepoUpdate()
         {

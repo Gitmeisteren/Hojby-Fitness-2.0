@@ -24,7 +24,7 @@ namespace View
         public Members()
         {
             InitializeComponent();
-            DataContext = controller;
+            this.DataContext = controller;
         }
 
         private void Btn_ReturnToMainWindow_Click(object sender, RoutedEventArgs e)
@@ -35,7 +35,18 @@ namespace View
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+
+        private void btn_SeachForMember_Click(object sender, RoutedEventArgs e)
+        {
+            BindingExpression bind_MemberNumber = tb_SearchForMember.GetBindingExpression(TextBox.TextProperty);
+
+            bind_MemberNumber.UpdateSource();
+
+            controller.SearchForMember();
+        }
+
+        private void Btn_OpenmembersJournal_Click(object sender, RoutedEventArgs e)
         {
             MemberJournals memberJournals = new MemberJournals();
             memberJournals.Show();

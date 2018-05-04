@@ -5,6 +5,7 @@ using ViewModel;
 using View;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 
 namespace TestCase1
@@ -35,6 +36,8 @@ namespace TestCase1
             Controller bookingController = Controller.GetInstance();
             using (var scop = new System.Transactions.TransactionScope())
             {
+                List<string> listOfDates = new List<string>();
+                Calendar calendar = Calendar.GetInstance();
                 bookInfo.MemberNumber = "hofi9002";
                 bookInfo.BookingDate = "01.01.2000";
                 bookingController.ScheduleSession();
@@ -42,7 +45,7 @@ namespace TestCase1
                 bookInfo.MemberNumber = "hofi9002";
                 bookInfo.BookingDate = "01.01.2000";
                 bookingController.ScheduleSession();
-                Assert.AreEqual("dagen er optaget", bookingController.ReturnMessage);
+                Assert.AreEqual("01.01.2000 - optaget", calendar.UpdateCalendar(listOfDates));
                 // all your test code and Asserts that access the database, 
                 // writes and reads, from any class, ...
             }

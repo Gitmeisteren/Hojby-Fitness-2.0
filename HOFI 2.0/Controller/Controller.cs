@@ -29,6 +29,13 @@ namespace ViewModel
         Booking booking = new Booking();
         Member member = new Member();
         BookingRepository bookingRepo = new BookingRepository();
+        FileExporter fileExporter = new FileExporter();
+
+        public void ExportToPDF()
+        {
+            fileExporter.ExportToPDF(TextHolder);
+        }
+
         Calendar calendar = Calendar.GetInstance();
 
         private static Controller _Instance;
@@ -464,8 +471,23 @@ namespace ViewModel
                 OnPropertyChanged("Label_30");
             }
         }
-#endregion
+        #endregion
+        //Properties for journal
+        #region
+        string _TextHolder = "";
 
+        public string TextHolder
+        {
+            get
+            {
+                return _TextHolder;
+            }
+            set
+            {
+                _TextHolder = value;
+                OnPropertyChanged("TextHolder");
+            }
+        #endregion
         public Controller()
         {
             NewBooking = new Booking();

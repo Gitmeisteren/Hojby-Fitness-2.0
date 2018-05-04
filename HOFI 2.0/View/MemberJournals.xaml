@@ -9,7 +9,7 @@
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="2" Margin="126,0,0,-0.333"/>
         <Label Content="Journal1 : Muskuløs : 01.11.2016" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="218" Margin="333,10,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="329" TextWrapping="Wrap" VerticalAlignment="Top" Width="611" Margin="154,66,0,0" Text="Navn:&#xD;&#xA;&#xD;&#xA;Formål:&#xD;&#xA;&#xD;&#xA;Træningsprogram:&#xD;&#xA;&#xD;&#xA;Antal Træninger pr. uge:&#xD;&#xA;&#xD;&#xA;Varighed:&#xD;&#xA;&#xD;&#xA;"/>
+        <TextBox HorizontalAlignment="Left" Height="329" TextWrapping="Wrap" VerticalAlignment="Top" Width="611" Margin="154,66,0,0" Text="{Binding Path=TextHolder, Mode=TwoWay}"/>
         <Button Content="Registrér forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="10,66,0,0" Click="Btn_BookSession_Click"/>
 
     </Grid>

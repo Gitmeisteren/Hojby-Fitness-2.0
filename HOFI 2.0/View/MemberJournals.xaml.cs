@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViewModel;
 
 namespace View
 {
@@ -19,14 +20,16 @@ namespace View
     /// </summary>
     public partial class MemberJournals : Window
     {
+        Controller controller = Controller.GetInstance();
         public MemberJournals()
         {
             InitializeComponent();
+            this.DataContext = controller;
         }
 
         private void Btn_BookSession_Click(object sender, RoutedEventArgs e)
         {
-
+            controller.ExportToPDF();
         }
     }
 }

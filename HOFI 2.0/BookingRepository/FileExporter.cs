@@ -31,7 +31,7 @@ namespace Model
             // Draw the text
             gfx.DrawString(TextHolder, font, XBrushes.Black,
               new XRect(0, 0, page.Width, page.Height),
-              XStringFormat.Center);
+              XStringFormat.TopLeft);
 
             // Save the document...
             string filename = "HelloWorld.pdf";

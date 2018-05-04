@@ -52,7 +52,8 @@ namespace ViewModel
                 OnPropertyChanged("ReturnMessage");
             }
         }
-
+        //Label properties for calendar
+        #region
         string _Label1 = "";
         string _Label2 = "";
         string _Label3 = "";
@@ -463,6 +464,7 @@ namespace ViewModel
                 OnPropertyChanged("Label_30");
             }
         }
+#endregion
 
         public Controller()
         {

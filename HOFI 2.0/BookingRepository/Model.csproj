@@ -49,6 +49,7 @@
     <Compile Include="BookingHandler.cs" />
     <Compile Include="BookingRepository.cs" />
     <Compile Include="Calendar.cs" />
+    <Compile Include="LoginHandler.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLDatabaseConnectionPoint.cs" />

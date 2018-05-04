@@ -30,8 +30,9 @@ namespace ViewModel
         Member member = new Member();
         BookingRepository bookingRepo = new BookingRepository();
         Calendar calendar = Calendar.GetInstance();
-
+        LoginHandler loginHandler = new LoginHandler();
         private static Controller _Instance;
+        private string _LoginResponse;
 
         private string _ReturnMessage;
 
@@ -39,7 +40,18 @@ namespace ViewModel
         public Member NewMember { get; set; }
 
         public Calendar CalendarDates { get; set; }
-
+        public string LoginResponse
+        {
+            get
+            {
+                return _LoginResponse;
+            }
+            set
+            {
+                _LoginResponse = value;
+                OnPropertyChanged("LoginResponse");
+            }
+        }
         public string ReturnMessage
         {
             get
@@ -538,6 +550,11 @@ namespace ViewModel
             Label_28 = updatedCalendarDates[27];
             Label_29 = updatedCalendarDates[28];
             Label_30 = updatedCalendarDates[29];
+        }
+        public void CheckLogin(string password, string memberNumber)
+        {
+            LoginResponse = loginHandler.GetLoginInformation(password, memberNumber);
+
         }
     }
 }

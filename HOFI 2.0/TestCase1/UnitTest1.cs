@@ -13,6 +13,10 @@ namespace TestCase1
     [TestClass]
     public class UnitTest1
     {
+        Booking bookingInfo = new Booking();
+        LoginHandler loginHandler = new LoginHandler();
+        Login login = new Login();
+        BookingRepository bookingRepository = new BookingRepository();
             SQLDatabaseConnectionPoint sqlDatabaseConnectionPoint = new SQLDatabaseConnectionPoint();
             private static string testConString = "Server= den1.mssql5.gear.host; Database= hofi; User ID = hofi; Password= Qg9OG4l~v-06;";
             SqlConnection testCon = new SqlConnection(testConString);
@@ -41,11 +45,11 @@ namespace TestCase1
                 bookInfo.MemberNumber = "hofi9002";
                 bookInfo.BookingDate = "01.01.2000";
                 bookingController.ScheduleSession();
-                Assert.AreEqual("Booking er oprettet.", bookingController.ReturnMessage);
+                Assert.AreEqual(true, bookingRepository.FindDate(bookingInfo));
                 bookInfo.MemberNumber = "hofi9002";
                 bookInfo.BookingDate = "01.01.2000";
                 bookingController.ScheduleSession();
-                Assert.AreEqual("01.01.2000 - optaget", calendar.UpdateCalendar(listOfDates));
+                Assert.AreEqual(false , bookingRepository.FindDate(bookingInfo));
                 // all your test code and Asserts that access the database, 
                 // writes and reads, from any class, ...
             }
@@ -53,9 +57,14 @@ namespace TestCase1
         [TestMethod]
         public void CalenderRecieveDataTest()
         {
-            Controller controller = Controller.GetInstance();
-            controller.Label_1 = "11";
-            Assert.AreEqual("11-11", controller.Label_1);
+
+        }
+        [TestMethod]
+        public void AccesLoginTest()
+        {
+            login.memberNumber = "hofi1453";
+            login.password = "Timmi10";
+            Assert.AreEqual("Godkendt", loginHandler.GetLoginInformation("Timmi10", "hofi1453"));
         }
     }
 }

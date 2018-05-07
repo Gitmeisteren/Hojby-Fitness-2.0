@@ -20,8 +20,8 @@ namespace View
     /// </summary>
     public partial class Login : Window
     {
-        string password = "";
-        string memberNumber = "";
+        public string password = "";
+        public string memberNumber = "";
         Controller controller = Controller.GetInstance();
         MainWindow mainwindow = new MainWindow();
         public Login()

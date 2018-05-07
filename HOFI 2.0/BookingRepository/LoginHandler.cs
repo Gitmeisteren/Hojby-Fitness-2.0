@@ -12,17 +12,17 @@ namespace Model
         public string GetLoginInformation(string password, string memberNumber)
         {
             string loginResponse = _databaseCon.RetrieveLoginInformation(password, memberNumber);
-            if (loginResponse == "Godkendt.")
+            if (loginResponse == "Godkendt")
             {
 
             }
             else if (loginResponse == "")
             {
-                loginResponse = "Ikke godkendt.";
+                loginResponse = "Ikke godkendt";
             }
             else
             {
-                loginResponse += " : Ikke godkendt.";
+                loginResponse += " : Ikke godkendt";
             }
             return loginResponse;
         }

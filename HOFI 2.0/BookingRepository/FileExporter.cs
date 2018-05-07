@@ -28,35 +28,39 @@ namespace Model
             // Create a font
             XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
 
+            XFont font_Headline = new XFont("Verdana", 35, XFontStyle.Bold);
+
+
+
             // Draw the text
-            gfx.DrawString(memberNumber + "\n", font, XBrushes.Blue,
+            gfx.DrawString("Træningsforløb for " + memberNumber + "\n", font_Headline, XBrushes.Blue,
               new XRect(0, 0, page.Width, page.Height),
               XStringFormats.TopCenter);
 
             gfx.DrawString(name, font, XBrushes.Black,
-              new XRect(0, 0, page.Width, page.Height),
+              new XRect(0, 50, page.Width, page.Height),
               XStringFormats.TopLeft);
-            gfx.DrawString("Formål: " + goal, font, XBrushes.Blue,
-              new XRect(0, 0, page.Width, page.Height),
-              XStringFormats.TopLeft);
-
-            gfx.DrawString("Ønsket træningsprogram: " + trainingProgram, font, XBrushes.Blue,
-              new XRect(0, 0, page.Width, page.Height),
+            gfx.DrawString("Formål: " + goal, font, XBrushes.Black,
+              new XRect(0, 100, page.Width, page.Height),
               XStringFormats.TopLeft);
 
-            gfx.DrawString("Antal træninger pr. uge: " + weeklyTrainings, font, XBrushes.Blue,
-              new XRect(0, 0, page.Width, page.Height),
+            gfx.DrawString("Ønsket træningsprogram: " + trainingProgram, font, XBrushes.Black,
+              new XRect(0, 150, page.Width, page.Height),
               XStringFormats.TopLeft);
 
-            gfx.DrawString("Varighed pr. træning" + timePerTraining, font, XBrushes.Blue,
-              new XRect(0, 0, page.Width, page.Height),
+            gfx.DrawString("Antal træninger pr. uge: " + weeklyTrainings, font, XBrushes.Black,
+              new XRect(0, 200, page.Width, page.Height),
               XStringFormats.TopLeft);
-            gfx.DrawString("Evt. noter: " + notes, font, XBrushes.Blue,
-              new XRect(0, 0, page.Width, page.Height),
+
+            gfx.DrawString("Varighed pr. træning" + timePerTraining, font, XBrushes.Black,
+              new XRect(0, 250, page.Width, page.Height),
+              XStringFormats.TopLeft);
+            gfx.DrawString("Evt. noter: " + notes, font, XBrushes.Black,
+              new XRect(0, 300, page.Width, page.Height),
               XStringFormats.TopLeft);
 
             // Save the document...
-            string filename = "HelloWorld.pdf";
+            string filename = memberNumber +".pdf";
             document.Save(filename);
             // ...and start a viewer.
             Process.Start(filename);

@@ -47,6 +47,8 @@ namespace ViewModel
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
 
+        public List<string> cmb_GoalChoices { get; } = new List<string>() { "Styrketræning", "Vægttab", "Opstramning", "Konditionstræning", "Kom-Godt-Igang" };
+
         public void SearchForMember()
         {
           ReturnMessage = _DatabaseCon.SearchForMember(NewBooking, NewMember);

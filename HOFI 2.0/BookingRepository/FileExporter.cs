@@ -16,6 +16,7 @@ namespace Model
 
         public void ExportToPDF(string memberNumber, string name, string goal, string trainingProgram, string weeklyTrainings, string timePerTraining, string notes)
         {
+            string root = @"C:\Users\royga\Documents\HOFI-journaler";
             // Create a new PDF document
             PdfDocument document = new PdfDocument();
 
@@ -59,14 +60,19 @@ namespace Model
               new XRect(0, 300, page.Width, page.Height),
               XStringFormats.TopLeft);
 
+            // for when implementing category combobox:
+            //root += memberNumber;
+            //System.IO.Directory.CreateDirectory(root + "\\" + goal);
+
             // Save the document...
-            string filename = memberNumber +".pdf";
+            string filename = goal + ".pdf";
             document.Save(filename);
             // ...and start a viewer.
             Process.Start(filename);
+            System.IO.Directory.CreateDirectory(root + @"\" + memberNumber);
 
-            //help me plz
+           
         }
-        
+
     }
 }

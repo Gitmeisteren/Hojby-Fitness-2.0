@@ -29,13 +29,12 @@ namespace View
 
         private void Btn_BookSession_Click(object sender, RoutedEventArgs e)
         {
-            controller.ExportToPDF();
+            controller.ExportToPDF(cmb_goal.Text);
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            
+
         }
     }
 }

@@ -7,6 +7,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+
 
 
 namespace Model
@@ -60,16 +62,16 @@ namespace Model
               new XRect(0, 300, page.Width, page.Height),
               XStringFormats.TopLeft);
 
-            // for when implementing category combobox:
-            //root += memberNumber;
-            //System.IO.Directory.CreateDirectory(root + "\\" + goal);
+            
+            root += @"\\" + memberNumber + @"\\" + goal;
+            System.IO.Directory.CreateDirectory(root);
 
             // Save the document...
             string filename = goal + ".pdf";
             document.Save(filename);
             // ...and start a viewer.
             Process.Start(filename);
-            System.IO.Directory.CreateDirectory(root + @"\" + memberNumber);
+           
 
            
         }

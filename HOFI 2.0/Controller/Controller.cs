@@ -32,9 +32,9 @@ namespace ViewModel
         FileExporter fileExporter = new FileExporter();
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
 
-        public void ExportToPDF()
+        public void ExportToPDF(string goal)
         {
-            fileExporter.ExportToPDF(Tb_MemberNumber, Tb_Name, Tb_Goal, Tb_TrainingProgram,Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
+            fileExporter.ExportToPDF(Tb_MemberNumber, Tb_Name, goal, Tb_TrainingProgram,Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
         }
 
         Calendar calendar = Calendar.GetInstance();

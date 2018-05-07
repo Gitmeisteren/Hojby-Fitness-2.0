@@ -47,7 +47,7 @@ namespace Model
                     }
                 }
                 updatedCalendarDates.Add(stringDates);
-
+                
                 dates = dates.AddDays(1);
             }
            

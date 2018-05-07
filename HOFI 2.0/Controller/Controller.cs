@@ -25,7 +25,7 @@ namespace ViewModel
         }
 
         #endregion
-        BookingHandler bookingHandler = BookingHandler.GetInstance();
+        BookingHandler bookingHandler = BookingHandler.GetInstance(); // what
         Booking booking = new Booking();
         Member member = new Member();
         BookingRepository bookingRepo = new BookingRepository();

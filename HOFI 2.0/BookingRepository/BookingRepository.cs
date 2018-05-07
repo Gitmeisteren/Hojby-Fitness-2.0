@@ -50,8 +50,15 @@ namespace Model
             List<string> RetrievedDates = new List<string>();
             foreach(Booking booking in _BookingList)
             {
-               dateTemp = booking.BookingDate.Split('-');
-                RetrievedDates.Add(dateTemp[0] + "-" + dateTemp[1]);
+                try
+                {
+                 dateTemp = booking.BookingDate.Split('-');
+                 RetrievedDates.Add(dateTemp[0] + "-" + dateTemp[1]);
+                }
+                catch(Exception e)
+                {
+                    
+                }
             }
             return RetrievedDates;
         }

@@ -39,10 +39,6 @@ namespace View
             bind_BookingDate.UpdateSource();
 
             controller.ScheduleSession();
-
-            
-
-            
             
         }
 

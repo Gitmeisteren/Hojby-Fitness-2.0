@@ -194,5 +194,24 @@ namespace Model
                 return accesLogin;
             }
         }
+        public string RegisterShift(Shift shift)
+        {
+            string returnMessage = "";
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+                try
+                {
+                    con.Open();
+
+
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+
+                return returnMessage;
+        }
     }
 }

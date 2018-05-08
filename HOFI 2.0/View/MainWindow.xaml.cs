@@ -42,5 +42,12 @@ namespace View
             members.Show();
             this.Close();
         }
+
+        private void Btn_ShiftMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ShiftMenu shiftMenu = new ShiftMenu();
+            shiftMenu.Show();
+            this.Close();
+        }
     }
 }

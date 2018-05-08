@@ -30,6 +30,7 @@ namespace ViewModel
         Member member = new Member();
         BookingRepository bookingRepo = new BookingRepository();
         FileExporter fileExporter = new FileExporter();
+        ShiftHandler shiftHandler = ShiftHandler.GetInstance();
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
 
         public void ExportToPDF()
@@ -41,11 +42,14 @@ namespace ViewModel
         LoginHandler loginHandler = new LoginHandler();
         private static Controller _Instance;
         private string _LoginResponse;
-
+        private string _RegisterShiftResponse;
         private string _ReturnMessage;
 
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
+        public Shift Shift { get; set; }
+
+        public List<string> Cmb_TypeChoices { get; } = new List<string>() { "Fitness", "Spinning" };
 
         public void SearchForMember()
         {
@@ -63,6 +67,18 @@ namespace ViewModel
             {
                 _LoginResponse = value;
                 OnPropertyChanged("LoginResponse");
+            }
+        }
+        public string RegisterShiftResponse
+        {
+            get
+            {
+                return _RegisterShiftResponse;
+            }
+            set
+            {
+                _RegisterShiftResponse = value;
+                OnPropertyChanged("RegisterShiftResponse");
             }
         }
         public string ReturnMessage
@@ -595,6 +611,7 @@ namespace ViewModel
             bookingRepo = new BookingRepository();
             NewMember = new Member();
             CalendarDates = Calendar.GetInstance();
+            Shift = new Shift();
         }
         public static Controller GetInstance()
         {
@@ -666,6 +683,10 @@ namespace ViewModel
         {
             LoginResponse = loginHandler.GetLoginInformation(password, memberNumber);
 
+        }
+        public void RegisterShift()
+        {
+            RegisterShiftResponse = shiftHandler.RegisterShift(Shift);
         }
     }
 }

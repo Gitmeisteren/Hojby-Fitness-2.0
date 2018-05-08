@@ -33,9 +33,11 @@ namespace ViewModel
         ShiftHandler shiftHandler = ShiftHandler.GetInstance();
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
 
-        public void ExportToPDF()
+        public void ExportToPDF(string goal)
         {
-            fileExporter.ExportToPDF(Tb_MemberNumber, Tb_Name, Tb_Goal, Tb_TrainingProgram,Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
+            string memberNumberClone = NewMember.Name;
+            string nameClone = NewBooking.MemberNumber;
+            fileExporter.ExportToPDF(memberNumberClone, nameClone, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
         }
 
         Calendar calendar = Calendar.GetInstance();
@@ -50,6 +52,8 @@ namespace ViewModel
         public Shift Shift { get; set; }
 
         public List<string> Cmb_TypeChoices { get; } = new List<string>() { "Fitness", "Spinning" };
+
+        public List<string> cmb_GoalChoices { get; } = new List<string>() { "Styrketræning", "Vægttab", "Opstramning", "Konditionstræning", "Kom-Godt-Igang" };
 
         public void SearchForMember()
         {
@@ -511,7 +515,7 @@ namespace ViewModel
         string _TbMemberNumber = "";
         string _TbName = "";
         string _TbGoal = "";
-        string _TbTrainingProgram = "";
+        string _ChbTrainingProgram = "";
         string _TbWeeklyTrainings = "";
         string _TbTimePerTraining = "";
         string _TbNotes = "";
@@ -553,15 +557,16 @@ namespace ViewModel
                 OnPropertyChanged("Tb_Goal");
             }
         }
-        public string Tb_TrainingProgram
+        public string Chb_TrainingProgram
         {
             get
             {
-                return _TbTrainingProgram;
+                _ChbTrainingProgram = "Ja";
+                return _ChbTrainingProgram;
             }
             set
             {
-                _TbTrainingProgram = value;
+                _ChbTrainingProgram = value;
                 OnPropertyChanged("Tb_TrainingProgram");
             }
         }

@@ -9,15 +9,20 @@
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="2" Margin="126,0,0,-0.333"/>
         <Button Content="Registrér forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="10,66,0,0" Click="Btn_BookSession_Click"/>
-        <Label Name="hehe" Content="{Binding NewMember.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,10,0,0" Width="301" Height="50"/>
-        <Label Content="Medlemsnummer:&#xA;&#xA;Navn:&#xA;&#xA;Formål:&#xA;&#xA;Træningsprogram ja/nej&#xA;&#xA;Antal træninger om ugen&#xA;&#xA;Varighed pr. træning&#xD;&#xA;&#xD;&#xA;Noter:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="203" Height="334" Margin="142,63,0,0"/>
-        <TextBox Name="tb_MemberNumer" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Tb_MemberNumber, Mode=TwoWay}" VerticalAlignment="Top" Width="363" Margin="403,66,0,0"/>
-        <TextBox Name="tb_Name" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Tb_Name, Mode=TwoWay}" VerticalAlignment="Top" Width="363" Margin="403,98,0,0"/>
-        <TextBox Name="tb_Goal" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Tb_Goal, Mode=TwoWay}" VerticalAlignment="Top" Width="363" Margin="403,130,0,0"/>
-        <TextBox Name="tb_TrainingProgram" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Tb_TrainingProgram, Mode=TwoWay}" VerticalAlignment="Top" Width="363" Margin="403,162,0,0"/>
+        <Label Name="hehe" Content="{Binding NewMember.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="403,11,0,0" Width="314" Height="50" FontSize="24"/>
+        <Label Content="Medlemsnummer:&#xA;&#xA;Navn:&#xA;&#xA;Formål:&#xA;&#xA;Træningsprogram&#xA;&#xA;Antal træninger om ugen&#xA;&#xA;Varighed pr. træning: &#xA;&#xA;Noter:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="203" Height="334" Margin="142,63,0,0"/>
+        <!--<TextBox Name="tb_MemberNumer" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Tb_MemberNumber, Mode=TwoWay}" VerticalAlignment="Top" Width="363" Margin="403,66,0,0"/>-->
+        <!--<TextBox Name="tb_Name" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Tb_Name, Mode=TwoWay}" VerticalAlignment="Top" Width="363" Margin="403,98,0,0"/>-->
+
         <TextBox Name="tb_WeeklyTrainings" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Tb_WeeklyTrainings, Mode=TwoWay}" VerticalAlignment="Top" Width="363" Margin="403,194,0,0"/>
         <TextBox Name="tb_TimePerTraining" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Tb_TimePerTraining, Mode=TwoWay}" VerticalAlignment="Top" Width="363" Margin="403,226,0,0"/>
         <TextBox Name="tb_Notes" HorizontalAlignment="Left" Height="139" TextWrapping="Wrap" Text="{Binding Path=Tb_Notes, Mode=TwoWay}" VerticalAlignment="Top" Width="363" Margin="403,258,0,0"/>
+        <ComboBox Name="cmb_goal" ItemsSource="{Binding Path=cmb_GoalChoices}" HorizontalAlignment="Left" Margin="403,130,0,0" VerticalAlignment="Top" Width="363" SelectionChanged="ComboBox_SelectionChanged"/>
+        <CheckBox Name="chb_TrainingProgram" Content="Træningsprogram" IsChecked="{Binding Path=Chb_TrainingProgram}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="403,166,0,0" Checked="chb_TrainingProgram_Checked"/>
+        <Label Content="{Binding NewMember.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="398,94,0,0" VerticalAlignment="Top" Width="368" Height="26"/>
+        <Label Content="{Binding NewBooking.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="398,66,0,0" VerticalAlignment="Top" Height="23" Width="363"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="10,382,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click"/>
+        <Label Content="Opret forløb til" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="211,11,0,0" Height="47" Width="192" FontSize="24"/>
 
 
     </Grid>

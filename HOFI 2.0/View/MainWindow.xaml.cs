@@ -38,7 +38,7 @@ namespace View
 
         private void Btn_MembersWindow_Click(object sender, RoutedEventArgs e)
         {
-            Members members = new Members();
+            MemberOverlayWindow members = new MemberOverlayWindow();
             members.Show();
             this.Close();
         }

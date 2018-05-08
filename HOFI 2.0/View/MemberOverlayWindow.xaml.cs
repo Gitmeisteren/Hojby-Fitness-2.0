@@ -18,10 +18,10 @@ namespace View
     /// <summary>
     /// Interaction logic for Members.xaml
     /// </summary>
-    public partial class Members : Window
+    public partial class MemberOverlayWindow : Window
     {
         Controller controller = Controller.GetInstance();
-        public Members()
+        public MemberOverlayWindow()
         {
             InitializeComponent();
             this.DataContext = controller;

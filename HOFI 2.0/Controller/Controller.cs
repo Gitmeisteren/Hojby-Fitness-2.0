@@ -35,9 +35,8 @@ namespace ViewModel
 
         public void ExportToPDF(string goal)
         {
-            string memberNumberClone = NewMember.Name;
-            string nameClone = NewBooking.MemberNumber;
-            fileExporter.ExportToPDF(memberNumberClone, nameClone, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
+ 
+            fileExporter.ExportToPDF(NewBooking.MemberNumber, NewMember.Name, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
         }
 
         Calendar calendar = Calendar.GetInstance();

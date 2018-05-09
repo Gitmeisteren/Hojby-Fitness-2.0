@@ -30,6 +30,7 @@ namespace ViewModel
         Member member = new Member();
         BookingRepository bookingRepo = new BookingRepository();
         FileExporter fileExporter = new FileExporter();
+        ShiftHandler shiftHandler = ShiftHandler.GetInstance();
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
 
         public void ExportToPDF(string goal)
@@ -38,15 +39,21 @@ namespace ViewModel
             fileExporter.ExportToPDF(NewBooking.MemberNumber, NewMember.Name, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
         }
 
+
+
         Calendar calendar = Calendar.GetInstance();
         LoginHandler loginHandler = new LoginHandler();
         private static Controller _Instance;
         private string _LoginResponse;
-
+        private string _RegisterShiftResponse;
         private string _ReturnMessage;
 
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
+        public Shift Shift { get; set; }
+        public Instructor Instructor { get; set; }
+
+        public List<string> Cmb_TypeChoices { get; } = new List<string>() { "Fitness", "Spinning" };
 
         public List<string> cmb_GoalChoices { get; } = new List<string>() { "Styrketræning", "Vægttab", "Opstramning", "Konditionstræning", "Kom-Godt-Igang" };
 
@@ -66,6 +73,18 @@ namespace ViewModel
             {
                 _LoginResponse = value;
                 OnPropertyChanged("LoginResponse");
+            }
+        }
+        public string RegisterShiftResponse
+        {
+            get
+            {
+                return _RegisterShiftResponse;
+            }
+            set
+            {
+                _RegisterShiftResponse = value;
+                OnPropertyChanged("RegisterShiftResponse");
             }
         }
         public string ReturnMessage
@@ -589,7 +608,7 @@ namespace ViewModel
                 OnPropertyChanged("Tb_Notes");
             }
         }
-        
+
         #endregion
 
     
@@ -599,6 +618,8 @@ namespace ViewModel
             bookingRepo = new BookingRepository();
             NewMember = new Member();
             CalendarDates = Calendar.GetInstance();
+            Shift = new Shift();
+            Instructor = new Instructor();
         }
         public static Controller GetInstance()
         {
@@ -670,6 +691,10 @@ namespace ViewModel
         {
             LoginResponse = loginHandler.GetLoginInformation(password, memberNumber);
 
+        }
+        public void RegisterShift(string shiftType)
+        {
+            RegisterShiftResponse = shiftHandler.RegisterShift(Shift, Instructor, shiftType);
         }
     }
 }

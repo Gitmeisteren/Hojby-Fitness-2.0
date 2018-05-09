@@ -20,7 +20,8 @@ namespace TestCase1
         BookingRepository bookingRepository = new BookingRepository();
         Calendar calendar = Calendar.GetInstance();
         BookingHandler bookingHandler = BookingHandler.GetInstance();
-            SQLDatabaseConnectionPoint sqlDatabaseConnectionPoint = new SQLDatabaseConnectionPoint();
+        SQLDatabaseConnectionPoint sqlDatabaseConnectionPoint = new SQLDatabaseConnectionPoint();
+
             private static string testConString = "Server= den1.mssql5.gear.host; Database= hofi; User ID = hofi; Password= Qg9OG4l~v-06;";
             SqlConnection testCon = new SqlConnection(testConString);
 

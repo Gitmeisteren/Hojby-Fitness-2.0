@@ -33,13 +33,12 @@ namespace View
         private void Btn_RegisterShift_Click(object sender, RoutedEventArgs e)
         {
             BindingExpression bind_MemberNumber = Tb_TypeMemberNumber.GetBindingExpression(TextBox.TextProperty);
-
             BindingExpression bind_ShiftDate = Tb_TypeShiftDate.GetBindingExpression(TextBox.TextProperty);
 
             bind_MemberNumber.UpdateSource();
             bind_ShiftDate.UpdateSource();
 
-            controller.RegisterShift();
+            controller.RegisterShift(Cmb_ShiftType.Text);
         }
 
         private void Btn_ReturnToMainWindow_Click(object sender, RoutedEventArgs e)

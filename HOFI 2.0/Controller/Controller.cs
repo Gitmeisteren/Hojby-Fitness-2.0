@@ -49,6 +49,7 @@ namespace ViewModel
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
         public Shift Shift { get; set; }
+        public Instructor Instructor { get; set; }
 
         public List<string> Cmb_TypeChoices { get; } = new List<string>() { "Fitness", "Spinning" };
 
@@ -616,6 +617,7 @@ namespace ViewModel
             NewMember = new Member();
             CalendarDates = Calendar.GetInstance();
             Shift = new Shift();
+            Instructor = new Instructor();
         }
         public static Controller GetInstance()
         {
@@ -688,9 +690,9 @@ namespace ViewModel
             LoginResponse = loginHandler.GetLoginInformation(password, memberNumber);
 
         }
-        public void RegisterShift()
+        public void RegisterShift(string shiftType)
         {
-            RegisterShiftResponse = shiftHandler.RegisterShift(Shift);
+            RegisterShiftResponse = shiftHandler.RegisterShift(Shift, Instructor, shiftType);
         }
     }
 }

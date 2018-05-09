@@ -27,13 +27,14 @@ namespace Model
         #endregion
         Shift shift = new Shift();
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
-        public string RegisterShift(Shift shift)
+        public string RegisterShift(Shift shift, Instructor instructor, string shiftType)
         {
-            Shift shiftClone = new Shift();
             string returnMessage = "";
+            Instructor instructorClone = new Instructor();
+            Shift shiftClone = new Shift();
             shiftClone.Date = shift.Date;
-            shiftClone.MemberNumber = shift.MemberNumber;
-            //string registerShiftResponse = _DatabaseCon
+            instructorClone.MemberNumber = instructor.MemberNumber;
+            string registerShiftResponse = _DatabaseCon.RegisterShift(shiftClone, instructorClone, shiftType);
             return returnMessage;
         }
         private static ShiftHandler _Instance;

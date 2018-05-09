@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Net.Mail;
 
 
 namespace Model
@@ -194,24 +196,142 @@ namespace Model
                 return accesLogin;
             }
         }
-        public string RegisterShift(Shift shift)
+        public string GetMail(string memberNumber, string date)
+        {
+            string instructorEmail = "";
+            string ifExceptionMessage = "";
+
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+                try
+                {
+
+                    con.Open();
+
+                    SqlCommand _GetEmploymentMail = new SqlCommand("spGetMail", con);
+                    _GetEmploymentMail.CommandType = System.Data.CommandType.StoredProcedure;
+                    _GetEmploymentMail.Parameters.Add(new SqlParameter("@Medlemsnr", memberNumber));
+
+                    SqlDataReader reader = _GetEmploymentMail.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            instructorEmail = reader["Email"].ToString();
+                        }
+                    }
+                }
+                catch (SqlException m)
+                {
+                    ifExceptionMessage = "FEJL: " + m.Message;
+
+                }
+
+
+                try
+                {
+                    MailMessage mail = new MailMessage();
+                    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587);
+
+                    mail.From = new MailAddress("hofiregistrering@gmail.com");
+                    mail.To.Add(instructorEmail);
+                    mail.Subject = "Kvittering for registrering af vagt d. " + date;
+                    mail.Body = "Din vagt er nu registreret";
+
+                    SmtpServer.Port = 587;
+                    SmtpServer.Credentials = new System.Net.NetworkCredential("Hofiregistrering@gmail.com", "hsgfitness");
+                    SmtpServer.EnableSsl = true;
+
+                    SmtpServer.Send(mail);
+
+                }
+                catch (Exception e)
+                {
+                    ifExceptionMessage = "Der skete en uventet fejl, mailen er ikke sendt. Fejlkode: " + e.Message;
+                }
+
+                return ifExceptionMessage;
+
+
+            }
+        }
+        public string RegisterShift(Shift shift, Instructor instructor, string shiftType)
         {
             string returnMessage = "";
+            string mailExceptionHolder = "";
+
+            int salary = shift.Salary;
+            string hireDate = instructor.HireDate;
             using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
                 try
                 {
                     con.Open();
+                    SqlCommand _GetEmploymentDate = new SqlCommand("spGetStartDate", con);
+                    _GetEmploymentDate.CommandType = System.Data.CommandType.StoredProcedure;
+                    _GetEmploymentDate.Parameters.Add(new SqlParameter("@Medlemsnr", instructor.MemberNumber));
+
+                    SqlDataReader reader = _GetEmploymentDate.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            hireDate = reader["Ansat"].ToString();
+                        }
+                    }
+
+                    reader.Close();
+
+                    DateTime employmentDate = DateTime.Parse(hireDate);
+
+                    DateTime watchDate = DateTime.Parse(shift.Date);
+
+                    watchDate = watchDate.AddYears(-3);
+
+                    if (employmentDate <= watchDate)
+                    {
+                        salary = 100;
+
+                    }
+                    else
+                    {
+                        salary = 75;
+                    }
+
+
+                    SqlCommand spinningWatch = new SqlCommand("spRegisterWatch", con);
+                    spinningWatch.CommandType = System.Data.CommandType.StoredProcedure;
+                    spinningWatch.Parameters.Add(new SqlParameter("@Medlemsnr", instructor.MemberNumber));
+                    spinningWatch.Parameters.Add(new SqlParameter("@Type", shiftType));
+                    spinningWatch.Parameters.Add(new SqlParameter("@Dato", shift.Date));
+                    spinningWatch.Parameters.Add(new SqlParameter("@Honorar", salary));
+
+                    spinningWatch.ExecuteNonQuery();
+
+                    mailExceptionHolder = GetMail(instructor.MemberNumber, shift.Date);
+
 
 
                 }
-                catch (Exception e)
+                catch (SqlException e)
                 {
 
+                    returnMessage = "FEJL: " + e.Message;
+
                 }
-            }
+                catch (FormatException e1)
+                {
+
+                    returnMessage = "FEJL: " + e1.Message;
+
+                }
+                returnMessage = returnMessage + mailExceptionHolder;
 
                 return returnMessage;
+
+            }
         }
     }
 }

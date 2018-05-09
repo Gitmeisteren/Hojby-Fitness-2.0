@@ -18,7 +18,7 @@ namespace Model
 
         public void ExportToPDF(string memberNumber, string name, string goal, string trainingProgram, string weeklyTrainings, string timePerTraining, string notes)
         {
-            string root = @"C:\temp\" + memberNumber + ".docx";
+            string root = @"C:\Users\royga\Documents\" + memberNumber + ".docx";
             //Creates application
             Application objWord = new Application();
 
@@ -42,7 +42,7 @@ namespace Model
                 + "Varighed pr. træning: " + timePerTraining + "\n"
                 + "Noter: " + notes + "\n";
 
-
+            
             objDoc.SaveAs2(root);
             objDoc.Close();
             objWord.Quit();

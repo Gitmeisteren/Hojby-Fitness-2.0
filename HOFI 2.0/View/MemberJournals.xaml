@@ -21,7 +21,7 @@
         <CheckBox Name="chb_TrainingProgram" Content="Træningsprogram" IsChecked="{Binding Path=Chb_TrainingProgram}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="403,166,0,0" Checked="chb_TrainingProgram_Checked"/>
         <Label Content="{Binding NewMember.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="398,94,0,0" VerticalAlignment="Top" Width="368" Height="26"/>
         <Label Content="{Binding NewBooking.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="398,66,0,0" VerticalAlignment="Top" Height="23" Width="363"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="10,382,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="10,382,0,0" VerticalAlignment="Top" Width="98" Click="Btn_Return"/>
         <Label Content="Opret forløb til" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="211,11,0,0" Height="47" Width="192" FontSize="24"/>
 
 

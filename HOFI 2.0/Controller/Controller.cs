@@ -38,6 +38,8 @@ namespace ViewModel
             fileExporter.ExportToPDF(NewBooking.MemberNumber, NewMember.Name, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
         }
 
+
+
         Calendar calendar = Calendar.GetInstance();
         LoginHandler loginHandler = new LoginHandler();
         private static Controller _Instance;
@@ -589,7 +591,7 @@ namespace ViewModel
                 OnPropertyChanged("Tb_Notes");
             }
         }
-        
+
         #endregion
 
     

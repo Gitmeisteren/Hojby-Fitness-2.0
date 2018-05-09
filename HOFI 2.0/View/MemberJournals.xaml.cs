@@ -42,12 +42,11 @@ namespace View
 
         private void chb_TrainingProgram_Checked(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://www.exorlive.com/dk/login")
-            ;
+            Process.Start("https://www.exorlive.com/dk/login");
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Btn_Return(object sender, RoutedEventArgs e)
         {
             MemberOverlayWindow memberOverlayWindow = new MemberOverlayWindow();
 

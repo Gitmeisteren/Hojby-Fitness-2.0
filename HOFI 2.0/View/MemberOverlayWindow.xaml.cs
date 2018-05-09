@@ -37,12 +37,13 @@ namespace View
 
 
 
-        private void btn_SeachForMember_Click(object sender, RoutedEventArgs e)
+        public void btn_SeachForMember_Click(object sender, RoutedEventArgs e)
         {
+            
             BindingExpression bind_MemberNumber = tb_SearchForMember.GetBindingExpression(TextBox.TextProperty);
-
+            
             bind_MemberNumber.UpdateSource();
-
+            
             controller.SearchForMember();
         }
 

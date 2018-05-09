@@ -102,7 +102,6 @@ namespace Model
             //// ...and start a viewer.
             //Process.Start(filename);
 
-            //Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
 
 
 

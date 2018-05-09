@@ -24,19 +24,19 @@ namespace Model
         }
 
         #endregion
-        string _MemberNumber = "";
+        string _InstructorID = "";
         string _Name = "";
         string _Mail = "";
         string _HireDate = "";
-        public string MemberNumber
+        public string InstructorID
         {
             get
             {
-                return _MemberNumber;
+                return _InstructorID;
             }
             set
             {
-                _MemberNumber = value;
+                _InstructorID = value;
                 OnPropertyChanged("MemberNumber");
             }
         }

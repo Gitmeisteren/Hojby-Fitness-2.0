@@ -270,7 +270,7 @@ namespace Model
                     con.Open();
                     SqlCommand _GetEmploymentDate = new SqlCommand("spGetStartDate", con);
                     _GetEmploymentDate.CommandType = System.Data.CommandType.StoredProcedure;
-                    _GetEmploymentDate.Parameters.Add(new SqlParameter("@Medlemsnr", instructor.MemberNumber));
+                    _GetEmploymentDate.Parameters.Add(new SqlParameter("@Medlemsnr", instructor.InstructorID));
 
                     SqlDataReader reader = _GetEmploymentDate.ExecuteReader();
 
@@ -303,14 +303,14 @@ namespace Model
 
                     SqlCommand spinningWatch = new SqlCommand("spRegisterWatch", con);
                     spinningWatch.CommandType = System.Data.CommandType.StoredProcedure;
-                    spinningWatch.Parameters.Add(new SqlParameter("@Medlemsnr", instructor.MemberNumber));
+                    spinningWatch.Parameters.Add(new SqlParameter("@Medlemsnr", instructor.InstructorID));
                     spinningWatch.Parameters.Add(new SqlParameter("@Type", shiftType));
                     spinningWatch.Parameters.Add(new SqlParameter("@Dato", shift.Date));
                     spinningWatch.Parameters.Add(new SqlParameter("@Honorar", salary));
 
                     spinningWatch.ExecuteNonQuery();
 
-                    mailExceptionHolder = GetMail(instructor.MemberNumber, shift.Date);
+                    mailExceptionHolder = GetMail(instructor.InstructorID, shift.Date);
 
 
 

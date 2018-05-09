@@ -33,7 +33,7 @@ namespace Model
             Instructor instructorClone = new Instructor();
             Shift shiftClone = new Shift();
             shiftClone.Date = shift.Date;
-            instructorClone.MemberNumber = instructor.MemberNumber;
+            instructorClone.InstructorID = instructor.InstructorID;
             string registerShiftResponse = _DatabaseCon.RegisterShift(shiftClone, instructorClone, shiftType);
             return returnMessage;
         }

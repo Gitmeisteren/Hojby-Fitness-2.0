@@ -93,6 +93,9 @@
     <Compile Include="ScheduleSession.xaml.cs">
       <DependentUpon>ScheduleSession.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShiftMenu.xaml.cs">
+      <DependentUpon>ShiftMenu.xaml</DependentUpon>
+    </Compile>
     <Page Include="BookingMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ScheduleSession.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShiftMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

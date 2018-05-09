@@ -8,10 +8,10 @@ namespace Model
 {
     public class LoginHandler
     {
-        SQLDatabaseConnectionPoint _databaseCon = new SQLDatabaseConnectionPoint();
+        SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
         public string GetLoginInformation(string password, string memberNumber)
         {
-            string loginResponse = _databaseCon.RetrieveLoginInformation(password, memberNumber);
+            string loginResponse = _DatabaseCon.RetrieveLoginInformation(password, memberNumber);
             if (loginResponse == "Godkendt")
             {
 

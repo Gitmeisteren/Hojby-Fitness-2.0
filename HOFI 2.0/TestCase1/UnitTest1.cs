@@ -28,12 +28,12 @@ namespace TestCase1
             public void SqlConnectionTest()
             {
                 testCon.Open();
-                bool ConnecTest = false;
+                bool ConnectTest = false;
                 if (testCon.State == ConnectionState.Open)
                 {
-                    ConnecTest = true;
+                    ConnectTest = true;
                 }
-                Assert.AreEqual(true, ConnecTest);
+                Assert.AreEqual(true, ConnectTest);
             }
 
         [TestMethod]
@@ -70,5 +70,6 @@ namespace TestCase1
             login.password = "Timmi10";
             Assert.AreEqual("Godkendt", loginHandler.GetLoginInformation("Timmi10", "hofi1453"));
         }
+
     }
 }

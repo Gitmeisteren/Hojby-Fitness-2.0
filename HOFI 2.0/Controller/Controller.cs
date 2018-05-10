@@ -25,6 +25,9 @@ namespace ViewModel
         }
 
         #endregion
+
+        //instances
+        #region
         BookingHandler bookingHandler = BookingHandler.GetInstance(); // what
         Booking booking = new Booking();
         Member member = new Member();
@@ -32,6 +35,8 @@ namespace ViewModel
         FileExporter fileExporter = new FileExporter();
         ShiftHandler shiftHandler = ShiftHandler.GetInstance();
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
+        LoginHandler loginHandler = new LoginHandler();
+        #endregion
 
         public void ExportToPDF(string goal)
         {
@@ -42,7 +47,6 @@ namespace ViewModel
 
 
         Calendar calendar = Calendar.GetInstance();
-        LoginHandler loginHandler = new LoginHandler();
         private static Controller _Instance;
         private string _ReturnMessage;
 

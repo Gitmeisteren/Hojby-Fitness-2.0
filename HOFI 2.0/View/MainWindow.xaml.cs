@@ -49,5 +49,14 @@ namespace View
             shiftMenu.Show();
             this.Close();
         }
+
+        private void Btn_InstructorsMenu_Click(object sender, RoutedEventArgs e)
+        {
+            InstructorsWindow instructorsWindow = new InstructorsWindow();
+
+            instructorsWindow.Show();
+            this.Close();
+
+        }
     }
 }

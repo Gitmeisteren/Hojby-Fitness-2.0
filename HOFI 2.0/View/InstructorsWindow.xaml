@@ -8,6 +8,8 @@
         Title="InstructorsWindow" Height="450" Width="800">
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="1" Margin="142,0,0,-0.333"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="26,391,0,0" Click="Btn_Return_Click"/>
+        <DataGrid HorizontalAlignment="Left" Height="342" VerticalAlignment="Top" Width="577" Margin="206,69,0,0"/>
 
     </Grid>
 </Window>

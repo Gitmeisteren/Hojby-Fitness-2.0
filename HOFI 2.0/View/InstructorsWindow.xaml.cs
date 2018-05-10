@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViewModel;
 
 namespace View
 {
@@ -19,9 +20,18 @@ namespace View
     /// </summary>
     public partial class InstructorsWindow : Window
     {
+        Controller controller = Controller.GetInstance();
         public InstructorsWindow()
         {
             InitializeComponent();
+            DataContext = controller;
+        }
+
+        private void Btn_Return_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

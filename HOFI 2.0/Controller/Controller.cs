@@ -42,8 +42,6 @@ namespace ViewModel
         Calendar calendar = Calendar.GetInstance();
         LoginHandler loginHandler = new LoginHandler();
         private static Controller _Instance;
-        private string _LoginResponse;
-        private string _RegisterShiftResponse;
         private string _ReturnMessage;
 
         public Booking NewBooking { get; set; }
@@ -61,30 +59,6 @@ namespace ViewModel
         }
 
         public Calendar CalendarDates { get; set; }
-        public string LoginResponse
-        {
-            get
-            {
-                return _LoginResponse;
-            }
-            set
-            {
-                _LoginResponse = value;
-                OnPropertyChanged("LoginResponse");
-            }
-        }
-        public string RegisterShiftResponse
-        {
-            get
-            {
-                return _RegisterShiftResponse;
-            }
-            set
-            {
-                _RegisterShiftResponse = value;
-                OnPropertyChanged("RegisterShiftResponse");
-            }
-        }
         public string ReturnMessage
         {
             get
@@ -687,12 +661,24 @@ namespace ViewModel
         }
         public void CheckLogin(string password, string memberNumber)
         {
-            LoginResponse = loginHandler.GetLoginInformation(password, memberNumber);
+            ReturnMessage = loginHandler.GetLoginInformation(password, memberNumber);
 
         }
         public void RegisterShift(string shiftType)
         {
-            RegisterShiftResponse = shiftHandler.RegisterShift(Shift, Instructor, shiftType);
+            ReturnMessage = shiftHandler.RegisterShift(Shift, Instructor, shiftType);
+        }
+        public void ShowSingleShiftList(string memberNumber, string shiftStartDate, string shiftEndDate)
+        {
+            ReturnMessage = shiftHandler.ShiftListSingle(Shift, Instructor, memberNumber, shiftStartDate, shiftEndDate);
+        }
+        public void ShowAllShiftList(string shiftStartDate, string shiftEndDate)
+        {
+            ReturnMessage = shiftHandler.ShiftListAll(Shift, Instructor, shiftStartDate, shiftEndDate);
+        }
+        public void ExportShiftList(string shiftListContent)
+        {
+            shiftHandler.ExportShiftList();
         }
     }
 }

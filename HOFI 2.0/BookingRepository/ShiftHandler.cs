@@ -34,9 +34,26 @@ namespace Model
             Shift shiftClone = new Shift();
             shiftClone.Date = shift.Date;
             instructorClone.MemberNumber = instructor.MemberNumber;
-            string registerShiftResponse = _DatabaseCon.RegisterShift(shiftClone, instructorClone, shiftType);
+            returnMessage = _DatabaseCon.RegisterShift(shiftClone, instructorClone, shiftType);
             return returnMessage;
         }
+        public string ShiftListAll(Shift shift, Instructor instructor, string shiftStartDate, string shiftEndDate)
+        {
+            string returnAllShifts = "";
+            returnAllShifts = _DatabaseCon.GetShiftListAll(shift, instructor, shiftStartDate, shiftEndDate);
+            return returnAllShifts;
+        }
+        public string ShiftListSingle(Shift shift, Instructor instructor, string memberNumber, string shiftStartDate, string shiftEndDate)
+        {
+            string returnSingleShifts = "";
+            returnSingleShifts = _DatabaseCon.GetShiftListSingle(shift, instructor, memberNumber, shiftStartDate, shiftEndDate);
+            return returnSingleShifts;
+        }
+        public void ExportShiftList()
+        {
+            
+        }
+        
         private static ShiftHandler _Instance;
 
         public static ShiftHandler GetInstance()

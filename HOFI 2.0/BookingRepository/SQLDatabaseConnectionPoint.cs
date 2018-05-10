@@ -382,7 +382,7 @@ namespace Model
                                 i++;
                                 subtotal.Add(0);
                             }
-                            instructor.MemberNumber = reader["InstructorID"].ToString();
+                            instructor.InstructorID = reader["InstructorID"].ToString();
                             instructor.Name = currentName;
                             shift.Type = reader["Type"].ToString();
                             shift.Date = reader["Dato"].ToString();
@@ -391,7 +391,7 @@ namespace Model
                             shift.Salary = int.Parse(salary);
                             subtotal[i] = subtotal[i] + shift.Salary;
 
-                            normalRows = normalRows + (instructor.MemberNumber + " \t|\t " + instructor.Name + " \t|\t " + shift.Type + " \t|\t " + shift.Date + " \t|\t " + shift.Salary + "\n");
+                            normalRows = normalRows + (instructor.InstructorID + " \t|\t " + instructor.Name + " \t|\t " + shift.Type + " \t|\t " + shift.Date + " \t|\t " + shift.Salary + "\n");
 
                         }
                     }
@@ -447,7 +447,7 @@ namespace Model
                     {
                         while (reader.Read())
                         {
-                            instructor.MemberNumber = reader["InstructorID"].ToString();
+                            instructor.InstructorID = reader["InstructorID"].ToString();
                             instructor.Name = reader["Navn"].ToString();
                             shift.Type = reader["Type"].ToString();
                             shift.Date = reader["Dato"].ToString();
@@ -457,7 +457,7 @@ namespace Model
 
                             subtotal = subtotal + shift.Salary;
 
-                            normalRows = normalRows + (instructor.MemberNumber + " \t|\t " + instructor.Name + " \t|\t " + shift.Type + " \t|\t " + shift.Date + " \t|\t " + shift.Salary + "\n" + "\n");
+                            normalRows = normalRows + (instructor.InstructorID + " \t|\t " + instructor.Name + " \t|\t " + shift.Type + " \t|\t " + shift.Date + " \t|\t " + shift.Salary + "\n" + "\n");
 
                         }
                     }
@@ -474,7 +474,7 @@ namespace Model
                 }
                 else
                 {
-                    shiftListFromDatabase = shiftListFromDatabase + "&\n \n Fil eksporteret for " + instructor.MemberNumber + " på skrivebordet under mappen 'Excel'. \n \n";
+                    shiftListFromDatabase = shiftListFromDatabase + "&\n \n Fil eksporteret for " + instructor.InstructorID + " på skrivebordet under mappen 'Excel'. \n \n";
                 }
             }
 

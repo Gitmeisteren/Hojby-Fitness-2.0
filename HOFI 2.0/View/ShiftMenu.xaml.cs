@@ -23,7 +23,6 @@ namespace View
         public string memberNumber = "";
         public string shiftDate = "";
         Controller controller = Controller.GetInstance();
-        MainWindow mainwindow = new MainWindow();
         public ShiftMenu()
         {
             InitializeComponent();
@@ -43,12 +42,16 @@ namespace View
 
         private void Btn_ReturnToMainWindow_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show();
+            this.Close();
         }
 
         private void Btn_ShiftList_Click(object sender, RoutedEventArgs e)
         {
-
+            ShiftWindow shiftWindow = new ShiftWindow();
+            shiftWindow.Show();
+            this.Close();
         }
     }
 }

@@ -26,7 +26,6 @@ namespace View
         public MainWindow()
         {
             InitializeComponent();
-            controller.IntitialRepoUpdate();
         }
 
         private void Btn_BookingMenu_Click(object sender, RoutedEventArgs e)

@@ -28,7 +28,7 @@ namespace ViewModel
         BookingHandler bookingHandler = BookingHandler.GetInstance(); // what
         Booking booking = new Booking();
         Member member = new Member();
-        BookingRepository bookingRepo = new BookingRepository();
+        BookingRepository bookingRepo = BookingRepository.GetInstance();
         FileExporter fileExporter = new FileExporter();
         ShiftHandler shiftHandler = ShiftHandler.GetInstance();
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
@@ -615,11 +615,12 @@ namespace ViewModel
         public Controller()
         {
             NewBooking = new Booking();
-            bookingRepo = new BookingRepository();
+            bookingRepo = BookingRepository.GetInstance();
             NewMember = new Member();
             CalendarDates = Calendar.GetInstance();
             Shift = new Shift();
             Instructor = new Instructor();
+            IntitialRepoUpdate();
         }
         public static Controller GetInstance()
         {

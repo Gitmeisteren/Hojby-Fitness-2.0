@@ -68,6 +68,7 @@ namespace Model
         {
             get
             {
+                ;
                 return _HireDate;
             }
             set

@@ -29,6 +29,8 @@ namespace ViewModel
         //instances
         #region
         BookingHandler bookingHandler = BookingHandler.GetInstance(); // what
+
+
         Booking booking = new Booking();
         Member member = new Member();
         BookingRepository bookingRepo = BookingRepository.GetInstance();
@@ -57,8 +59,28 @@ namespace ViewModel
 
         public List<string> Cmb_TypeChoices { get; } = new List<string>() { "Fitness", "Spinning" };
 
-        public List<string> cmb_GoalChoices { get; } = new List<string>() { "Styrketræning", "Vægttab", "Opstramning", "Konditionstræning", "Kom-Godt-Igang" };
+        public void AddInstructor()
+        {
+           ReturnMessage = _DatabaseCon.AddInstructor(Instructor);
+            ShowInstructors();
+        }
 
+        public List<string> Cmb_GoalChoices { get; } = new List<string>() { "Styrketræning", "Vægttab", "Opstramning", "Konditionstræning", "Kom-Godt-Igang" };
+
+        private List<Instructor> _InstructorsList = new List<Instructor>();
+
+        public List<Instructor> InstructorsList
+        {
+            get
+            {
+                return _InstructorsList;
+            }
+            set
+            {
+                _InstructorsList = value;
+                OnPropertyChanged("InstructorsList");
+            }
+        }
         public void SearchForMember()
         {
           ReturnMessage = _DatabaseCon.SearchForMember(NewBooking, NewMember);
@@ -313,6 +335,7 @@ namespace ViewModel
                 _Label16 = value;
                 OnPropertyChanged("Label_16");
             }
+       
         }
 
         public string Label_17
@@ -608,6 +631,13 @@ namespace ViewModel
             }
             return _Instance;
         }
+
+        public void ShowInstructors()
+        {
+             
+
+         InstructorsList = _DatabaseCon.ShowInstructors();
+        }
         public void ScheduleSession()
         {
 
@@ -621,6 +651,7 @@ namespace ViewModel
 
         public void IntitialRepoUpdate()
         {
+            
             bookingHandler.IntitialRepoUpdate();
         }
 

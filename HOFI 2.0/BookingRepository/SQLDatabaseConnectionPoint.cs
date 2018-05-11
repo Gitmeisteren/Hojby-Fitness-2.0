@@ -97,6 +97,57 @@ namespace Model
             return _ReturnMessage;
         }
 
+        public string AddInstructor(Instructor instructor)
+        {
+            string errorMsg = "";
+            string returnMsg = "";
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+
+                try
+                {
+
+
+                    con.Open();
+
+                    SqlCommand _AddInstructor = new SqlCommand("spAddInstructor", con);
+                    _AddInstructor.CommandType = System.Data.CommandType.StoredProcedure;
+                    _AddInstructor.Parameters.Add(new SqlParameter("@I_InstructorID", instructor.InstructorID));
+                    _AddInstructor.Parameters.Add(new SqlParameter("@Navn", instructor.Name));
+                    _AddInstructor.Parameters.Add(new SqlParameter("@Email", instructor.Mail));
+                    _AddInstructor.Parameters.Add(new SqlParameter("@Ansat", instructor.HireDate));
+
+                    _AddInstructor.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    if (e != null)
+                    {
+                        errorMsg = "FEJL: Instruktør er ikke oprettet \n" + e.Message;
+
+                    }
+                }
+                catch (FormatException e1)
+                {
+                    if (e1 != null)
+                    {
+                        errorMsg = "FEJL: Instruktør er ikke oprettet \n" + e1.Message;
+
+                    }
+                }
+                if (errorMsg == "")
+                {
+                    returnMsg = "Instruktøren " + instructor.Name + " er tilføjet";
+                    
+                }
+                else
+                {
+                    returnMsg = errorMsg;
+                }
+
+            }
+            return returnMsg;
+        }
         //string skal være en liste, og vi skal adde bookingobjekter til liste.
         public List<Booking> InitialRepoUpdate()
         {
@@ -421,6 +472,45 @@ namespace Model
                 return shiftListFromDatabaseAll;
             }
         }
+
+        public List<Instructor> ShowInstructors()
+        {
+            List<Instructor> instructorList = new List<Instructor>();
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+                    
+                try
+                {
+                    con.Open();
+
+
+                    SqlCommand _GetInstructorInfo = new SqlCommand("spGetInstructorInfo", con);
+
+                    SqlDataReader reader = _GetInstructorInfo.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Instructor instructor = new Instructor();
+
+                            instructor.InstructorID = reader["InstructorID"].ToString();
+                            instructor.Name = reader["Navn"].ToString();
+                            instructor.Mail = reader["Email"].ToString();
+                            instructor.HireDate = reader["Ansat"].ToString();
+
+                            instructorList.Add(instructor);
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+
+                }
+             
+            }
+            return instructorList;
+        }
+
         internal string GetShiftListSingle(Shift shift, Instructor instructor,string memberNumber, string startDate, string endDate)
         {
             string ifError = "";

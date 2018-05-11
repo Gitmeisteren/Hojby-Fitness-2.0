@@ -38,5 +38,12 @@ namespace View
 
         }
 
+        private void Btn_ReturnInstructorsWindow_Click(object sender, RoutedEventArgs e)
+        {
+            InstructorsWindow instructorsWindow = new InstructorsWindow();
+            instructorsWindow.Show();
+
+            this.Close();
+        }
     }
 }

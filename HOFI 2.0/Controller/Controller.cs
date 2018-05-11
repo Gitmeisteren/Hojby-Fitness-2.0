@@ -38,7 +38,7 @@ namespace ViewModel
 
         public void ChangeEmail()
         {
-            _DatabaseCon.ChangeEmail(Instructor);
+            ReturnMessage =_DatabaseCon.ChangeEmail(Instructor);
         }
 
         ShiftHandler shiftHandler = ShiftHandler.GetInstance();

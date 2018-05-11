@@ -13,6 +13,7 @@
         <Button Content="Opdater Email" HorizontalAlignment="Left" Margin="635,151,0,0" VerticalAlignment="Top" Width="75" Click="Btn_UpdateEmail_Click"/>
         <TextBox Name="tb_InstructorID" HorizontalAlignment="Left" Height="23" Margin="549,46,0,0" TextWrapping="Wrap" Text="{Binding Instructor.InstructorID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="161"/>
         <TextBlock Text="{Binding Path=ReturnMessage, Mode=TwoWay}" TextWrapping="Wrap"  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="535,203,0,0" Height="109" Width="175" Background="#FFFBE400"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="34,389,0,0" VerticalAlignment="Top" Width="75" Click="Btn_ReturnInstructorsWindow_Click"/>
 
     </Grid>
 </Window>

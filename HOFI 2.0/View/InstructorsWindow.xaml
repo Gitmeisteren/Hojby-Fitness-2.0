@@ -13,7 +13,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <Label Content="{Binding Path=InstructorID}" />
+                        <Label Content="{Binding Path=InstructorID}" FontWeight="Bold" />
                         <Label Content="{Binding Path=Name}"         />
                         <Label Content="{Binding Path=Mail}"         />
                         <Label Content="{Binding Path=HireDate}"     />

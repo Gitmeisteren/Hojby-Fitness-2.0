@@ -81,6 +81,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EditInstructorWindow.xaml.cs">
+      <DependentUpon>EditInstructorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InstructorsWindow.xaml.cs">
       <DependentUpon>InstructorsWindow.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
       <DependentUpon>ShiftWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="BookingMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditInstructorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

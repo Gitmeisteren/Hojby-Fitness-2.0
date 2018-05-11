@@ -56,5 +56,13 @@ namespace View
 
             controller.AddInstructor();
         }
+
+        private void Btn_EditInstructor_Click(object sender, RoutedEventArgs e)
+        {
+            EditInstructorWindow editInstructorWindow = new EditInstructorWindow();
+            editInstructorWindow.Show();
+
+            this.Close();
+        }
     }
 }

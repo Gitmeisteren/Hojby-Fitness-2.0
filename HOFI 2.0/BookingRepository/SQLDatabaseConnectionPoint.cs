@@ -53,11 +53,63 @@ namespace Model
             }
         }
 
+        public string ChangeEmail(Instructor instructor)
+        {
+            string _ErrorMsg = "";
+            string _ReturnMsg = "";
+
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+
+                try
+                {
+
+                    con.Open();
+
+                    SqlCommand _ChangeEmail = new SqlCommand("spChangeMail", con);
+                    _ChangeEmail.CommandType = System.Data.CommandType.StoredProcedure;
+                    _ChangeEmail.Parameters.Add(new SqlParameter("@I_InstructorID", instructor.InstructorID));
+                    _ChangeEmail.Parameters.Add(new SqlParameter("@I_EMail", instructor.Mail));
+
+                    _ChangeEmail.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    if (e != null)
+                    {
+                        _ErrorMsg = "FEJL: Email er ikke opdateret. \n" + e.Message;
+
+                    }
+                }
+                catch (FormatException e1)
+                {
+                    if (e1 != null)
+                    {
+                        _ErrorMsg = "FEJL: Email er ikke opdateret. \n" + e1.Message;
+
+                    }
+                }
+                if (_ErrorMsg == "")
+                {
+                    _ReturnMsg = "Emailen er opdateret til: " + instructor.Mail;
+
+                }
+                else
+                {
+                    _ReturnMsg = _ErrorMsg;
+                }
+            }
+            return _ReturnMsg;
+        }
+         
+      
+
         public string SearchForMember(Booking NewBooking, Member NewMember)
         {
             string _ReturnMessage = "";
             using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
+
                 try
                 {
 

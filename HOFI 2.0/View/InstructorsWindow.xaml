@@ -34,6 +34,7 @@
         <Button Content="Tilføj instruktør" HorizontalAlignment="Left" Margin="388,183,0,0" VerticalAlignment="Top" Width="120" Click="AddInstructor_Click"/>
         <TextBlock Text="{Binding Path=ReturnMessage, Mode=TwoWay}" TextWrapping="Wrap"  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="388,217,0,0" Height="109" Width="175" Background="#FFFBE400"/>
         <Label Content="Tilføj ny instruktør" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,10,0,0" Height="44" Width="391" FontSize="24"/>
+        <Button Content="Redigér instruktør" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="101" Click="Btn_EditInstructor_Click"/>
 
     </Grid>
 </Window>

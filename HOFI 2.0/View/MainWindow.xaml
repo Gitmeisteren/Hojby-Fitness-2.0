@@ -9,7 +9,7 @@
     <Grid>
         <Button Content="Medlemmer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="296,194,0,0" Click="Btn_MembersWindow_Click"/>
         <Button Name="Btn_ShiftMenu" Content="Vagter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="422,194,0,0" Click="Btn_ShiftMenu_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="548,194,0,0" Click="Btn_InstructorsWindow_Click"/>
+        <Button Content="Instruktører" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="548,194,0,0" Click="Btn_InstructorsWindow_Click"/>
         <Button x:Name="btn_BookingMenu" Content="Booking Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="155,180,0,0" Click="Btn_BookingMenu_Click" Height="34"/>
 
     </Grid>

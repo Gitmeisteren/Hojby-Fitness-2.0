@@ -35,6 +35,12 @@ namespace ViewModel
         Member member = new Member();
         BookingRepository bookingRepo = BookingRepository.GetInstance();
         FileExporter fileExporter = new FileExporter();
+
+        public void ChangeEmail()
+        {
+            _DatabaseCon.ChangeEmail(Instructor);
+        }
+
         ShiftHandler shiftHandler = ShiftHandler.GetInstance();
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
         LoginHandler loginHandler = new LoginHandler();

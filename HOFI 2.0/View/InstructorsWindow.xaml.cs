@@ -29,11 +29,6 @@ namespace View
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            controller.ShowInstructors();
-        }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

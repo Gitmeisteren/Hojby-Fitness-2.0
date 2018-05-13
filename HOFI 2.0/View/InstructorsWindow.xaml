@@ -9,7 +9,7 @@
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="1" Margin="142,0,0,-0.333"/>
         <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="500,399,0,0" Click="Button_Click"/>
-        <ListBox  ItemsSource="{Binding Path=InstructorsList}" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="196" Margin="596,0,0,0">
+        <ListBox  ItemsSource="{Binding Path=InstructorsList}" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="212" Margin="580,0,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

@@ -22,17 +22,17 @@ namespace View
     /// </summary>
     public partial class MemberJournals : Window
     {
-        Controller controller = Controller.GetInstance();
+        Controller _Controller = Controller.GetInstance();
         public MemberJournals()
         {
             InitializeComponent();
-            this.DataContext = controller;
+            this.DataContext = _Controller;
         }
 
         private void Btn_BookSession_Click(object sender, RoutedEventArgs e)
         {
             
-            controller.ExportToPDF(cmb_goal.Text);
+            _Controller.ExportToPDF(cmb_goal.Text);
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -40,7 +40,7 @@ namespace View
 
         }
 
-        private void chb_TrainingProgram_Checked(object sender, RoutedEventArgs e)
+        private void Chb_TrainingProgram_Checked(object sender, RoutedEventArgs e)
         {
             Process.Start("https://www.exorlive.com/dk/login");
 
@@ -48,9 +48,9 @@ namespace View
 
         private void Btn_Return(object sender, RoutedEventArgs e)
         {
-            MemberOverlayWindow memberOverlayWindow = new MemberOverlayWindow();
+            MemberOverlayWindow _MemberOverlayWindow = new MemberOverlayWindow();
 
-            memberOverlayWindow.Show();
+            _MemberOverlayWindow.Show();
             this.Close();
         }
     }

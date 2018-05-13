@@ -1,4 +1,4 @@
-﻿<Window x:Class="View.BookingMenu"
+﻿<Window x:Class="View.BookingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,7 +11,7 @@
             <ColumnDefinition Width="145*"/>
             <ColumnDefinition Width="647*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_ScheduleSession" Content="Book forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,32,0,0" Click="btn_ScheduleSession_Click" Height="20"/>
+        <Button x:Name="Btn_ScheduleSession" Content="Book forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,32,0,0" Click="Btn_ScheduleSession_Click" Height="20"/>
         <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,90,0,0" Height="20"/>
         <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,148,0,0" Height="20"/>
         <Button Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,390,0,0" Click="ButtonReturnToMainWindow_Click" Height="20"/>

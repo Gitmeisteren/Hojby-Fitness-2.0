@@ -9,7 +9,7 @@
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="1" Margin="142,0,0,-0.333"/>
         <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="500,399,0,0" Click="Button_Click"/>
-        <ListBox  ItemsSource="{Binding Path=InstructorsList}" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="212" Margin="580,0,0,0">
+        <ListBox  ItemsSource="{Binding Path=InstructorsList}" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="196" Margin="596,0,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -33,7 +33,6 @@
         <Label Content="Indtast ansættelsesdato (dd.mm.åååå):" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,155,0,0" Height="23" Width="220"/>
         <Button Content="Tilføj instruktør" HorizontalAlignment="Left" Margin="388,183,0,0" VerticalAlignment="Top" Width="120" Click="AddInstructor_Click"/>
         <TextBlock Text="{Binding Path=ReturnMessage, Mode=TwoWay}" TextWrapping="Wrap"  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="388,217,0,0" Height="109" Width="175" Background="#FFFBE400"/>
-        <Label Content="Tilføj ny instruktør" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,10,0,0" Height="44" Width="391" FontSize="24"/>
         <Button Content="Redigér instruktør" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="101" Click="Btn_EditInstructor_Click"/>
 
     </Grid>

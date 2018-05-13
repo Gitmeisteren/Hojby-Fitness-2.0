@@ -18,27 +18,27 @@ namespace View
     /// <summary>
     /// Interaction logic for BookingMenu.xaml
     /// </summary>
-    public partial class BookingMenu : Window
+    public partial class BookingWindow : Window
     {
-        Controller controller = Controller.GetInstance();
-        public BookingMenu()
+        Controller _Controller = Controller.GetInstance();
+        public BookingWindow()
         {
             InitializeComponent();
-            controller.UpdateCalendar();
-            this.DataContext = controller;
+            _Controller.UpdateCalendar();
+            this.DataContext = _Controller;
         }
 
-        private void btn_ScheduleSession_Click(object sender, RoutedEventArgs e) //Book træningsforløb
+        private void Btn_ScheduleSession_Click(object sender, RoutedEventArgs e)
         {
-            ScheduleSession scheduleSession = new ScheduleSession();
-            scheduleSession.Show();
+            ScheduleSession _ScheduleSession = new ScheduleSession();
+            _ScheduleSession.Show();
             Close();
         }
 
         private void ButtonReturnToMainWindow_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            MainWindow _MainWindow = new MainWindow();
+            _MainWindow.Show();
             this.Close();
             
         }

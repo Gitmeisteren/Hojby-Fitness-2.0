@@ -54,7 +54,7 @@ namespace View
         private void Btn_ReturnToShiftMenu_Click(object sender, RoutedEventArgs e)
         {
 
-            ShiftMenu shiftMenu = new ShiftMenu();
+            RegisterShift shiftMenu = new RegisterShift();
             shiftMenu.Show();
             this.Close();
         }

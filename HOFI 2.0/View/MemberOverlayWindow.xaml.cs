@@ -20,37 +20,39 @@ namespace View
     /// </summary>
     public partial class MemberOverlayWindow : Window
     {
-        Controller controller = Controller.GetInstance();
+        Controller _Controller = Controller.GetInstance();
         public MemberOverlayWindow()
         {
             InitializeComponent();
-            this.DataContext = controller;
+            this.DataContext = _Controller;
         }
+
+
+
+
+        public void Btn_SeachForMember_Click(object sender, RoutedEventArgs e)
+        {
+            
+            BindingExpression _Bind_MemberNumber = tb_SearchForMember.GetBindingExpression(TextBox.TextProperty);
+            
+            _Bind_MemberNumber.UpdateSource();
+            
+            _Controller.SearchForMember();
+        }
+
 
         private void Btn_ReturnToMainWindow_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainwindow = new MainWindow();
-            mainwindow.Show();
+            MainWindow _Mainwindow = new MainWindow();
+            _Mainwindow.Show();
             this.Close();
 
         }
 
-
-
-        public void btn_SeachForMember_Click(object sender, RoutedEventArgs e)
+        private void Btn_OpenMembersJournal(object sender, RoutedEventArgs e)
         {
-            
-            BindingExpression bind_MemberNumber = tb_SearchForMember.GetBindingExpression(TextBox.TextProperty);
-            
-            bind_MemberNumber.UpdateSource();
-            
-            controller.SearchForMember();
-        }
-
-        private void Btn_OpenmembersJournal_Click(object sender, RoutedEventArgs e)
-        {
-            MemberJournals memberJournals = new MemberJournals();
-            memberJournals.Show();
+            MemberJournals _MemberJournals = new MemberJournals();
+            _MemberJournals.Show();
             this.Close();
         }
     }

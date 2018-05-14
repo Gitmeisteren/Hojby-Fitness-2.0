@@ -1,4 +1,4 @@
-﻿<Window x:Class="View.ShiftMenu"
+﻿<Window x:Class="View.RegisterShift"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -19,10 +19,10 @@
         </Border>
         <Label Content="Medlemsnummer (Hofixxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="124,10,0,0" Width="158"/>
         <Label Content="Dato for vagt (xx.xx.xxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="124,41,0,0"/>
-        <TextBox x:Name="Tb_TypeMemberNumber" Text="{Binding Shift.Date, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="355,13,0,0"/>
-        <TextBox x:Name="Tb_TypeShiftDate" Text="{Binding Shift.MemberNumber , Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="355,44,0,0"/>
+        <TextBox x:Name="Tb_TypeMemberNumber" Text="{Binding Instructor.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="355,13,0,0"/>
+        <TextBox x:Name="Tb_TypeShiftDate" Text="{Binding Shift.Date , Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="355,44,0,0"/>
         <Button x:Name="Btn_RegisterShift" Content="Registrer vagt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="355,99,0,0" Click="Btn_RegisterShift_Click"/>
-        <TextBlock x:Name="TxtBlock_Messages" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="124,334,0,0" Height="75" Width="405" Text="{Binding Path=RegisterShiftResponse, Mode=TwoWay}"/>
+        <TextBlock x:Name="TxtBlock_Messages" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="124,334,0,0" Height="75" Width="405" Text="{Binding Path=ReturnMessage, Mode=TwoWay}"/>
         <Button x:Name="Btn_ReturnToMainWindow" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,389,0,0" Click="Btn_ReturnToMainWindow_Click"/>
         <Button x:Name="Btn_ShiftList" Content="Vagter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,364,0,0" Click="Btn_ShiftList_Click"/>
         <ComboBox x:Name="Cmb_ShiftType" ItemsSource="{Binding Path=Cmb_TypeChoices}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="355,72,0,0"/>

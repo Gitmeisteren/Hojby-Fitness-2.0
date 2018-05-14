@@ -25,68 +25,68 @@ namespace ViewModel
         }
 
         #endregion
-        BookingHandler bookingHandler = BookingHandler.GetInstance(); // what
+
+        public Controller()
+        {
+            NewBooking = new Booking();
+            bookingRepo = BookingRepository.GetInstance();
+            NewMember = new Member();
+            CalendarDates = Calendar.GetInstance();
+            Shift = new Shift();
+            Instructor = new Instructor();
+            IntitialRepoUpdate();
+        }
+        public static Controller GetInstance()
+        {
+            if (_Instance == null)
+            {
+                _Instance = new Controller();
+            }
+            return _Instance;
+        }
+
+        //instances
+        #region
+        BookingHandler bookingHandler = BookingHandler.GetInstance();
         Booking booking = new Booking();
         Member member = new Member();
-        BookingRepository bookingRepo = new BookingRepository();
+        BookingRepository bookingRepo = BookingRepository.GetInstance();
         FileExporter fileExporter = new FileExporter();
         ShiftHandler shiftHandler = ShiftHandler.GetInstance();
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
-
-        public void ExportToPDF(string goal)
-        {
- 
-            fileExporter.ExportToPDF(NewBooking.MemberNumber, NewMember.Name, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
-        }
-
-
-
-        Calendar calendar = Calendar.GetInstance();
         LoginHandler loginHandler = new LoginHandler();
-        private static Controller _Instance;
-        private string _LoginResponse;
-        private string _RegisterShiftResponse;
-        private string _ReturnMessage;
+        Calendar calendar = Calendar.GetInstance();
+        #endregion
 
+        //Privates
+        #region
+        private static Controller _Instance;
+        private string _ReturnMessage;
+        private List<Instructor> _InstructorsList = new List<Instructor>();
+        #endregion
+
+        //Properties
+        #region
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
         public Shift Shift { get; set; }
         public Instructor Instructor { get; set; }
-
+        public List<string> Cmb_GoalChoices { get; } = new List<string>() { "Styrketræning", "Vægttab", "Opstramning", "Konditionstræning", "Kom-Godt-Igang" };
         public List<string> Cmb_TypeChoices { get; } = new List<string>() { "Fitness", "Spinning" };
-
-        public List<string> cmb_GoalChoices { get; } = new List<string>() { "Styrketræning", "Vægttab", "Opstramning", "Konditionstræning", "Kom-Godt-Igang" };
-
-        public void SearchForMember()
+        public List<Instructor> InstructorsList
         {
-          ReturnMessage = _DatabaseCon.SearchForMember(NewBooking, NewMember);
+            get
+            {
+                return _InstructorsList;
+            }
+            set
+            {
+                _InstructorsList = value;
+                OnPropertyChanged("InstructorsList");
+            }
         }
 
         public Calendar CalendarDates { get; set; }
-        public string LoginResponse
-        {
-            get
-            {
-                return _LoginResponse;
-            }
-            set
-            {
-                _LoginResponse = value;
-                OnPropertyChanged("LoginResponse");
-            }
-        }
-        public string RegisterShiftResponse
-        {
-            get
-            {
-                return _RegisterShiftResponse;
-            }
-            set
-            {
-                _RegisterShiftResponse = value;
-                OnPropertyChanged("RegisterShiftResponse");
-            }
-        }
         public string ReturnMessage
         {
             get
@@ -335,6 +335,7 @@ namespace ViewModel
                 _Label16 = value;
                 OnPropertyChanged("Label_16");
             }
+       
         }
 
         public string Label_17
@@ -609,25 +610,32 @@ namespace ViewModel
             }
         }
 
+        #endregion#endregion
         #endregion
 
-    
-        public Controller()
+        public void ExportToPDF(string goal)
         {
-            NewBooking = new Booking();
-            bookingRepo = new BookingRepository();
-            NewMember = new Member();
-            CalendarDates = Calendar.GetInstance();
-            Shift = new Shift();
-            Instructor = new Instructor();
+ 
+            fileExporter.ExportToPDF(NewBooking.MemberNumber, NewMember.Name, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
         }
-        public static Controller GetInstance()
+        public void AddInstructor()
         {
-            if (_Instance == null)
-            {
-                _Instance = new Controller();
-            }
-            return _Instance;
+           ReturnMessage = _DatabaseCon.AddInstructor(Instructor);
+            ShowInstructors();
+        }
+        public void ChangeEmail()
+        {
+            ReturnMessage = _DatabaseCon.ChangeEmail(Instructor);
+        }
+        public void SearchForMember()
+        {
+          ReturnMessage = _DatabaseCon.SearchForMember(NewBooking, NewMember);
+        }
+        public void ShowInstructors()
+        {
+             
+
+         InstructorsList = _DatabaseCon.ShowInstructors();
         }
         public void ScheduleSession()
         {
@@ -639,12 +647,11 @@ namespace ViewModel
         {
             bookingHandler.CreateNewMember(NewMember, NewBooking);
         }
-
-        public void IntitialRepoUpdate()
+         public void IntitialRepoUpdate()
         {
+            
             bookingHandler.IntitialRepoUpdate();
         }
-
         public void UpdateCalendar()
         {
             List<string> updatedCalendarDates = new List<string>(); 
@@ -689,12 +696,24 @@ namespace ViewModel
         }
         public void CheckLogin(string password, string memberNumber)
         {
-            LoginResponse = loginHandler.GetLoginInformation(password, memberNumber);
+            ReturnMessage = loginHandler.GetLoginInformation(password, memberNumber);
 
         }
         public void RegisterShift(string shiftType)
         {
-            RegisterShiftResponse = shiftHandler.RegisterShift(Shift, Instructor, shiftType);
+            ReturnMessage = shiftHandler.RegisterShift(Shift, Instructor, shiftType);
+        }
+        public void ShowSingleShiftList(string memberNumber, string shiftStartDate, string shiftEndDate)
+        {
+            ReturnMessage = shiftHandler.ShiftListSingle(Shift, Instructor, memberNumber, shiftStartDate, shiftEndDate);
+        }
+        public void ShowAllShiftList(string shiftStartDate, string shiftEndDate)
+        {
+            ReturnMessage = shiftHandler.ShiftListAll(Shift, Instructor, shiftStartDate, shiftEndDate);
+        }
+        public void ExportShiftList(string shiftListContent)
+        {
+            shiftHandler.ExportShiftList();
         }
     }
 }

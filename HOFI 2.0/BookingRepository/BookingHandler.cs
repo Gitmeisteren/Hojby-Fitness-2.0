@@ -28,7 +28,7 @@ namespace Model
 
         Booking member = new Booking();
         SQLDatabaseConnectionPoint _databaseCon = new SQLDatabaseConnectionPoint();
-        BookingRepository bookingRepo = new BookingRepository();
+        BookingRepository bookingRepo = BookingRepository.GetInstance();
 
         private static BookingHandler _Instance;
 

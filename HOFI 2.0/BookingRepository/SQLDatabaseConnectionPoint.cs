@@ -53,11 +53,63 @@ namespace Model
             }
         }
 
+        public string ChangeEmail(Instructor instructor)
+        {
+            string _ErrorMsg = "";
+            string _ReturnMsg = "";
+
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+
+                try
+                {
+
+                    con.Open();
+
+                    SqlCommand _ChangeEmail = new SqlCommand("spChangeMail", con);
+                    _ChangeEmail.CommandType = System.Data.CommandType.StoredProcedure;
+                    _ChangeEmail.Parameters.Add(new SqlParameter("@I_InstructorID", instructor.InstructorID));
+                    _ChangeEmail.Parameters.Add(new SqlParameter("@I_EMail", instructor.Mail));
+
+                    _ChangeEmail.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    if (e != null)
+                    {
+                        _ErrorMsg = "FEJL: Email er ikke opdateret. \n" + e.Message;
+
+                    }
+                }
+                catch (FormatException e1)
+                {
+                    if (e1 != null)
+                    {
+                        _ErrorMsg = "FEJL: Email er ikke opdateret. \n" + e1.Message;
+
+                    }
+                }
+                if (_ErrorMsg == "")
+                {
+                    _ReturnMsg = "Emailen er opdateret til: " + instructor.Mail;
+
+                }
+                else
+                {
+                    _ReturnMsg = _ErrorMsg;
+                }
+            }
+            return _ReturnMsg;
+        }
+         
+      
+
         public string SearchForMember(Booking NewBooking, Member NewMember)
         {
             string _ReturnMessage = "";
             using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
+
                 try
                 {
 
@@ -97,6 +149,57 @@ namespace Model
             return _ReturnMessage;
         }
 
+        public string AddInstructor(Instructor instructor)
+        {
+            string errorMsg = "";
+            string returnMsg = "";
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+
+                try
+                {
+
+
+                    con.Open();
+
+                    SqlCommand _AddInstructor = new SqlCommand("spAddInstructor", con);
+                    _AddInstructor.CommandType = System.Data.CommandType.StoredProcedure;
+                    _AddInstructor.Parameters.Add(new SqlParameter("@I_InstructorID", instructor.InstructorID));
+                    _AddInstructor.Parameters.Add(new SqlParameter("@Navn", instructor.Name));
+                    _AddInstructor.Parameters.Add(new SqlParameter("@Email", instructor.Mail));
+                    _AddInstructor.Parameters.Add(new SqlParameter("@Ansat", instructor.HireDate));
+
+                    _AddInstructor.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    if (e != null)
+                    {
+                        errorMsg = "FEJL: Instruktør er ikke oprettet \n" + e.Message;
+
+                    }
+                }
+                catch (FormatException e1)
+                {
+                    if (e1 != null)
+                    {
+                        errorMsg = "FEJL: Instruktør er ikke oprettet \n" + e1.Message;
+
+                    }
+                }
+                if (errorMsg == "")
+                {
+                    returnMsg = "Instruktøren " + instructor.Name + " er tilføjet";
+                    
+                }
+                else
+                {
+                    returnMsg = errorMsg;
+                }
+
+            }
+            return returnMsg;
+        }
         //string skal være en liste, og vi skal adde bookingobjekter til liste.
         public List<Booking> InitialRepoUpdate()
         {
@@ -328,10 +431,196 @@ namespace Model
 
                 }
                 returnMessage = returnMessage + mailExceptionHolder;
-
+                if (returnMessage == "")
+                {
+                    returnMessage = "Vagt registreret og mail sendt";
+                }
                 return returnMessage;
 
             }
+        }
+        internal string GetShiftListAll(Shift shift, Instructor instructor, string startDate, string endDate)
+        {
+
+            string ifError = "";
+            string normalRows = "";
+            string shiftListFromDatabaseAll = "";
+
+            //Variables for subtotal calculation:
+            string currentName = "";
+            string previousName = "";
+            int i = -1;
+            string subtotalRows = "";
+
+
+
+
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+                try
+                {
+
+                    con.Open();
+
+                    SqlCommand _ShowShiftListAll = new SqlCommand("spShowShiftsFromSpecificPeriod", con);
+                    _ShowShiftListAll.CommandType = CommandType.StoredProcedure;
+                    _ShowShiftListAll.Parameters.Add(new SqlParameter("@startDate", startDate));
+                    _ShowShiftListAll.Parameters.Add(new SqlParameter("@endDate", endDate));
+
+                    SqlDataReader reader = _ShowShiftListAll.ExecuteReader();
+
+                    List<int> subtotal = new List<int>();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            currentName = reader["Navn"].ToString();
+                            if (currentName != previousName)
+                            {
+                                if (i > -1)
+                                {
+                                    subtotalRows = subtotalRows + previousName + ": " + subtotal[i] + "kr." + "\n";
+                                }
+                                i++;
+                                subtotal.Add(0);
+                            }
+                            instructor.InstructorID = reader["InstructorID"].ToString();
+                            instructor.Name = currentName;
+                            shift.Type = reader["Type"].ToString();
+                            shift.Date = reader["Dato"].ToString();
+                            string salary = reader["Honorar"].ToString();
+                            previousName = instructor.Name;
+                            shift.Salary = int.Parse(salary);
+                            subtotal[i] = subtotal[i] + shift.Salary;
+
+                            normalRows = normalRows + (instructor.InstructorID + " \t|\t " + instructor.Name + " \t|\t " + shift.Type + " \t|\t " + shift.Date + " \t|\t " + shift.Salary + "\n");
+
+                        }
+                    }
+                    subtotalRows = subtotalRows + previousName + ": " + subtotal[i] + "kr." + "\n";
+                }
+                catch (SqlException e)
+                {
+
+                    ifError = "FEJL: " + e.Message;
+
+                }
+                catch (FormatException e1)
+                {
+                    ifError = "FEJL: " + e1.Message;
+                }
+
+                shiftListFromDatabaseAll = normalRows + subtotalRows;
+
+                if (shiftListFromDatabaseAll == "")
+                {
+                    shiftListFromDatabaseAll = ifError;
+                }
+                else
+                {
+                    shiftListFromDatabaseAll = shiftListFromDatabaseAll + "\n \n Fil eksporteret til skrivebordet under mappen 'Excel'.\n \n";
+                }
+                return shiftListFromDatabaseAll;
+            }
+        }
+
+        public List<Instructor> ShowInstructors()
+        {
+            List<Instructor> instructorList = new List<Instructor>();
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+                    
+                try
+                {
+                    con.Open();
+
+
+                    SqlCommand _GetInstructorInfo = new SqlCommand("spGetInstructorInfo", con);
+
+                    SqlDataReader reader = _GetInstructorInfo.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Instructor instructor = new Instructor();
+
+                            instructor.InstructorID = reader["InstructorID"].ToString();
+                            instructor.Name = reader["Navn"].ToString();
+                            instructor.Mail = reader["Email"].ToString();
+                            instructor.HireDate = reader["Ansat"].ToString();
+
+                            instructorList.Add(instructor);
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+
+                }
+             
+            }
+            return instructorList;
+        }
+
+        internal string GetShiftListSingle(Shift shift, Instructor instructor,string memberNumber, string startDate, string endDate)
+        {
+            string ifError = "";
+            string normalRows = "";
+            string shiftListFromDatabase = "";
+
+            int subtotal = 0;
+
+            using (SqlConnection can = new SqlConnection(_ConnectionString))
+            {
+                try
+                {
+                    can.Open();
+
+                    SqlCommand _ShowShiftListSingle = new SqlCommand("spShowShiftsFromSpecificPeriod", can);
+                    _ShowShiftListSingle.CommandType = System.Data.CommandType.StoredProcedure;
+                    _ShowShiftListSingle.Parameters.Add(new SqlParameter("@startDate", startDate));
+                    _ShowShiftListSingle.Parameters.Add(new SqlParameter("@endDate", endDate));
+                    _ShowShiftListSingle.Parameters.Add(new SqlParameter("@memberNumber", memberNumber));
+                    SqlDataReader reader = _ShowShiftListSingle.ExecuteReader();
+
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            instructor.InstructorID = reader["InstructorID"].ToString();
+                            instructor.Name = reader["Navn"].ToString();
+                            shift.Type = reader["Type"].ToString();
+                            shift.Date = reader["Dato"].ToString();
+                            string salary = reader["Honorar"].ToString();
+
+                            shift.Salary = int.Parse(salary);
+
+                            subtotal = subtotal + shift.Salary;
+
+                            normalRows = normalRows + (instructor.InstructorID + " \t|\t " + instructor.Name + " \t|\t " + shift.Type + " \t|\t " + shift.Date + " \t|\t " + shift.Salary + "\n" + "\n");
+
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    ifError = "FEJL: " + e.Message;
+                }
+                shiftListFromDatabase = normalRows + "Subtotal: " + subtotal + "kr." + "\n";
+
+                if (shiftListFromDatabase == "")
+                {
+                    shiftListFromDatabase = ifError;
+                }
+                else
+                {
+                    shiftListFromDatabase = shiftListFromDatabase + "&\n \n Fil eksporteret for " + instructor.InstructorID + " på skrivebordet under mappen 'Excel'. \n \n";
+                }
+            }
+
+            return shiftListFromDatabase;
         }
     }
 }

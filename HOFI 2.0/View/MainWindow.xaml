@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Medlemmer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="296,194,0,0" Click="Btn_MembersWindow_Click"/>
-        <Button Name="Btn_ShiftMenu" Content="Vagter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="422,194,0,0" Click="Btn_ShiftMenu_Click"/>
-        <Button Content="Instruktører" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="548,194,0,0" Click="Btn_InstructorsMenu_Click"/>
+        <Button Content="Medlemmer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="269,180,0,0" Click="Btn_MembersWindow_Click" Height="34"/>
+        <Button Name="Btn_ShiftMenu" Content="Vagter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="384,180,0,0" Click="Btn_ShiftWindow_Click" Height="34"/>
+        <Button Content="Instruktører" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="499,180,0,0" Click="Btn_InstructorsWindow_Click" Height="34" RenderTransformOrigin="-0.337,0.541"/>
         <Button x:Name="btn_BookingMenu" Content="Booking Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="155,180,0,0" Click="Btn_BookingMenu_Click" Height="34"/>
 
     </Grid>

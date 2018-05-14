@@ -81,6 +81,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EditInstructorWindow.xaml.cs">
+      <DependentUpon>EditInstructorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InstructorsWindow.xaml.cs">
       <DependentUpon>InstructorsWindow.xaml</DependentUpon>
     </Compile>
@@ -96,10 +99,17 @@
     <Compile Include="ScheduleSession.xaml.cs">
       <DependentUpon>ScheduleSession.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShiftMenu.xaml.cs">
-      <DependentUpon>ShiftMenu.xaml</DependentUpon>
+    <Compile Include="RegisterShift.xaml.cs">
+      <DependentUpon>RegisterShift.xaml</DependentUpon>
     </Compile>
-    <Page Include="BookingMenu.xaml">
+    <Compile Include="ShiftWindow.xaml.cs">
+      <DependentUpon>ShiftWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="BookingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditInstructorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,8 +129,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BookingMenu.xaml.cs">
-      <DependentUpon>BookingMenu.xaml</DependentUpon>
+    <Compile Include="BookingWindow.xaml.cs">
+      <DependentUpon>BookingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -138,7 +148,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShiftMenu.xaml">
+    <Page Include="RegisterShift.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShiftWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

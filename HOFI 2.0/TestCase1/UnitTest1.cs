@@ -17,7 +17,7 @@ namespace TestCase1
         LoginHandler loginHandler = new LoginHandler();
         Login login = new Login();
         Controller controller = Controller.GetInstance();
-        BookingRepository bookingRepository = new BookingRepository();
+        BookingRepository bookingRepository = BookingRepository.GetInstance();
         Calendar calendar = Calendar.GetInstance();
         BookingHandler bookingHandler = BookingHandler.GetInstance();
         SQLDatabaseConnectionPoint sqlDatabaseConnectionPoint = new SQLDatabaseConnectionPoint();

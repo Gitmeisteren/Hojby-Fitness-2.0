@@ -1,0 +1,56 @@
+﻿<Window x:Class="View.BookingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:View"
+        mc:Ignorable="d"
+        Title="BookingMenu" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="145*"/>
+            <ColumnDefinition Width="647*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="Btn_ScheduleSession" Content="Book forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,32,0,0" Click="Btn_ScheduleSession_Click" Height="20"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,90,0,0" Height="20"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,148,0,0" Height="20"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,390,0,0" Click="ButtonReturnToMainWindow_Click" Height="20"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="1" Margin="110,0,0,-2"/>
+        <WrapPanel HorizontalAlignment="Left" Height="284" VerticalAlignment="Top" Width="666" Margin="116,70,0,0" Grid.ColumnSpan="2">
+            <Label x:Name="Label_1"  Content="{Binding Label_1,  Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_2"  Content="{Binding Label_2,  Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_3"  Content="{Binding Label_3,  Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_4"  Content="{Binding Label_4,  Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_5"  Content="{Binding Label_5,  Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_6"  Content="{Binding Label_6,  Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_7"  Content="{Binding Label_7,  Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_8"  Content="{Binding Label_8,  Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_9"  Content="{Binding Label_9,  Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_10" Content="{Binding Label_10, Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_11" Content="{Binding Label_11, Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_12" Content="{Binding Label_12, Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_13" Content="{Binding Label_13, Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_14" Content="{Binding Label_14, Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_15" Content="{Binding Label_15, Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_16" Content="{Binding Label_16, Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_17" Content="{Binding Label_17, Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_18" Content="{Binding Label_18, Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_19" Content="{Binding Label_19, Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_20" Content="{Binding Label_20, Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_21" Content="{Binding Label_21, Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_22" Content="{Binding Label_22, Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_23" Content="{Binding Label_23, Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_24" Content="{Binding Label_24, Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_25" Content="{Binding Label_25, Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_26" Content="{Binding Label_26, Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_27" Content="{Binding Label_27, Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_28" Content="{Binding Label_28, Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_29" Content="{Binding Label_29, Mode=TwoWay}" Height="55" Width="95" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" />
+            <Label x:Name="Label_30" Content="{Binding Label_30, Mode=TwoWay}" Height="55" Width="95" Background="#FFC7BDBD" BorderBrush="Black" BorderThickness="1" />
+
+
+        </WrapPanel>
+        <Label Content="Booking oversigt" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="111,10,0,0" Height="42" Width="188" FontSize="24" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>

@@ -18,16 +18,16 @@ namespace View
     /// <summary>
     /// Interaction logic for ShiftWindow.xaml
     /// </summary>
-    public partial class ShiftWindow : Window
+    public partial class ExportShiftsWindow : Window
     {
-        Controller controller = Controller.GetInstance();
+        Controller _Controller = Controller.GetInstance();
         string shiftEndDate = "";
         string shiftStartDate = "";
         string memberNumber = "";
-        public ShiftWindow()
+        public ExportShiftsWindow()
         {
             InitializeComponent();
-            this.DataContext = controller;
+            this.DataContext = _Controller;
         }
 
         private void Btn_ShowSingleShifts_Click(object sender, RoutedEventArgs e)
@@ -35,26 +35,26 @@ namespace View
             shiftEndDate = Tb_EndDateSingle.Text;
             shiftStartDate = Tb_StartDateSingle.Text;
             memberNumber = Tb_MemberNumber.Text;
-            controller.ShowSingleShiftList(memberNumber, shiftStartDate, shiftEndDate);
+            _Controller.ShowSingleShiftList(memberNumber, shiftStartDate, shiftEndDate);
         }
 
         private void Btn_ShowAllShifts_Click(object sender, RoutedEventArgs e)
         {
             shiftEndDate = Tb_EndDateAll.Text;
             shiftStartDate = Tb_StartDateAll.Text;
-            controller.ShowAllShiftList(shiftStartDate, shiftEndDate);
+            _Controller.ShowAllShiftList(shiftStartDate, shiftEndDate);
         }
 
         private void Btn_PrintShifts_Click(object sender, RoutedEventArgs e)
         {
             string shiftListContent = TBlock_ShiftList.Text;
-            controller.ExportShiftList(shiftListContent);
+            _Controller.ExportShiftList(shiftListContent);
         }
 
         private void Btn_ReturnToShiftMenu_Click(object sender, RoutedEventArgs e)
         {
 
-            ShiftMenu shiftMenu = new ShiftMenu();
+            RegisterShiftWindow shiftMenu = new RegisterShiftWindow();
             shiftMenu.Show();
             this.Close();
         }

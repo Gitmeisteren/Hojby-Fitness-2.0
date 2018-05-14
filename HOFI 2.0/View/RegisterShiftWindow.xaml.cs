@@ -18,12 +18,12 @@ namespace View
     /// <summary>
     /// Interaction logic for ShiftMenu.xaml
     /// </summary>
-    public partial class ShiftMenu : Window
+    public partial class RegisterShiftWindow : Window
     {
         public string memberNumber = "";
         public string shiftDate = "";
         Controller _Controller = Controller.GetInstance();
-        public ShiftMenu()
+        public RegisterShiftWindow()
         {
             InitializeComponent();
             this.DataContext = _Controller;
@@ -49,7 +49,7 @@ namespace View
 
         private void Btn_ShiftList_Click(object sender, RoutedEventArgs e)
         {
-            ShiftWindow _ShiftWindow = new ShiftWindow();
+            ExportShiftsWindow _ShiftWindow = new ExportShiftsWindow();
             _ShiftWindow.Show();
             this.Close();
         }

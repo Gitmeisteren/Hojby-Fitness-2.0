@@ -22,35 +22,35 @@ namespace View
     {
         public string memberNumber = "";
         public string shiftDate = "";
-        Controller controller = Controller.GetInstance();
+        Controller _Controller = Controller.GetInstance();
         public ShiftMenu()
         {
             InitializeComponent();
-            this.DataContext = controller;
+            this.DataContext = _Controller;
         }
 
         private void Btn_RegisterShift_Click(object sender, RoutedEventArgs e)
         {
-            BindingExpression bind_MemberNumber = Tb_TypeMemberNumber.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bind_ShiftDate = Tb_TypeShiftDate.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression _Bind_MemberNumber = Tb_TypeMemberNumber.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression _Bind_ShiftDate = Tb_TypeShiftDate.GetBindingExpression(TextBox.TextProperty);
 
-            bind_MemberNumber.UpdateSource();
-            bind_ShiftDate.UpdateSource();
+            _Bind_MemberNumber.UpdateSource();
+            _Bind_ShiftDate.UpdateSource();
 
-            controller.RegisterShift(Cmb_ShiftType.Text);
+            _Controller.RegisterShift(Cmb_ShiftType.Text);
         }
 
         private void Btn_ReturnToMainWindow_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainwindow = new MainWindow();
-            mainwindow.Show();
+            MainWindow _Mainwindow = new MainWindow();
+            _Mainwindow.Show();
             this.Close();
         }
 
         private void Btn_ShiftList_Click(object sender, RoutedEventArgs e)
         {
-            ShiftWindow shiftWindow = new ShiftWindow();
-            shiftWindow.Show();
+            ShiftWindow _ShiftWindow = new ShiftWindow();
+            _ShiftWindow.Show();
             this.Close();
         }
     }

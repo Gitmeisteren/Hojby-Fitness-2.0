@@ -26,55 +26,53 @@ namespace ViewModel
 
         #endregion
 
+        public Controller()
+        {
+            NewBooking = new Booking();
+            bookingRepo = BookingRepository.GetInstance();
+            NewMember = new Member();
+            CalendarDates = Calendar.GetInstance();
+            Shift = new Shift();
+            Instructor = new Instructor();
+            IntitialRepoUpdate();
+        }
+        public static Controller GetInstance()
+        {
+            if (_Instance == null)
+            {
+                _Instance = new Controller();
+            }
+            return _Instance;
+        }
+
         //instances
         #region
-        BookingHandler bookingHandler = BookingHandler.GetInstance(); // what
-
-
+        BookingHandler bookingHandler = BookingHandler.GetInstance();
         Booking booking = new Booking();
         Member member = new Member();
         BookingRepository bookingRepo = BookingRepository.GetInstance();
         FileExporter fileExporter = new FileExporter();
-
-        public void ChangeEmail()
-        {
-            ReturnMessage =_DatabaseCon.ChangeEmail(Instructor);
-        }
-
         ShiftHandler shiftHandler = ShiftHandler.GetInstance();
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
         LoginHandler loginHandler = new LoginHandler();
+        Calendar calendar = Calendar.GetInstance();
         #endregion
 
-        public void ExportToPDF(string goal)
-        {
- 
-            fileExporter.ExportToPDF(NewBooking.MemberNumber, NewMember.Name, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
-        }
-
-
-
-        Calendar calendar = Calendar.GetInstance();
+        //Privates
+        #region
         private static Controller _Instance;
         private string _ReturnMessage;
+        private List<Instructor> _InstructorsList = new List<Instructor>();
+        #endregion
 
+        //Properties
+        #region
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
         public Shift Shift { get; set; }
         public Instructor Instructor { get; set; }
-
-        public List<string> Cmb_TypeChoices { get; } = new List<string>() { "Fitness", "Spinning" };
-
-        public void AddInstructor()
-        {
-           ReturnMessage = _DatabaseCon.AddInstructor(Instructor);
-            ShowInstructors();
-        }
-
         public List<string> Cmb_GoalChoices { get; } = new List<string>() { "Styrketræning", "Vægttab", "Opstramning", "Konditionstræning", "Kom-Godt-Igang" };
-
-        private List<Instructor> _InstructorsList = new List<Instructor>();
-
+        public List<string> Cmb_TypeChoices { get; } = new List<string>() { "Fitness", "Spinning" };
         public List<Instructor> InstructorsList
         {
             get
@@ -86,10 +84,6 @@ namespace ViewModel
                 _InstructorsList = value;
                 OnPropertyChanged("InstructorsList");
             }
-        }
-        public void SearchForMember()
-        {
-          ReturnMessage = _DatabaseCon.SearchForMember(NewBooking, NewMember);
         }
 
         public Calendar CalendarDates { get; set; }
@@ -616,28 +610,27 @@ namespace ViewModel
             }
         }
 
+        #endregion#endregion
         #endregion
 
-    
-        public Controller()
+        public void ExportToPDF(string goal)
         {
-            NewBooking = new Booking();
-            bookingRepo = BookingRepository.GetInstance();
-            NewMember = new Member();
-            CalendarDates = Calendar.GetInstance();
-            Shift = new Shift();
-            Instructor = new Instructor();
-            IntitialRepoUpdate();
+ 
+            fileExporter.ExportToPDF(NewBooking.MemberNumber, NewMember.Name, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
         }
-        public static Controller GetInstance()
+        public void AddInstructor()
         {
-            if (_Instance == null)
-            {
-                _Instance = new Controller();
-            }
-            return _Instance;
+           ReturnMessage = _DatabaseCon.AddInstructor(Instructor);
+            ShowInstructors();
         }
-
+        public void ChangeEmail()
+        {
+            ReturnMessage = _DatabaseCon.ChangeEmail(Instructor);
+        }
+        public void SearchForMember()
+        {
+          ReturnMessage = _DatabaseCon.SearchForMember(NewBooking, NewMember);
+        }
         public void ShowInstructors()
         {
              
@@ -654,13 +647,11 @@ namespace ViewModel
         {
             bookingHandler.CreateNewMember(NewMember, NewBooking);
         }
-
-        public void IntitialRepoUpdate()
+         public void IntitialRepoUpdate()
         {
             
             bookingHandler.IntitialRepoUpdate();
         }
-
         public void UpdateCalendar()
         {
             List<string> updatedCalendarDates = new List<string>(); 

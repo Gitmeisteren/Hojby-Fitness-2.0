@@ -30,30 +30,39 @@ namespace View
 
         private void Btn_BookingMenu_Click(object sender, RoutedEventArgs e)
         {
-            BookingMenu bookingMenu = new BookingMenu();
-            bookingMenu.Show();
+            BookingWindow _BookingMenu = new BookingWindow();
+            _BookingMenu.Show();
             this.Close();
         }
 
         private void Btn_MembersWindow_Click(object sender, RoutedEventArgs e)
         {
-            MemberOverlayWindow members = new MemberOverlayWindow();
-            members.Show();
+            MemberOverlayWindow _Members = new MemberOverlayWindow();
+            _Members.Show();
             this.Close();
         }
 
-        private void Btn_ShiftMenu_Click(object sender, RoutedEventArgs e)
+        private void Btn_ShiftWindow_Click(object sender, RoutedEventArgs e)
         {
-            RegisterShiftWindow shiftMenu = new RegisterShiftWindow();
-            shiftMenu.Show();
+            RegisterShift _ShiftWindow = new RegisterShift();
+            _ShiftWindow.Show();
             this.Close();
         }
 
         private void Btn_InstructorsWindow_Click(object sender, RoutedEventArgs e)
         {
+            InstructorsWindow _InstructorsWindow = new InstructorsWindow();
+            _InstructorsWindow.Show();
+            this.Close();
+        }
+
+        private void Btn_InstructorsMenu_Click(object sender, RoutedEventArgs e)
+        {
             InstructorsWindow instructorsWindow = new InstructorsWindow();
+
             instructorsWindow.Show();
             this.Close();
+
         }
     }
 }

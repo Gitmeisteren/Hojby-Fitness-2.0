@@ -18,7 +18,7 @@
         <TextBox Name="tb_TimePerTraining" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Tb_TimePerTraining, Mode=TwoWay}" VerticalAlignment="Top" Width="363" Margin="403,226,0,0"/>
         <TextBox Name="tb_Notes" HorizontalAlignment="Left" Height="139" TextWrapping="Wrap" Text="{Binding Path=Tb_Notes, Mode=TwoWay}" VerticalAlignment="Top" Width="363" Margin="403,258,0,0"/>
         <ComboBox Name="cmb_goal" ItemsSource="{Binding Path=cmb_GoalChoices}" HorizontalAlignment="Left" Margin="403,130,0,0" VerticalAlignment="Top" Width="363" SelectionChanged="ComboBox_SelectionChanged"/>
-        <CheckBox Name="chb_TrainingProgram" Content="Træningsprogram" IsChecked="{Binding Path=Chb_TrainingProgram}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="403,166,0,0" Checked="chb_TrainingProgram_Checked"/>
+        <CheckBox Name="chb_TrainingProgram" Content="Træningsprogram" IsChecked="{Binding Path=Chb_TrainingProgram}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="403,166,0,0" Checked="Chb_TrainingProgram_Checked"/>
         <Label Content="{Binding NewMember.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="398,94,0,0" VerticalAlignment="Top" Width="368" Height="26"/>
         <Label Content="{Binding NewBooking.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="398,66,0,0" VerticalAlignment="Top" Height="23" Width="363"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="10,382,0,0" VerticalAlignment="Top" Width="98" Click="Btn_Return"/>

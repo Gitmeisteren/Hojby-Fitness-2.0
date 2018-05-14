@@ -20,50 +20,50 @@ namespace View
     /// </summary>
     public partial class ScheduleSession : Window
     {
-        Controller controller = Controller.GetInstance();
+        Controller _Controller = Controller.GetInstance();
         public ScheduleSession()
         {
             InitializeComponent();
-            this.DataContext = controller;
+            this.DataContext = _Controller;
             
         }
         
 
         private void Btn_ScheduleSession_Click(object sender, RoutedEventArgs e)
         {
-            BindingExpression bind_MemberNumber = tb_TypeMemberNumber.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression _Bind_MemberNumber = tb_TypeMemberNumber.GetBindingExpression(TextBox.TextProperty);
 
-            BindingExpression bind_BookingDate = tb_TypeBookingDate.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression _Bind_BookingDate = tb_TypeBookingDate.GetBindingExpression(TextBox.TextProperty);
 
-            bind_MemberNumber.UpdateSource();
-            bind_BookingDate.UpdateSource();
+            _Bind_MemberNumber.UpdateSource();
+            _Bind_BookingDate.UpdateSource();
 
-            controller.ScheduleSession();
+            _Controller.ScheduleSession();
             
         }
 
-        private void Btn_CreateMember(object sender, RoutedEventArgs e)
+        private void Btn_CreateMember_Click(object sender, RoutedEventArgs e)
         {
-            BindingExpression bind_MemberNumber = tb_CreateMemberNumber.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bind_Name = tb_CreateName.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bind_PhoneNumber = tb_CreatePhoneNumber.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bind_Email = tb_CreateEmail.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bind_Age = tb_CreateAge.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression _Bind_MemberNumber = tb_CreateMemberNumber.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression _Bind_Name = tb_CreateName.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression _Bind_PhoneNumber = tb_CreatePhoneNumber.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression _Bind_Email = tb_CreateEmail.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression _Bind_Age = tb_CreateAge.GetBindingExpression(TextBox.TextProperty);
 
-            bind_MemberNumber.UpdateSource();
-            bind_Name.UpdateSource();
-            bind_PhoneNumber.UpdateSource();
-            bind_Email.UpdateSource();
-            bind_Age.UpdateSource();
+            _Bind_MemberNumber.UpdateSource();
+            _Bind_Name.UpdateSource();
+            _Bind_PhoneNumber.UpdateSource();
+            _Bind_Email.UpdateSource();
+            _Bind_Age.UpdateSource();
 
-            controller.CreateNewMember();
+            _Controller.CreateNewMember();
 
         }
 
-        private void ButtonReturnToBookingMenu_Click(object sender, RoutedEventArgs e)
+        private void Btn_ReturnToBookingMenu_Click(object sender, RoutedEventArgs e)
         {
-            BookingMenu bookingMenu = new BookingMenu();
-            bookingMenu.Show();
+            BookingWindow _BookingMenu = new BookingWindow();
+            _BookingMenu.Show();
             this.Close();
         }
     }

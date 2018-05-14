@@ -18,16 +18,16 @@ namespace View
     /// <summary>
     /// Interaction logic for ShiftWindow.xaml
     /// </summary>
-    public partial class ExportShiftsWindow : Window
+    public partial class ShiftWindow : Window
     {
-        Controller _Controller = Controller.GetInstance();
+        Controller controller = Controller.GetInstance();
         string shiftEndDate = "";
         string shiftStartDate = "";
         string memberNumber = "";
-        public ExportShiftsWindow()
+        public ShiftWindow()
         {
             InitializeComponent();
-            this.DataContext = _Controller;
+            this.DataContext = controller;
         }
 
         private void Btn_ShowSingleShifts_Click(object sender, RoutedEventArgs e)
@@ -35,26 +35,26 @@ namespace View
             shiftEndDate = Tb_EndDateSingle.Text;
             shiftStartDate = Tb_StartDateSingle.Text;
             memberNumber = Tb_MemberNumber.Text;
-            _Controller.ShowSingleShiftList(memberNumber, shiftStartDate, shiftEndDate);
+            controller.ShowSingleShiftList(memberNumber, shiftStartDate, shiftEndDate);
         }
 
         private void Btn_ShowAllShifts_Click(object sender, RoutedEventArgs e)
         {
             shiftEndDate = Tb_EndDateAll.Text;
             shiftStartDate = Tb_StartDateAll.Text;
-            _Controller.ShowAllShiftList(shiftStartDate, shiftEndDate);
+            controller.ShowAllShiftList(shiftStartDate, shiftEndDate);
         }
 
         private void Btn_PrintShifts_Click(object sender, RoutedEventArgs e)
         {
             string shiftListContent = TBlock_ShiftList.Text;
-            _Controller.ExportShiftList(shiftListContent);
+            controller.ExportShiftList(shiftListContent);
         }
 
         private void Btn_ReturnToShiftMenu_Click(object sender, RoutedEventArgs e)
         {
 
-            RegisterShiftWindow shiftMenu = new RegisterShiftWindow();
+            RegisterShift shiftMenu = new RegisterShift();
             shiftMenu.Show();
             this.Close();
         }

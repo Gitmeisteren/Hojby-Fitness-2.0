@@ -18,12 +18,12 @@ namespace View
     /// <summary>
     /// Interaction logic for ShiftMenu.xaml
     /// </summary>
-    public partial class RegisterShiftWindow : Window
+    public partial class RegisterShift : Window
     {
-        public string memberNumber = "";
+        public string memberNumber = ""; // skal de her ligge her? Dette er viewlaget.
         public string shiftDate = "";
         Controller _Controller = Controller.GetInstance();
-        public RegisterShiftWindow()
+        public RegisterShift()
         {
             InitializeComponent();
             this.DataContext = _Controller;
@@ -49,7 +49,7 @@ namespace View
 
         private void Btn_ShiftList_Click(object sender, RoutedEventArgs e)
         {
-            ExportShiftsWindow _ShiftWindow = new ExportShiftsWindow();
+            ShiftWindow _ShiftWindow = new ShiftWindow();
             _ShiftWindow.Show();
             this.Close();
         }

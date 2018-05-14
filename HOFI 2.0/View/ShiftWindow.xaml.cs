@@ -32,7 +32,7 @@ namespace View
 
         private void Btn_ShowSingleShifts_Click(object sender, RoutedEventArgs e)
         {
-            shiftEndDate = Tb_EndDateSingle.Text;
+            shiftEndDate = Tb_EndDateSingle.Text;///
             shiftStartDate = Tb_StartDateSingle.Text;
             memberNumber = Tb_MemberNumber.Text;
             controller.ShowSingleShiftList(memberNumber, shiftStartDate, shiftEndDate);

@@ -107,6 +107,7 @@ namespace Model
         public string SearchForMember(Booking NewBooking, Member NewMember)
         {
             string _ReturnMessage = "";
+            string _MemberNumberClone = "";
             using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
 
@@ -127,7 +128,7 @@ namespace Model
                         while (reader.Read())
                         {
                             NewMember.Name = reader["Name"].ToString();
-                            NewBooking.MemberNumber = reader["MemberID"].ToString();
+                            _MemberNumberClone = reader["MemberID"].ToString();
                         }
                     }
                     reader.Close();
@@ -141,7 +142,7 @@ namespace Model
                 {
                     _ReturnMessage += f.Message;
                 }
-                if (NewBooking.MemberNumber.ToString() != "")
+                if (_MemberNumberClone == "")
                 {
                     _ReturnMessage += "Kunne ikke finde " + NewBooking.MemberNumber + " - Prøv igen";
                 }

@@ -23,9 +23,11 @@
         <TextBox Name="tb_SearchForMember" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" Text="{Binding NewBooking.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="237" Margin="430,10,0,0"/>
         <Label Content="Medlemsnummer(hofi1234) eller navn:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" Width="242" Margin="183,10,0,0"/>
         <Button Name="Btn_SeachforMember_Click" Content="Søg" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="680,13,0,0" Click="Btn_SeachForMember_Click"/>
-        <StackPanel HorizontalAlignment="Left" Height="320" VerticalAlignment="Top" Width="673" Margin="109,79,0,0">
+        <StackPanel HorizontalAlignment="Left" Height="59" VerticalAlignment="Top" Width="673" Margin="109,79,0,0">
             <Label x:Name="test" Content="{Binding NewMember.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Margin="0,0,-50,0" Height="26"/>
+            <Label Content="Label" Margin="0,0,0.333,0"/>
         </StackPanel>
         <Button Content="Åben journal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="673" Margin="109,113,0,0" Height="25" Click="Btn_OpenMembersJournal"/>
+        <Label Content="{Binding Path=ReturnMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="109,173,0,0" Height="80" Width="267"/>
     </Grid>
 </Window>

@@ -141,9 +141,9 @@ namespace Model
                 {
                     _ReturnMessage += f.Message;
                 }
-                if(_ReturnMessage != "")
+                if (NewBooking.MemberNumber.ToString() != "")
                 {
-                    _ReturnMessage += " ----- Prøv igen";
+                    _ReturnMessage += "Kunne ikke finde " + NewBooking.MemberNumber + " - Prøv igen";
                 }
             }
             return _ReturnMessage;

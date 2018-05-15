@@ -29,16 +29,13 @@ namespace View
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            controller.ShowInstructors();
-        }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
 
-            mainWindow.Show();
+        private void Btn_ReturntoMainWindow_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow _MainWindow = new MainWindow();
+
+            _MainWindow.Show();
             this.Close();
         }
 

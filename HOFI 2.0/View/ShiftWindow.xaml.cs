@@ -21,9 +21,6 @@ namespace View
     public partial class ShiftWindow : Window
     {
         Controller controller = Controller.GetInstance();
-        string shiftEndDate = "";
-        string shiftStartDate = "";
-        string memberNumber = "";
         public ShiftWindow()
         {
             InitializeComponent();
@@ -32,17 +29,26 @@ namespace View
 
         private void Btn_ShowSingleShifts_Click(object sender, RoutedEventArgs e)
         {
-            shiftEndDate = Tb_EndDateSingle.Text;
-            shiftStartDate = Tb_StartDateSingle.Text;
-            memberNumber = Tb_MemberNumber.Text;
-            controller.ShowSingleShiftList(memberNumber, shiftStartDate, shiftEndDate);
+            BindingExpression bind_StartDateSingle = Tb_StartDateSingle.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_EndDateSingle = Tb_EndDateSingle.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_InstructorID = Tb_MemberNumber.GetBindingExpression(TextBox.TextProperty);
+
+            bind_InstructorID.UpdateSource();
+            bind_StartDateSingle.UpdateSource();
+            bind_EndDateSingle.UpdateSource();
+
+            controller.ShowSingleShiftList();
         }
 
         private void Btn_ShowAllShifts_Click(object sender, RoutedEventArgs e)
         {
-            shiftEndDate = Tb_EndDateAll.Text;
-            shiftStartDate = Tb_StartDateAll.Text;
-            controller.ShowAllShiftList(shiftStartDate, shiftEndDate);
+            BindingExpression bind_StartDateAll = Tb_StartDateAll.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_EndDateAll = Tb_EndDateAll.GetBindingExpression(TextBox.TextProperty);
+
+            bind_StartDateAll.UpdateSource();
+            bind_EndDateAll.UpdateSource();
+
+            controller.ShowAllShiftList();
         }
 
         private void Btn_PrintShifts_Click(object sender, RoutedEventArgs e)

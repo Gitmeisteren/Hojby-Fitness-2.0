@@ -18,17 +18,17 @@
             </Border.RenderTransform>
         </Border>
         <Button x:Name="Btn_ReturnToShiftMenu" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,435,0,0" Click="Btn_ReturnToShiftMenu_Click"/>
-        <TextBox x:Name="Tb_MemberNumber" Text="{Binding Instructor.InstructorID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Margin="344,10,0,0" />
+        <TextBox x:Name="Tb_MemberNumber" Text="{Binding ShiftListInstructorID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Margin="344,10,0,0" />
         <Label Content="Medlemsnummer (hofixxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,10,0,0"/>
         <Label Content="Startdato (xx.xx.xxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,41,0,0"/>
         <Label Content="Slutdato (xx.xx.xxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,72,0,0"/>
-        <TextBox x:Name="Tb_StartDateSingle" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Margin="344,44,0,0"/>
-        <TextBox x:Name="Tb_EndDateSingle" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Margin="344,75,0,0"/>
+        <TextBox x:Name="Tb_StartDateSingle" Text="{Binding ShiftStartDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Margin="344,44,0,0"/>
+        <TextBox x:Name="Tb_EndDateSingle" Text="{Binding ShiftEndDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Margin="344,75,0,0"/>
         <Button x:Name="Btn_ShowSingleShifts" Content="Vis vagter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="344,103,0,0" Click="Btn_ShowSingleShifts_Click"/>
         <Label Content="Startdato (xx.xx.xxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="123,131,0,0"/>
-        <TextBox x:Name="Tb_StartDateAll" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Margin="344,135,0,0"/>
+        <TextBox x:Name="Tb_StartDateAll" Text="{Binding ShiftStartDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Margin="344,135,0,0"/>
         <Label Content="Slutdato (xx.xx.xxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="123,162,0,0" Width="118"/>
-        <TextBox x:Name="Tb_EndDateAll" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Margin="344,165,0,0"/>
+        <TextBox x:Name="Tb_EndDateAll" Text="{Binding ShiftEndDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Margin="344,165,0,0"/>
         <Button x:Name="Btn_ShowAllShifts" Content="Vis alle vagter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Margin="344,193,0,0" Click="Btn_ShowAllShifts_Click"/>
         <WrapPanel>
             <TextBlock x:Name="TBlock_ShiftList" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=ReturnMessage, Mode=TwoWay}" VerticalAlignment="Top" Margin="123,218,0,0" Height="237" Width="367"/>

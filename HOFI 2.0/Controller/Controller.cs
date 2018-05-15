@@ -85,7 +85,49 @@ namespace ViewModel
                 OnPropertyChanged("InstructorsList");
             }
         }
+        //Shift properties for ShiftWindow
+        #region
+        string _InstructorID = "";
+        string _StartDate = "";
+        string _EndDate = "";
+        public string ShiftListInstructorID
+        {
+            get
+            {
+                return _InstructorID;
+            }
+            set
+            {
+                _InstructorID = value;
+                OnPropertyChanged("ShiftListInstructorID");
+            }
+        }
+        public string ShiftStartDate
+        {
+            get
+            {
+                return _StartDate;
+            }
+            set
+            {
+                _StartDate = value;
+                OnPropertyChanged("ShiftStartDate");
+            }
+        }
+        public string ShiftEndDate
+        {
+            get
+            {
+                return _EndDate;
+            }
+            set
+            {
+                _EndDate = value;
+                OnPropertyChanged("ShiftEndDate");
+            }
+        }
 
+        #endregion
         public Calendar CalendarDates { get; set; }
         public string ReturnMessage
         {
@@ -335,7 +377,7 @@ namespace ViewModel
                 _Label16 = value;
                 OnPropertyChanged("Label_16");
             }
-       
+
         }
 
         public string Label_17
@@ -615,12 +657,12 @@ namespace ViewModel
 
         public void ExportToPDF(string goal)
         {
- 
+
             fileExporter.ExportToPDF(NewBooking.MemberNumber, NewMember.Name, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
         }
         public void AddInstructor()
         {
-           ReturnMessage = _DatabaseCon.AddInstructor(Instructor);
+            ReturnMessage = _DatabaseCon.AddInstructor(Instructor);
             ShowInstructors();
         }
         public void ChangeEmail()
@@ -629,35 +671,35 @@ namespace ViewModel
         }
         public void SearchForMember()
         {
-          ReturnMessage = _DatabaseCon.SearchForMember(NewBooking, NewMember);
+            ReturnMessage = _DatabaseCon.SearchForMember(NewBooking, NewMember);
         }
         public void ShowInstructors()
         {
-             
 
-         InstructorsList = _DatabaseCon.ShowInstructors();
+
+            InstructorsList = _DatabaseCon.ShowInstructors();
         }
         public void ScheduleSession()
         {
 
             ReturnMessage = bookingHandler.ScheduleSession(NewBooking);
-        
+
         }
         public void CreateNewMember()
         {
             bookingHandler.CreateNewMember(NewMember, NewBooking);
         }
-         public void IntitialRepoUpdate()
+        public void IntitialRepoUpdate()
         {
-            
+
             bookingHandler.IntitialRepoUpdate();
         }
         public void UpdateCalendar()
         {
-            List<string> updatedCalendarDates = new List<string>(); 
-           updatedCalendarDates = bookingHandler.UpdateCalendar();
+            List<string> updatedCalendarDates = new List<string>();
+            updatedCalendarDates = bookingHandler.UpdateCalendar();
 
-            
+
             Label_1 = updatedCalendarDates[0];
             Label_2 = updatedCalendarDates[1];
             Label_3 = updatedCalendarDates[2];
@@ -703,13 +745,13 @@ namespace ViewModel
         {
             ReturnMessage = shiftHandler.RegisterShift(Shift, Instructor, shiftType);
         }
-        public void ShowSingleShiftList(string memberNumber, string shiftStartDate, string shiftEndDate)
+        public void ShowSingleShiftList()
         {
-            ReturnMessage = shiftHandler.ShiftListSingle(Shift, Instructor, memberNumber, shiftStartDate, shiftEndDate);
+            ReturnMessage = shiftHandler.ShiftListSingle(Shift, Instructor, ShiftListInstructorID, ShiftStartDate, ShiftEndDate);
         }
-        public void ShowAllShiftList(string shiftStartDate, string shiftEndDate)
+        public void ShowAllShiftList()
         {
-            ReturnMessage = shiftHandler.ShiftListAll(Shift, Instructor, shiftStartDate, shiftEndDate);
+            ReturnMessage = shiftHandler.ShiftListAll(Shift, Instructor, ShiftStartDate, ShiftEndDate);
         }
         public void ExportShiftList(string shiftListContent)
         {

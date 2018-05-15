@@ -43,10 +43,10 @@ namespace Model
             returnAllShifts = _DatabaseCon.GetShiftListAll(shift, instructor, shiftStartDate, shiftEndDate);
             return returnAllShifts;
         }
-        public string ShiftListSingle(Shift shift, Instructor instructor, string memberNumber, string shiftStartDate, string shiftEndDate)
+        public string ShiftListSingle(Shift shift, Instructor instructor, string instructorID, string shiftStartDate, string shiftEndDate)
         {
             string returnSingleShifts = "";
-            returnSingleShifts = _DatabaseCon.GetShiftListSingle(shift, instructor, memberNumber, shiftStartDate, shiftEndDate);
+            returnSingleShifts = _DatabaseCon.GetShiftListSingle(shift, instructor, instructorID, shiftStartDate, shiftEndDate);
             return returnSingleShifts;
         }
         public void ExportShiftList()

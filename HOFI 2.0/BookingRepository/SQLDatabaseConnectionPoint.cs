@@ -101,8 +101,8 @@ namespace Model
             }
             return _ReturnMsg;
         }
-         
-      
+
+
 
         public string SearchForMember(Booking NewBooking, Member NewMember)
         {
@@ -141,7 +141,7 @@ namespace Model
                 {
                     _ReturnMessage += f.Message;
                 }
-                if(_ReturnMessage != "")
+                if (_ReturnMessage != "")
                 {
                     _ReturnMessage += " ----- Prøv igen";
                 }
@@ -190,7 +190,7 @@ namespace Model
                 if (errorMsg == "")
                 {
                     returnMsg = "Instruktøren " + instructor.Name + " er tilføjet";
-                    
+
                 }
                 else
                 {
@@ -530,7 +530,7 @@ namespace Model
             List<Instructor> instructorList = new List<Instructor>();
             using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
-                    
+
                 try
                 {
                     con.Open();
@@ -558,12 +558,12 @@ namespace Model
                 {
 
                 }
-             
+
             }
             return instructorList;
         }
 
-        internal string GetShiftListSingle(Shift shift, Instructor instructor,string memberNumber, string startDate, string endDate)
+        internal string GetShiftListSingle(Shift shift, Instructor instructor, string memberNumber, string startDate, string endDate)
         {
             string ifError = "";
             string normalRows = "";

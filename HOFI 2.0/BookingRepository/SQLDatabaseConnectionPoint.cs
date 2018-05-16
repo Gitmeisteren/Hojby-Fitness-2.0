@@ -13,7 +13,7 @@ namespace Model
     public class SQLDatabaseConnectionPoint
     {
         private static string _ConnectionString = "Server= den1.mssql5.gear.host; Database= hofi; User ID = hofi; Password= Qg9OG4l~v-06;";
-
+        private string DateStringFromDB = "";
         public string ScheduleSession(Booking NewBooking)
         {
             string returnMessage = "";
@@ -263,7 +263,8 @@ namespace Model
                         {
                             Booking booking = new Booking();
                             booking.BookingID = int.Parse(reader["BookingID"].ToString());
-                            booking.BookingDate = reader["Date"].ToString();
+                            DateStringFromDB = reader["Date"].ToString();
+                            booking.BookingDate = DateTime.Parse(DateStringFromDB);
                             booking.MemberNumber = reader["MemberID"].ToString();
 
                             bookingRepo.Add(booking);
@@ -405,6 +406,7 @@ namespace Model
         }
         public string RegisterShift(Shift shift, Instructor instructor, string shiftType)
         {
+            DateTime Woogle = DateTime.Parse(shift.Date.ToString());
             string returnMessage = "";
             string mailExceptionHolder = "";
 
@@ -433,7 +435,7 @@ namespace Model
 
                     DateTime employmentDate = DateTime.Parse(hireDate);
 
-                    DateTime watchDate = DateTime.Parse(shift.Date);
+                    DateTime watchDate = Woogle;
 
                     watchDate = watchDate.AddYears(-3);
 
@@ -452,12 +454,12 @@ namespace Model
                     spinningWatch.CommandType = System.Data.CommandType.StoredProcedure;
                     spinningWatch.Parameters.Add(new SqlParameter("@Medlemsnr", instructor.InstructorID));
                     spinningWatch.Parameters.Add(new SqlParameter("@Type", shiftType));
-                    spinningWatch.Parameters.Add(new SqlParameter("@Dato", shift.Date));
+                    spinningWatch.Parameters.Add(new SqlParameter("@Dato", Woogle));
                     spinningWatch.Parameters.Add(new SqlParameter("@Honorar", salary));
 
                     spinningWatch.ExecuteNonQuery();
 
-                    mailExceptionHolder = GetMail(instructor.InstructorID, shift.Date);
+                    mailExceptionHolder = GetMail(instructor.InstructorID, Woogle.ToString());
 
 
 
@@ -485,7 +487,8 @@ namespace Model
         }
         internal string GetShiftListAll(Shift shift, Instructor instructor, string startDate, string endDate)
         {
-
+            DateTime ShiftStartDate = DateTime.Parse(startDate.ToString());
+            DateTime ShiftEndDate = DateTime.Parse(endDate.ToString());
             string ifError = "";
             string normalRows = "";
             string shiftListFromDatabaseAll = "";
@@ -538,7 +541,7 @@ namespace Model
                             shift.Salary = int.Parse(salary);
                             subtotal[i] = subtotal[i] + shift.Salary;
 
-                            normalRows = normalRows + (instructor.InstructorID + " \t|\t " + instructor.Name + " \t|\t " + shift.Type + " \t|\t " + shift.Date + " \t|\t " + shift.Salary + "\n");
+                            normalRows = normalRows + (instructor.InstructorID + " | " + instructor.Name + " | " + shift.Type + " | " + shift.Date + " | " + shift.Salary + "\n");
 
                         }
                     }
@@ -609,6 +612,8 @@ namespace Model
 
         internal string GetShiftListSingle(Shift shift, Instructor instructor,string memberNumber, string startDate, string endDate)
         {
+            DateTime ShiftStartDate = DateTime.Parse(startDate.ToString());
+            DateTime ShiftEndDate = DateTime.Parse(endDate.ToString());
             string ifError = "";
             string normalRows = "";
             string shiftListFromDatabase = "";
@@ -623,8 +628,8 @@ namespace Model
 
                     SqlCommand _ShowShiftListSingle = new SqlCommand("spShowShiftsFromSpecificPeriod", can);
                     _ShowShiftListSingle.CommandType = System.Data.CommandType.StoredProcedure;
-                    _ShowShiftListSingle.Parameters.Add(new SqlParameter("@startDate", startDate));
-                    _ShowShiftListSingle.Parameters.Add(new SqlParameter("@endDate", endDate));
+                    _ShowShiftListSingle.Parameters.Add(new SqlParameter("@startDate", ShiftStartDate));
+                    _ShowShiftListSingle.Parameters.Add(new SqlParameter("@endDate", ShiftEndDate));
                     _ShowShiftListSingle.Parameters.Add(new SqlParameter("@memberNumber", memberNumber));
                     SqlDataReader reader = _ShowShiftListSingle.ExecuteReader();
 
@@ -643,7 +648,7 @@ namespace Model
 
                             subtotal = subtotal + shift.Salary;
 
-                            normalRows = normalRows + (instructor.InstructorID + " \t|\t " + instructor.Name + " \t|\t " + shift.Type + " \t|\t " + shift.Date + " \t|\t " + shift.Salary + "\n" + "\n");
+                            normalRows = normalRows + (instructor.InstructorID + " | " + instructor.Name + " | " + shift.Type + " | " + shift.Date + " | " + shift.Salary + "\n" + "\n");
 
                         }
                     }
@@ -652,15 +657,15 @@ namespace Model
                 {
                     ifError = "FEJL: " + e.Message;
                 }
-                shiftListFromDatabase = normalRows + "Subtotal: " + subtotal + "kr." + "\n";
+                    //shiftListFromDatabase = normalRows + "Subtotal: " + subtotal + "kr." + "\n";
 
-                if (shiftListFromDatabase == "")
+                if (ifError == "")
                 {
-                    shiftListFromDatabase = ifError;
+                    shiftListFromDatabase = normalRows + "Subtotal: " + subtotal + "kr." + "\n" + "&\n \n Fil eksporteret for " + instructor.InstructorID + " på skrivebordet under mappen 'Excel'. \n \n";
                 }
                 else
                 {
-                    shiftListFromDatabase = shiftListFromDatabase + "&\n \n Fil eksporteret for " + instructor.InstructorID + " på skrivebordet under mappen 'Excel'. \n \n";
+                    shiftListFromDatabase = ifError;
                 }
             }
 

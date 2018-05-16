@@ -32,8 +32,7 @@ namespace View
         private void Btn_ScheduleSession_Click(object sender, RoutedEventArgs e)
         {
             BindingExpression _Bind_MemberNumber = tb_TypeMemberNumber.GetBindingExpression(TextBox.TextProperty);
-
-            BindingExpression _Bind_BookingDate = tb_TypeBookingDate.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression _Bind_BookingDate = Pick_BookingDate.GetBindingExpression(DatePicker.TextProperty);
 
             _Bind_MemberNumber.UpdateSource();
             _Bind_BookingDate.UpdateSource();

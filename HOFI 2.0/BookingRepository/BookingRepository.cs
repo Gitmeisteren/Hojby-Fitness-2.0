@@ -61,15 +61,13 @@ namespace Model
 
         public List<string> RetrieveCalendarDates()
         {
-
-            string[] dateTemp;
+            
             List<string> RetrievedDates = new List<string>();
             foreach(Booking booking in _BookingList)
             {
                 try
                 {
-                 dateTemp = booking.BookingDate.Split('-');
-                 RetrievedDates.Add(dateTemp[0] + "-" + dateTemp[1]);
+                 RetrievedDates.Add(booking.BookingDate.ToString("dd-MM"));
                 }
                 catch(Exception e)
                 {

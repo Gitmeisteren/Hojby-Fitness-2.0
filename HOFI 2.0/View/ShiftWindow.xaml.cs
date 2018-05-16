@@ -29,26 +29,15 @@ namespace View
 
         private void Btn_ShowSingleShifts_Click(object sender, RoutedEventArgs e)
         {
-            BindingExpression bind_StartDateSingle = Tb_StartDateSingle.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bind_EndDateSingle = Tb_EndDateSingle.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_StartDateSingle = Pick_StartDateSingle.GetBindingExpression(DatePicker.TextProperty);
+            BindingExpression bind_EndDateSingle = Pick_EndDateSingle.GetBindingExpression(DatePicker.TextProperty);
             BindingExpression bind_InstructorID = Tb_MemberNumber.GetBindingExpression(TextBox.TextProperty);
 
             bind_InstructorID.UpdateSource();
             bind_StartDateSingle.UpdateSource();
             bind_EndDateSingle.UpdateSource();
 
-            controller.ShowSingleShiftList();
-        }
-
-        private void Btn_ShowAllShifts_Click(object sender, RoutedEventArgs e)
-        {
-            BindingExpression bind_StartDateAll = Tb_StartDateAll.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bind_EndDateAll = Tb_EndDateAll.GetBindingExpression(TextBox.TextProperty);
-
-            bind_StartDateAll.UpdateSource();
-            bind_EndDateAll.UpdateSource();
-
-            controller.ShowAllShiftList();
+            controller.ShowShiftList();
         }
 
         private void Btn_PrintShifts_Click(object sender, RoutedEventArgs e)

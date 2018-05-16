@@ -85,6 +85,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\BookingRepository\Model.csproj">
       <Project>{1616c2f3-13bb-43ad-a621-aab99c0f486f}</Project>
       <Name>Model</Name>
@@ -97,9 +100,6 @@
       <Project>{e0331202-33b7-43ca-85ce-14fd7a7e0a30}</Project>
       <Name>View</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -101,12 +101,13 @@ namespace Model
             }
             return _ReturnMsg;
         }
-
-
+         
+      
 
         public string SearchForMember(Booking NewBooking, Member NewMember)
         {
             string _ReturnMessage = "";
+            string _MemberNumberClone = "";
             using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
 
@@ -127,7 +128,7 @@ namespace Model
                         while (reader.Read())
                         {
                             NewMember.Name = reader["Name"].ToString();
-                            NewBooking.MemberNumber = reader["MemberID"].ToString();
+                            _MemberNumberClone = reader["MemberID"].ToString();
                         }
                     }
                     reader.Close();
@@ -141,9 +142,9 @@ namespace Model
                 {
                     _ReturnMessage += f.Message;
                 }
-                if (_ReturnMessage != "")
+                if (_MemberNumberClone == "")
                 {
-                    _ReturnMessage += " ----- Prøv igen";
+                    _ReturnMessage += "Kunne ikke finde " + NewBooking.MemberNumber + " - Prøv igen";
                 }
             }
             return _ReturnMessage;
@@ -190,7 +191,7 @@ namespace Model
                 if (errorMsg == "")
                 {
                     returnMsg = "Instruktøren " + instructor.Name + " er tilføjet";
-
+                    
                 }
                 else
                 {
@@ -530,7 +531,7 @@ namespace Model
             List<Instructor> instructorList = new List<Instructor>();
             using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
-
+                    
                 try
                 {
                     con.Open();
@@ -558,12 +559,12 @@ namespace Model
                 {
 
                 }
-
+             
             }
             return instructorList;
         }
 
-        internal string GetShiftListSingle(Shift shift, Instructor instructor, string memberNumber, string startDate, string endDate)
+        internal string GetShiftListSingle(Shift shift, Instructor instructor,string memberNumber, string startDate, string endDate)
         {
             string ifError = "";
             string normalRows = "";

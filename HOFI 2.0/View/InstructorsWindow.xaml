@@ -8,7 +8,6 @@
         Title="InstructorsWindow" Height="450" Width="800">
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="1" Margin="142,0,0,-0.333"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="500,399,0,0" Click="Button_Click"/>
         <ListBox  ItemsSource="{Binding Path=InstructorsList}" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="212" Margin="580,0,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -21,7 +20,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Tilbage"          HorizontalAlignment="Left" Margin="27,389,0,0"                            VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="Tilbage"          HorizontalAlignment="Left" Margin="27,389,0,0"                            VerticalAlignment="Top" Width="75" Click="Btn_ReturntoMainWindow_Click"/>
         <TextBox Name="tb_InstructorID"    Text="{Binding Instructor.InstructorID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="388,71,0,0"/>
         <TextBox Name="tb_InstructorName"  Text="{Binding Instructor.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23"         TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" Margin="388,99,0,0"/>
         <TextBox Name="tb_InstructorEmail" Text="{Binding Instructor.Mail, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" Margin="388,127,0,0"/>

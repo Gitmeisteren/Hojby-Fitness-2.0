@@ -20,8 +20,6 @@ namespace View
     /// </summary>
     public partial class Login : Window
     {
-        public string _Password = "";
-        public string memberNumber = "";
         Controller controller = Controller.GetInstance();
         MainWindow mainwindow = new MainWindow();
         public Login()
@@ -34,7 +32,11 @@ namespace View
         {
             BindingExpression _Bind_Password = txtBox_Password.GetBindingExpression(TextBox.TextProperty);
             BindingExpression _Bind_InstructorID = txtBox_MemberNumber.GetBindingExpression(TextBox.TextProperty);
+
+            _Bind_InstructorID.UpdateSource();
+            _Bind_Password.UpdateSource();
             controller.CheckLogin();
+
             if (txtBlock_ErrorMessageBlock.Text == "Godkendt")
             {
                 mainwindow.Show();

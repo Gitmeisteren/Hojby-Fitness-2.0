@@ -57,14 +57,19 @@ namespace View
         private void Btn_EditInstructor_Click(object sender, RoutedEventArgs e)
         {
             EditInstructorWindow _EditInstructorWindow = new EditInstructorWindow();
+            AdminEditInstructorWindow _AdminEditInstructorWindow = new AdminEditInstructorWindow();
+
+            if(_Controller.LoginCredentials == "hofi353")
+            {
+                _AdminEditInstructorWindow.Show();
+            }
+            else
+            {
             _EditInstructorWindow.Show();
 
+            }
             this.Close();
         }
 
-        private void Btn_DeleteInstructor_Click(object sender, RoutedEventArgs e)
-        {
-            _Controller.DeleteInstructor();
-        }
     }
 }

@@ -53,7 +53,7 @@ namespace Model
             }
         }
 
-        public string ChangeEmail(Instructor instructor)
+        public string ChangeEmail(Instructor instructor, string _IDClone)
         {
             string _ErrorMsg = "";
             string _ReturnMsg = "";
@@ -68,7 +68,7 @@ namespace Model
 
                     SqlCommand _ChangeEmail = new SqlCommand("spChangeMail", con);
                     _ChangeEmail.CommandType = System.Data.CommandType.StoredProcedure;
-                    _ChangeEmail.Parameters.Add(new SqlParameter("@I_InstructorID", instructor.InstructorID));
+                    _ChangeEmail.Parameters.Add(new SqlParameter("@I_InstructorID", _IDClone));
                     _ChangeEmail.Parameters.Add(new SqlParameter("@I_EMail", instructor.Mail));
 
                     _ChangeEmail.ExecuteNonQuery();
@@ -102,8 +102,11 @@ namespace Model
             return _ReturnMsg;
         }
 
-        public void DeleteInstructor(Instructor Instructor)
+        public string DeleteInstructor(Instructor Instructor)
         {
+            
+            string _ReturnMsg = "";
+
             using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
                 try
@@ -118,12 +121,29 @@ namespace Model
                 }
                 catch (SqlException e)
                 {
+                    if(e != null)
+                    {   
+                        _ReturnMsg = e.Message;
+                    }
                     
                 }
                 catch(FormatException e1)
                 {
-
+                    if (e1 != null)
+                    {
+                        _ReturnMsg += e1.Message;
+                    }
+                    
                 }
+                if (_ReturnMsg == "")
+                {
+                    _ReturnMsg = Instructor.InstructorID + " er nu slettet.";
+                }
+                else
+                {
+                    _ReturnMsg += " - Prøv igen";
+                }
+                return _ReturnMsg;
             }
         }
 

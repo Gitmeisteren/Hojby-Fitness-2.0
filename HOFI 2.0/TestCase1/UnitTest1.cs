@@ -67,8 +67,8 @@ namespace TestCase1
         [TestMethod]
         public void AccesLoginTest()
         {
-            login.memberNumber = "hofi1453";
-            login._Password = "Timmi10";
+            controller.LoginCredentials = "hofi1453";
+            controller.LoginCredentialsPassword = "Timmi10";
             Assert.AreEqual("Godkendt", loginHandler.GetLoginInformation("Timmi10", "hofi1453"));
         }
 

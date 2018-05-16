@@ -60,6 +60,8 @@ namespace ViewModel
 
         //Privates
         #region
+        private string _LoginCredentialsPassword = "";
+        private string _LoginCredentials = "";
         private static Controller _Instance;
         private string _ReturnMessage;
         private List<Instructor> _InstructorsList = new List<Instructor>();
@@ -67,8 +69,38 @@ namespace ViewModel
 
         //Properties
         #region
+        public string LoginCredentialsPassword
+        {
+            get
+            {
+                return _LoginCredentialsPassword;
+            }
+            set
+            {
+                _LoginCredentialsPassword = value;
+                OnPropertyChanged("_LoginCredentialsPassword");
+            }
+        }
+        public string LoginCredentials
+        {
+            get
+            {
+                return _LoginCredentials;
+            }
+            set
+            {
+                _LoginCredentials = value;
+                OnPropertyChanged("_LoginCredentials");
+            }
+        } 
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
+
+        public void DeleteInstructor()
+        {
+            _DatabaseCon.DeleteInstructor(Instructor);
+        }
+
         public Shift Shift { get; set; }
         public Instructor Instructor { get; set; }
         public List<string> Cmb_GoalChoices { get; } = new List<string>() { "Styrketræning", "Vægttab", "Opstramning", "Konditionstræning", "Kom-Godt-Igang" };
@@ -694,9 +726,9 @@ namespace ViewModel
             Label_29 = updatedCalendarDates[28];
             Label_30 = updatedCalendarDates[29];
         }
-        public void CheckLogin(string password, string memberNumber)
+        public void CheckLogin()
         {
-            ReturnMessage = loginHandler.GetLoginInformation(password, memberNumber);
+            ReturnMessage = loginHandler.GetLoginInformation(LoginCredentials, LoginCredentialsPassword);
 
         }
         public void RegisterShift(string shiftType)

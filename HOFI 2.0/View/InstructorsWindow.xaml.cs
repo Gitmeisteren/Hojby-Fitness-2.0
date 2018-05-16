@@ -20,12 +20,12 @@ namespace View
     /// </summary>
     public partial class InstructorsWindow : Window
     {
-        Controller controller = Controller.GetInstance();
+        Controller _Controller = Controller.GetInstance();
         public InstructorsWindow()
         {
             InitializeComponent();
-            DataContext = controller;
-            controller.ShowInstructors();
+            DataContext = _Controller;
+            _Controller.ShowInstructors();
 
         }
 
@@ -51,15 +51,20 @@ namespace View
             bind_InstuctorEmail.UpdateSource();
             bind_HireDate.UpdateSource();
 
-            controller.AddInstructor();
+            _Controller.AddInstructor();
         }
 
         private void Btn_EditInstructor_Click(object sender, RoutedEventArgs e)
         {
-            EditInstructorWindow editInstructorWindow = new EditInstructorWindow();
-            editInstructorWindow.Show();
+            EditInstructorWindow _EditInstructorWindow = new EditInstructorWindow();
+            _EditInstructorWindow.Show();
 
             this.Close();
+        }
+
+        private void Btn_DeleteInstructor_Click(object sender, RoutedEventArgs e)
+        {
+            _Controller.DeleteInstructor();
         }
     }
 }

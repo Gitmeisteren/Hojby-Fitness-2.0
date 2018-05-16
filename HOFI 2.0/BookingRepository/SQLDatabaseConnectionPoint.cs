@@ -101,8 +101,31 @@ namespace Model
             }
             return _ReturnMsg;
         }
-         
-      
+
+        public void DeleteInstructor(Instructor Instructor)
+        {
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+                try
+                {
+                    con.Open();
+
+                    SqlCommand _DeleteInstructor = new SqlCommand("spDeleteInstructor", con);
+                    _DeleteInstructor.CommandType = CommandType.StoredProcedure;
+                    _DeleteInstructor.Parameters.Add(new SqlParameter("@I_InstructorID", Instructor.InstructorID));
+
+                    _DeleteInstructor.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    
+                }
+                catch(FormatException e1)
+                {
+
+                }
+            }
+        }
 
         public string SearchForMember(Booking NewBooking, Member NewMember)
         {
@@ -260,7 +283,7 @@ namespace Model
                 }
             }
         }
-        public string RetrieveLoginInformation(string password, string memberNumber)
+        public string RetrieveLoginInformation(string LoginCredentialsPassword, string LoginCredentials)
         {
             int truePasswordCounter = 0;
             string accesLogin = "";
@@ -278,11 +301,11 @@ namespace Model
                         while (reader.Read())
                         {
                             truePasswordCounter = 0;
-                            if (password == reader["Kodeord"].ToString())
+                            if (LoginCredentialsPassword == reader["Kodeord"].ToString())
                             {
                                 truePasswordCounter++;
                             }
-                            if (memberNumber == reader["medlemsnr"].ToString())
+                            if (LoginCredentials == reader["medlemsnr"].ToString())
                             {
                                 truePasswordCounter++;
                             }

@@ -9,9 +9,9 @@ namespace Model
     public class LoginHandler
     {
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
-        public string GetLoginInformation(string password, string memberNumber)
+        public string GetLoginInformation(string LoginCredentials, string LoginCredentialsPassword)
         {
-            string loginResponse = _DatabaseCon.RetrieveLoginInformation(password, memberNumber);
+            string loginResponse = _DatabaseCon.RetrieveLoginInformation(LoginCredentialsPassword, LoginCredentials);
             if (loginResponse == "Godkendt")
             {
 

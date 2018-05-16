@@ -27,7 +27,7 @@ namespace Model
 
         int _BookingID = 0;
         string _MemberNumber = "";
-        string _BookingDate = "";
+        DateTime _BookingDate = DateTime.Today;
 
 
         public int BookingID
@@ -56,7 +56,7 @@ namespace Model
             }
         }
 
-        public string BookingDate
+        public DateTime BookingDate
         {
             get
             {

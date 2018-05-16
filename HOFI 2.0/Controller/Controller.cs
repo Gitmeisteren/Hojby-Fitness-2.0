@@ -652,7 +652,7 @@ namespace ViewModel
             }
         }
 
-        #endregion#endregion
+        #endregion
         #endregion
 
         public void ExportToPDF(string goal)
@@ -691,7 +691,6 @@ namespace ViewModel
         }
         public void IntitialRepoUpdate()
         {
-
             bookingHandler.IntitialRepoUpdate();
         }
         public void UpdateCalendar()
@@ -745,13 +744,9 @@ namespace ViewModel
         {
             ReturnMessage = shiftHandler.RegisterShift(Shift, Instructor, shiftType);
         }
-        public void ShowSingleShiftList()
+        public void ShowShiftList()
         {
-            ReturnMessage = shiftHandler.ShiftListSingle(Shift, Instructor, ShiftListInstructorID, ShiftStartDate, ShiftEndDate);
-        }
-        public void ShowAllShiftList()
-        {
-            ReturnMessage = shiftHandler.ShiftListAll(Shift, Instructor, ShiftStartDate, ShiftEndDate);
+            ReturnMessage = shiftHandler.ShiftList(Shift, Instructor, ShiftListInstructorID, ShiftStartDate, ShiftEndDate);
         }
         public void ExportShiftList(string shiftListContent)
         {

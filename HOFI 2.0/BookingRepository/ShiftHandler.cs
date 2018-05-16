@@ -37,17 +37,18 @@ namespace Model
             returnMessage = _DatabaseCon.RegisterShift(shiftClone, instructorClone, shiftType);
             return returnMessage;
         }
-        public string ShiftListAll(Shift shift, Instructor instructor, string shiftStartDate, string shiftEndDate)
+        public string ShiftList(Shift shift, Instructor instructor, string instructorID, string shiftStartDate, string shiftEndDate)
         {
-            string returnAllShifts = "";
-            returnAllShifts = _DatabaseCon.GetShiftListAll(shift, instructor, shiftStartDate, shiftEndDate);
-            return returnAllShifts;
-        }
-        public string ShiftListSingle(Shift shift, Instructor instructor, string instructorID, string shiftStartDate, string shiftEndDate)
-        {
-            string returnSingleShifts = "";
-            returnSingleShifts = _DatabaseCon.GetShiftListSingle(shift, instructor, instructorID, shiftStartDate, shiftEndDate);
-            return returnSingleShifts;
+            string returnShifts = "";
+            if (instructorID == "")
+            {
+                returnShifts = _DatabaseCon.GetShiftListAll(shift, instructor, shiftStartDate, shiftEndDate);
+            }
+            else
+            {
+                returnShifts = _DatabaseCon.GetShiftListSingle(shift, instructor, instructorID, shiftStartDate, shiftEndDate);
+            }
+            return returnShifts;
         }
         public void ExportShiftList()
         {

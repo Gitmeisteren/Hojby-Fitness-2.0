@@ -43,7 +43,7 @@ namespace Model
                 {
                     if(stringDates == date)
                     {
-                        stringDates += " - optaget";
+                        stringDates += " \n - optaget";
                     }
                 }
                 updatedCalendarDates.Add(stringDates);

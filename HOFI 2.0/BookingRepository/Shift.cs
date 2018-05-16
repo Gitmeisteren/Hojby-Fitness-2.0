@@ -24,6 +24,7 @@ namespace Model
         }
 
         #endregion
+
         string _Type = "";
         string _Date = "";
         int _Salary = 0;

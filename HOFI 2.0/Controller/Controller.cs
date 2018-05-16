@@ -871,13 +871,9 @@ namespace ViewModel
         {
             ReturnMessageRegisterShift = shiftHandler.RegisterShift(Shift, Instructor, shiftType);
         }
-        public void ShowSingleShiftList(string memberNumber, string shiftStartDate, string shiftEndDate)
+        public void ShowShiftList()
         {
-            ReturnMessageShiftWindow = shiftHandler.ShiftListSingle(Shift, Instructor, memberNumber, shiftStartDate, shiftEndDate);
-        }
-        public void ShowAllShiftList(string shiftStartDate, string shiftEndDate)
-        {
-            ReturnMessageShiftWindow = shiftHandler.ShiftListAll(Shift, Instructor, shiftStartDate, shiftEndDate);
+            ReturnMessageShiftWindow = shiftHandler.ShiftList(Shift, Instructor, ShiftListInstructorID, ShiftStartDate, ShiftEndDate);
         }
         public void ExportShiftList(string shiftListContent)
         {

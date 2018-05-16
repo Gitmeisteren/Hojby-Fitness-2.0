@@ -305,7 +305,7 @@ namespace Model
                             {
                                 truePasswordCounter++;
                             }
-                            if (LoginCredentials == reader["medlemsnr"].ToString())
+                            if (LoginCredentials == reader["Medlemsnr"].ToString())
                             {
                                 truePasswordCounter++;
                             }

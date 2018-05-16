@@ -31,7 +31,7 @@
         <TextBox x:Name="Tb_EndDateAll" Text="{Binding ShiftEndDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Margin="344,165,0,0"/>
         <Button x:Name="Btn_ShowAllShifts" Content="Vis alle vagter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Margin="344,193,0,0" Click="Btn_ShowAllShifts_Click"/>
         <WrapPanel>
-            <TextBlock x:Name="TBlock_ShiftList" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=ReturnMessage, Mode=TwoWay}" VerticalAlignment="Top" Margin="123,218,0,0" Height="237" Width="367"/>
+            <TextBlock x:Name="TBlock_ShiftList" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=ReturnMessageShiftWindow, Mode=TwoWay}" VerticalAlignment="Top" Margin="123,218,0,0" Height="237" Width="367"/>
         </WrapPanel>
         <Button x:Name="Btn_PrintShifts" Content="Udskriv viste" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,410,0,0" Click="Btn_PrintShifts_Click"/>
 

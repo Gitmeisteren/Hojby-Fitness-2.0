@@ -60,15 +60,57 @@ namespace ViewModel
 
         //Privates
         #region
+        private string _LoginCredentialsPassword = "";
+        private string _LoginCredentials = "";
         private static Controller _Instance;
-        private string _ReturnMessage;
+        private string _ReturnMessageShiftWindow;
         private List<Instructor> _InstructorsList = new List<Instructor>();
+        private string _ReturnMessageScheduleSession;
+        private string _ReturnMessageRegisterShift;
+        private string _ReturnMessageMemberJournals;
+        private string _ReturnMessageMemberOverlayWindow;
+        private string _ReturnMessageInstructorsWindow;
+        private string _ReturnMessageEditInstructorsWindow;
+        private string _ReturnMessageBookingWindow;
+        private string _ReturnMessageAdminInstructorWindow;
+        private string _ReturnMessageLoginWindow;
         #endregion
 
         //Properties
         #region
+        public string LoginCredentialsPassword
+        {
+            get
+            {
+                return _LoginCredentialsPassword;
+            }
+            set
+            {
+                _LoginCredentialsPassword = value;
+                OnPropertyChanged("_LoginCredentialsPassword");
+            }
+        }
+        public string LoginCredentials
+        {
+            get
+            {
+                return _LoginCredentials;
+            }
+            set
+            {
+                _LoginCredentials = value;
+                OnPropertyChanged("_LoginCredentials");
+            }
+        } 
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
+
+        public void DeleteInstructor()
+        {
+            ReturnMessageEditInstructorsWindow = _DatabaseCon.DeleteInstructor(Instructor);
+            ShowInstructors();
+        }
+
         public Shift Shift { get; set; }
         public Instructor Instructor { get; set; }
         public List<string> Cmb_GoalChoices { get; } = new List<string>() { "Styrketræning", "Vægttab", "Opstramning", "Konditionstræning", "Kom-Godt-Igang" };
@@ -85,62 +127,9 @@ namespace ViewModel
                 OnPropertyChanged("InstructorsList");
             }
         }
-        //Shift properties for ShiftWindow
-        #region
-        string _InstructorID = "";
-        string _StartDate = "";
-        string _EndDate = "";
-        public string ShiftListInstructorID
-        {
-            get
-            {
-                return _InstructorID;
-            }
-            set
-            {
-                _InstructorID = value;
-                OnPropertyChanged("ShiftListInstructorID");
-            }
-        }
-        public string ShiftStartDate
-        {
-            get
-            {
-                return _StartDate;
-            }
-            set
-            {
-                _StartDate = value;
-                OnPropertyChanged("ShiftStartDate");
-            }
-        }
-        public string ShiftEndDate
-        {
-            get
-            {
-                return _EndDate;
-            }
-            set
-            {
-                _EndDate = value;
-                OnPropertyChanged("ShiftEndDate");
-            }
-        }
 
-        #endregion
         public Calendar CalendarDates { get; set; }
-        public string ReturnMessage
-        {
-            get
-            {
-                return _ReturnMessage;
-            }
-            set
-            {
-                _ReturnMessage = value;
-                OnPropertyChanged("ReturnMessage");
-            }
-        }
+        
         //Label properties for calendar
         #region
         string _Label1 = "";
@@ -377,7 +366,7 @@ namespace ViewModel
                 _Label16 = value;
                 OnPropertyChanged("Label_16");
             }
-
+       
         }
 
         public string Label_17
@@ -564,6 +553,7 @@ namespace ViewModel
         string _TbWeeklyTrainings = "";
         string _TbTimePerTraining = "";
         string _TbNotes = "";
+     
 
         public string Tb_MemberNumber
         {
@@ -652,54 +642,190 @@ namespace ViewModel
             }
         }
 
-        #endregion#endregion
         #endregion
+        #endregion
+        //Properties for ReturnMessages
+        #region
+        public string ReturnMessageLoginWindow
+        {
+            get
+            {
+                return _ReturnMessageLoginWindow;
+            }
+            set
+            {
+                _ReturnMessageLoginWindow = value;
+                OnPropertyChanged("ReturnMessageLoginWindow");
+            }
+        }
+        public string ReturnMessageShiftWindow
+        {
+            get
+            {
+                return _ReturnMessageShiftWindow;
+            }
+            set
+            {
+                _ReturnMessageShiftWindow = value;
+                OnPropertyChanged("ReturnMessageShiftWindow");
+            }
+        }
+        public string ReturnMessageScheduleSession
+        {
+            get
+            {
+                return _ReturnMessageScheduleSession;
+            }
+            set
+            {
+                _ReturnMessageScheduleSession = value;
+                OnPropertyChanged("ReturnMessageScheduleSession");
+            }
+        }
+
+        public string ReturnMessageRegisterShift
+        {
+            get
+            {
+                return _ReturnMessageRegisterShift;
+            }
+            set
+            {
+                _ReturnMessageRegisterShift = value;
+                OnPropertyChanged("ReturnMessageRegisterShift");
+            }
+        }
+        public string ReturnMessageMemberOverlayWindow
+        {
+            get
+            {
+                return _ReturnMessageMemberOverlayWindow;
+            }
+            set
+            {
+                _ReturnMessageMemberOverlayWindow = value;
+                OnPropertyChanged("ReturnMessageMemberOverlayWindow");
+            }
+        }
+        public string ReturnMessageMemberJournals
+        {
+            get
+            {
+                return _ReturnMessageMemberJournals;
+            }
+            set
+            {
+                _ReturnMessageMemberJournals = value;
+                OnPropertyChanged("ReturnMessageMemberJournals");
+            }
+        }
+        public string ReturnMessageInstructorsWindow
+        {
+            get
+            {
+                return _ReturnMessageInstructorsWindow;
+            }
+            set
+            {
+                _ReturnMessageInstructorsWindow = value;
+                OnPropertyChanged("ReturnMessageInstructorsWindow");
+            }
+        }
+        public string ReturnMessageEditInstructorsWindow
+        {
+            get
+            {
+                return _ReturnMessageEditInstructorsWindow;
+            }
+            set
+            {
+                _ReturnMessageEditInstructorsWindow = value;
+                OnPropertyChanged("ReturnMessageEditInstructorsWindow");
+            }
+        }
+        public string ReturnMessageBookingWindow
+        {
+            get
+            {
+                return _ReturnMessageBookingWindow;
+            }
+            set
+            {
+                _ReturnMessageBookingWindow = value;
+                OnPropertyChanged("ReturnMessageBookingWindow");
+            }
+        }
+        public string ReturnMessageAdminInstructorWindow
+        {
+            get
+            {
+                return _ReturnMessageAdminInstructorWindow;
+            }
+            set
+            {
+                _ReturnMessageAdminInstructorWindow = value;
+                OnPropertyChanged("ReturnMessageAdminInstructorWindow");
+            }
+        }
+        #endregion
+
+
 
         public void ExportToPDF(string goal)
         {
-
+ 
             fileExporter.ExportToPDF(NewBooking.MemberNumber, NewMember.Name, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
         }
         public void AddInstructor()
         {
-            ReturnMessage = _DatabaseCon.AddInstructor(Instructor);
+           ReturnMessageInstructorsWindow = _DatabaseCon.AddInstructor(Instructor);
             ShowInstructors();
         }
         public void ChangeEmail()
         {
-            ReturnMessage = _DatabaseCon.ChangeEmail(Instructor);
+            string _IDClone = "";
+            if(LoginCredentials == "hofi353")
+            {
+
+                _IDClone = Instructor.InstructorID;
+                ReturnMessageEditInstructorsWindow = _DatabaseCon.ChangeEmail(Instructor, _IDClone);
+            }
+            else
+            {
+                _IDClone = LoginCredentials;
+                ReturnMessageEditInstructorsWindow = _DatabaseCon.ChangeEmail(Instructor, _IDClone);
+            }
+            ShowInstructors();
         }
         public void SearchForMember()
         {
-            ReturnMessage = _DatabaseCon.SearchForMember(NewBooking, NewMember);
+          ReturnMessageMemberOverlayWindow = _DatabaseCon.SearchForMember(NewBooking, NewMember);
         }
         public void ShowInstructors()
-        {
-
-
-            InstructorsList = _DatabaseCon.ShowInstructors();
+        {       
+         InstructorsList = _DatabaseCon.ShowInstructors();
         }
         public void ScheduleSession()
         {
 
-            ReturnMessage = bookingHandler.ScheduleSession(NewBooking);
-
+            ReturnMessageScheduleSession = bookingHandler.ScheduleSession(NewBooking);
+        
         }
         public void CreateNewMember()
         {
             bookingHandler.CreateNewMember(NewMember, NewBooking);
         }
-        public void IntitialRepoUpdate()
+         public void IntitialRepoUpdate()
         {
-
+            
             bookingHandler.IntitialRepoUpdate();
         }
         public void UpdateCalendar()
         {
-            List<string> updatedCalendarDates = new List<string>();
-            updatedCalendarDates = bookingHandler.UpdateCalendar();
+            List<string> updatedCalendarDates = new List<string>(); 
+           updatedCalendarDates = bookingHandler.UpdateCalendar();
 
-
+            
             Label_1 = updatedCalendarDates[0];
             Label_2 = updatedCalendarDates[1];
             Label_3 = updatedCalendarDates[2];
@@ -736,22 +862,22 @@ namespace ViewModel
             Label_29 = updatedCalendarDates[28];
             Label_30 = updatedCalendarDates[29];
         }
-        public void CheckLogin(string password, string memberNumber)
+        public void CheckLogin()
         {
-            ReturnMessage = loginHandler.GetLoginInformation(password, memberNumber);
+            ReturnMessageLoginWindow = loginHandler.GetLoginInformation(LoginCredentials, LoginCredentialsPassword);
 
         }
         public void RegisterShift(string shiftType)
         {
-            ReturnMessage = shiftHandler.RegisterShift(Shift, Instructor, shiftType);
+            ReturnMessageRegisterShift = shiftHandler.RegisterShift(Shift, Instructor, shiftType);
         }
-        public void ShowSingleShiftList()
+        public void ShowSingleShiftList(string memberNumber, string shiftStartDate, string shiftEndDate)
         {
-            ReturnMessage = shiftHandler.ShiftListSingle(Shift, Instructor, ShiftListInstructorID, ShiftStartDate, ShiftEndDate);
+            ReturnMessageShiftWindow = shiftHandler.ShiftListSingle(Shift, Instructor, memberNumber, shiftStartDate, shiftEndDate);
         }
-        public void ShowAllShiftList()
+        public void ShowAllShiftList(string shiftStartDate, string shiftEndDate)
         {
-            ReturnMessage = shiftHandler.ShiftListAll(Shift, Instructor, ShiftStartDate, ShiftEndDate);
+            ReturnMessageShiftWindow = shiftHandler.ShiftListAll(Shift, Instructor, shiftStartDate, shiftEndDate);
         }
         public void ExportShiftList(string shiftListContent)
         {

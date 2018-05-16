@@ -28,6 +28,6 @@
             <Label Content="Label" Margin="0,0,0.333,0"/>
         </StackPanel>
         <Button Content="Åben journal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="673" Margin="109,113,0,0" Height="25" Click="Btn_OpenMembersJournal"/>
-        <Label Content="{Binding Path=ReturnMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#FFFBE400" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="109,173,0,0" Height="80" Width="267"/>
+        <Label Content="{Binding Path=ReturnMessageMemberOverlayWindow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#FFFBE400" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="109,173,0,0" Height="80" Width="267"/>
     </Grid>
 </Window>

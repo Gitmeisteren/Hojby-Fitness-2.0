@@ -30,20 +30,20 @@ namespace View
         private void Btn_UpdateEmail_Click(object sender, RoutedEventArgs e)
         {
             BindingExpression bind_NewEmail = tb_NewInstructorEmail.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bind_InstructorID = tb_InstructorID.GetBindingExpression(TextBox.TextProperty);
 
             bind_NewEmail.UpdateSource();
-            bind_InstructorID.UpdateSource();
             controller.ChangeEmail();
 
         }
 
         private void Btn_ReturnInstructorsWindow_Click(object sender, RoutedEventArgs e)
         {
-            InstructorsWindow instructorsWindow = new InstructorsWindow();
-            instructorsWindow.Show();
+            InstructorsWindow _InstructorsWindow = new InstructorsWindow();
+            _InstructorsWindow.Show();
 
             this.Close();
         }
+
+
     }
 }

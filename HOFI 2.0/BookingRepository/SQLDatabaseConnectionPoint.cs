@@ -53,7 +53,7 @@ namespace Model
             }
         }
 
-        public string ChangeEmail(Instructor instructor)
+        public string ChangeEmail(Instructor instructor, string _IDClone)
         {
             string _ErrorMsg = "";
             string _ReturnMsg = "";
@@ -68,7 +68,7 @@ namespace Model
 
                     SqlCommand _ChangeEmail = new SqlCommand("spChangeMail", con);
                     _ChangeEmail.CommandType = System.Data.CommandType.StoredProcedure;
-                    _ChangeEmail.Parameters.Add(new SqlParameter("@I_InstructorID", instructor.InstructorID));
+                    _ChangeEmail.Parameters.Add(new SqlParameter("@I_InstructorID", _IDClone));
                     _ChangeEmail.Parameters.Add(new SqlParameter("@I_EMail", instructor.Mail));
 
                     _ChangeEmail.ExecuteNonQuery();
@@ -101,8 +101,51 @@ namespace Model
             }
             return _ReturnMsg;
         }
-         
-      
+
+        public string DeleteInstructor(Instructor Instructor)
+        {
+            
+            string _ReturnMsg = "";
+
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+                try
+                {
+                    con.Open();
+
+                    SqlCommand _DeleteInstructor = new SqlCommand("spDeleteInstructor", con);
+                    _DeleteInstructor.CommandType = CommandType.StoredProcedure;
+                    _DeleteInstructor.Parameters.Add(new SqlParameter("@I_InstructorID", Instructor.InstructorID));
+
+                    _DeleteInstructor.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    if(e != null)
+                    {   
+                        _ReturnMsg = e.Message;
+                    }
+                    
+                }
+                catch(FormatException e1)
+                {
+                    if (e1 != null)
+                    {
+                        _ReturnMsg += e1.Message;
+                    }
+                    
+                }
+                if (_ReturnMsg == "")
+                {
+                    _ReturnMsg = Instructor.InstructorID + " er nu slettet.";
+                }
+                else
+                {
+                    _ReturnMsg += " - Prøv igen";
+                }
+                return _ReturnMsg;
+            }
+        }
 
         public string SearchForMember(Booking NewBooking, Member NewMember)
         {
@@ -260,7 +303,7 @@ namespace Model
                 }
             }
         }
-        public string RetrieveLoginInformation(string password, string memberNumber)
+        public string RetrieveLoginInformation(string LoginCredentialsPassword, string LoginCredentials)
         {
             int truePasswordCounter = 0;
             string accesLogin = "";
@@ -278,11 +321,11 @@ namespace Model
                         while (reader.Read())
                         {
                             truePasswordCounter = 0;
-                            if (password == reader["Kodeord"].ToString())
+                            if (LoginCredentialsPassword == reader["Kodeord"].ToString())
                             {
                                 truePasswordCounter++;
                             }
-                            if (memberNumber == reader["medlemsnr"].ToString())
+                            if (LoginCredentials == reader["Medlemsnr"].ToString())
                             {
                                 truePasswordCounter++;
                             }

@@ -46,11 +46,11 @@ namespace TestCase1
                 List<string> listOfDates = new List<string>();
                 Calendar calendar = Calendar.GetInstance();
                 bookInfo.MemberNumber = "hofi9002";
-                bookInfo.BookingDate = "01.01.2000";
+                bookInfo.BookingDate = "01-01-2000";
                 controller.ScheduleSession();
                 Assert.AreEqual(true, bookingRepository.FindDate(bookingInfo));
                 bookInfo.MemberNumber = "hofi9002";
-                bookInfo.BookingDate = "01.01.2000";
+                bookInfo.BookingDate = "01-01-2000";
                 controller.ScheduleSession();
                 Assert.AreEqual(false , bookingRepository.FindDate(bookingInfo));
                 // all your test code and Asserts that access the database, 

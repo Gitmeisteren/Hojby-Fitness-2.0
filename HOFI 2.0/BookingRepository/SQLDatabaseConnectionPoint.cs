@@ -263,8 +263,7 @@ namespace Model
                         {
                             Booking booking = new Booking();
                             booking.BookingID = int.Parse(reader["BookingID"].ToString());
-                            DateStringFromDB = reader["Date"].ToString();
-                            booking.BookingDate = DateTime.Parse(DateStringFromDB);
+                            booking.BookingDate = reader["Date"].ToString();
                             booking.MemberNumber = reader["MemberID"].ToString();
 
                             bookingRepo.Add(booking);

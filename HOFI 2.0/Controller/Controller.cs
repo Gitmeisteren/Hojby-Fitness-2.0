@@ -44,7 +44,49 @@ namespace ViewModel
             }
             return _Instance;
         }
+        //Shift properties for ShiftWindow
+        #region
+        string _InstructorID = "";
+        string _StartDate = "";
+        string _EndDate = "";
+        public string ShiftListInstructorID
+        {
+            get
+            {
+                return _InstructorID;
+            }
+            set
+            {
+                _InstructorID = value;
+                OnPropertyChanged("ShiftListInstructorID");
+            }
+        }
+        public string ShiftStartDate
+        {
+            get
+            {
+                return _StartDate;
+            }
+            set
+            {
+                _StartDate = value;
+                OnPropertyChanged("ShiftStartDate");
+            }
+        }
+        public string ShiftEndDate
+        {
+            get
+            {
+                return _EndDate;
+            }
+            set
+            {
+                _EndDate = value;
+                OnPropertyChanged("ShiftEndDate");
+            }
+        }
 
+        #endregion
         //instances
         #region
         BookingHandler bookingHandler = BookingHandler.GetInstance();

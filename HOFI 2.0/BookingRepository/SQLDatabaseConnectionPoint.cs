@@ -511,8 +511,8 @@ namespace Model
 
                     SqlCommand _ShowShiftListAll = new SqlCommand("spShowShiftsFromSpecificPeriod", con);
                     _ShowShiftListAll.CommandType = CommandType.StoredProcedure;
-                    _ShowShiftListAll.Parameters.Add(new SqlParameter("@startDate", startDate));
-                    _ShowShiftListAll.Parameters.Add(new SqlParameter("@endDate", endDate));
+                    _ShowShiftListAll.Parameters.Add(new SqlParameter("@startDate", ShiftStartDate));
+                    _ShowShiftListAll.Parameters.Add(new SqlParameter("@endDate", ShiftEndDate));
 
                     SqlDataReader reader = _ShowShiftListAll.ExecuteReader();
 

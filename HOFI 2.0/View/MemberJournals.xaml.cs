@@ -31,7 +31,6 @@ namespace View
 
         private void Btn_BookSession_Click(object sender, RoutedEventArgs e)
         {
-            
             _Controller.ExportToPDF(cmb_goal.Text);
         }
 

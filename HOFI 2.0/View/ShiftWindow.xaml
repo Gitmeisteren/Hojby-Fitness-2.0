@@ -27,7 +27,7 @@
         <DatePicker x:Name="Pick_StartDateSingle" Text="{Binding ShiftStartDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="344,43,0,0"/>
         <DatePicker x:Name="Pick_EndDateSingle" Text="{Binding ShiftEndDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="344,74,0,0"/>
         <WrapPanel>
-            <TextBlock x:Name="TBlock_ShiftList" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ReturnMessageShiftWindow, Mode=TwoWay}" VerticalAlignment="Top" Margin="128,159,0,0" Height="295" Width="360" Background="#FFEDFF3E"/>
+            <TextBlock x:Name="TBlock_ShiftList" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Text="{Binding ReturnMessageShiftWindow, Mode=TwoWay}" VerticalAlignment="Top" Margin="128,159,0,0" Height="295" Width="360" Background="#FFEDFF3E"/>
         </WrapPanel>
 
     </Grid>

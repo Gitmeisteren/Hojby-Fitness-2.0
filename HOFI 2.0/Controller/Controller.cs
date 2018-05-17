@@ -926,9 +926,9 @@ namespace ViewModel
         {
             ReturnMessageShiftWindow = shiftHandler.ShiftList(Shift, Instructor, ShiftListInstructorID, ShiftStartDate, ShiftEndDate);
         }
-        public void ExportShiftList(string shiftListContent)
+        public void ExportShiftList()
         {
-            shiftHandler.ExportShiftList();
+            shiftHandler.ExportShiftList(ReturnMessageShiftWindow, ShiftStartDate, ShiftEndDate);
         }
     }
 }

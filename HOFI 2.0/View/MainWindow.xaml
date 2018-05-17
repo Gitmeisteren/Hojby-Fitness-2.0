@@ -7,10 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Medlemmer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="269,180,0,0" Click="Btn_MembersWindow_Click" Height="34"/>
-        <Button Name="Btn_ShiftMenu" Content="Vagter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="384,180,0,0" Click="Btn_ShiftWindow_Click" Height="34"/>
-        <Button Content="Instruktører" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="499,180,0,0" Click="Btn_InstructorsWindow_Click" Height="34" RenderTransformOrigin="-0.337,0.541"/>
-        <Button x:Name="btn_BookingMenu" Content="Booking Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="155,180,0,0" Click="Btn_BookingMenu_Click" Height="34"/>
+        <Button Content="Medlemmer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="10,56,0,0" Height="34" Click="Btn_MembersWindow_Click" />
+        <Button Name="Btn_ShiftMenu" Content="Vagter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="10,103,0,0" Click="Btn_ShiftWindow_Click" Height="34"/>
+        <Button Content="Instruktører" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,151,0,0" Click="Btn_InstructorsWindow_Click" Height="34" RenderTransformOrigin="-0.337,0.541"/>
+        <Button x:Name="btn_BookingMenu" Content="Booking" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="10,10,0,0"  Height="34" Click="Btn_BookingMenu_Click"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="1" Margin="119,0,0,-0.333"/>
+        <Button Content="Log ud" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,377,0,0" Height="34" Click="Btn_LogOff_Click"/>
+        <Image HorizontalAlignment="Left" Source="C:\Users\royga\source\repos\Hojby-Fitness-2.0\HOFI 2.0\bigshaq.png" Height="281" VerticalAlignment="Top" Width="281" Margin="329,82,0,0"/>
 
     </Grid>
 </Window>

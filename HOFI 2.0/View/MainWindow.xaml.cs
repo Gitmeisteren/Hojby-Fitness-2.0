@@ -21,7 +21,7 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
-        Controller controller = Controller.GetInstance();
+        Controller _Controller = Controller.GetInstance();
 
         public MainWindow()
         {
@@ -63,6 +63,15 @@ namespace View
             instructorsWindow.Show();
             this.Close();
 
+        }
+
+        private void Btn_LogOff_Click(object sender, RoutedEventArgs e)
+        {
+            Login _LoginWindow = new Login();
+
+            _LoginWindow.Show();
+            _Controller.ResetLoginCredentials();
+            this.Close();
         }
     }
 }

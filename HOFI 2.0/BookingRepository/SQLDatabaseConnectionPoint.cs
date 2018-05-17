@@ -248,6 +248,7 @@ namespace Model
         //string skal være en liste, og vi skal adde bookingobjekter til liste.
         public List<Booking> InitialRepoUpdate()
         {
+            DateTime tempDateHolder;
             List<Booking> bookingRepo = new List<Booking>();
             using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
@@ -264,7 +265,8 @@ namespace Model
                         {
                             Booking booking = new Booking();
                             booking.BookingID = int.Parse(reader["BookingID"].ToString());
-                            booking.BookingDate = reader["Date"].ToString();
+                            tempDateHolder = DateTime.Parse(reader["Date"].ToString());
+                            booking.BookingDate = tempDateHolder.ToString("dd-MM-yyyy");
                             booking.MemberNumber = reader["MemberID"].ToString();
 
                             bookingRepo.Add(booking);
@@ -489,6 +491,7 @@ namespace Model
         {
             DateTime ShiftStartDate = DateTime.Parse(startDate.ToString());
             DateTime ShiftEndDate = DateTime.Parse(endDate.ToString());
+            DateTime DT;
             string ifError = "";
             string normalRows = "";
             string shiftListFromDatabaseAll = "";
@@ -535,12 +538,12 @@ namespace Model
                             instructor.InstructorID = reader["InstructorID"].ToString();
                             instructor.Name = currentName;
                             shift.Type = reader["Type"].ToString();
-                            shift.Date = reader["Dato"].ToString();
+                            DT = DateTime.Parse(reader["Dato"].ToString());
+                            shift.Date = DT.ToString("dd-MM-yyyy");
                             string salary = reader["Honorar"].ToString();
                             previousName = instructor.Name;
                             shift.Salary = int.Parse(salary);
                             subtotal[i] = subtotal[i] + shift.Salary;
-
                             normalRows = normalRows + (instructor.InstructorID + " | " + instructor.Name + " | " + shift.Type + " | " + shift.Date + " | " + shift.Salary + "\n");
 
                         }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using Model;
 
 namespace Model
@@ -50,9 +51,20 @@ namespace Model
             }
             return returnShifts;
         }
-        public void ExportShiftList()
+        public void ExportShiftList(string shiftList, string shiftStartDate, string shiftEndDate)
         {
-
+            string folderpath = Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory);
+            string foldername = folderpath + "\\VagtLister";
+            if (!Directory.Exists(foldername))
+            {
+                Directory.CreateDirectory(foldername);
+            }
+            string filenameAll = "Vagtliste " + shiftStartDate + " til " + shiftEndDate + ".csv";
+            string pathstringAll = System.IO.Path.Combine(foldername, filenameAll);
+            using (StreamWriter sw = File.CreateText(pathstringAll))
+            {
+                sw.WriteLine(shiftList);
+            }
         }
 
         private static ShiftHandler _Instance;

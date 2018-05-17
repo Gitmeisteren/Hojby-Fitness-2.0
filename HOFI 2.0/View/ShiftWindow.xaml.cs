@@ -42,8 +42,7 @@ namespace View
 
         private void Btn_PrintShifts_Click(object sender, RoutedEventArgs e)
         {
-            string shiftListContent = TBlock_ShiftList.Text;
-            controller.ExportShiftList(shiftListContent);
+            controller.ExportShiftList();
         }
 
         private void Btn_ReturnToShiftMenu_Click(object sender, RoutedEventArgs e)

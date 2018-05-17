@@ -60,7 +60,11 @@ namespace Model
             if (dateAvailable)
             {
                 returnMessage = _databaseCon.ScheduleSession(bookingClone);
-               
+
+            }
+            else
+            {
+                returnMessage = "Dagen er optaget";
             }
 
             return returnMessage;

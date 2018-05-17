@@ -29,7 +29,7 @@
         <Label Content="Er medlemmet endnu ikke&#xD;&#xA;oprettet i dette system&#xD;&#xA;skal det først gøres via &#xD;&#xA;denne formular" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,172,0,0" Height="152" Width="158"/>
         <Label Content="Book træningsforløb" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,10,0,0" Height="36" Width="224" AutomationProperties.IsRowHeader="True" FontSize="20"/>
         <Label Content="Registrér nyt medlem" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,131,0,0" Width="224" Height="40" FontSize="20"/>
-        <DatePicker x:Name="Pick_BookingDate" HorizontalAlignment="Left" Text="{Binding NewBooking.Date, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Margin="461,82,0,0"/>
+        <DatePicker x:Name="Pick_BookingDate" HorizontalAlignment="Left" Text="{Binding NewBooking.BookingDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Margin="461,82,0,0"/>
 
     </Grid>
 </Window>

@@ -14,7 +14,6 @@ namespace Model
             
         }
 
-        List<string> updatedCalendarDates = new List<string>();
         
 
         private static Calendar _Instance;
@@ -30,6 +29,7 @@ namespace Model
 
         public List<string> UpdateCalendar(List<string> retrievedCalendarList)
         {
+        List<string> updatedCalendarDates = new List<string>();
             DateTime dates;
             string stringDates = "";
 

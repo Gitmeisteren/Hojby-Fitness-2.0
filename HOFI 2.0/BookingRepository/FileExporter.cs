@@ -16,7 +16,7 @@ namespace Model
     public class FileExporter
     {
 
-        public void ExportToPDF(string memberNumber, string name, string goal, string trainingProgram, string weeklyTrainings, string timePerTraining, string notes)
+        public void ExportToPDF(Booking memberNumber, Member name, string goal, string trainingProgram, string weeklyTrainings, string timePerTraining, string notes)
         {
 
             string root = @"C:\Users\royga\Documents\" + memberNumber + ".docx";

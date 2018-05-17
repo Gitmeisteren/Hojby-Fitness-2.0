@@ -86,6 +86,8 @@ namespace ViewModel
             }
         }
 
+
+
         #endregion
         //instances
         #region
@@ -811,12 +813,19 @@ namespace ViewModel
         }
         #endregion
 
+        public void ResetLoginCredentials()
+        {
+            LoginCredentialsPassword = "";
 
+
+            OnPropertyChanged(LoginCredentialsPassword);
+
+        }
 
         public void ExportToPDF(string goal)
         {
  
-            fileExporter.ExportToPDF(NewBooking.MemberNumber, NewMember.Name, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
+            fileExporter.ExportToPDF(NewBooking, NewMember, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
         }
         public void AddInstructor()
         {

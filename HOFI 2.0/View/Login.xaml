@@ -7,12 +7,13 @@
         mc:Ignorable="d"
         Title="Login" Height="322.741" Width="536.297">
     <Grid>
-        <Label Content="Medlemsnummer (Hofi1234)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="103,87,0,0"/>
+        <Label Content="Medlemsnummer (hofixxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="103,87,0,0"/>
         <Label Content="Kodeord" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="103,118,0,0"/>
-        <TextBox x:Name="txtBox_MemberNumber" Text="{Binding LoginCredentials, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="295,91,0,0"/>
-        <TextBox x:Name="txtBox_Password" Text="{Binding LoginCredentialsPassword, Mode=TwoWay, UpdateSourceTrigger=Explicit}"  HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="295,122,0,0"/>
+        <TextBox x:Name="txtBox_MemberNumber" Text="{Binding LoginCredentials, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="295,91,0,0"/>
+        <TextBox x:Name="txtBox_Password" Text="{Binding LoginCredentialsPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="295,122,0,0"/>
         <Button x:Name="btn_Login" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="295,150,0,0" Click="btn_Login_Click"/>
         <TextBlock x:Name="txtBlock_ErrorMessageBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=ReturnMessageLoginWindow, Mode=TwoWay}" VerticalAlignment="Top" Margin="109,178,0,0" Height="36" Width="306"/>
+        <Label Content="Højby Fitness" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="185,10,0,0" Height="49" Width="156" FontSize="24"/>
 
     </Grid>
 </Window>

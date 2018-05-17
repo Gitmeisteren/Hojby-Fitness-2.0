@@ -829,7 +829,7 @@ namespace ViewModel
         }
         public void AddInstructor()
         {
-           ReturnMessageInstructorsWindow = _DatabaseCon.AddInstructor(Instructor);
+           ReturnMessageEditInstructorsWindow = _DatabaseCon.AddInstructor(Instructor);
             ShowInstructors();
         }
         public void ChangeEmail()

@@ -16,6 +16,7 @@ namespace Model
         private string DateStringFromDB = "";
         public string ScheduleSession(Booking NewBooking)
         {
+            DateTime NewBookingDate = DateTime.Parse(NewBooking.BookingDate.ToString());
             string returnMessage = "";
             using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
@@ -27,7 +28,7 @@ namespace Model
                     SqlCommand _scheduleSession = new SqlCommand("spRegisterMemberBooking", con);
                     _scheduleSession.CommandType = System.Data.CommandType.StoredProcedure;
                     _scheduleSession.Parameters.Add(new SqlParameter("@I_MemberID", NewBooking.MemberNumber));
-                    _scheduleSession.Parameters.Add(new SqlParameter("@I_Date", NewBooking.BookingDate));
+                    _scheduleSession.Parameters.Add(new SqlParameter("@I_Date", NewBookingDate));
 
                     _scheduleSession.ExecuteNonQuery();
 
@@ -405,7 +406,7 @@ namespace Model
         }
         public string RegisterShift(Shift shift, Instructor instructor, string shiftType)
         {
-            DateTime Woogle = DateTime.Parse(shift.Date.ToString());
+            DateTime ShiftDateTime = DateTime.Parse(shift.Date.ToString());
             string returnMessage = "";
             string mailExceptionHolder = "";
 
@@ -434,7 +435,7 @@ namespace Model
 
                     DateTime employmentDate = DateTime.Parse(hireDate);
 
-                    DateTime watchDate = Woogle;
+                    DateTime watchDate = ShiftDateTime;
 
                     watchDate = watchDate.AddYears(-3);
 
@@ -453,12 +454,12 @@ namespace Model
                     spinningWatch.CommandType = System.Data.CommandType.StoredProcedure;
                     spinningWatch.Parameters.Add(new SqlParameter("@Medlemsnr", instructor.InstructorID));
                     spinningWatch.Parameters.Add(new SqlParameter("@Type", shiftType));
-                    spinningWatch.Parameters.Add(new SqlParameter("@Dato", Woogle));
+                    spinningWatch.Parameters.Add(new SqlParameter("@Dato", ShiftDateTime));
                     spinningWatch.Parameters.Add(new SqlParameter("@Honorar", salary));
 
                     spinningWatch.ExecuteNonQuery();
 
-                    mailExceptionHolder = GetMail(instructor.InstructorID, Woogle.ToString());
+                    mailExceptionHolder = GetMail(instructor.InstructorID, ShiftDateTime.ToString());
 
 
 

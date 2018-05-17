@@ -54,7 +54,8 @@ namespace View
             BindingExpression bind_InstructorID = tb_AdminInstructorID.GetBindingExpression(TextBox.TextProperty);
 
             bind_InstructorID.UpdateSource();
-            _Controller.DeleteInstructor();
+            ConfirmationWindow _ConfirmationWindow = new ConfirmationWindow();
+            _ConfirmationWindow.Show();
         }
     }
 }

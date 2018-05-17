@@ -24,10 +24,10 @@ namespace Model
         }
 
         #endregion
-        string _InstructorID = "";
-        string _Name = "";
-        string _Mail = "";
-        string _HireDate = "";
+        string _InstructorID;
+        string _Name;
+        string _Mail;
+        string _HireDate;
         public string InstructorID
         {
             get

@@ -104,8 +104,8 @@ namespace ViewModel
 
         //Privates
         #region
-        private string _LoginCredentialsPassword = "";
-        private string _LoginCredentials = "";
+        private string _LoginCredentialsPassword;
+        private string _LoginCredentials;
         private static Controller _Instance;
         private string _ReturnMessageShiftWindow;
         private List<Instructor> _InstructorsList = new List<Instructor>();
@@ -590,13 +590,13 @@ namespace ViewModel
         #endregion
         //Properties for journal
         #region
-        string _TbMemberNumber = "";
-        string _TbName = "";
-        string _TbGoal = "";
-        string _ChbTrainingProgram = "";
-        string _TbWeeklyTrainings = "";
-        string _TbTimePerTraining = "";
-        string _TbNotes = "";
+        string _TbMemberNumber;
+        string _TbName;
+        string _TbGoal;
+        string _ChbTrainingProgram;
+        string _TbWeeklyTrainings;
+        string _TbTimePerTraining;
+        string _TbNotes;
      
 
         public string Tb_MemberNumber

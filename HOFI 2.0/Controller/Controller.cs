@@ -829,7 +829,7 @@ namespace ViewModel
         }
         public void AddInstructor()
         {
-           ReturnMessageInstructorsWindow = _DatabaseCon.AddInstructor(Instructor);
+           ReturnMessageEditInstructorsWindow = _DatabaseCon.AddInstructor(Instructor);
             ShowInstructors();
         }
         public void ChangeEmail()
@@ -859,7 +859,7 @@ namespace ViewModel
         public void ScheduleSession()
         {
 
-            ReturnMessageScheduleSession = bookingHandler.ScheduleSession(NewBooking);
+            ReturnMessageEditInstructorsWindow = bookingHandler.ScheduleSession(NewBooking);
         
         }
         public void CreateNewMember()

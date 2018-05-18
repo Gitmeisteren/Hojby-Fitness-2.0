@@ -39,20 +39,6 @@ namespace View
             this.Close();
         }
 
-        private void AddInstructor_Click(object sender, RoutedEventArgs e)
-        {
-            BindingExpression bind_InstructorID   = tb_InstructorID.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bind_InstructorName = tb_InstructorName.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bind_InstuctorEmail = tb_InstructorEmail.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bind_HireDate       = tb_HireDate.GetBindingExpression(TextBox.TextProperty);
-
-            bind_InstructorID.UpdateSource();
-            bind_InstructorName.UpdateSource();
-            bind_InstuctorEmail.UpdateSource();
-            bind_HireDate.UpdateSource();
-
-            _Controller.AddInstructor();
-        }
 
         private void Btn_EditInstructor_Click(object sender, RoutedEventArgs e)
         {
@@ -62,13 +48,14 @@ namespace View
             if(_Controller.LoginCredentials == "hofi353")
             {
                 _AdminEditInstructorWindow.Show();
+                
             }
             else
             {
             _EditInstructorWindow.Show();
-
+                this.Close();
             }
-            this.Close();
+            
         }
 
     }

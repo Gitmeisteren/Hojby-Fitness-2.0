@@ -21,7 +21,7 @@
         <Label Content="Dato for vagt (xx.xx.xxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="124,41,0,0"/>
         <TextBox x:Name="Tb_TypeMemberNumber" Text="{Binding Instructor.InstructorID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="355,13,0,0"/>
         <Button x:Name="Btn_RegisterShift" Content="Registrer vagt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="355,99,0,0" Click="Btn_RegisterShift_Click"/>
-        <TextBlock x:Name="TxtBlock_Messages" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="124,334,0,0" Height="75" Width="405" Text="{Binding Path=ReturnMessageRegisterShift, Mode=TwoWay}"/>
+        <TextBlock x:Name="TxtBlock_Messages" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="124,193,0,0" Height="216" Width="405" Text="{Binding Path=ReturnMessageRegisterShift, Mode=TwoWay}"/>
         <Button x:Name="Btn_ReturnToMainWindow" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,389,0,0" Click="Btn_ReturnToMainWindow_Click"/>
         <Button x:Name="Btn_ShiftList" Content="Vagter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,364,0,0" Click="Btn_ShiftList_Click"/>
         <ComboBox x:Name="Cmb_ShiftType" ItemsSource="{Binding Path=Cmb_TypeChoices}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="355,72,0,0"/>

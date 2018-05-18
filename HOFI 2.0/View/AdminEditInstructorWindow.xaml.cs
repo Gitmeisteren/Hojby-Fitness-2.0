@@ -44,18 +44,31 @@ namespace View
 
         private void Btn_AdminReturnInstructorsWindow_Click(object sender, RoutedEventArgs e)
         {
-            _InstructorsWindow.Show();
-
             this.Close();
         }
 
-        private void Btn_DeleteInstructor_Click(object sender, RoutedEventArgs e)
+        private void Btn_AdminDeleteInstructor_Click(object sender, RoutedEventArgs e)
         {
             BindingExpression bind_InstructorID = tb_AdminInstructorID.GetBindingExpression(TextBox.TextProperty);
 
             bind_InstructorID.UpdateSource();
             ConfirmationWindow _ConfirmationWindow = new ConfirmationWindow();
             _ConfirmationWindow.Show();
+        }
+
+        private void Btn_AdminAddInstructor_Click(object sender, RoutedEventArgs e)
+        {
+            BindingExpression bind_InstructorID = tb_InstructorID.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_InstructorName = tb_InstructorName.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_InstuctorEmail = tb_InstructorEmail.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_HireDate = tb_HireDate.GetBindingExpression(TextBox.TextProperty);
+
+            bind_InstructorID.UpdateSource();
+            bind_InstructorName.UpdateSource();
+            bind_InstuctorEmail.UpdateSource();
+            bind_HireDate.UpdateSource();
+
+            _Controller.AddInstructor();
         }
     }
 }

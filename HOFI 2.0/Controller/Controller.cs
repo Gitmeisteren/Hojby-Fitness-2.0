@@ -859,7 +859,7 @@ namespace ViewModel
         public void ScheduleSession()
         {
 
-            ReturnMessageScheduleSession = bookingHandler.ScheduleSession(NewBooking);
+            ReturnMessageEditInstructorsWindow = bookingHandler.ScheduleSession(NewBooking);
         
         }
         public void CreateNewMember()

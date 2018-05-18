@@ -476,6 +476,10 @@ namespace Model
                     returnMessage = "FEJL: " + e1.Message;
 
                 }
+                catch(Exception e2)
+                {
+                    returnMessage = "FEJL: Forkert indtastet - " + e2.Message;
+                }
                 returnMessage = returnMessage + mailExceptionHolder;
                 if (returnMessage == "")
                 {

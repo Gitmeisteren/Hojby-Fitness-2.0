@@ -16,6 +16,7 @@ namespace TestCase1
         Booking bookingInfo = new Booking();
         LoginHandler loginHandler = new LoginHandler();
         Login login = new Login();
+        ShiftHandler shiftHandler = ShiftHandler.GetInstance();
         Controller controller = Controller.GetInstance();
         BookingRepository bookingRepository = BookingRepository.GetInstance();
         Calendar calendar = Calendar.GetInstance();
@@ -53,8 +54,6 @@ namespace TestCase1
                 bookInfo.BookingDate = "01-01-2000";
                 controller.ScheduleSession();
                 Assert.AreEqual(false , bookingRepository.FindDate(bookingInfo));
-                // all your test code and Asserts that access the database, 
-                // writes and reads, from any class, ...
             }
         }
         [TestMethod]
@@ -68,9 +67,35 @@ namespace TestCase1
         public void AccesLoginTest()
         {
             controller.LoginCredentials = "hofi1453";
-            controller.LoginCredentialsPassword = "Timmi10";
+            controller.LoginCredentialsPassword = "1234";
             Assert.AreEqual("Godkendt", loginHandler.GetLoginInformation("Timmi10", "hofi1453"));
         }
+        [TestMethod]
+        public void RegisterShiftTest()
+        {
+            controller.Shift.Date = "11-05-2018";
+            controller.Instructor.InstructorID = "hofi0";
+            controller.RegisterShift("Fitness");
+            Assert.AreEqual("Vagt registreret og mail sendt", controller.ReturnMessageRegisterShift);
+        }
+        [TestMethod]
+        public void ShowShiftListTest()
+        {
+            controller.ShiftStartDate = "01-05-2018";
+            controller.ShiftEndDate = "04-05-2018";
+            controller.ShiftListInstructorID = "hofi0";
+            controller.ShowShiftList();
+            Assert.AreEqual("Subtotal: 0kr.\n&\n \n Fil eksporteret for  på skrivebordet under mappen 'Excel'. \n \n", controller.ReturnMessageShiftWindow);
+        }
+        [TestMethod]
+        public void ExportShiftListTest()
+        {
+            bool TestBool = false;
+            controller.ShiftStartDate = "01-05-2018";
+            controller.ShiftEndDate = "04-05-2018";
+            controller.ReturnMessageShiftWindow = "SuperGay";
+            controller.ExportShiftList();
 
+        }
     }
 }

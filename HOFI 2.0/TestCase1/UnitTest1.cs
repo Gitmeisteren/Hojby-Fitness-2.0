@@ -44,14 +44,12 @@ namespace TestCase1
             Booking bookInfo = new Booking();
             using (var scop = new System.Transactions.TransactionScope())
             {
-                List<string> listOfDates = new List<string>();
-                Calendar calendar = Calendar.GetInstance();
-                bookInfo.MemberNumber = "hofi9002";
-                bookInfo.BookingDate = "01-01-2000";
+                controller.NewBooking.MemberNumber = "hofi9002";
+                controller.NewBooking.BookingDate = "01-05-2018";
                 controller.ScheduleSession();
                 Assert.AreEqual(true, bookingRepository.FindDate(bookingInfo));
-                bookInfo.MemberNumber = "hofi9002";
-                bookInfo.BookingDate = "01-01-2000";
+                controller.NewBooking.MemberNumber = "hofi9002";
+                controller.NewBooking.BookingDate = "01-05-2018";
                 controller.ScheduleSession();
                 Assert.AreEqual(false , bookingRepository.FindDate(bookingInfo));
             }
@@ -60,15 +58,16 @@ namespace TestCase1
         public void CalenderRecieveDataTest()
         {
             controller.UpdateCalendar();
-            Assert.AreEqual(DateTime.Today.ToString("dd.MM"), controller.Label_1);
+            Assert.AreEqual(DateTime.Today.ToString("dd-MM"), controller.Label_1);
         }
 
         [TestMethod]
         public void AccesLoginTest()
         {
-            controller.LoginCredentials = "hofi1453";
-            controller.LoginCredentialsPassword = "1234";
-            Assert.AreEqual("Godkendt", loginHandler.GetLoginInformation("Timmi10", "hofi1453"));
+            controller.LoginCredentials = "hofi0";
+            controller.LoginCredentialsPassword = "10";
+            controller.CheckLogin();
+            Assert.AreEqual("Godkendt", controller.ReturnMessageLoginWindow);
         }
         [TestMethod]
         public void RegisterShiftTest()
@@ -85,16 +84,20 @@ namespace TestCase1
             controller.ShiftEndDate = "04-05-2018";
             controller.ShiftListInstructorID = "hofi0";
             controller.ShowShiftList();
-            Assert.AreEqual("Subtotal: 0kr.\n&\n \n Fil eksporteret for  på skrivebordet under mappen 'Excel'. \n \n", controller.ReturnMessageShiftWindow);
+            Assert.AreEqual("Subtotal: 0kr.", controller.ReturnMessageShiftWindow);
         }
         [TestMethod]
         public void ExportShiftListTest()
         {
-            bool TestBool = false;
             controller.ShiftStartDate = "01-05-2018";
             controller.ShiftEndDate = "04-05-2018";
-            controller.ReturnMessageShiftWindow = "SuperGay";
+            controller.ReturnMessageShiftWindow = "TestExport";
             controller.ExportShiftList();
+            Assert.AreEqual("TestExport\n Fil eksporteret til skrivebordet under mappen 'Excel'.", controller.ReturnMessageShiftWindow);
+        }
+        [TestMethod]
+        public void Test()
+        {
 
         }
     }

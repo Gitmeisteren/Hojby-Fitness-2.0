@@ -567,14 +567,11 @@ namespace Model
 
                 shiftListFromDatabaseAll = normalRows + subtotalRows;
 
-                if (shiftListFromDatabaseAll == "")
+                if (ifError != "")
                 {
                     shiftListFromDatabaseAll = ifError;
                 }
-                else
-                {
-                    shiftListFromDatabaseAll = shiftListFromDatabaseAll + "\n \n Fil eksporteret til skrivebordet under mappen 'Excel'.\n \n";
-                }
+                
                 return shiftListFromDatabaseAll;
             }
         }
@@ -664,11 +661,10 @@ namespace Model
                 {
                     ifError = "FEJL: " + e.Message;
                 }
-                    //shiftListFromDatabase = normalRows + "Subtotal: " + subtotal + "kr." + "\n";
 
                 if (ifError == "")
                 {
-                    shiftListFromDatabase = normalRows + "Subtotal: " + subtotal + "kr." + "\n" + "&\n \n Fil eksporteret for " + instructor.InstructorID + " på skrivebordet under mappen 'Excel'. \n \n";
+                    shiftListFromDatabase = normalRows + "Subtotal: " + subtotal + "kr.";
                 }
                 else
                 {

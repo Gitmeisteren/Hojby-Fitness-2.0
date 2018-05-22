@@ -59,23 +59,10 @@ namespace Model
             return dateAvailable;
         }
 
-        public List<string> RetrieveCalendarDates()
+        public List<Booking> RetrieveCalendarDates()
         {
-            string[] dateTemp;
-            List<string> RetrievedDates = new List<string>();
-            foreach(Booking booking in _BookingList)
-            {
-                try
-                {
-                    dateTemp = booking.BookingDate.Split('-');
-                    RetrievedDates.Add(dateTemp[0] + "-" + dateTemp[1]);
-                }
-                catch(Exception e)
-                {
-                    
-                }
-            }
-            return RetrievedDates;
+            
+            return _BookingList;
         }
     }
 }

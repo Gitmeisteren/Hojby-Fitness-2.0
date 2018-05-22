@@ -27,7 +27,7 @@ namespace Model
             return _Instance;
         }
 
-        public List<string> UpdateCalendar(List<string> retrievedCalendarList)
+        public List<string> UpdateCalendar(List<Booking> retrievedCalendarList)
         {
         List<string> updatedCalendarDates = new List<string>();
             DateTime dates;
@@ -37,13 +37,13 @@ namespace Model
 
             for (int i = 0; i < 30; i++)
             {
-                stringDates = dates.ToString("dd-MM");
+                stringDates = dates.ToString("dd-MM-yyyy");
 
-                foreach(string date in retrievedCalendarList)
+                foreach(Booking BookingDate in retrievedCalendarList)
                 {
-                    if(stringDates == date)
+                    if(stringDates == BookingDate.BookingDate)
                     {
-                        stringDates += " \n - optaget";
+                        stringDates += " \n - optaget" + "\n" + BookingDate.MemberNumber;
                     }
                 }
                 updatedCalendarDates.Add(stringDates);

@@ -89,7 +89,7 @@ namespace Model
         public List<string> UpdateCalendar()
         {
             Calendar calendar = Calendar.GetInstance();
-            List<string> retrivedCalendarDates = new List<string>();
+            List<Booking> retrivedCalendarDates = new List<Booking>();
             List<string> updatedCalendarDates = new List<string>();
 
 

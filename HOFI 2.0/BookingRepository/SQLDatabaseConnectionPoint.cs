@@ -478,6 +478,10 @@ namespace Model
                     returnMessage = "FEJL: " + e1.Message;
 
                 }
+                catch(Exception e2)
+                {
+                    returnMessage = "FEJL: Forkert indtastet - " + e2.Message;
+                }
                 returnMessage = returnMessage + mailExceptionHolder;
                 if (returnMessage == "")
                 {
@@ -563,14 +567,11 @@ namespace Model
 
                 shiftListFromDatabaseAll = normalRows + subtotalRows;
 
-                if (shiftListFromDatabaseAll == "")
+                if (ifError != "")
                 {
                     shiftListFromDatabaseAll = ifError;
                 }
-                else
-                {
-                    shiftListFromDatabaseAll = shiftListFromDatabaseAll + "\n \n Fil eksporteret til skrivebordet under mappen 'Excel'.\n \n";
-                }
+                
                 return shiftListFromDatabaseAll;
             }
         }
@@ -660,11 +661,10 @@ namespace Model
                 {
                     ifError = "FEJL: " + e.Message;
                 }
-                    //shiftListFromDatabase = normalRows + "Subtotal: " + subtotal + "kr." + "\n";
 
                 if (ifError == "")
                 {
-                    shiftListFromDatabase = normalRows + "Subtotal: " + subtotal + "kr." + "\n" + "&\n \n Fil eksporteret for " + instructor.InstructorID + " på skrivebordet under mappen 'Excel'. \n \n";
+                    shiftListFromDatabase = normalRows + "Subtotal: " + subtotal + "kr.";
                 }
                 else
                 {

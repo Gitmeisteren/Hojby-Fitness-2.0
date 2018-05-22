@@ -859,7 +859,7 @@ namespace ViewModel
         public void ScheduleSession()
         {
 
-            ReturnMessageScheduleSession = bookingHandler.ScheduleSession(NewBooking);
+            ReturnMessageEditInstructorsWindow = bookingHandler.ScheduleSession(NewBooking);
         
         }
         public void CreateNewMember()
@@ -929,6 +929,7 @@ namespace ViewModel
         public void ExportShiftList()
         {
             shiftHandler.ExportShiftList(ReturnMessageShiftWindow, ShiftStartDate, ShiftEndDate);
+            ReturnMessageShiftWindow = ReturnMessageShiftWindow + "\n Fil eksporteret til skrivebordet under mappen 'Excel'.";
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Microsoft.Office.Interop.Word;
+using Excel = Microsoft.Office.Interop.Excel;
 
 
 namespace Model
@@ -21,7 +22,7 @@ namespace Model
 
             string root = @"C:\Users\royga\Documents\" + memberNumber + ".docx";
             //Creates application
-            Application objWord = new Application();
+            Microsoft.Office.Interop.Word.Application objWord = new Microsoft.Office.Interop.Word.Application();
 
             objWord.Visible = true;
             objWord.WindowState = WdWindowState.wdWindowStateNormal;
@@ -110,5 +111,40 @@ namespace Model
 
         }
 
+        public void UpdateStatisticTExcel()
+        {
+            string folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            string primaryFoldername = folderpath + "\\HøjRegistrering";
+            string statisticFoldername = primaryFoldername + "\\Statistik";
+            if (!Directory.Exists(primaryFoldername))
+            {
+                Directory.CreateDirectory(primaryFoldername);
+            }
+            if (!Directory.Exists(statisticFoldername))
+            {
+                Directory.CreateDirectory(statisticFoldername);
+            }
+            string filename = "Statestik.csv";
+            string pathname = Path.Combine(statisticFoldername, filename);
+            using (StreamWriter sw = File.CreateText(pathname))
+            {
+            }
+            Excel.Application ExcelAppObj = new Excel.Application();
+            ExcelAppObj.DisplayAlerts = false;
+            Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            
+
+            //Åbner den et excelprojekt (En "Workbook")
+            Excel.Workbook workbook = ExcelAppObj.Workbooks.Open(pathname, 0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "", true, false, 0, true, false);
+
+            //Åbner den første side i excelprojektet
+            Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets.get_Item(1);
+
+            //Test! Skriver 20 i en bestemt celle
+            worksheet.Cells[2, 3] = "20";
+
+            //Gemmer det vi lige har gjort og lukker vores projekt
+            workbook.SaveAs(pathname, Excel.XlFileFormat.xlOpenXMLWorkbook, null, null, false, false, Excel.XlSaveAsAccessMode.xlShared, false, false, null, null, null);
+        }
     }
 }

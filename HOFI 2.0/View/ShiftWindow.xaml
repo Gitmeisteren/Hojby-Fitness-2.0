@@ -29,5 +29,6 @@
         <WrapPanel>
             <TextBox VerticalScrollBarVisibility="Visible" x:Name="TBlock_ShiftList" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding ReturnMessageShiftWindow, Mode=TwoWay}" VerticalAlignment="Top" Margin="128,159,0,0" Height="295" Width="360" Background="#FFEDFF3E" IsReadOnly="True"/>
         </WrapPanel>
+        <Button x:Name="Btn_TestKnap" Content="TestStatestik" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Click="Btn_TestKnap_Click"/>
     </Grid>
 </Window>

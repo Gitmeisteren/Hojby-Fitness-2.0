@@ -929,7 +929,11 @@ namespace ViewModel
         public void ExportShiftList()
         {
             shiftHandler.ExportShiftList(ReturnMessageShiftWindow, ShiftStartDate, ShiftEndDate);
-            ReturnMessageShiftWindow = ReturnMessageShiftWindow + "\n Fil eksporteret til skrivebordet under mappen 'Excel'.";
+            ReturnMessageShiftWindow = ReturnMessageShiftWindow + "\n Fil eksporteret til skrivebordet under mappen 'HøjRegistrering'.";
+        }
+        public void TestStatestik()
+        {
+            fileExporter.UpdateStatisticTExcel();
         }
     }
 }

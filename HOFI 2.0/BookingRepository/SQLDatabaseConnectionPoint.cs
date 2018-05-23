@@ -154,7 +154,7 @@ namespace Model
 
         public string DeleteInstructor(Instructor Instructor)
         {
-            
+
             string _ReturnMsg = "";
 
             using (SqlConnection con = new SqlConnection(_ConnectionString))
@@ -171,19 +171,19 @@ namespace Model
                 }
                 catch (SqlException e)
                 {
-                    if(e != null)
-                    {   
+                    if (e != null)
+                    {
                         _ReturnMsg = e.Message;
                     }
-                    
+
                 }
-                catch(FormatException e1)
+                catch (FormatException e1)
                 {
                     if (e1 != null)
                     {
                         _ReturnMsg += e1.Message;
                     }
-                    
+
                 }
                 if (_ReturnMsg == "")
                 {
@@ -285,7 +285,7 @@ namespace Model
                 if (errorMsg == "")
                 {
                     returnMsg = "Instruktøren " + instructor.Name + " er tilføjet";
-                    
+
                 }
                 else
                 {
@@ -396,7 +396,7 @@ namespace Model
                 return accesLogin;
             }
         }
-        public string GetMail(string memberNumber, string date)
+        public string GetMail(string _IDClone, string date)
         {
             string instructorEmail = "";
             string ifExceptionMessage = "";
@@ -410,7 +410,7 @@ namespace Model
 
                     SqlCommand _GetEmploymentMail = new SqlCommand("spGetMail", con);
                     _GetEmploymentMail.CommandType = System.Data.CommandType.StoredProcedure;
-                    _GetEmploymentMail.Parameters.Add(new SqlParameter("@Medlemsnr", memberNumber));
+                    _GetEmploymentMail.Parameters.Add(new SqlParameter("@Medlemsnr", _IDClone));
 
                     SqlDataReader reader = _GetEmploymentMail.ExecuteReader();
 
@@ -456,22 +456,65 @@ namespace Model
 
             }
         }
-        public string RegisterShift(Shift shift, Instructor instructor, string shiftType)
+
+        public bool CheckDate()
         {
-            DateTime ShiftDateTime = DateTime.Parse(shift.Date.ToString());
+
+            bool _DateAlreadyRegistered = false;
+            string _Date = "";
+            
+
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+               
+                    con.Open();
+
+                    SqlCommand _CheckifDateRegistered = new SqlCommand("spCheckDate", con);
+                    _CheckifDateRegistered.CommandType = CommandType.StoredProcedure;
+                    _CheckifDateRegistered.Parameters.Add(new SqlParameter("@I_Date", DateTime.Today));
+
+                    SqlDataReader reader = _CheckifDateRegistered.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            _Date = reader["Dato"].ToString();
+                        }
+                    }
+                    if (_Date != "")
+                    {
+                        _DateAlreadyRegistered = false;
+                    }
+                    else if (_Date == "")
+                    {
+                        _DateAlreadyRegistered = true;
+                    }
+                return _DateAlreadyRegistered;
+
+            }
+        } 
+        public string RegisterShift(Shift shift, Instructor instructor, string shiftType, string _IDClone, DateTime dateToday)
+        {
             string returnMessage = "";
             string mailExceptionHolder = "";
-
             int salary = shift.Salary;
             string hireDate = instructor.HireDate;
+            DateTime ShiftDateTime = DateTime.Parse(dateToday.ToString());
+
+            bool _DateRegistered = CheckDate();
+
+            if (_DateRegistered == true)
+            {
+                
             using (SqlConnection con = new SqlConnection(_ConnectionString))
             {
                 try
                 {
-                    con.Open();
+                    con.Open(); 
                     SqlCommand _GetEmploymentDate = new SqlCommand("spGetStartDate", con);
                     _GetEmploymentDate.CommandType = System.Data.CommandType.StoredProcedure;
-                    _GetEmploymentDate.Parameters.Add(new SqlParameter("@Medlemsnr", instructor.InstructorID));
+                    _GetEmploymentDate.Parameters.Add(new SqlParameter("@Medlemsnr", _IDClone));
 
                     SqlDataReader reader = _GetEmploymentDate.ExecuteReader();
 
@@ -504,14 +547,14 @@ namespace Model
 
                     SqlCommand spinningWatch = new SqlCommand("spRegisterWatch", con);
                     spinningWatch.CommandType = System.Data.CommandType.StoredProcedure;
-                    spinningWatch.Parameters.Add(new SqlParameter("@Medlemsnr", instructor.InstructorID));
+                    spinningWatch.Parameters.Add(new SqlParameter("@Medlemsnr", _IDClone));
                     spinningWatch.Parameters.Add(new SqlParameter("@Type", shiftType));
-                    spinningWatch.Parameters.Add(new SqlParameter("@Dato", ShiftDateTime));
+                    spinningWatch.Parameters.Add(new SqlParameter("@Dato", dateToday));
                     spinningWatch.Parameters.Add(new SqlParameter("@Honorar", salary));
 
                     spinningWatch.ExecuteNonQuery();
 
-                    mailExceptionHolder = GetMail(instructor.InstructorID, ShiftDateTime.ToString());
+                    mailExceptionHolder = GetMail(_IDClone, ShiftDateTime.ToString());
 
 
 
@@ -537,9 +580,15 @@ namespace Model
                 {
                     returnMessage = "Vagt registreret og mail sendt";
                 }
-                return returnMessage;
+            }
+                
 
             }
+            else
+            {
+                returnMessage = "Der er allerede en vagt registreret for denne dato.";
+            }
+                return returnMessage;
         }
         internal string GetShiftListAll(Shift shift, Instructor instructor, string startDate, string endDate)
         {

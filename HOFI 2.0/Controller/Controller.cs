@@ -940,7 +940,22 @@ namespace ViewModel
         }
         public void RegisterShift(string shiftType)
         {
-            ReturnMessageRegisterShift = shiftHandler.RegisterShift(Shift, Instructor, shiftType);
+            DateTime dateToday = DateTime.Today;
+
+            string _IDClone;
+            if(LoginCredentials == "hofi353")
+            {
+                dateToday = DateTime.Parse(Shift.Date);
+                _IDClone = Instructor.InstructorID;
+                ReturnMessageRegisterShift = shiftHandler.RegisterShift(Shift, Instructor, shiftType, _IDClone, dateToday);
+            }
+            else
+            {
+                 
+                _IDClone = LoginCredentials;
+                ReturnMessageRegisterShift = shiftHandler.RegisterShift(Shift, Instructor, shiftType, _IDClone, dateToday);
+            }
+            
         }
         public void ShowShiftList()
         {

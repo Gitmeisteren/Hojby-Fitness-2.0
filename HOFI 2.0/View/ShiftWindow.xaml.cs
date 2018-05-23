@@ -45,11 +45,11 @@ namespace View
             controller.ExportShiftList();
         }
 
-        private void Btn_ReturnToShiftMenu_Click(object sender, RoutedEventArgs e)
+        private void Btn_ReturnToAdminShiftMenu_Click(object sender, RoutedEventArgs e)
         {
 
-            RegisterShift shiftMenu = new RegisterShift();
-            shiftMenu.Show();
+            AdminRegisterShift AdminshiftMenu = new AdminRegisterShift();
+            AdminshiftMenu.Show();
             this.Close();
         }
     }

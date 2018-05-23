@@ -31,12 +31,6 @@ namespace View
 
         private void Btn_RegisterShift_Click(object sender, RoutedEventArgs e)
         {
-            BindingExpression _Bind_MemberNumber = Tb_TypeMemberNumber.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression _Bind_ShiftDate = Pick_ShiftDate.GetBindingExpression(DatePicker.TextProperty);
-
-
-            _Bind_MemberNumber.UpdateSource();
-            _Bind_ShiftDate.UpdateSource();
 
             _Controller.RegisterShift(Cmb_ShiftType.Text);
         }

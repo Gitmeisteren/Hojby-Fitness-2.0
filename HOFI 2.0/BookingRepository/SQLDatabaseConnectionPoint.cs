@@ -54,7 +54,56 @@ namespace Model
             }
         }
 
-        public string ChangeEmail(Instructor instructor, string _IDClone)
+        public string UpdatePhoneNumber(Instructor instructor, string _IDClone)
+        {
+            string _ErrorMsg = "";
+            string _ReturnMsg = "";
+
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+
+                try
+                {
+
+                    con.Open();
+
+                    SqlCommand _UpdatePhoneNumber = new SqlCommand("spUpdatePhoneNumber", con);
+                    _UpdatePhoneNumber.CommandType = CommandType.StoredProcedure;
+                    _UpdatePhoneNumber.Parameters.Add(new SqlParameter("@I_InstructorID", _IDClone));
+                    _UpdatePhoneNumber.Parameters.Add(new SqlParameter("@I_TlfNr", instructor.PhoneNumber));
+
+                    _UpdatePhoneNumber.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    if (e != null)
+                    {
+                        _ErrorMsg = "FEJL: Nummeret er ikke opdateret. \n" + e.Message;
+
+                    }
+                }
+                catch (FormatException e1)
+                {
+                    if (e1 != null)
+                    {
+                        _ErrorMsg = "FEJL: Nummeret er ikke opdateret. \n" + e1.Message;
+
+                    }
+                }
+                if (_ErrorMsg == "")
+                {
+                    _ReturnMsg = "Nummeret er opdateret til: " + instructor.PhoneNumber;
+
+                }
+                else
+                {
+                    _ReturnMsg = _ErrorMsg;
+                }
+            }
+            return _ReturnMsg;
+        }
+
+        public string UpdateEmail(Instructor instructor, string _IDClone)
         {
             string _ErrorMsg = "";
             string _ReturnMsg = "";
@@ -213,6 +262,7 @@ namespace Model
                     _AddInstructor.Parameters.Add(new SqlParameter("@Navn", instructor.Name));
                     _AddInstructor.Parameters.Add(new SqlParameter("@Email", instructor.Mail));
                     _AddInstructor.Parameters.Add(new SqlParameter("@Ansat", instructor.HireDate));
+                    _AddInstructor.Parameters.Add(new SqlParameter("@I_TlfNr", instructor.PhoneNumber));
 
                     _AddInstructor.ExecuteNonQuery();
                 }
@@ -600,6 +650,7 @@ namespace Model
                             instructor.Name = reader["Navn"].ToString();
                             instructor.Mail = reader["Email"].ToString();
                             instructor.HireDate = reader["Ansat"].ToString();
+                            instructor.PhoneNumber = int.Parse(reader["TlfNr"].ToString());
 
                             instructorList.Add(instructor);
                         }

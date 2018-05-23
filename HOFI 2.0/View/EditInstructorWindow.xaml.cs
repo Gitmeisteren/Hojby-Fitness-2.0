@@ -20,11 +20,11 @@ namespace View
     /// </summary>
     public partial class EditInstructorWindow : Window
     {
-        Controller controller = Controller.GetInstance();
+        Controller _Controller = Controller.GetInstance();
         public EditInstructorWindow()
         {
             InitializeComponent();
-            DataContext = controller;
+            DataContext = _Controller;
         }
 
         private void Btn_UpdateEmail_Click(object sender, RoutedEventArgs e)
@@ -32,7 +32,7 @@ namespace View
             BindingExpression bind_NewEmail = tb_NewInstructorEmail.GetBindingExpression(TextBox.TextProperty);
 
             bind_NewEmail.UpdateSource();
-            controller.ChangeEmail();
+            _Controller.UpdateEmail();
 
         }
 
@@ -44,6 +44,13 @@ namespace View
             this.Close();
         }
 
+        private void Btn_UpdatePhoneNumber_Click(object sender, RoutedEventArgs e)
+        {
+            BindingExpression bind_EditPhoneNumber = tb_EditPhoneNumber.GetBindingExpression(TextBox.TextProperty);
 
+            bind_EditPhoneNumber.UpdateSource();
+
+            _Controller.UpdatePhoneNumber();
+        }
     }
 }

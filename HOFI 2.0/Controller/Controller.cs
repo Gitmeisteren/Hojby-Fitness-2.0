@@ -61,6 +61,9 @@ namespace ViewModel
                 OnPropertyChanged("ShiftListInstructorID");
             }
         }
+
+       
+
         public string ShiftStartDate
         {
             get
@@ -832,19 +835,36 @@ namespace ViewModel
            ReturnMessageEditInstructorsWindow = _DatabaseCon.AddInstructor(Instructor);
             ShowInstructors();
         }
-        public void ChangeEmail()
+
+        public void UpdatePhoneNumber()
+        {
+            string _IDClone = "";
+            if(LoginCredentials == "hofi353")
+            {
+                _IDClone = Instructor.InstructorID;
+                ReturnMessageEditInstructorsWindow = _DatabaseCon.UpdatePhoneNumber(Instructor, _IDClone);
+            }
+            else
+            {
+                _IDClone = LoginCredentials;
+                ReturnMessageEditInstructorsWindow = _DatabaseCon.UpdatePhoneNumber(Instructor, _IDClone);
+            }
+            ShowInstructors();
+            
+        }
+        public void UpdateEmail()
         {
             string _IDClone = "";
             if(LoginCredentials == "hofi353")
             {
 
                 _IDClone = Instructor.InstructorID;
-                ReturnMessageEditInstructorsWindow = _DatabaseCon.ChangeEmail(Instructor, _IDClone);
+                ReturnMessageEditInstructorsWindow = _DatabaseCon.UpdateEmail(Instructor, _IDClone);
             }
             else
             {
                 _IDClone = LoginCredentials;
-                ReturnMessageEditInstructorsWindow = _DatabaseCon.ChangeEmail(Instructor, _IDClone);
+                ReturnMessageEditInstructorsWindow = _DatabaseCon.UpdateEmail(Instructor, _IDClone);
             }
             ShowInstructors();
         }

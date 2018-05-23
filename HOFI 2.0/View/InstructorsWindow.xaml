@@ -11,11 +11,12 @@
         <ListBox  ItemsSource="{Binding Path=InstructorsList}" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="649" Margin="143,0,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <WrapPanel>
-                        <Label Content="{Binding Path=InstructorID}" FontWeight="Bold" />
-                        <Label Content="{Binding Path=Name}"         />
-                        <Label Content="{Binding Path=Mail}"         />
-                        <Label Content="{Binding Path=HireDate}"     />
+                    <WrapPanel >
+                        <Label Content="{Binding Path=InstructorID}" FontWeight="Bold" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" Background="#FFDEDEDE" />
+                        <Label Content="{Binding Path=Name}"        BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" Background="#FFC7BDBD"   />
+                        <Label Content="{Binding Path=Mail}"  Background="#FFDEDEDE"      BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" />
+                        <Label Content="{Binding Path=HireDate}"  Background="#FFC7BDBD"  BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center"/>
+                        <Label Content="{Binding Path=PhoneNumber}" Background="#FFDEDEDE" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center"   />
                     </WrapPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

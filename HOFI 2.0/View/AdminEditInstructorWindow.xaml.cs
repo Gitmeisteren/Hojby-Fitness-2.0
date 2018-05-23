@@ -38,7 +38,7 @@ namespace View
 
             bind_NewEmail.UpdateSource();
             bind_InstructorID.UpdateSource();
-            _Controller.ChangeEmail();
+            _Controller.UpdateEmail();
 
         }
 
@@ -62,13 +62,27 @@ namespace View
             BindingExpression bind_InstructorName = tb_InstructorName.GetBindingExpression(TextBox.TextProperty);
             BindingExpression bind_InstuctorEmail = tb_InstructorEmail.GetBindingExpression(TextBox.TextProperty);
             BindingExpression bind_HireDate = tb_HireDate.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_PhoneNumber = tb_PhoneNumber.GetBindingExpression(TextBox.TextProperty);
 
             bind_InstructorID.UpdateSource();
             bind_InstructorName.UpdateSource();
             bind_InstuctorEmail.UpdateSource();
             bind_HireDate.UpdateSource();
+            bind_PhoneNumber.UpdateSource();
 
             _Controller.AddInstructor();
+        }
+
+        private void Btn_AdminUpdatePhoneNumber(object sender, RoutedEventArgs e)
+        {
+            BindingExpression bind_MemberNumber = tb_AdminInstructorID.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bind_AdminEditPhoneNumber = tb_AdminEditPhoneNumber.GetBindingExpression(TextBox.TextProperty);
+            
+
+            bind_AdminEditPhoneNumber.UpdateSource();
+            bind_MemberNumber.UpdateSource();
+
+            _Controller.UpdatePhoneNumber();
         }
     }
 }

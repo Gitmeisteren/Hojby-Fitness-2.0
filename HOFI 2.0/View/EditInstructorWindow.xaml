@@ -13,12 +13,15 @@
             <ColumnDefinition Width="209*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="1" Margin="142,0,0,-0.333"/>
-        <TextBox Name="tb_NewInstructorEmail" Text="{Binding Instructor.Mail, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="132,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <TextBox Name="tb_NewInstructorEmail" Text="{Binding Instructor.Mail, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="176,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Grid.Column="1" Grid.ColumnSpan="2"/>
         <Label Content="Indtast ny Email:" HorizontalAlignment="Left" Margin="7,83,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Button Content="Opdater Email" HorizontalAlignment="Left" Margin="96.301,83,0,0" VerticalAlignment="Top" Width="75" Click="Btn_UpdateEmail_Click" Grid.Column="2"/>
+        <Button Content="Opdater Email" HorizontalAlignment="Left" Margin="159,83,0,0" VerticalAlignment="Top" Width="101" Click="Btn_UpdateEmail_Click" Grid.Column="2"/>
         <TextBlock Text="{Binding Path=ReturnMessageEditInstructorsWindow, Mode=TwoWay}" TextWrapping="Wrap"  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="159.301,203,0,0" Height="109" Width="175" Background="#FFFBE400" Grid.Column="2"/>
         <Button Content="Tilbage" HorizontalAlignment="Left" Margin="34,389,0,0" VerticalAlignment="Top" Width="75" Click="Btn_ReturnInstructorsWindow_Click"/>
         <Label Content="{Binding Path=LoginCredentials, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="394" Margin="117,10,0,0" Height="60" FontSize="20" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Content="Indtast nyt telefonnummer" HorizontalAlignment="Left" Margin="7,114,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button Content="Opdater nummer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Grid.Column="2" Margin="159,117,0,0" Click="Btn_UpdatePhoneNumber_Click"/>
+        <TextBox Name="tb_EditPhoneNumber" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Instructor.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="161" Grid.ColumnSpan="2" Grid.Column="1" Margin="176,118,0,0"/>
 
     </Grid>
 </Window>

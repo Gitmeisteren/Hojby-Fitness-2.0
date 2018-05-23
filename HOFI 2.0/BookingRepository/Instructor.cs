@@ -28,6 +28,7 @@ namespace Model
         string _Name;
         string _Mail;
         string _HireDate;
+        int _PhoneNumber;
         public string InstructorID
         {
             get
@@ -75,6 +76,19 @@ namespace Model
             {
                 _HireDate = value;
                 OnPropertyChanged("HireDate");
+            }
+        }
+
+        public int PhoneNumber
+        {
+            get
+            {
+                return _PhoneNumber;
+            }
+            set
+            {
+                _PhoneNumber = value;
+                OnPropertyChanged("PhoneNumber");
             }
         }
     }

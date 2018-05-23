@@ -92,7 +92,9 @@
     <Compile Include="ShiftHandler.cs" />
     <Compile Include="ShiftRepository.cs" />
     <Compile Include="SQLDatabaseConnectionPoint.cs" />
+    <Compile Include="Statistic.cs" />
     <Compile Include="StatisticHandler.cs" />
+    <Compile Include="StatisticRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

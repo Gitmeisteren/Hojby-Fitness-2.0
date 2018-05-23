@@ -111,7 +111,9 @@ namespace Model
 
         }
 
-        public void UpdateStatisticTExcel()
+       
+
+        public void UpdateStatisticTExcel(List<int> fileNumbersList)
         {
             string folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             string primaryFoldername = folderpath + "\\HøjRegistrering";
@@ -141,7 +143,11 @@ namespace Model
             Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets.get_Item(1);
 
             //Test! Skriver 20 i en bestemt celle
-            worksheet.Cells[2, 3] = "20";
+            worksheet.Cells[2, 2] = fileNumbersList[0];
+            worksheet.Cells[3, 2] = fileNumbersList[0];
+            worksheet.Cells[4, 2] = fileNumbersList[0];
+            worksheet.Cells[5, 2] = fileNumbersList[0];
+            worksheet.Cells[6, 2] = fileNumbersList[0];
 
             //Gemmer det vi lige har gjort og lukker vores projekt
             workbook.SaveAs(pathname, Excel.XlFileFormat.xlOpenXMLWorkbook, null, null, false, false, Excel.XlSaveAsAccessMode.xlShared, false, false, null, null, null);

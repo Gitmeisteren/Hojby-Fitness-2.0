@@ -52,5 +52,10 @@ namespace View
             shiftMenu.Show();
             this.Close();
         }
+
+        private void Btn_TestKnap_Click(object sender, RoutedEventArgs e)
+        {
+            controller.TestStatestik();
+        }
     }
 }

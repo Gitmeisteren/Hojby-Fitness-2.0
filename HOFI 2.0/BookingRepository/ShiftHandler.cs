@@ -54,13 +54,18 @@ namespace Model
         public void ExportShiftList(string shiftList, string shiftStartDate, string shiftEndDate)
         {
             string folderpath = Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory);
-            string foldername = folderpath + "\\VagtLister";
-            if (!Directory.Exists(foldername))
+            string primaryFoldername = folderpath + "\\HøjRegistrering";
+            string shiftFoldername = primaryFoldername + "\\Vagter";
+            if (!Directory.Exists(primaryFoldername))
             {
-                Directory.CreateDirectory(foldername);
+                Directory.CreateDirectory(primaryFoldername);
+            }
+            if (!Directory.Exists(shiftFoldername))
+            {
+                Directory.CreateDirectory(shiftFoldername);
             }
             string filenameAll = "Vagtliste " + shiftStartDate + " til " + shiftEndDate + ".csv";
-            string pathstringAll = System.IO.Path.Combine(foldername, filenameAll);
+            string pathstringAll = System.IO.Path.Combine(shiftFoldername, filenameAll);
             using (StreamWriter sw = File.CreateText(pathstringAll))
             {
                 sw.WriteLine(shiftList);

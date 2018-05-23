@@ -34,7 +34,11 @@ namespace ViewModel
             CalendarDates = Calendar.GetInstance();
             Shift = new Shift();
             Instructor = new Instructor();
+            statisticHandler = StatisticHandler.GetInstance();
+            StatisticRepoUpdate();
             IntitialRepoUpdate();
+            statisticHandler.AddToDBFromStatistic();
+
         }
         public static Controller GetInstance()
         {
@@ -94,6 +98,7 @@ namespace ViewModel
         BookingHandler bookingHandler = BookingHandler.GetInstance();
         Booking booking = new Booking();
         Member member = new Member();
+        StatisticHandler statisticHandler = StatisticHandler.GetInstance();
         BookingRepository bookingRepo = BookingRepository.GetInstance();
         FileExporter fileExporter = new FileExporter();
         ShiftHandler shiftHandler = ShiftHandler.GetInstance();
@@ -871,6 +876,10 @@ namespace ViewModel
             
             bookingHandler.IntitialRepoUpdate();
         }
+        public void StatisticRepoUpdate()
+        {
+            statisticHandler.StatisticRepoUpdate();
+        }
         public void UpdateCalendar()
         {
             List<string> updatedCalendarDates = new List<string>(); 
@@ -931,9 +940,10 @@ namespace ViewModel
             shiftHandler.ExportShiftList(ReturnMessageShiftWindow, ShiftStartDate, ShiftEndDate);
             ReturnMessageShiftWindow = ReturnMessageShiftWindow + "\n Fil eksporteret til skrivebordet under mappen 'HøjRegistrering'.";
         }
-        public void TestStatestik()
+        
+        public void SaveStatistics()
         {
-            fileExporter.UpdateStatisticTExcel();
+
         }
     }
 }

@@ -84,6 +84,9 @@
     <Compile Include="AdminEditInstructorWindow.xaml.cs">
       <DependentUpon>AdminEditInstructorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminRegisterShift.xaml.cs">
+      <DependentUpon>AdminRegisterShift.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ConfirmationWindow.xaml.cs">
       <DependentUpon>ConfirmationWindow.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
       <DependentUpon>ShiftWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AdminEditInstructorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminRegisterShift.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

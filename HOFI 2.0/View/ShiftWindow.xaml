@@ -18,7 +18,7 @@
             </Border.RenderTransform>
         </Border>
         <Button x:Name="Btn_ShowSingleShifts" Content="Vis Vagter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Margin="344,103,0,0" Click="Btn_ShowSingleShifts_Click"/>
-        <Button x:Name="Btn_ReturnToShiftMenu" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,435,0,0" Click="Btn_ReturnToShiftMenu_Click"/>
+        <Button x:Name="Btn_ReturnToShiftMenu" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,435,0,0" Click="Btn_ReturnToAdminShiftMenu_Click"/>
         <Button x:Name="Btn_PrintShifts" Content="Udskriv viste" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,410,0,0" Click="Btn_PrintShifts_Click"/>
         <Label Content="Medlemsnummer (hofixxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,10,0,0"/>
         <Label Content="Startdato (xx.xx.xxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,41,0,0"/>

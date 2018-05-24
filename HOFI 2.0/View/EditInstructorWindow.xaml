@@ -8,20 +8,23 @@
         Title="EditInstructorWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80*"/>
-            <ColumnDefinition Width="108*"/>
-            <ColumnDefinition Width="209*"/>
+            <ColumnDefinition Width="165*"/>
+            <ColumnDefinition Width="154*"/>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="430*"/>
         </Grid.ColumnDefinitions>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="1" Margin="142,0,0,-0.333"/>
-        <TextBox Name="tb_NewInstructorEmail" Text="{Binding Instructor.Mail, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="176,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Label Content="Indtast ny Email:" HorizontalAlignment="Left" Margin="7,83,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Button Content="Opdater Email" HorizontalAlignment="Left" Margin="159,83,0,0" VerticalAlignment="Top" Width="101" Click="Btn_UpdateEmail_Click" Grid.Column="2"/>
-        <TextBlock Text="{Binding Path=ReturnMessageEditInstructorsWindow, Mode=TwoWay}" TextWrapping="Wrap"  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="159.301,203,0,0" Height="109" Width="175" Background="#FFFBE400" Grid.Column="2"/>
-        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="34,389,0,0" VerticalAlignment="Top" Width="75" Click="Btn_ReturnInstructorsWindow_Click"/>
-        <Label Content="{Binding Path=LoginCredentials, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="394" Margin="117,10,0,0" Height="60" FontSize="20" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Label Content="Indtast nyt telefonnummer" HorizontalAlignment="Left" Margin="7,114,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Button Content="Opdater nummer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Grid.Column="2" Margin="159,117,0,0" Click="Btn_UpdatePhoneNumber_Click"/>
-        <TextBox Name="tb_EditPhoneNumber" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Instructor.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="161" Grid.ColumnSpan="2" Grid.Column="1" Margin="176,118,0,0"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="1" Margin="142,0,0,-2"/>
+        <TextBox Name="tb_NewInstructorEmail" Text="{Binding Instructor.Mail, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="33,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Label Content="Indtast ny Email:" HorizontalAlignment="Left" Margin="7,162,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="96"/>
+        <Button Content="Opdater Email" HorizontalAlignment="Left" Margin="159,165,0,0" VerticalAlignment="Top" Width="101" Click="Btn_UpdateEmail_Click" Grid.Column="3" Height="23"/>
+        <TextBlock Text="{Binding Path=ReturnMessageEditInstructorsWindow, Mode=TwoWay}" TextWrapping="Wrap"  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,278,0,0" Height="109" Width="175" Background="#FFFBE400" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="34,389,0,0" VerticalAlignment="Top" Width="75" Click="Btn_ReturnInstructorsWindow_Click" Height="20"/>
+        <Label Content="{Binding Path=LoginCredentials, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Margin="33,136,0,0" Height="23" FontSize="20" Grid.Column="2" Grid.ColumnSpan="2" RenderTransformOrigin="0.496,1.174"/>
+        <Label Content="Indtast nyt telefonnummer:" HorizontalAlignment="Left" Margin="7,193,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" Height="26" Width="154"/>
+        <Button Content="Opdater nummer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Grid.Column="3" Margin="159,196,0,0" Click="Btn_UpdatePhoneNumber_Click" Height="23"/>
+        <TextBox Name="tb_EditPhoneNumber" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Instructor.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="161" Grid.ColumnSpan="2" Grid.Column="2" Margin="33,196,0,0"/>
+        <Label Content="Medlemsnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="7,136,0,0" Width="148" Height="26" Grid.ColumnSpan="2"/>
+        <Label Content="Redigér oplysninger" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,19,0,0" Height="59" Width="218" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="2"/>
 
     </Grid>
 </Window>

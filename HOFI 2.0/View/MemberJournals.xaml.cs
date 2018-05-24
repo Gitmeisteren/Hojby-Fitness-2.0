@@ -31,7 +31,7 @@ namespace View
 
         private void Btn_BookSession_Click(object sender, RoutedEventArgs e)
         {
-            _Controller.ExportToPDF(cmb_goal.Text);
+            _Controller.ExportToWord(cmb_goal.Text);
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

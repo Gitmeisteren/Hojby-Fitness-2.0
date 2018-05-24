@@ -37,7 +37,7 @@ namespace ViewModel
             statisticHandler = StatisticHandler.GetInstance();
             StatisticRepoUpdate();
             IntitialRepoUpdate();
-            statisticHandler.AddToDBFromStatistic();
+            statisticHandler.AddToExcellFromStatisticRepo();
 
         }
         public static Controller GetInstance()
@@ -832,8 +832,9 @@ namespace ViewModel
 
         public void ExportToPDF(string goal)
         {
- 
             fileExporter.ExportToPDF(NewBooking, NewMember, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
+
+            SaveStatistics(goal);
         }
         public void AddInstructor()
         {
@@ -961,9 +962,18 @@ namespace ViewModel
             ReturnMessageShiftWindow = ReturnMessageShiftWindow + "\n Fil eksporteret til skrivebordet under mappen 'HøjRegistrering'.";
         }
         
-        public void SaveStatistics()
+        public void SaveStatistics(string goal)
         {
-
+           DateTime dayOfJournalCreation = DateTime.Today;
+            
+            Statistic statistic = new Statistic(NewMember.Age,dayOfJournalCreation.ToShortDateString(), goal);
+            //Tester om der er en exception hvis der er skal den ikke gå videre.
+            if (statisticHandler.AddStatisticToDB(statistic) == "") {
+                statisticHandler.StatisticRepoUpdate();
+                statisticHandler.AddToExcellFromStatisticRepo();
+            }
         }
+
+
     }
 }

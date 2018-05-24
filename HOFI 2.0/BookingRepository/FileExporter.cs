@@ -113,7 +113,7 @@ namespace Model
 
        
 
-        public void UpdateStatisticTExcel(List<int> fileNumbersList)
+        public void UpdateStatisticToExcel(List<int> fileNumbersList)
         {
             string folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             string primaryFoldername = folderpath + "\\HøjRegistrering";
@@ -143,11 +143,47 @@ namespace Model
             Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets.get_Item(1);
 
             //Test! Skriver 20 i en bestemt celle
+            worksheet.Cells[2, 1] = "Styrketræning";
+            worksheet.Cells[3, 1] = "Vægttab";
+            worksheet.Cells[4, 1] = "Opstramning";
+            worksheet.Cells[5, 1] = "Konditionstræning";
+            worksheet.Cells[6, 1] = "Kom-Godt-Igang";
+
+            worksheet.Cells[1, 2] = "18-25";
+            worksheet.Cells[1, 3] = "26-35";
+            worksheet.Cells[1, 4] = "36-45";
+            worksheet.Cells[1, 5] = "46-55";
+            worksheet.Cells[1, 6] = "55+";
+
             worksheet.Cells[2, 2] = fileNumbersList[0];
-            worksheet.Cells[3, 2] = fileNumbersList[0];
-            worksheet.Cells[4, 2] = fileNumbersList[0];
-            worksheet.Cells[5, 2] = fileNumbersList[0];
-            worksheet.Cells[6, 2] = fileNumbersList[0];
+            worksheet.Cells[3, 2] = fileNumbersList[1];
+            worksheet.Cells[4, 2] = fileNumbersList[2];
+            worksheet.Cells[5, 2] = fileNumbersList[3];
+            worksheet.Cells[6, 2] = fileNumbersList[4];
+
+            worksheet.Cells[2, 3] = fileNumbersList[5];
+            worksheet.Cells[3, 3] = fileNumbersList[6];
+            worksheet.Cells[4, 3] = fileNumbersList[7];
+            worksheet.Cells[5, 3] = fileNumbersList[8];
+            worksheet.Cells[6, 3] = fileNumbersList[9];
+
+            worksheet.Cells[2, 4] = fileNumbersList[10];
+            worksheet.Cells[3, 4] = fileNumbersList[11];
+            worksheet.Cells[4, 4] = fileNumbersList[12];
+            worksheet.Cells[5, 4] = fileNumbersList[13];
+            worksheet.Cells[6, 4] = fileNumbersList[14];
+
+            worksheet.Cells[2, 5] = fileNumbersList[15];
+            worksheet.Cells[3, 5] = fileNumbersList[16];
+            worksheet.Cells[4, 5] = fileNumbersList[17];
+            worksheet.Cells[5, 5] = fileNumbersList[18];
+            worksheet.Cells[6, 5] = fileNumbersList[19];
+
+            worksheet.Cells[2, 6] = fileNumbersList[20];
+            worksheet.Cells[3, 6] = fileNumbersList[21];
+            worksheet.Cells[4, 6] = fileNumbersList[22];
+            worksheet.Cells[5, 6] = fileNumbersList[23];
+            worksheet.Cells[6, 6] = fileNumbersList[24];
 
             //Gemmer det vi lige har gjort og lukker vores projekt
             workbook.SaveAs(pathname, Excel.XlFileFormat.xlOpenXMLWorkbook, null, null, false, false, Excel.XlSaveAsAccessMode.xlShared, false, false, null, null, null);

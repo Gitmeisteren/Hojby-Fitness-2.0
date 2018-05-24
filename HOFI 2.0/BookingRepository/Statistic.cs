@@ -7,11 +7,25 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Statistic
+   public class Statistic
     {
+        //Need to make a constructor that can add values.
+
         int _Age = 0;
         string _Type = "";
         string _Date = "";
+
+        public Statistic()
+        {
+
+        }
+
+        public Statistic(int age,string date, string goal)
+        {
+            this._Age = age;
+            this._Date = date;
+            this._Type = goal;
+        }
 
         public int Age
         {

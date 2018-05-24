@@ -27,12 +27,18 @@ namespace Model
         public void StatisticRepoUpdate()
         {
             List<Statistic> statisticFromDB = sqlDatabaseConnectionPoint.UpdateStatistic();
-            statisticRepo.AddStatisticsToRepoFromDB(statisticFromDB);
+            statisticRepo.RefreshStatisticsFromDB(statisticFromDB);
         }
 
-        public void AddToDBFromStatistic()
+        public string AddStatisticToDB(Statistic statistic)
         {
-            int Styrketræning = 4;
+           return sqlDatabaseConnectionPoint.AddStatisticToDB(statistic);
+        }
+
+
+        public void AddToExcellFromStatisticRepo()
+        {
+            int Styrketræning = 0;
             int Opstramning = 0;
             int Vægttab = 0;
             int Konditionstræning = 0;
@@ -96,8 +102,8 @@ namespace Model
             FileNumbersList.Add(Konditionstræning);
             FileNumbersList.Add(KomGodtIgang);
 
-            Styrketræning = 3;
-            Opstramning = 2;
+            Styrketræning = 0;
+            Opstramning = 0;
             Vægttab = 0;
             Konditionstræning = 0;
             KomGodtIgang = 0;
@@ -133,7 +139,7 @@ namespace Model
 
             Styrketræning = 0;
             Opstramning = 0;
-            Vægttab = 4;
+            Vægttab = 0;
             Konditionstræning = 0;
             KomGodtIgang = 0;
             foreach (Statistic statistic in AgeGroup3)
@@ -169,7 +175,7 @@ namespace Model
             Styrketræning = 0;
             Opstramning = 0;
             Vægttab = 0;
-            Konditionstræning = 5;
+            Konditionstræning = 0;
             KomGodtIgang = 0;
             foreach (Statistic statistic in AgeGroup4)
             {
@@ -205,7 +211,7 @@ namespace Model
             Opstramning = 0;
             Vægttab = 0;
             Konditionstræning = 0;
-            KomGodtIgang = 6;
+            KomGodtIgang = 0;
             foreach (Statistic statistic in AgeGroup5)
             {
                 if (statistic.Type == "Styrketræning")
@@ -240,9 +246,9 @@ namespace Model
             Opstramning = 0;
             Vægttab = 0;
             Konditionstræning = 0;
-            KomGodtIgang = 7;
+            KomGodtIgang = 0;
 
-            fileExporter.UpdateStatisticTExcel(FileNumbersList);
+            fileExporter.UpdateStatisticToExcel(FileNumbersList);
 
         }
 

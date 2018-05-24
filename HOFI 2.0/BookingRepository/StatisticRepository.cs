@@ -22,8 +22,9 @@ namespace Model
         {
 
         }
-        public void AddStatisticsToRepoFromDB(List<Statistic> statistics)
+        public void RefreshStatisticsFromDB(List<Statistic> statistics)
         {
+            _StatisticsList.Clear();
             foreach (Statistic statistic in statistics)
             {
                 _StatisticsList.Add(statistic);

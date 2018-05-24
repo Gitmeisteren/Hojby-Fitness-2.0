@@ -16,10 +16,10 @@ namespace Model
     public class FileExporter
     {
 
-        public void ExportToPDF(Booking memberNumber, Member name, string goal, string trainingProgram, string weeklyTrainings, string timePerTraining, string notes)
+        public void ExportToWord(Booking booking, Member member, string goal, string trainingProgram, string weeklyTrainings, string timePerTraining, string notes)
         {
 
-            string root = @"C:\Users\royga\Documents\" + memberNumber + ".docx";
+            string root = @"C:\Users\royga\Documents\" + booking.MemberNumber + ".docx";
             //Creates application
             Application objWord = new Application();
 
@@ -35,8 +35,8 @@ namespace Model
             Paragraph objParagraph;
             objParagraph = objDoc.Paragraphs.Add();
             objParagraph.Range.Text =
-                "Træningsprogram for " + memberNumber + "\n"
-                + "Navn: " + name + "\n"
+                "Træningsprogram for " + booking.MemberNumber + "\n"
+                + "Navn: " + member.Name + "\n"
                 + "Formål: " + goal + "\n"
                 + "Træningsprogram: " + trainingProgram + "\n"
                 + "Antal træninger om ugen: " + weeklyTrainings + "\n"

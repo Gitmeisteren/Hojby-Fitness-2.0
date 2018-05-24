@@ -825,10 +825,10 @@ namespace ViewModel
 
         }
 
-        public void ExportToPDF(string goal)
+        public void ExportToWord(string goal)
         {
  
-            fileExporter.ExportToPDF(NewBooking, NewMember, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
+            fileExporter.ExportToWord(NewBooking, NewMember, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
         }
         public void AddInstructor()
         {

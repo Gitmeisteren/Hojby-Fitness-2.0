@@ -832,7 +832,7 @@ namespace ViewModel
 
         public void ExportToWord(string goal)
         {
-            fileExporter.ExportToWord(NewBooking, NewMember, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
+            //fileExporter.ExportToWord(NewBooking, NewMember, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
 
             SaveStatistics(goal);
         }

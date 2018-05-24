@@ -54,6 +54,43 @@ namespace Model
             }
         }
 
+        internal List<Statistic> UpdateStatistic()
+        {
+            DateTime tempDateHolder;
+            List<Statistic> StatisticRepo = new List<Statistic>();
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+                try
+                {
+                    con.Open();
+
+                    SqlCommand _StatisticRepoUpdate = new SqlCommand("spGetStatistic", con);
+
+                    SqlDataReader reader = _StatisticRepoUpdate.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Statistic statistic = new Statistic();
+                            statistic.Age = int.Parse(reader["Age"].ToString());
+                            tempDateHolder = DateTime.Parse(reader["TrainingDate"].ToString());
+                            statistic.Date = tempDateHolder.ToString("dd-MM-yyyy");
+                            statistic.Type = reader["TrainingType"].ToString();
+
+                            StatisticRepo.Add(statistic);
+                        }
+                    }
+                    reader.Close();
+                }
+                catch (SqlException e)
+                {
+
+                }
+            }
+
+            return StatisticRepo;
+        }
+
         public string UpdatePhoneNumber(Instructor instructor, string _IDClone)
         {
             string _ErrorMsg = "";

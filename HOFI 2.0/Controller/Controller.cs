@@ -983,7 +983,8 @@ namespace ViewModel
             
             Statistic statistic = new Statistic(NewMember.Age,dayOfJournalCreation.ToShortDateString(), goal);
             //Tester om der er en exception hvis der er skal den ikke gå videre.
-            if (statisticHandler.AddStatisticToDB(statistic) == "") {
+            string ifExceptionMessage = statisticHandler.AddStatisticToDB(statistic);
+            if ( ifExceptionMessage == "") {
                 statisticHandler.StatisticRepoUpdate();
                 statisticHandler.AddToExcellFromStatisticRepo();
             }

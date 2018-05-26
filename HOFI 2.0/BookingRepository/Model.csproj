@@ -87,6 +87,7 @@
     <Compile Include="InstructorRepository.cs" />
     <Compile Include="LoginHandler.cs" />
     <Compile Include="Member.cs" />
+    <Compile Include="NonMember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shift.cs" />
     <Compile Include="ShiftHandler.cs" />

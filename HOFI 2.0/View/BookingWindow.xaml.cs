@@ -42,5 +42,13 @@ namespace View
             this.Close();
             
         }
+
+        private void Btn_NonMemberBookingWindow_Click(object sender, RoutedEventArgs e)
+        {
+            NonMemberBookingWindow _NonMemberBookingWindow = new NonMemberBookingWindow();
+
+            _NonMemberBookingWindow.Show();
+            this.Close();
+        }
     }
 }

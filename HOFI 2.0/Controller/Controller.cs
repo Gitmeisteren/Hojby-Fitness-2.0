@@ -10,6 +10,36 @@ namespace ViewModel
 {
     public class Controller : INotifyPropertyChanged
     {
+
+
+        int _NonMemberPhoneNumber = 0;
+        string _NonMemberName = "";
+
+        public int NonMemberPhoneNumber
+        {
+            get
+            {
+                return _NonMemberPhoneNumber;
+            }
+            set
+            {
+                _NonMemberPhoneNumber = value;
+                OnPropertyChanged("NonMemberPhoneNumber");
+            }
+        }
+
+        public string NonMemberName
+        {
+            get
+            {
+                return _NonMemberName;
+            }
+            set
+            {
+                _NonMemberName = value;
+                OnPropertyChanged("NonMemberName");
+            }
+        }
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -40,6 +70,12 @@ namespace ViewModel
             statisticHandler.AddToExcellFromStatisticRepo();
 
         }
+
+        public void RegisterNonMemberBooking()
+        {
+           ReturnMessageNonMemberBookingWindow = _DatabaseCon.RegisterNonMemberBooking(NonMemberPhoneNumber);
+        }
+
         public static Controller GetInstance()
         {
             if (_Instance == null)
@@ -48,6 +84,12 @@ namespace ViewModel
             }
             return _Instance;
         }
+
+        public void AddNonMember()
+        {
+          ReturnMessageNonMemberBookingWindow = _DatabaseCon.AddNonMember(NonMemberPhoneNumber, NonMemberName);
+        }
+
         //Shift properties for ShiftWindow
         #region
         string _InstructorID = "";
@@ -108,6 +150,7 @@ namespace ViewModel
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
         LoginHandler loginHandler = new LoginHandler();
         Calendar calendar = Calendar.GetInstance();
+        NonMember _NonMember = new NonMember();
         #endregion
 
         //Privates
@@ -126,10 +169,13 @@ namespace ViewModel
         private string _ReturnMessageBookingWindow;
         private string _ReturnMessageAdminInstructorWindow;
         private string _ReturnMessageLoginWindow;
+        private string _ReturnMessageNonMemberBookingWindow;
         #endregion
 
         //Properties
         #region
+        
+        public NonMember NewNonMember { get; set; }
         public string LoginCredentialsPassword
         {
             get
@@ -698,6 +744,19 @@ namespace ViewModel
         #endregion
         //Properties for ReturnMessages
         #region
+        
+        public string ReturnMessageNonMemberBookingWindow
+        {
+            get
+            {
+                return _ReturnMessageNonMemberBookingWindow;
+            }
+            set
+            {
+                _ReturnMessageNonMemberBookingWindow = value;
+                OnPropertyChanged("ReturnMessageNonMemberBookingWindow");
+            }
+        }
         public string ReturnMessageLoginWindow
         {
             get

@@ -26,7 +26,7 @@ namespace Model
                     con.Open();
 
                     SqlCommand _scheduleSession = new SqlCommand("spRegisterMemberBooking", con);
-                    _scheduleSession.CommandType = System.Data.CommandType.StoredProcedure;
+                    _scheduleSession.CommandType = CommandType.StoredProcedure;
                     _scheduleSession.Parameters.Add(new SqlParameter("@I_MemberID", NewBooking.MemberNumber));
                     _scheduleSession.Parameters.Add(new SqlParameter("@I_Date", NewBookingDate));
 
@@ -54,6 +54,145 @@ namespace Model
             }
         }
 
+        public string AddNonMember(int nonMemberPhoneNumber, string nonMemberName)
+        {
+            string errorMsg = "";
+            string returnMsg = "";
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+
+                try
+                {
+
+
+                    con.Open();
+
+                    SqlCommand _AddNonMember = new SqlCommand("spCreateNonMember", con);
+                    _AddNonMember.CommandType = CommandType.StoredProcedure;
+                    _AddNonMember.Parameters.Add(new SqlParameter("@I_PhoneNumber", nonMemberPhoneNumber.ToString()));
+                    _AddNonMember.Parameters.Add(new SqlParameter("@I_Name", nonMemberName));
+
+                    _AddNonMember.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    if (e != null)
+                    {
+                        errorMsg = "FEJL: Ikke-medlem er ikke oprettet \n" + e.Message;
+
+                    }
+                }
+                catch (FormatException e1)
+                {
+                    if (e1 != null)
+                    {
+                        errorMsg = "FEJL: Ikke-medlem er ikke oprettet \n" + e1.Message;
+
+                    }
+                }
+                if (errorMsg == "")
+                {
+                    returnMsg = "Ikke-medlemmet " + nonMemberName + " er tilføjet";
+
+                }
+                else
+                {
+                    returnMsg = errorMsg;
+                }
+
+            }
+            return returnMsg;
+        }
+
+        public string RegisterNonMemberBooking(int nonMemberPhoneNumber)
+        {
+            string errorMsg = "";
+            string returnMsg = "";
+            List<int> _IsEligibleForBooking = new List<int>();
+            _IsEligibleForBooking = CheckIfMaximumBookingsReached(nonMemberPhoneNumber);
+
+                if (_IsEligibleForBooking.Count >= 2)
+                    {
+                returnMsg = "Ikke-medlemmet har allerede haft to prøvetimer";
+                    }
+                else
+                {
+                using (SqlConnection con = new SqlConnection(_ConnectionString))
+                    {
+                    try
+                    {
+
+                        con.Open();
+
+                        SqlCommand _RegisterNonMemberBooking = new SqlCommand("spRegisterNonMemberBooking", con);
+                        _RegisterNonMemberBooking.CommandType = CommandType.StoredProcedure;
+                        _RegisterNonMemberBooking.Parameters.Add(new SqlParameter("@I_NonMemberPhone", nonMemberPhoneNumber));
+
+                        _RegisterNonMemberBooking.ExecuteNonQuery();
+
+                    }
+                    catch (SqlException e)
+                    {
+                        errorMsg = e.Message;
+                    }
+                    catch (FormatException f)
+                    {
+
+                        errorMsg += f.Message;
+                    }
+                    if (errorMsg == "")
+                    {
+                        returnMsg = "Booking er oprettet.";
+                    }
+                    else if (errorMsg != "")
+                    {
+                        returnMsg += " Booking er ikke oprettet.";
+                    }
+                }
+           
+            }
+                return returnMsg;
+        }
+
+        private List<int> CheckIfMaximumBookingsReached(int nonMemberPhoneNumber)
+        {
+            int _PhoneNumberClone = 0;
+            _PhoneNumberClone = nonMemberPhoneNumber;
+            List<int> _NumberOfBookings = new List<int>();
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+
+                try
+                {
+
+                    con.Open();
+
+                    SqlCommand _CheckIfMaximumBookingsReached = new SqlCommand("spCheckifMaximumBookingsReached", con);
+                    _CheckIfMaximumBookingsReached.CommandType = System.Data.CommandType.StoredProcedure;
+                    _CheckIfMaximumBookingsReached.Parameters.Add(new SqlParameter("@I_NonMemberPhoneNumber", nonMemberPhoneNumber));
+
+
+                    _CheckIfMaximumBookingsReached.ExecuteNonQuery();
+
+                    SqlDataReader reader = _CheckIfMaximumBookingsReached.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            _PhoneNumberClone = int.Parse(reader["NonMemberPhone"].ToString());
+                            _NumberOfBookings.Add(_PhoneNumberClone);
+                        }
+                    }
+                    reader.Close();
+
+                }
+                catch (SqlException e)
+                {
+
+                }
+                return _NumberOfBookings;
+            }
+        }
 
         public string UpdatePhoneNumber(Instructor instructor, string _IDClone)
         {

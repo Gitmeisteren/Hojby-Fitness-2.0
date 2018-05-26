@@ -18,6 +18,16 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <Label Content="Opret ikke-medlem" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,10,0,0" Height="50" Width="230" FontSize="20" FontWeight="Bold"/>
+        <TextBox Name="tb_NonMemberName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=NonMemberName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="349,103,0,0"/>
+        <Label Content="Indtast fulde navn:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,99,0,0" Width="188"/>
+        <Label Content="Indtast telefonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,130,0,0" Width="188"/>
+        <TextBox Name="tb_NonMemberPhoneNumber" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=NonMemberPhoneNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="349,133,0,0"/>
+        <Button Content="Opret" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="495,118,0,0" Click="Btn_AddNonMember_Click"/>
+        <TextBlock Text="{Binding Path=ReturnMessageNonMemberBookingWindow, UpdateSourceTrigger=PropertyChanged}" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="589,299,0,0" Height="112" Width="194" />
+        <Label Content="Registrér prøvetime" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,186,0,0" Height="51" Width="230" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Indtast telefonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,242,0,0" Width="188"/>
+        <TextBox Name="tb_RegisterNonMemberPhoneNumber" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=NonMemberPhoneNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="349,242,0,0"/>
+        <Button Content="Registrér" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="495,242,0,0" Click="Btn_RegisterNonMemberBooking_Click"/>
 
     </Grid>
 </Window>

@@ -105,6 +105,9 @@
     <Compile Include="MemberOverlayWindow.xaml.cs">
       <DependentUpon>MemberOverlayWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NonMemberBookingWindow.xaml.cs">
+      <DependentUpon>NonMemberBookingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ScheduleSession.xaml.cs">
       <DependentUpon>ScheduleSession.xaml</DependentUpon>
     </Compile>
@@ -162,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MemberOverlayWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NonMemberBookingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

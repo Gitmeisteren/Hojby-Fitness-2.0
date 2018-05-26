@@ -8,30 +8,31 @@
         Title="AdminEditInstructorWindow" Height="450" Width="800">
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="1" Margin="142,0,0,-0.333"/>
-        <TextBox x:Name="tb_AdminNewInstructorEmail" Text="{Binding Instructor.Mail, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="663,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Indtast ny Email:" HorizontalAlignment="Left" Margin="534,155,0,0" VerticalAlignment="Top" Width="102"/>
-        <Button Content="Opdater Email" HorizontalAlignment="Left" Margin="663,183,0,0" VerticalAlignment="Top" Width="120" Click="Btn_AdminUpdateEmail_Click" Height="19"/>
+        <TextBox x:Name="tb_AdminNewInstructorEmail" Text="{Binding Instructor.Mail, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" Margin="662,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Indtast ny Email:" HorizontalAlignment="Left" Margin="534,104,0,0" VerticalAlignment="Top" Width="102"/>
+        <Button Content="Opdater Email" HorizontalAlignment="Left" Margin="662,135,0,0" VerticalAlignment="Top" Width="120" Click="Btn_AdminUpdateEmail_Click" Height="19"/>
         <TextBlock Text="{Binding Path=ReturnMessageEditInstructorsWindow}" TextWrapping="Wrap"  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="163,253,0,0" Height="156" Width="345" Background="#FFFBE400"/>
-        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="34,389,0,0" VerticalAlignment="Top" Width="75" Click="Btn_AdminReturnInstructorsWindow_Click"/>
-        <TextBox x:Name="tb_AdminInstructorID" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Instructor.InstructorID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="663,71,0,0"/>
-        <Label Content="Indtast medlemsnr:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="534,66,0,0" Width="117"/>
-        <Button Content="Slet instruktør" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="663,389,0,0" Click="Btn_AdminDeleteInstructor_Click"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" Width="75" Click="Btn_AdminReturnInstructorsWindow_Click"/>
+        <TextBox x:Name="tb_AdminInstructorID" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Instructor.InstructorID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="662,51,0,0"/>
+        <Label Content="Indtast medlemsnr:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="534,48,0,0" Width="117"/>
+        <Button Content="Slet instruktør" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="590,365,0,0" Click="Btn_AdminDeleteInstructor_Click"/>
         <TextBox x:Name="tb_InstructorID"    Text="{Binding Instructor.InstructorID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="388,71,0,0"/>
         <TextBox x:Name="tb_InstructorName"  Text="{Binding Instructor.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23"         TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" Margin="388,99,0,0"/>
         <TextBox x:Name="tb_InstructorEmail" Text="{Binding Instructor.Mail, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" Margin="388,127,0,0"/>
         <TextBox x:Name="tb_HireDate"        Text="{Binding Instructor.HireDate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="388,155,0,0"/>
-        <Label Content="Indtast medlemsnr (hofixxxx):" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,71,0,0" Height="23" Width="175"/>
+        <Label Content="Indtast medlemsnr (hofixxxx):" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,71,0,0" Height="28" Width="175"/>
         <Label Content="Indtast fulde navn:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,99,0,0" Height="23" Width="175"/>
         <Label Content="Indtast E-mail:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,127,0,0" Height="23" Width="175"/>
         <Label Content="Indtast ansættelsesdato (dd.mm.åååå):" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,155,0,0" Height="23" Width="220"/>
         <Button Content="Tilføj instruktør" HorizontalAlignment="Left" Margin="388,220,0,0" VerticalAlignment="Top" Width="120" Click="Btn_AdminAddInstructor_Click"/>
-        <Label Content="Tilføj instruktør" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="97" Margin="163,40,0,0" FontWeight="Bold"/>
+        <Label Content="Tilføj instruktør" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="103" Margin="163,40,0,0" FontWeight="Bold"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="1" Margin="528,10,0,-10.333"/>
-        <Label Content="Redigér instruktør" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="113" Margin="553,40,0,0" FontWeight="Bold"/>
         <TextBox Name="tb_PhoneNumber" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Instructor.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="388,184,0,0"/>
         <Label Content="Indtast telefonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,184,0,0" Height="24" Width="206"/>
-        <Label Content="Indtast nyt nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="534,235,0,0" Width="117"/>
-        <TextBox Name="tb_AdminEditPhoneNumber" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Instructor.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="663,238,0,0"/>
-        <Button Content="Opdater nummer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="663,266,0,0" Click="Btn_AdminUpdatePhoneNumber"/>
+        <Label Content="Indtast nyt nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="534,181,0,0" Width="117"/>
+        <TextBox Name="tb_AdminEditPhoneNumber" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Instructor.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="662,185,0,0"/>
+        <Button Content="Opdater nummer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="662,213,0,0" Click="Btn_AdminUpdatePhoneNumber"/>
+        <Label Content="Redigér instruktør" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="571,0,0,0" Height="59" Width="192" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Slet instruktør permanent?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="570,334,0,0" Width="163" FontWeight="Bold"/>
     </Grid>
 </Window>

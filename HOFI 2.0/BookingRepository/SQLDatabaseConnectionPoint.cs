@@ -54,6 +54,7 @@ namespace Model
             }
         }
 
+
         public string UpdatePhoneNumber(Instructor instructor, string _IDClone)
         {
             string _ErrorMsg = "";
@@ -199,6 +200,7 @@ namespace Model
 
         public string SearchForMember(Booking NewBooking, Member NewMember)
         {
+
             string _ReturnMessage = "";
             string _MemberNumberClone = "";
             using (SqlConnection con = new SqlConnection(_ConnectionString))
@@ -212,6 +214,7 @@ namespace Model
                     SqlCommand _GetMemberInfo = new SqlCommand("spGetMemberInfo", con);
                     _GetMemberInfo.CommandType = System.Data.CommandType.StoredProcedure;
                     _GetMemberInfo.Parameters.Add(new SqlParameter("@I_MemberID", NewBooking.MemberNumber));
+                    
 
                     _GetMemberInfo.ExecuteNonQuery();
 
@@ -222,6 +225,7 @@ namespace Model
                         {
                             NewMember.Name = reader["Name"].ToString();
                             _MemberNumberClone = reader["MemberID"].ToString();
+                            NewMember.Age = int.Parse(reader["Age"].ToString());
                         }
                     }
                     reader.Close();
@@ -396,6 +400,70 @@ namespace Model
                 return accesLogin;
             }
         }
+        internal List<Statistic> UpdateStatistic()
+        {
+
+            DateTime tempDateHolder;
+            List<Statistic> StatisticRepo = new List<Statistic>();
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+                try
+                {
+                    con.Open();
+
+                    SqlCommand _StatisticRepoUpdate = new SqlCommand("spGetStatistic", con);
+
+                    SqlDataReader reader = _StatisticRepoUpdate.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Statistic statistic = new Statistic();
+                            statistic.Age = int.Parse(reader["Age"].ToString());
+                            tempDateHolder = DateTime.Parse(reader["TrainingDate"].ToString());
+                            statistic.Date = tempDateHolder.ToString("dd-MM-yyyy");
+                            statistic.Type = reader["TrainingType"].ToString();
+
+                            StatisticRepo.Add(statistic);
+                        }
+                    }
+                    reader.Close();
+                }
+                catch (SqlException e)
+                {
+
+                }
+            }
+
+            return StatisticRepo;
+        }
+
+        public string AddStatisticToDB(Statistic statistic)
+        {
+            DateTime _StatisticDate = DateTime.Parse(statistic.Date.ToString());
+            string _ExceptionHolder = "";
+            using (SqlConnection con = new SqlConnection(_ConnectionString))
+            {
+                try
+                {
+                    con.Open();
+
+                    SqlCommand _CreateMember = new SqlCommand("spUpdateStatistic", con);
+                    _CreateMember.CommandType = System.Data.CommandType.StoredProcedure;
+                    _CreateMember.Parameters.Add(new SqlParameter("@I_Age", statistic.Age));
+                    _CreateMember.Parameters.Add(new SqlParameter("@I_TrainingType", statistic.Type));
+                    _CreateMember.Parameters.Add(new SqlParameter("@I_TrainingDate", _StatisticDate));
+                    _CreateMember.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    _ExceptionHolder = e.ToString();
+                }
+            }
+            return _ExceptionHolder;
+
+        }
+
         public string GetMail(string _IDClone, string date)
         {
             string instructorEmail = "";

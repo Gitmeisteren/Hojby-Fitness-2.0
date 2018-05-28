@@ -150,7 +150,6 @@ namespace ViewModel
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
         LoginHandler loginHandler = new LoginHandler();
         Calendar calendar = Calendar.GetInstance();
-        NonMember _NonMember = new NonMember();
         #endregion
 
         //Privates
@@ -175,7 +174,6 @@ namespace ViewModel
         //Properties
         #region
         
-        public NonMember NewNonMember { get; set; }
         public string LoginCredentialsPassword
         {
             get

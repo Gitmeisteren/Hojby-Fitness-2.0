@@ -25,13 +25,6 @@ namespace Model
             string sessionFoldername = primaryFoldername + "\\Forløb";
             string memberNumberFoldername = sessionFoldername + "\\" + booking.MemberNumber;
             string goalFoldername = memberNumberFoldername + "\\" + goal;
-            //Directory.CreateDirectory(primaryFoldername);
-
-            //Directory.CreateDirectory(sessionFoldername);
-
-            //Directory.Exists(memberNumberFoldername)
-
-            //Directory.CreateDirectory(memberNumberFoldername);
             Directory.CreateDirectory(goalFoldername);
               
             //Creates application

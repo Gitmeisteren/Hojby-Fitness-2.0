@@ -438,7 +438,7 @@ namespace Model
             }
             return returnMsg;
         }
-        //string skal være en liste, og vi skal adde bookingobjekter til liste.
+
         public List<Booking> InitialRepoUpdate()
         {
             DateTime tempDateHolder;

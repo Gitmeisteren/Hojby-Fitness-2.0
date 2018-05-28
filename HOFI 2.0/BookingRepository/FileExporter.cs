@@ -20,9 +20,20 @@ namespace Model
         public void ExportToWord(Booking booking, Member member, string goal, string trainingProgram, string weeklyTrainings, string timePerTraining, string notes)
         {
 
-            string root = @"C:\Users\royga\Documents\" + booking.MemberNumber + ".docx";
+            string folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            string primaryFoldername = folderpath + "\\HøjRegistrering";
+            string sessionFoldername = primaryFoldername + "\\Forløb";
+            string memberNumberFoldername = sessionFoldername + "\\" + booking.MemberNumber;
+            if (!Directory.Exists(primaryFoldername))
+            {
+                Directory.CreateDirectory(primaryFoldername);
+            }
+            if (!Directory.Exists(sessionFoldername))
+            {
+                Directory.CreateDirectory(sessionFoldername);
+            }
             //Creates application
-            Microsoft.Office.Interop.Word.Application objWord = new Microsoft.Office.Interop.Word.Application();
+            Application objWord = new Application();
 
             objWord.Visible = true;
             objWord.WindowState = WdWindowState.wdWindowStateNormal;
@@ -44,10 +55,10 @@ namespace Model
                 + "Varighed pr. træning: " + timePerTraining + "\n"
                 + "Noter: " + notes + "\n";
 
-            objDoc.SaveAs2(root);
+            objDoc.SaveAs2(memberNumberFoldername);
             objDoc.Close();
             objWord.Quit();
-            Process.Start(root);
+            Process.Start(memberNumberFoldername);
 
             //string root = @"C:\Users\royga\Documents\HOFI-journaler";
             //// Create a new PDF document
@@ -126,7 +137,7 @@ namespace Model
             {
                 Directory.CreateDirectory(statisticFoldername);
             }
-            string filename = "Statestik.csv";
+            string filename = "Statistik.csv";
             string pathname = Path.Combine(statisticFoldername, filename);
             using (StreamWriter sw = File.CreateText(pathname))
             {

@@ -664,11 +664,13 @@ namespace Model
             }
         }
 
-        public bool CheckDate()
+        public bool CheckDate(string _IDClone)
         {
-
+            List<string> _InstructorRegistration = new List<string>();
             bool _DateAlreadyRegistered = false;
+            DateTime _CheckIfDateIsToday;
             string _Date = "";
+            string _InstructorID = "";
             
 
             using (SqlConnection con = new SqlConnection(_ConnectionString))
@@ -678,24 +680,34 @@ namespace Model
 
                     SqlCommand _CheckifDateRegistered = new SqlCommand("spCheckDate", con);
                     _CheckifDateRegistered.CommandType = CommandType.StoredProcedure;
-                    _CheckifDateRegistered.Parameters.Add(new SqlParameter("@I_Date", DateTime.Today));
+                    _CheckifDateRegistered.Parameters.Add(new SqlParameter("@I_InstructorID", _IDClone));
 
-                    SqlDataReader reader = _CheckifDateRegistered.ExecuteReader();
+
+                SqlDataReader reader = _CheckifDateRegistered.ExecuteReader();
 
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
+                        _InstructorID = reader["Medlemsnr"].ToString();
                             _Date = reader["Dato"].ToString();
+                        _CheckIfDateIsToday = DateTime.Parse(_Date);
+                        if (DateTime.Today == _CheckIfDateIsToday && _InstructorID == _IDClone)
+                        {
+                        _InstructorRegistration.Add(_Date);
+                        }
+                        
                         }
                     }
-                    if (_Date != "")
-                    {
-                        _DateAlreadyRegistered = false;
-                    }
-                    else if (_Date == "")
-                    {
-                        _DateAlreadyRegistered = true;
+                if (_InstructorRegistration.Count == 1)
+                {
+                    _DateAlreadyRegistered = false;
+                    _InstructorRegistration.RemoveAt(0);
+                }
+                else if (_InstructorRegistration.Count == 0)
+                {
+                    _DateAlreadyRegistered = true;
+                   
                     }
                 return _DateAlreadyRegistered;
 
@@ -709,7 +721,7 @@ namespace Model
             string hireDate = instructor.HireDate;
             DateTime ShiftDateTime = DateTime.Parse(dateToday.ToString());
 
-            bool _DateRegistered = CheckDate();
+            bool _DateRegistered = CheckDate(_IDClone);
 
             if (_DateRegistered == true)
             {

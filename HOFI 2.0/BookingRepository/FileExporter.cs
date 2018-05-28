@@ -21,7 +21,7 @@ namespace Model
         {
 
             string folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            string primaryFoldername = folderpath + "\\HøjRegistrering";
+            string primaryFoldername = folderpath + "\\HOFI";
             string sessionFoldername = primaryFoldername + "\\Forløb";
             string memberNumberFoldername = sessionFoldername + "\\" + booking.MemberNumber;
             string goalFoldername = memberNumberFoldername + "\\" + goal;

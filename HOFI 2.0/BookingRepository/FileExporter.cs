@@ -36,8 +36,6 @@ namespace Model
             //Creates document
             Document objDoc = objWord.Documents.Add();
 
-           
-
             //Adds paragraphs
             Paragraph objParagraph;
             objParagraph = objDoc.Paragraphs.Add();
@@ -53,71 +51,8 @@ namespace Model
             objDoc.SaveAs2(goalFoldername + "\\" + goal);
             objDoc.Close();
             objWord.Quit();
-
-            //string root = @"C:\Users\royga\Documents\HOFI-journaler";
-            //// Create a new PDF document
-            //PdfDocument document = new PdfDocument();
-
-            //// Create an empty page
-            //PdfPage page = document.AddPage();
-
-            //// Get an XGraphics object for drawing
-            //XGraphics gfx = XGraphics.FromPdfPage(page);
-
-            //// Create a font
-            //XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
-
-            //XFont font_Headline = new XFont("Verdana", 35, XFontStyle.Bold);
-
-
-
-            //// Draw the text
-            //gfx.DrawString("Træningsforløb for " + memberNumber + "\n", font_Headline, XBrushes.Blue,
-            //  new XRect(0, 0, page.Width, page.Height),
-            //  XStringFormats.TopCenter);
-
-            //gfx.DrawString(name, font, XBrushes.Black,
-            //  new XRect(0, 50, page.Width, page.Height),
-            //  XStringFormats.TopLeft);
-            //gfx.DrawString("Formål: " + goal, font, XBrushes.Black,
-            //  new XRect(0, 100, page.Width, page.Height),
-            //  XStringFormats.TopLeft);
-
-            //gfx.DrawString("Ønsket træningsprogram: " + trainingProgram, font, XBrushes.Black,
-            //  new XRect(0, 150, page.Width, page.Height),
-            //  XStringFormats.TopLeft);
-
-            //gfx.DrawString("Antal træninger pr. uge: " + weeklyTrainings, font, XBrushes.Black,
-            //  new XRect(0, 200, page.Width, page.Height),
-            //  XStringFormats.TopLeft);
-
-            //gfx.DrawString("Varighed pr. træning" + timePerTraining, font, XBrushes.Black,
-            //  new XRect(0, 250, page.Width, page.Height),
-            //  XStringFormats.TopLeft);
-            //gfx.DrawString("Evt. noter: " + notes, font, XBrushes.Black,
-            //  new XRect(0, 300, page.Width, page.Height),
-            //  XStringFormats.TopLeft);
-
-
-            //root += @"\\" + memberNumber + @"\\" + goal;
-            //System.IO.Directory.CreateDirectory(root);
-
-            //// Save the document...
-            //string filename = goal + ".pdf";
-            //document.Save(filename);
-            //// ...and start a viewer.
-            //Process.Start(filename);
-
-
-
-
-
-
-
         }
-
-       
-
+        
         public void UpdateStatisticToExcel(List<int> fileNumbersList)
         {
             string folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);

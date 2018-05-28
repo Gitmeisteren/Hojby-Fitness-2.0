@@ -45,5 +45,13 @@ namespace View
 
             _Controller.RegisterNonMemberBooking();
         }
+
+        private void Btn_ReturnBookingWindow_Click(object sender, RoutedEventArgs e)
+        {
+            BookingWindow _bookingWindow = new BookingWindow();
+            _bookingWindow.Show();
+
+            this.Close();
+        }
     }
 }

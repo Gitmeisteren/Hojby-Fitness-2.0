@@ -28,6 +28,7 @@
         <Label Content="Indtast telefonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,242,0,0" Width="188"/>
         <TextBox Name="tb_RegisterNonMemberPhoneNumber" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=NonMemberPhoneNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Margin="349,242,0,0"/>
         <Button Content="Registrér" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="495,242,0,0" Click="Btn_RegisterNonMemberBooking_Click"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="20,389,0,0" VerticalAlignment="Top" Width="75" Click="Btn_ReturnBookingWindow_Click"/>
 
     </Grid>
 </Window>

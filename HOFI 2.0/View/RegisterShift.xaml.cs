@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ViewModel;
+using Controller;
 
 namespace View
 {
@@ -22,7 +22,7 @@ namespace View
     {
         public string memberNumber = ""; // skal de her ligge her? Dette er viewlaget.
         public string shiftDate = "";
-        Controller _Controller = Controller.GetInstance();
+        Controller.Controller _Controller = Controller.Controller.GetInstance();
         public RegisterShift()
         {
             InitializeComponent();

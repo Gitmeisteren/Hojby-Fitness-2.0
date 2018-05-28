@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
-using ViewModel;
+using Controller;
 using View;
 using System.Data;
 using System.Data.SqlClient;
@@ -17,7 +17,7 @@ namespace TestCase1
         LoginHandler loginHandler = new LoginHandler();
         Login login = new Login();
         ShiftHandler shiftHandler = ShiftHandler.GetInstance();
-        Controller controller = Controller.GetInstance();
+        Controller.Controller controller = Controller.Controller.GetInstance();
         BookingRepository bookingRepository = BookingRepository.GetInstance();
         Calendar calendar = Calendar.GetInstance();
         BookingHandler bookingHandler = BookingHandler.GetInstance();

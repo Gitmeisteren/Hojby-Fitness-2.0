@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ViewModel;
+using Controller;
 
 namespace View
 {
@@ -21,7 +21,7 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
-        Controller _Controller = Controller.GetInstance();
+        Controller.Controller _Controller = Controller.Controller.GetInstance();
 
         public MainWindow()
         {

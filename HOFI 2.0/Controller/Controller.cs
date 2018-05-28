@@ -6,15 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 
-namespace ViewModel
+namespace Controller
 {
     public class Controller : INotifyPropertyChanged
     {
-
-
         int _NonMemberPhoneNumber = 0;
         string _NonMemberName = "";
-
         public int NonMemberPhoneNumber
         {
             get
@@ -27,7 +24,6 @@ namespace ViewModel
                 OnPropertyChanged("NonMemberPhoneNumber");
             }
         }
-
         public string NonMemberName
         {
             get
@@ -55,7 +51,6 @@ namespace ViewModel
         }
 
         #endregion
-
         public Controller()
         {
             NewBooking = new Booking();
@@ -70,12 +65,10 @@ namespace ViewModel
             statisticHandler.AddToExcellFromStatisticRepo();
 
         }
-
         public void RegisterNonMemberBooking()
         {
            ReturnMessageNonMemberBookingWindow = _DatabaseCon.RegisterNonMemberBooking(NonMemberPhoneNumber);
         }
-
         public static Controller GetInstance()
         {
             if (_Instance == null)
@@ -84,7 +77,6 @@ namespace ViewModel
             }
             return _Instance;
         }
-
         public void AddNonMember()
         {
           ReturnMessageNonMemberBookingWindow = _DatabaseCon.AddNonMember(NonMemberPhoneNumber, NonMemberName);
@@ -150,7 +142,6 @@ namespace ViewModel
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
         LoginHandler loginHandler = new LoginHandler();
         Calendar calendar = Calendar.GetInstance();
-        NonMember _NonMember = new NonMember();
         #endregion
 
         //Privates
@@ -175,7 +166,6 @@ namespace ViewModel
         //Properties
         #region
         
-        public NonMember NewNonMember { get; set; }
         public string LoginCredentialsPassword
         {
             get
@@ -888,7 +878,6 @@ namespace ViewModel
             OnPropertyChanged(LoginCredentialsPassword);
 
         }
-
         public void ExportToWord(string goal)
         {
             fileExporter.ExportToWord(NewBooking, NewMember, goal, Chb_TrainingProgram, Tb_WeeklyTrainings, Tb_TimePerTraining, Tb_Notes);
@@ -900,7 +889,6 @@ namespace ViewModel
            ReturnMessageEditInstructorsWindow = _DatabaseCon.AddInstructor(Instructor);
             ShowInstructors();
         }
-
         public void UpdatePhoneNumber()
         {
             string _IDClone = "";
@@ -1035,7 +1023,6 @@ namespace ViewModel
             shiftHandler.ExportShiftList(ReturnMessageShiftWindow, ShiftStartDate, ShiftEndDate);
             ReturnMessageShiftWindow = ReturnMessageShiftWindow + "\n Fil eksporteret til skrivebordet under mappen 'HøjRegistrering'.";
         }
-        
         public void SaveStatistics(string goal)
         {
            DateTime dayOfJournalCreation = DateTime.Today;
@@ -1048,7 +1035,5 @@ namespace ViewModel
                 statisticHandler.AddToExcellFromStatisticRepo();
             }
         }
-
-
     }
 }

@@ -24,14 +24,16 @@ namespace Model
             string primaryFoldername = folderpath + "\\HøjRegistrering";
             string sessionFoldername = primaryFoldername + "\\Forløb";
             string memberNumberFoldername = sessionFoldername + "\\" + booking.MemberNumber;
-            if (!Directory.Exists(primaryFoldername))
-            {
-                Directory.CreateDirectory(primaryFoldername);
-            }
-            if (!Directory.Exists(sessionFoldername))
-            {
-                Directory.CreateDirectory(sessionFoldername);
-            }
+            string goalFoldername = memberNumberFoldername + "\\" + goal;
+            //Directory.CreateDirectory(primaryFoldername);
+
+            //Directory.CreateDirectory(sessionFoldername);
+
+            //Directory.Exists(memberNumberFoldername)
+
+            //Directory.CreateDirectory(memberNumberFoldername);
+            Directory.CreateDirectory(goalFoldername);
+              
             //Creates application
             Application objWord = new Application();
 
@@ -55,10 +57,9 @@ namespace Model
                 + "Varighed pr. træning: " + timePerTraining + "\n"
                 + "Noter: " + notes + "\n";
 
-            objDoc.SaveAs2(memberNumberFoldername);
+            objDoc.SaveAs2(goalFoldername + "\\" + goal);
             objDoc.Close();
             objWord.Quit();
-            Process.Start(memberNumberFoldername);
 
             //string root = @"C:\Users\royga\Documents\HOFI-journaler";
             //// Create a new PDF document
@@ -127,16 +128,11 @@ namespace Model
         public void UpdateStatisticToExcel(List<int> fileNumbersList)
         {
             string folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            string primaryFoldername = folderpath + "\\HøjRegistrering";
+            string primaryFoldername = folderpath + "\\HOFI";
             string statisticFoldername = primaryFoldername + "\\Statistik";
-            if (!Directory.Exists(primaryFoldername))
-            {
-                Directory.CreateDirectory(primaryFoldername);
-            }
-            if (!Directory.Exists(statisticFoldername))
-            {
-                Directory.CreateDirectory(statisticFoldername);
-            }
+
+            Directory.CreateDirectory(statisticFoldername);
+            
             string filename = "Statistik.csv";
             string pathname = Path.Combine(statisticFoldername, filename);
             using (StreamWriter sw = File.CreateText(pathname))

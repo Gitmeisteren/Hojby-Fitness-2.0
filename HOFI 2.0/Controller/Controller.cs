@@ -12,78 +12,8 @@ namespace Controller
     {
         int _NonMemberPhoneNumber = 0;
         string _NonMemberName = "";
-        public int NonMemberPhoneNumber
-        {
-            get
-            {
-                return _NonMemberPhoneNumber;
-            }
-            set
-            {
-                _NonMemberPhoneNumber = value;
-                OnPropertyChanged("NonMemberPhoneNumber");
-            }
-        }
-        public string NonMemberName
-        {
-            get
-            {
-                return _NonMemberName;
-            }
-            set
-            {
-                _NonMemberName = value;
-                OnPropertyChanged("NonMemberName");
-            }
-        }
-        #region INotifyPropertyChanged Members
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        #endregion
-        public Controller()
-        {
-            NewBooking = new Booking();
-            bookingRepo = BookingRepository.GetInstance();
-            NewMember = new Member();
-            CalendarDates = Calendar.GetInstance();
-            Shift = new Shift();
-            Instructor = new Instructor();
-            statisticHandler = StatisticHandler.GetInstance();
-            StatisticRepoUpdate();
-            IntitialRepoUpdate();
-            statisticHandler.AddToExcellFromStatisticRepo();
-
-        }
-        public void RegisterNonMemberBooking()
-        {
-           ReturnMessageNonMemberBookingWindow = _DatabaseCon.RegisterNonMemberBooking(NonMemberPhoneNumber);
-        }
-        public static Controller GetInstance()
-        {
-            if (_Instance == null)
-            {
-                _Instance = new Controller();
-            }
-            return _Instance;
-        }
-        public void CreateNonMember()
-        {
-          ReturnMessageNonMemberBookingWindow = _DatabaseCon.CreateNonMember(NonMemberPhoneNumber, NonMemberName);
-        }
-
-        //Shift properties for ShiftWindow
-        #region
+        #region Shift properties for ShiftWindow
         string _InstructorID = "";
         string _StartDate = "";
         string _EndDate = "";
@@ -130,8 +60,8 @@ namespace Controller
 
 
         #endregion
-        //instances
-        #region
+
+        #region Instances
         BookingHandler bookingHandler = BookingHandler.GetInstance();
         Booking booking = new Booking();
         Member member = new Member();
@@ -144,8 +74,8 @@ namespace Controller
         Calendar calendar = Calendar.GetInstance();
         #endregion
 
-        //Privates
-        #region
+
+        #region Privates
         private string _LoginCredentialsPassword;
         private string _LoginCredentials;
         private static Controller _Instance;
@@ -163,9 +93,168 @@ namespace Controller
         private string _ReturnMessageNonMemberBookingWindow;
         #endregion
 
-        //Properties
-        #region
-        
+
+        #region Properties
+
+        public string NonMemberName
+        {
+            get
+            {
+                return _NonMemberName;
+            }
+            set
+            {
+                _NonMemberName = value;
+                OnPropertyChanged("NonMemberName");
+            }
+        }
+
+        public int NonMemberPhoneNumber
+        {
+            get
+            {
+                return _NonMemberPhoneNumber;
+            }
+            set
+            {
+                _NonMemberPhoneNumber = value;
+                OnPropertyChanged("NonMemberPhoneNumber");
+            }
+        }
+        public string ReturnMessageNonMemberBookingWindow
+        {
+            get
+            {
+                return _ReturnMessageNonMemberBookingWindow;
+            }
+            set
+            {
+                _ReturnMessageNonMemberBookingWindow = value;
+                OnPropertyChanged("ReturnMessageNonMemberBookingWindow");
+            }
+        }
+        public string ReturnMessageLoginWindow
+        {
+            get
+            {
+                return _ReturnMessageLoginWindow;
+            }
+            set
+            {
+                _ReturnMessageLoginWindow = value;
+                OnPropertyChanged("ReturnMessageLoginWindow");
+            }
+        }
+        public string ReturnMessageShiftWindow
+        {
+            get
+            {
+                return _ReturnMessageShiftWindow;
+            }
+            set
+            {
+                _ReturnMessageShiftWindow = value;
+                OnPropertyChanged("ReturnMessageShiftWindow");
+            }
+        }
+        public string ReturnMessageBookSessionWindow
+        {
+            get
+            {
+                return _ReturnMessageBookSessionWindow;
+            }
+            set
+            {
+                _ReturnMessageBookSessionWindow = value;
+                OnPropertyChanged("ReturnMessageBookSessionWindow");
+            }
+        }
+
+        public string ReturnMessageRegisterShiftWindow
+        {
+            get
+            {
+                return _ReturnMessageRegisterShiftWindow;
+            }
+            set
+            {
+                _ReturnMessageRegisterShiftWindow = value;
+                OnPropertyChanged("ReturnMessageRegisterShiftWindow");
+            }
+        }
+        public string ReturnMessageMemberOverlayWindow
+        {
+            get
+            {
+                return _ReturnMessageMemberOverlayWindow;
+            }
+            set
+            {
+                _ReturnMessageMemberOverlayWindow = value;
+                OnPropertyChanged("ReturnMessageMemberOverlayWindow");
+            }
+        }
+        public string ReturnMessageMemberJournals
+        {
+            get
+            {
+                return _ReturnMessageMemberJournals;
+            }
+            set
+            {
+                _ReturnMessageMemberJournals = value;
+                OnPropertyChanged("ReturnMessageMemberJournals");
+            }
+        }
+        public string ReturnMessageInstructorsWindow
+        {
+            get
+            {
+                return _ReturnMessageInstructorsWindow;
+            }
+            set
+            {
+                _ReturnMessageInstructorsWindow = value;
+                OnPropertyChanged("ReturnMessageInstructorsWindow");
+            }
+        }
+        public string ReturnMessageEditInstructorsWindow
+        {
+            get
+            {
+                return _ReturnMessageEditInstructorsWindow;
+            }
+            set
+            {
+                _ReturnMessageEditInstructorsWindow = value;
+                OnPropertyChanged("ReturnMessageEditInstructorsWindow");
+            }
+        }
+        public string ReturnMessageBookingWindow
+        {
+            get
+            {
+                return _ReturnMessageBookingWindow;
+            }
+            set
+            {
+                _ReturnMessageBookingWindow = value;
+                OnPropertyChanged("ReturnMessageBookingWindow");
+            }
+        }
+        public string ReturnMessageAdminInstructorWindow
+        {
+            get
+            {
+                return _ReturnMessageAdminInstructorWindow;
+            }
+            set
+            {
+                _ReturnMessageAdminInstructorWindow = value;
+                OnPropertyChanged("ReturnMessageAdminInstructorWindow");
+            }
+        }
+
         public string LoginCredentialsPassword
         {
             get
@@ -732,144 +821,55 @@ namespace Controller
 
         #endregion
         #endregion
-        //Properties for ReturnMessages
-        #region
         
-        public string ReturnMessageNonMemberBookingWindow
+      
+        #region INotifyPropertyChanged
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
         {
-            get
+            PropertyChangedEventHandler handler = PropertyChanged;
+
+            if (handler != null)
             {
-                return _ReturnMessageNonMemberBookingWindow;
-            }
-            set
-            {
-                _ReturnMessageNonMemberBookingWindow = value;
-                OnPropertyChanged("ReturnMessageNonMemberBookingWindow");
-            }
-        }
-        public string ReturnMessageLoginWindow
-        {
-            get
-            {
-                return _ReturnMessageLoginWindow;
-            }
-            set
-            {
-                _ReturnMessageLoginWindow = value;
-                OnPropertyChanged("ReturnMessageLoginWindow");
-            }
-        }
-        public string ReturnMessageShiftWindow
-        {
-            get
-            {
-                return _ReturnMessageShiftWindow;
-            }
-            set
-            {
-                _ReturnMessageShiftWindow = value;
-                OnPropertyChanged("ReturnMessageShiftWindow");
-            }
-        }
-        public string ReturnMessageBookSessionWindow
-        {
-            get
-            {
-                return _ReturnMessageBookSessionWindow;
-            }
-            set
-            {
-                _ReturnMessageBookSessionWindow = value;
-                OnPropertyChanged("ReturnMessageBookSessionWindow");
+                handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
-        public string ReturnMessageRegisterShiftWindow
-        {
-            get
-            {
-                return _ReturnMessageRegisterShiftWindow;
-            }
-            set
-            {
-                _ReturnMessageRegisterShiftWindow = value;
-                OnPropertyChanged("ReturnMessageRegisterShiftWindow");
-            }
-        }
-        public string ReturnMessageMemberOverlayWindow
-        {
-            get
-            {
-                return _ReturnMessageMemberOverlayWindow;
-            }
-            set
-            {
-                _ReturnMessageMemberOverlayWindow = value;
-                OnPropertyChanged("ReturnMessageMemberOverlayWindow");
-            }
-        }
-        public string ReturnMessageMemberJournals
-        {
-            get
-            {
-                return _ReturnMessageMemberJournals;
-            }
-            set
-            {
-                _ReturnMessageMemberJournals = value;
-                OnPropertyChanged("ReturnMessageMemberJournals");
-            }
-        }
-        public string ReturnMessageInstructorsWindow
-        {
-            get
-            {
-                return _ReturnMessageInstructorsWindow;
-            }
-            set
-            {
-                _ReturnMessageInstructorsWindow = value;
-                OnPropertyChanged("ReturnMessageInstructorsWindow");
-            }
-        }
-        public string ReturnMessageEditInstructorsWindow
-        {
-            get
-            {
-                return _ReturnMessageEditInstructorsWindow;
-            }
-            set
-            {
-                _ReturnMessageEditInstructorsWindow = value;
-                OnPropertyChanged("ReturnMessageEditInstructorsWindow");
-            }
-        }
-        public string ReturnMessageBookingWindow
-        {
-            get
-            {
-                return _ReturnMessageBookingWindow;
-            }
-            set
-            {
-                _ReturnMessageBookingWindow = value;
-                OnPropertyChanged("ReturnMessageBookingWindow");
-            }
-        }
-        public string ReturnMessageAdminInstructorWindow
-        {
-            get
-            {
-                return _ReturnMessageAdminInstructorWindow;
-            }
-            set
-            {
-                _ReturnMessageAdminInstructorWindow = value;
-                OnPropertyChanged("ReturnMessageAdminInstructorWindow");
-            }
-        }
         #endregion
 
+
+        public Controller()
+        {
+            NewBooking = new Booking();
+            bookingRepo = BookingRepository.GetInstance();
+            NewMember = new Member();
+            CalendarDates = Calendar.GetInstance();
+            Shift = new Shift();
+            Instructor = new Instructor();
+            statisticHandler = StatisticHandler.GetInstance();
+            StatisticRepoUpdate();
+            IntitialRepoUpdate();
+            statisticHandler.AddToExcellFromStatisticRepo();
+
+        }
+        public void RegisterNonMemberBooking()
+        {
+           ReturnMessageNonMemberBookingWindow = _DatabaseCon.RegisterNonMemberBooking(NonMemberPhoneNumber);
+        }
+        public static Controller GetInstance()
+        {
+            if (_Instance == null)
+            {
+                _Instance = new Controller();
+            }
+            return _Instance;
+        }
+        public void CreateNonMember()
+        {
+          ReturnMessageNonMemberBookingWindow = _DatabaseCon.CreateNonMember(NonMemberPhoneNumber, NonMemberName);
+        }
         public void ResetLoginCredentials()
         {
             LoginCredentialsPassword = "";
@@ -1021,16 +1021,16 @@ namespace Controller
         public void ExportShiftList()
         {
             shiftHandler.ExportShiftList(ReturnMessageShiftWindow, ShiftStartDate, ShiftEndDate);
-            ReturnMessageShiftWindow = ReturnMessageShiftWindow + "\n Fil eksporteret til skrivebordet under mappen 'HøjRegistrering'.";
+            ReturnMessageShiftWindow = ReturnMessageShiftWindow + "\n Fil eksporteret til skrivebordet under mappen 'HOFI'.";
         }
         public void SaveStatistics(string goal)
         {
-           DateTime dayOfJournalCreation = DateTime.Today;
+            DateTime dayOfJournalCreation = DateTime.Today;
             
-            Statistic statistic = new Statistic(NewMember.Age,dayOfJournalCreation.ToShortDateString(), goal);
-            //Tester om der er en exception hvis der er skal den ikke gå videre.
-            string ifExceptionMessage = statisticHandler.AddStatisticToDB(statistic);
-            if ( ifExceptionMessage == "") {
+            Statistic _Statistic = new Statistic(NewMember.Age,dayOfJournalCreation.ToShortDateString(), goal);
+
+            string _ExceptionMessage = statisticHandler.AddStatisticToDB(_Statistic);
+            if ( _ExceptionMessage == "") {
                 statisticHandler.StatisticRepoUpdate();
                 statisticHandler.AddToExcellFromStatisticRepo();
             }

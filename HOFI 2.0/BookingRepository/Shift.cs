@@ -28,7 +28,6 @@ namespace Model
         string _Type = "";
         string _Date = "";
         int _Salary = 0;
-        string _MemberNumber = "";
         public string Type
         {
             get
@@ -66,17 +65,6 @@ namespace Model
                 OnPropertyChanged("Salary");
             }
         }
-        public string MemberNumber
-        {
-            get
-            {
-                return _MemberNumber;
-            }
-            set
-            {
-                _MemberNumber = value;
-                OnPropertyChanged("MemberNumber");
-            }
-        }
+
     }
 }

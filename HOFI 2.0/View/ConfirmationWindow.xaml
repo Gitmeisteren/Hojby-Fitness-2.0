@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="Er du sikker?" HorizontalAlignment="Left" Margin="58,10,0,0" VerticalAlignment="Top" Width="94" Height="32" FontWeight="Bold"/>
         <Button Content="Ja" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="14,52,0,0" Click="Btn_Yes_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="118,52,0,0" Click="Btn_Cancel_Click"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="118,52,0,0" Click="Btn_Cancel_Click"/>
 
     </Grid>
 </Window>

@@ -108,8 +108,8 @@
     <Compile Include="NonMemberBookingWindow.xaml.cs">
       <DependentUpon>NonMemberBookingWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ScheduleSession.xaml.cs">
-      <DependentUpon>ScheduleSession.xaml</DependentUpon>
+    <Compile Include="BookSession.xaml.cs">
+      <DependentUpon>BookSession.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegisterShift.xaml.cs">
       <DependentUpon>RegisterShift.xaml</DependentUpon>
@@ -172,7 +172,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ScheduleSession.xaml">
+    <Page Include="BookSession.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

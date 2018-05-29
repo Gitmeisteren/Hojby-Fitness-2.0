@@ -48,7 +48,7 @@ namespace Model
            
         }
 
-        public string ScheduleSession(Booking NewBooking)
+        public string BookSession(Booking NewBooking)
         {
             Booking bookingClone = new Booking();
             string returnMessage = "";
@@ -59,7 +59,7 @@ namespace Model
             
             if (dateAvailable)
             {
-                returnMessage = _databaseCon.ScheduleSession(bookingClone);
+                returnMessage = _databaseCon.BookSession(bookingClone);
 
             }
             else

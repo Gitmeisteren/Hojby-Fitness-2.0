@@ -46,11 +46,11 @@ namespace TestCase1
             {
                 controller.NewBooking.MemberNumber = "hofi9002";
                 controller.NewBooking.BookingDate = "01-05-2018";
-                controller.ScheduleSession();
+                controller.BookSession();
                 Assert.AreEqual(true, bookingRepository.FindDate(bookingInfo));
                 controller.NewBooking.MemberNumber = "hofi9002";
                 controller.NewBooking.BookingDate = "01-05-2018";
-                controller.ScheduleSession();
+                controller.BookSession();
                 Assert.AreEqual(false , bookingRepository.FindDate(bookingInfo));
             }
         }
@@ -75,7 +75,7 @@ namespace TestCase1
             controller.Shift.Date = "11-05-2018";
             controller.Instructor.InstructorID = "hofi0";
             controller.RegisterShift("Fitness");
-            Assert.AreEqual("Vagt registreret og mail sendt", controller.ReturnMessageRegisterShift);
+            Assert.AreEqual("Vagt registreret og mail sendt", controller.ReturnMessageRegisterShiftWindow);
         }
         [TestMethod]
         public void ShowShiftListTest()

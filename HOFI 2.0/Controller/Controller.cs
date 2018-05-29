@@ -151,8 +151,8 @@ namespace Controller
         private static Controller _Instance;
         private string _ReturnMessageShiftWindow;
         private List<Instructor> _InstructorsList = new List<Instructor>();
-        private string _ReturnMessageScheduleSession;
-        private string _ReturnMessageRegisterShift;
+        private string _ReturnMessageBookSessionWindow;
+        private string _ReturnMessageRegisterShiftWindow;
         private string _ReturnMessageMemberJournals;
         private string _ReturnMessageMemberOverlayWindow;
         private string _ReturnMessageInstructorsWindow;
@@ -771,29 +771,29 @@ namespace Controller
                 OnPropertyChanged("ReturnMessageShiftWindow");
             }
         }
-        public string ReturnMessageScheduleSession
+        public string ReturnMessageBookSessionWindow
         {
             get
             {
-                return _ReturnMessageScheduleSession;
+                return _ReturnMessageBookSessionWindow;
             }
             set
             {
-                _ReturnMessageScheduleSession = value;
-                OnPropertyChanged("ReturnMessageScheduleSession");
+                _ReturnMessageBookSessionWindow = value;
+                OnPropertyChanged("ReturnMessageBookSessionWindow");
             }
         }
 
-        public string ReturnMessageRegisterShift
+        public string ReturnMessageRegisterShiftWindow
         {
             get
             {
-                return _ReturnMessageRegisterShift;
+                return _ReturnMessageRegisterShiftWindow;
             }
             set
             {
-                _ReturnMessageRegisterShift = value;
-                OnPropertyChanged("ReturnMessageRegisterShift");
+                _ReturnMessageRegisterShiftWindow = value;
+                OnPropertyChanged("ReturnMessageRegisterShiftWindow");
             }
         }
         public string ReturnMessageMemberOverlayWindow
@@ -929,10 +929,10 @@ namespace Controller
         {       
          InstructorsList = _DatabaseCon.ShowInstructors();
         }
-        public void ScheduleSession()
+        public void BookSession()
         {
 
-            ReturnMessageEditInstructorsWindow = bookingHandler.ScheduleSession(NewBooking);
+            ReturnMessageBookSessionWindow = bookingHandler.BookSession(NewBooking);
         
         }
         public void CreateNewMember()
@@ -1004,13 +1004,13 @@ namespace Controller
             {
                 dateToday = DateTime.Parse(Shift.Date);
                 _IDClone = Instructor.InstructorID;
-                ReturnMessageRegisterShift = shiftHandler.RegisterShift(Shift, Instructor, shiftType, _IDClone, dateToday);
+                ReturnMessageRegisterShiftWindow = shiftHandler.RegisterShift(Shift, Instructor, shiftType, _IDClone, dateToday);
             }
             else
             {
                  
                 _IDClone = LoginCredentials;
-                ReturnMessageRegisterShift = shiftHandler.RegisterShift(Shift, Instructor, shiftType, _IDClone, dateToday);
+                ReturnMessageRegisterShiftWindow = shiftHandler.RegisterShift(Shift, Instructor, shiftType, _IDClone, dateToday);
             }
             
         }

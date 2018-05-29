@@ -1,11 +1,11 @@
-﻿<Window x:Class="View.ScheduleSession"
+﻿<Window x:Class="View.BookSession"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="ScheduleSession" Height="450" Width="800">
+        Title="BookSession" Height="450" Width="800">
     <Grid>
         <TextBox x:Name="tb_TypeMemberNumber" Text="{Binding NewBooking.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Margin="461,51,0,0" />
         <Label x:Name="IndtastMedlemsnummer" Content="Indtast Medlemsnummer (hofixxxx)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,51,0,0" Width="214" RenderTransformOrigin="0.506,0.454" Height="24"/>
@@ -22,7 +22,7 @@
         <TextBox x:Name="tb_CreateAge" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding NewMember.Age, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="102" Margin="461,287,0,0"/>
         <Label Content="Alder" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,284,0,0" Width="96"/>
         <Button Content="Opret" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="607,175,0,0" Click="Btn_CreateMember_Click"/>
-        <Label Content="{Binding Path=ReturnMessageEditInstructorsWindow}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,330,0,0" Height="70" Width="538" Background="#FFFBE400" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
+        <Label Content="{Binding Path=ReturnMessageBookSessionWindow}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,330,0,0" Height="70" Width="538" Background="#FFFBE400" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
         <Button Content="Tilbage" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="75" Click="Btn_ReturnToBookingMenu_Click"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="2" Margin="173,0,0,-0.333"/>
         <Label Content="Er medlemmet allerede&#xD;&#xA;allerede oprettet i dette&#xD;&#xA;system kan forløb bookes&#xD;&#xA;vha. denne formular" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,22,0,0" Width="158" Height="83"/>

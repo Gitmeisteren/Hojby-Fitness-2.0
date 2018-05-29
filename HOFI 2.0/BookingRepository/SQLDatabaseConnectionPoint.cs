@@ -14,7 +14,7 @@ namespace Model
     {
         private static string _ConnectionString = "Server= den1.mssql5.gear.host; Database= hofi; User ID = hofi; Password= Qg9OG4l~v-06;";
         private string DateStringFromDB = "";
-        public string ScheduleSession(Booking NewBooking)
+        public string BookSession(Booking NewBooking)
         {
             DateTime NewBookingDate = DateTime.Parse(NewBooking.BookingDate.ToString());
             string returnMessage = "";
@@ -25,12 +25,12 @@ namespace Model
 
                     con.Open();
 
-                    SqlCommand _scheduleSession = new SqlCommand("spRegisterMemberBooking", con);
-                    _scheduleSession.CommandType = CommandType.StoredProcedure;
-                    _scheduleSession.Parameters.Add(new SqlParameter("@I_MemberID", NewBooking.MemberNumber));
-                    _scheduleSession.Parameters.Add(new SqlParameter("@I_Date", NewBookingDate));
+                    SqlCommand _BookSession = new SqlCommand("spRegisterMemberBooking", con);
+                    _BookSession.CommandType = CommandType.StoredProcedure;
+                    _BookSession.Parameters.Add(new SqlParameter("@I_MemberID", NewBooking.MemberNumber));
+                    _BookSession.Parameters.Add(new SqlParameter("@I_Date", NewBookingDate));
 
-                    _scheduleSession.ExecuteNonQuery();
+                    _BookSession.ExecuteNonQuery();
 
                 }
                 catch (SqlException e)

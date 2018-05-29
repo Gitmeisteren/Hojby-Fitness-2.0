@@ -28,10 +28,10 @@ namespace View
             this.DataContext = _Controller;
         }
 
-        private void Btn_ScheduleSession_Click(object sender, RoutedEventArgs e)
+        private void Btn_BookSession_Click(object sender, RoutedEventArgs e)
         {
-            ScheduleSession _ScheduleSession = new ScheduleSession();
-            _ScheduleSession.Show();
+            BookSession _BookSession = new BookSession();
+            _BookSession.Show();
             Close();
         }
 

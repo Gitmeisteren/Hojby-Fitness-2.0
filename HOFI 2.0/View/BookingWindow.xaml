@@ -11,7 +11,7 @@
             <ColumnDefinition Width="145*"/>
             <ColumnDefinition Width="647*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Btn_ScheduleSession" Content="Book forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="10,10,0,0"  Height="34" Click="Btn_ScheduleSession_Click" />
+        <Button x:Name="Btn_BookSession" Content="Book forløb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="10,10,0,0"  Height="34" Click="Btn_BookSession_Click" />
         <Button Content="Book ikke-medlem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="10,56,0,0" Height="34" FontSize="11" Click="Btn_NonMemberBookingWindow_Click"/>
         <Button Content="Tilbage"  Click="ButtonReturnToMainWindow_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="10,367,0,0" Height="34"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="1" Margin="119,0,0,-0.333"/>

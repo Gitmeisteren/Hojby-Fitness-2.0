@@ -18,10 +18,10 @@ namespace View
     /// <summary>
     /// Interaction logic for ScheduleSession.xaml
     /// </summary>
-    public partial class ScheduleSession : Window
+    public partial class BookSession : Window
     {
         Controller.Controller _Controller = Controller.Controller.GetInstance();
-        public ScheduleSession()
+        public BookSession()
         {
             InitializeComponent();
             this.DataContext = _Controller;
@@ -37,7 +37,7 @@ namespace View
             _Bind_MemberNumber.UpdateSource();
             _Bind_BookingDate.UpdateSource();
 
-            _Controller.ScheduleSession();
+            _Controller.BookSession();
             
         }
 

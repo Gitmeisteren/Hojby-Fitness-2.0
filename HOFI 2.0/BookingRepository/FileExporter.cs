@@ -122,6 +122,8 @@ namespace Model
 
             //Gemmer det vi lige har gjort og lukker vores projekt
             workbook.SaveAs(pathname, Excel.XlFileFormat.xlOpenXMLWorkbook, null, null, false, false, Excel.XlSaveAsAccessMode.xlShared, false, false, null, null, null);
+
+            workbook.Close();
         }
     }
 }

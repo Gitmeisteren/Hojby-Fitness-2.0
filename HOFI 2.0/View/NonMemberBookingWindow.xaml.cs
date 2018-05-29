@@ -27,7 +27,7 @@ namespace View
             DataContext = _Controller;
         }
 
-        private void Btn_AddNonMember_Click(object sender, RoutedEventArgs e)
+        private void Btn_CreateNonMember_Click(object sender, RoutedEventArgs e)
         {
             BindingExpression bind_NonMemberName = tb_NonMemberName.GetBindingExpression(TextBox.TextProperty);
             BindingExpression bind_NonMemberPhoneNumber = tb_NonMemberPhoneNumber.GetBindingExpression(TextBox.TextProperty);
@@ -35,7 +35,7 @@ namespace View
             bind_NonMemberName.UpdateSource();
             bind_NonMemberPhoneNumber.UpdateSource();
 
-            _Controller.AddNonMember();
+            _Controller.CreateNonMember();
         }
 
         private void Btn_RegisterNonMemberBooking_Click(object sender, RoutedEventArgs e)

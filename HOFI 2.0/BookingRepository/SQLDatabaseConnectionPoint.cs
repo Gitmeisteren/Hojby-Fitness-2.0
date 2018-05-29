@@ -13,7 +13,6 @@ namespace Model
     public class SQLDatabaseConnectionPoint
     {
         private static string _ConnectionString = "Server= den1.mssql5.gear.host; Database= hofi; User ID = hofi; Password= Qg9OG4l~v-06;";
-        private string DateStringFromDB = "";
         public string BookSession(Booking NewBooking)
         {
             DateTime NewBookingDate = DateTime.Parse(NewBooking.BookingDate.ToString());

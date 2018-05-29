@@ -17,14 +17,14 @@ namespace Model
     public class FileExporter
     {
 
-        public void ExportToWord(Booking booking, Member member, string goal, string trainingProgram, string weeklyTrainings, string timePerTraining, string notes)
+        public void ExportToWord(Booking booking, Member member, BookingJournal bookingJournal)
         {
 
             string folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             string primaryFoldername = folderpath + "\\HOFI";
             string sessionFoldername = primaryFoldername + "\\Forløb";
             string memberNumberFoldername = sessionFoldername + "\\" + booking.MemberNumber;
-            string goalFoldername = memberNumberFoldername + "\\" + goal;
+            string goalFoldername = memberNumberFoldername + "\\" + bookingJournal.Goal;
             Directory.CreateDirectory(goalFoldername);
               
             //Creates application
@@ -42,13 +42,13 @@ namespace Model
             objParagraph.Range.Text =
                 "Træningsprogram for " + booking.MemberNumber + "\n"
                 + "Navn: " + member.Name + "\n"
-                + "Formål: " + goal + "\n"
-                + "Træningsprogram: " + trainingProgram + "\n"
-                + "Antal træninger om ugen: " + weeklyTrainings + "\n"
-                + "Varighed pr. træning: " + timePerTraining + "\n"
-                + "Noter: " + notes + "\n";
+                + "Formål: " + bookingJournal.Goal + "\n"
+                + "Træningsprogram: " + bookingJournal.TrainingProgram + "\n"
+                + "Antal træninger om ugen: " + bookingJournal.WeeklyTrainings + "\n"
+                + "Varighed pr. træning: " + bookingJournal.TimePerTraining + "\n"
+                + "Noter: " + bookingJournal.Notes + "\n";
 
-            objDoc.SaveAs2(goalFoldername + "\\" + goal);
+            objDoc.SaveAs2(goalFoldername + "\\" + bookingJournal.Goal);
             objDoc.Close();
             objWord.Quit();
         }

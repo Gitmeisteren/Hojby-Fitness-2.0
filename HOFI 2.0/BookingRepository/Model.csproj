@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="Booking.cs" />
     <Compile Include="BookingHandler.cs" />
+    <Compile Include="BookingJournal.cs" />
     <Compile Include="BookingRepository.cs" />
     <Compile Include="Calendar.cs" />
     <Compile Include="FileExporter.cs" />

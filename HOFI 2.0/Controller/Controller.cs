@@ -10,8 +10,7 @@ namespace Controller
 {
     public class Controller : INotifyPropertyChanged
     {
-        int _NonMemberPhoneNumber = 0;
-        string _NonMemberName = "";
+
 
         #region Shift properties for ShiftWindow
         string _InstructorID = "";
@@ -76,6 +75,8 @@ namespace Controller
 
 
         #region Privates
+        int _NonMemberPhoneNumber = 0;
+        string _NonMemberName = "";
         private string _LoginCredentialsPassword;
         private string _LoginCredentials;
         private static Controller _Instance;

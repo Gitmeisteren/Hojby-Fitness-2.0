@@ -77,9 +77,9 @@ namespace Controller
             }
             return _Instance;
         }
-        public void AddNonMember()
+        public void CreateNonMember()
         {
-          ReturnMessageNonMemberBookingWindow = _DatabaseCon.AddNonMember(NonMemberPhoneNumber, NonMemberName);
+          ReturnMessageNonMemberBookingWindow = _DatabaseCon.CreateNonMember(NonMemberPhoneNumber, NonMemberName);
         }
 
         //Shift properties for ShiftWindow

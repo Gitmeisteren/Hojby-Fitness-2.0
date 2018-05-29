@@ -53,7 +53,7 @@ namespace Model
             }
         }
 
-        public string AddNonMember(int nonMemberPhoneNumber, string nonMemberName)
+        public string CreateNonMember(int nonMemberPhoneNumber, string nonMemberName)
         {
             string errorMsg = "";
             string returnMsg = "";

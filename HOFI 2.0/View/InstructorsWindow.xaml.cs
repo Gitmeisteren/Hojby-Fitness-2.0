@@ -31,7 +31,7 @@ namespace View
 
 
 
-        private void Btn_ReturntoMainWindow_Click(object sender, RoutedEventArgs e)
+        private void Btn_ReturnToMainWindow_Click(object sender, RoutedEventArgs e)
         {
             MainWindow _MainWindow = new MainWindow();
 

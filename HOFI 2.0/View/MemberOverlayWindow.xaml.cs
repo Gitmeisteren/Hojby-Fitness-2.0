@@ -30,7 +30,7 @@ namespace View
 
 
 
-        public void Btn_SeachForMember_Click(object sender, RoutedEventArgs e)
+        public void Btn_SearchForMember_Click(object sender, RoutedEventArgs e)
         {
             
             BindingExpression _Bind_MemberNumber = tb_SearchForMember.GetBindingExpression(TextBox.TextProperty);

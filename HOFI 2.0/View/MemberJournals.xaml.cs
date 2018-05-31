@@ -29,9 +29,9 @@ namespace View
             this.DataContext = _Controller;
         }
 
-        private void Btn_BookSession_Click(object sender, RoutedEventArgs e)
+        private void Btn_CreateJournal_Click(object sender, RoutedEventArgs e)
         {
-            _Controller.ExportToWord(cmb_goal.Text);
+            _Controller.CreateJournal(cmb_goal.Text);
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

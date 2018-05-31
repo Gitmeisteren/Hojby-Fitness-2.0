@@ -8,7 +8,7 @@
         Title="MemberJournals" Height="450" Width="800">
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="2" Margin="126,0,0,-0.333"/>
-        <Button Content="Gem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="287,368,0,0" Click="Btn_BookSession_Click" Height="29"/>
+        <Button Content="Gem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="287,368,0,0" Click="Btn_CreateJournal_Click" Height="29"/>
         <Label Name="hehe" Content="{Binding NewMember.Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="403,11,0,0" Width="314" Height="50" FontSize="20" FontWeight="Bold"/>
         <Label Content="Medlemsnummer:&#xA;&#xA;Navn:&#xA;&#xA;Formål:&#xA;&#xA;Træningsprogram&#xA;&#xA;Antal træninger om ugen&#xA;&#xA;Varighed pr. træning: &#xA;&#xA;Noter:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="203" Height="219" Margin="142,63,0,0"/>
         <!--<TextBox Name="tb_MemberNumer" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Tb_MemberNumber, Mode=TwoWay}" VerticalAlignment="Top" Width="363" Margin="403,66,0,0"/>-->

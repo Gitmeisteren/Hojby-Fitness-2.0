@@ -17,7 +17,7 @@ namespace Model
     public class FileExporter
     {
 
-        public void ExportToWord(Booking booking, Member member, BookingJournal bookingJournal)
+        public void CreateJournal(Booking booking, Member member, BookingJournal bookingJournal)
         {
 
             string folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);

@@ -879,7 +879,7 @@ namespace Controller
             OnPropertyChanged(LoginCredentialsPassword);
 
         }
-        public void ExportToWord(string goal)
+        public void CreateJournal(string goal)
         {
 
             BookingJournal _BookingJournal = new BookingJournal();
@@ -889,7 +889,7 @@ namespace Controller
             _BookingJournal.TimePerTraining = Tb_TimePerTraining;
             _BookingJournal.Notes = Tb_Notes;
 
-            fileExporter.ExportToWord(NewBooking, NewMember, _BookingJournal);
+            fileExporter.CreateJournal(NewBooking, NewMember, _BookingJournal);
 
             SaveStatistics(goal);
         }

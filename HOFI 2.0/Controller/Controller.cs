@@ -10,8 +10,7 @@ namespace Controller
 {
     public class Controller : INotifyPropertyChanged
     {
-
-
+       
         #region Shift properties for ShiftWindow
         string _InstructorID = "";
         string _StartDate = "";
@@ -28,9 +27,6 @@ namespace Controller
                 OnPropertyChanged("ShiftListInstructorID");
             }
         }
-
-       
-
         public string ShiftStartDate
         {
             get
@@ -55,22 +51,20 @@ namespace Controller
                 OnPropertyChanged("ShiftEndDate");
             }
         }
-
-
-
+        
         #endregion
 
         #region Instances
-        BookingHandler bookingHandler = BookingHandler.GetInstance();
-        Booking booking = new Booking();
-        Member member = new Member();
-        StatisticHandler statisticHandler = StatisticHandler.GetInstance();
-        BookingRepository bookingRepo = BookingRepository.GetInstance();
-        FileExporter fileExporter = new FileExporter();
-        ShiftHandler shiftHandler = ShiftHandler.GetInstance();
+        BookingHandler _BookingHandler = BookingHandler.GetInstance();
+        Booking _Booking = new Booking();
+        Member _Member = new Member();
+        StatisticHandler _StatisticHandler = StatisticHandler.GetInstance();
+        BookingRepository _BookingRepo = BookingRepository.GetInstance();
+        FileExporter _FileExporter = new FileExporter();
+        ShiftHandler _ShiftHandler = ShiftHandler.GetInstance();
         SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
-        LoginHandler loginHandler = new LoginHandler();
-        Calendar calendar = Calendar.GetInstance();
+        LoginHandler _LoginHandler = new LoginHandler();
+        Calendar _Calendar = Calendar.GetInstance();
         #endregion
 
 
@@ -109,7 +103,6 @@ namespace Controller
                 OnPropertyChanged("NonMemberName");
             }
         }
-
         public int NonMemberPhoneNumber
         {
             get
@@ -170,7 +163,6 @@ namespace Controller
                 OnPropertyChanged("ReturnMessageBookSessionWindow");
             }
         }
-
         public string ReturnMessageRegisterShiftWindow
         {
             get
@@ -255,7 +247,6 @@ namespace Controller
                 OnPropertyChanged("ReturnMessageAdminInstructorWindow");
             }
         }
-
         public string LoginCredentialsPassword
         {
             get
@@ -282,13 +273,6 @@ namespace Controller
         } 
         public Booking NewBooking { get; set; }
         public Member NewMember { get; set; }
-
-        public void DeleteInstructor()
-        {
-            ReturnMessageEditInstructorsWindow = _DatabaseCon.DeleteInstructor(Instructor);
-            ShowInstructors();
-        }
-
         public Shift Shift { get; set; }
         public Instructor Instructor { get; set; }
         public List<string> Cmb_GoalChoices { get; } = new List<string>() { "Styrketræning", "Vægttab", "Opstramning", "Konditionstræning", "Kom-Godt-Igang" };
@@ -844,16 +828,21 @@ namespace Controller
         public Controller()
         {
             NewBooking = new Booking();
-            bookingRepo = BookingRepository.GetInstance();
+            _BookingRepo = BookingRepository.GetInstance();
             NewMember = new Member();
             CalendarDates = Calendar.GetInstance();
             Shift = new Shift();
             Instructor = new Instructor();
-            statisticHandler = StatisticHandler.GetInstance();
+            _StatisticHandler = StatisticHandler.GetInstance();
             StatisticRepoUpdate();
             IntitialRepoUpdate();
-            statisticHandler.AddToExcellFromStatisticRepo();
+            _StatisticHandler.AddToExcellFromStatisticRepo();
 
+        }
+        public void DeleteInstructor()
+        {
+            ReturnMessageEditInstructorsWindow = _DatabaseCon.DeleteInstructor(Instructor);
+            ShowInstructors();
         }
         public void RegisterNonMemberBooking()
         {
@@ -889,7 +878,7 @@ namespace Controller
             _BookingJournal.TimePerTraining = Tb_TimePerTraining;
             _BookingJournal.Notes = Tb_Notes;
 
-            fileExporter.ExportToWord(NewBooking, NewMember, _BookingJournal);
+            _FileExporter.ExportToWord(NewBooking, NewMember, _BookingJournal);
 
             SaveStatistics(goal);
         }
@@ -941,26 +930,26 @@ namespace Controller
         public void BookSession()
         {
 
-            ReturnMessageBookSessionWindow = bookingHandler.BookSession(NewBooking);
+            ReturnMessageBookSessionWindow = _BookingHandler.BookSession(NewBooking);
         
         }
         public void CreateNewMember()
         {
-            bookingHandler.CreateNewMember(NewMember, NewBooking);
+            _BookingHandler.CreateNewMember(NewMember, NewBooking);
         }
          public void IntitialRepoUpdate()
         {
             
-            bookingHandler.IntitialRepoUpdate();
+            _BookingHandler.IntitialRepoUpdate();
         }
         public void StatisticRepoUpdate()
         {
-            statisticHandler.StatisticRepoUpdate();
+            _StatisticHandler.StatisticRepoUpdate();
         }
         public void UpdateCalendar()
         {
             List<string> updatedCalendarDates = new List<string>(); 
-           updatedCalendarDates = bookingHandler.UpdateCalendar();
+           updatedCalendarDates = _BookingHandler.UpdateCalendar();
 
             
             Label_1 = updatedCalendarDates[0];
@@ -1001,7 +990,7 @@ namespace Controller
         }
         public void CheckLogin()
         {
-            ReturnMessageLoginWindow = loginHandler.GetLoginInformation(LoginCredentials, LoginCredentialsPassword);
+            ReturnMessageLoginWindow = _LoginHandler.GetLoginInformation(LoginCredentials, LoginCredentialsPassword);
 
         }
         public void RegisterShift(string shiftType)
@@ -1013,23 +1002,23 @@ namespace Controller
             {
                 dateToday = DateTime.Parse(Shift.Date);
                 _IDClone = Instructor.InstructorID;
-                ReturnMessageRegisterShiftWindow = shiftHandler.RegisterShift(Shift, Instructor, shiftType, _IDClone, dateToday);
+                ReturnMessageRegisterShiftWindow = _ShiftHandler.RegisterShift(Shift, Instructor, shiftType, _IDClone, dateToday);
             }
             else
             {
                  
                 _IDClone = LoginCredentials;
-                ReturnMessageRegisterShiftWindow = shiftHandler.RegisterShift(Shift, Instructor, shiftType, _IDClone, dateToday);
+                ReturnMessageRegisterShiftWindow = _ShiftHandler.RegisterShift(Shift, Instructor, shiftType, _IDClone, dateToday);
             }
             
         }
         public void ShowShiftList()
         {
-            ReturnMessageShiftWindow = shiftHandler.ShiftList(Shift, Instructor, ShiftListInstructorID, ShiftStartDate, ShiftEndDate);
+            ReturnMessageShiftWindow = _ShiftHandler.ShiftList(Shift, Instructor, ShiftListInstructorID, ShiftStartDate, ShiftEndDate);
         }
         public void ExportShiftList()
         {
-            shiftHandler.ExportShiftList(ReturnMessageShiftWindow, ShiftStartDate, ShiftEndDate);
+            _ShiftHandler.ExportShiftList(ReturnMessageShiftWindow, ShiftStartDate, ShiftEndDate);
             ReturnMessageShiftWindow = ReturnMessageShiftWindow + "\n Fil eksporteret til skrivebordet under mappen 'HOFI'.";
         }
         public void SaveStatistics(string goal)
@@ -1038,10 +1027,10 @@ namespace Controller
             
             Statistic _Statistic = new Statistic(NewMember.Age,dayOfJournalCreation.ToShortDateString(), goal);
 
-            string _ExceptionMessage = statisticHandler.AddStatisticToDB(_Statistic);
+            string _ExceptionMessage = _StatisticHandler.AddStatisticToDB(_Statistic);
             if ( _ExceptionMessage == "") {
-                statisticHandler.StatisticRepoUpdate();
-                statisticHandler.AddToExcellFromStatisticRepo();
+                _StatisticHandler.StatisticRepoUpdate();
+                _StatisticHandler.AddToExcellFromStatisticRepo();
             }
         }
     }

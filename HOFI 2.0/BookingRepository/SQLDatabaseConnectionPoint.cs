@@ -586,12 +586,12 @@ namespace Model
                 {
                     con.Open();
 
-                    SqlCommand _CreateMember = new SqlCommand("spUpdateStatistic", con);
-                    _CreateMember.CommandType = System.Data.CommandType.StoredProcedure;
-                    _CreateMember.Parameters.Add(new SqlParameter("@I_Age", statistic.Age));
-                    _CreateMember.Parameters.Add(new SqlParameter("@I_TrainingType", statistic.Type));
-                    _CreateMember.Parameters.Add(new SqlParameter("@I_TrainingDate", _StatisticDate));
-                    _CreateMember.ExecuteNonQuery();
+                    SqlCommand _UpdateStatistic = new SqlCommand("spUpdateStatistic", con);
+                    _UpdateStatistic.CommandType = System.Data.CommandType.StoredProcedure;
+                    _UpdateStatistic.Parameters.Add(new SqlParameter("@I_Age", statistic.Age));
+                    _UpdateStatistic.Parameters.Add(new SqlParameter("@I_TrainingType", statistic.Type));
+                    _UpdateStatistic.Parameters.Add(new SqlParameter("@I_TrainingDate", _StatisticDate));
+                    _UpdateStatistic.ExecuteNonQuery();
                 }
                 catch (SqlException e)
                 {

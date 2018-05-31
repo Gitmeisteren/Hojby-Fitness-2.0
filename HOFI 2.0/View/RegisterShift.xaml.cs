@@ -20,8 +20,6 @@ namespace View
     /// </summary>
     public partial class RegisterShift : Window
     {
-        public string memberNumber = ""; // skal de her ligge her? Dette er viewlaget.
-        public string shiftDate = "";
         Controller.Controller _Controller = Controller.Controller.GetInstance();
         public RegisterShift()
         {

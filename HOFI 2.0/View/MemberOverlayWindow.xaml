@@ -22,7 +22,7 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Stroke="Black" VerticalAlignment="Top" Width="691" Margin="109,126,-8,0"/>
         <TextBox Name="tb_SearchForMember" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" Text="{Binding NewBooking.MemberNumber, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="237" Margin="432,71,0,0"/>
         <Label Content="Indtast medlemsnummer(hofixxx):" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" Width="242" Margin="185,71,0,0"/>
-        <Button Name="Btn_SeachforMember_Click" Content="Søg" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="674,71,0,0" Click="Btn_SeachForMember_Click"/>
+        <Button Name="Btn_SeachforMember_Click" Content="Søg" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="674,71,0,0" Click="Btn_SearchForMember_Click"/>
         <StackPanel HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="673" Margin="110,230,0,0">
             <Label Content="{Binding NewMember.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" Height="23"/>
         </StackPanel>

@@ -26,14 +26,12 @@ namespace Model
 
         #endregion
 
-        Booking member = new Booking();
-        SQLDatabaseConnectionPoint _databaseCon = new SQLDatabaseConnectionPoint();
-        BookingRepository bookingRepo = BookingRepository.GetInstance();
+        Booking _Member = new Booking();
+        SQLDatabaseConnectionPoint _DatabaseCon = new SQLDatabaseConnectionPoint();
+        BookingRepository _BookingRepo = BookingRepository.GetInstance();
 
         private static BookingHandler _Instance;
-
-
-
+        
         public static BookingHandler GetInstance()
         {
             if (_Instance == null)
@@ -51,23 +49,23 @@ namespace Model
         public string BookSession(Booking NewBooking)
         {
             Booking bookingClone = new Booking();
-            string returnMessage = "";
+            string _ReturnMessage = "";
             bookingClone.BookingDate = NewBooking.BookingDate;
             bookingClone.MemberNumber = NewBooking.MemberNumber;
 
-           bool dateAvailable = bookingRepo.FindDate(bookingClone);
+           bool _DateAvailable = _BookingRepo.FindDate(bookingClone);
             
-            if (dateAvailable)
+            if (_DateAvailable)
             {
-                returnMessage = _databaseCon.BookSession(bookingClone);
+                _ReturnMessage = _DatabaseCon.BookSession(bookingClone);
 
             }
             else
             {
-                returnMessage = "Dagen er optaget";
+                _ReturnMessage = "Dagen er optaget";
             }
 
-            return returnMessage;
+            return _ReturnMessage;
 
             
 
@@ -75,28 +73,28 @@ namespace Model
 
         public void IntitialRepoUpdate()
         {
-           List<Booking> bookingsFromDB = _databaseCon.InitialRepoUpdate();
+           List<Booking> _BookingsFromDB = _DatabaseCon.InitialRepoUpdate();
 
-            bookingRepo.AddBookingsToRepoFromDB(bookingsFromDB);
+            _BookingRepo.AddBookingsToRepoFromDB(_BookingsFromDB);
 
         }
 
         public void CreateNewMember(Member NewMember, Booking NewBooking)
         {
-            _databaseCon.CreateNewMember(NewMember, NewBooking);
+            _DatabaseCon.CreateNewMember(NewMember, NewBooking);
         }
 
         public List<string> UpdateCalendar()
         {
-            Calendar calendar = Calendar.GetInstance();
-            List<Booking> retrivedCalendarDates = new List<Booking>();
-            List<string> updatedCalendarDates = new List<string>();
+            Calendar _Calendar = Calendar.GetInstance();
+            List<Booking> _RetrivedCalendarDates = new List<Booking>();
+            List<string> _UpdatedCalendarDates = new List<string>();
 
 
-           retrivedCalendarDates = bookingRepo.RetrieveCalendarDates();
-           updatedCalendarDates = calendar.UpdateCalendar(retrivedCalendarDates);
+           _RetrivedCalendarDates = _BookingRepo.RetrieveCalendarDates();
+           _UpdatedCalendarDates = _Calendar.UpdateCalendar(_RetrivedCalendarDates);
 
-            return updatedCalendarDates;
+            return _UpdatedCalendarDates;
         }
 
     }

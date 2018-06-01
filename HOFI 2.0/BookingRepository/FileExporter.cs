@@ -20,26 +20,26 @@ namespace Model
         public void CreateJournal(Booking booking, Member member, BookingJournal bookingJournal)
         {
 
-            string folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            string primaryFoldername = folderpath + "\\HOFI";
-            string sessionFoldername = primaryFoldername + "\\Forløb";
-            string memberNumberFoldername = sessionFoldername + "\\" + booking.MemberNumber;
-            string goalFoldername = memberNumberFoldername + "\\" + bookingJournal.Goal;
-            Directory.CreateDirectory(goalFoldername);
+            string _Folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            string _PrimaryFoldername = _Folderpath + "\\HOFI";
+            string _SessionFoldername = _PrimaryFoldername + "\\Forløb";
+            string _MemberNumberFoldername = _SessionFoldername + "\\" + booking.MemberNumber;
+            string _GoalFoldername = _MemberNumberFoldername + "\\" + bookingJournal.Goal;
+            Directory.CreateDirectory(_GoalFoldername);
               
             //Creates application
-            Application objWord = new Application();
+            Application _ObjWord = new Application();
 
-            objWord.Visible = true;
-            objWord.WindowState = WdWindowState.wdWindowStateNormal;
+            _ObjWord.Visible = true;
+            _ObjWord.WindowState = WdWindowState.wdWindowStateNormal;
 
             //Creates document
-            Document objDoc = objWord.Documents.Add();
+            Document _ObjDoc = _ObjWord.Documents.Add();
 
             //Adds paragraphs
-            Paragraph objParagraph;
-            objParagraph = objDoc.Paragraphs.Add();
-            objParagraph.Range.Text =
+            Paragraph _ObjParagraph;
+            _ObjParagraph = _ObjDoc.Paragraphs.Add();
+            _ObjParagraph.Range.Text =
                 "Træningsprogram for " + booking.MemberNumber + "\n"
                 + "Navn: " + member.Name + "\n"
                 + "Formål: " + bookingJournal.Goal + "\n"
@@ -48,82 +48,82 @@ namespace Model
                 + "Varighed pr. træning: " + bookingJournal.TimePerTraining + "\n"
                 + "Noter: " + bookingJournal.Notes + "\n";
 
-            objDoc.SaveAs2(goalFoldername + "\\" + bookingJournal.Goal);
-            objDoc.Close();
-            objWord.Quit();
+            _ObjDoc.SaveAs2(_GoalFoldername + "\\" + bookingJournal.Goal);
+            _ObjDoc.Close();
+            _ObjWord.Quit();
         }
         
         public void UpdateStatisticToExcel(List<int> fileNumbersList)
         {
-            string folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            string primaryFoldername = folderpath + "\\HOFI";
-            string statisticFoldername = primaryFoldername + "\\Statistik";
+            string _Folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            string _PrimaryFoldername = _Folderpath + "\\HOFI";
+            string _StatisticFoldername = _PrimaryFoldername + "\\Statistik";
 
-            Directory.CreateDirectory(statisticFoldername);
+            Directory.CreateDirectory(_StatisticFoldername);
             
-            string filename = "Statistik.csv";
-            string pathname = Path.Combine(statisticFoldername, filename);
-            using (StreamWriter sw = File.CreateText(pathname))
+            string _Filename = "Statistik.csv";
+            string _Pathname = Path.Combine(_StatisticFoldername, _Filename);
+            using (StreamWriter sw = File.CreateText(_Pathname))
             {
             }
-            Excel.Application ExcelAppObj = new Excel.Application();
-            ExcelAppObj.DisplayAlerts = false;
+            Excel.Application _ExcelAppObj = new Excel.Application();
+            _ExcelAppObj.DisplayAlerts = false;
             Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             
 
             //Åbner den et excelprojekt (En "Workbook")
-            Excel.Workbook workbook = ExcelAppObj.Workbooks.Open(pathname, 0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "", true, false, 0, true, false);
+            Excel.Workbook _Workbook = _ExcelAppObj.Workbooks.Open(_Pathname, 0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "", true, false, 0, true, false);
 
             //Åbner den første side i excelprojektet
-            Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets.get_Item(1);
+            Excel.Worksheet _Worksheet = (Excel.Worksheet)_Workbook.Worksheets.get_Item(1);
 
             //Test! Skriver 20 i en bestemt celle
-            worksheet.Cells[2, 1] = "Styrketræning";
-            worksheet.Cells[3, 1] = "Vægttab";
-            worksheet.Cells[4, 1] = "Opstramning";
-            worksheet.Cells[5, 1] = "Konditionstræning";
-            worksheet.Cells[6, 1] = "Kom-Godt-Igang";
+            _Worksheet.Cells[2, 1] = "Styrketræning";
+            _Worksheet.Cells[3, 1] = "Vægttab";
+            _Worksheet.Cells[4, 1] = "Opstramning";
+            _Worksheet.Cells[5, 1] = "Konditionstræning";
+            _Worksheet.Cells[6, 1] = "Kom-Godt-Igang";
 
-            worksheet.Cells[1, 2] = "18-25";
-            worksheet.Cells[1, 3] = "26-35";
-            worksheet.Cells[1, 4] = "36-45";
-            worksheet.Cells[1, 5] = "46-55";
-            worksheet.Cells[1, 6] = "55+";
+            _Worksheet.Cells[1, 2] = "18-25";
+            _Worksheet.Cells[1, 3] = "26-35";
+            _Worksheet.Cells[1, 4] = "36-45";
+            _Worksheet.Cells[1, 5] = "46-55";
+            _Worksheet.Cells[1, 6] = "55+";
 
-            worksheet.Cells[2, 2] = fileNumbersList[0];
-            worksheet.Cells[3, 2] = fileNumbersList[1];
-            worksheet.Cells[4, 2] = fileNumbersList[2];
-            worksheet.Cells[5, 2] = fileNumbersList[3];
-            worksheet.Cells[6, 2] = fileNumbersList[4];
+            _Worksheet.Cells[2, 2] = fileNumbersList[0];
+            _Worksheet.Cells[3, 2] = fileNumbersList[1];
+            _Worksheet.Cells[4, 2] = fileNumbersList[2];
+            _Worksheet.Cells[5, 2] = fileNumbersList[3];
+            _Worksheet.Cells[6, 2] = fileNumbersList[4];
 
-            worksheet.Cells[2, 3] = fileNumbersList[5];
-            worksheet.Cells[3, 3] = fileNumbersList[6];
-            worksheet.Cells[4, 3] = fileNumbersList[7];
-            worksheet.Cells[5, 3] = fileNumbersList[8];
-            worksheet.Cells[6, 3] = fileNumbersList[9];
+            _Worksheet.Cells[2, 3] = fileNumbersList[5];
+            _Worksheet.Cells[3, 3] = fileNumbersList[6];
+            _Worksheet.Cells[4, 3] = fileNumbersList[7];
+            _Worksheet.Cells[5, 3] = fileNumbersList[8];
+            _Worksheet.Cells[6, 3] = fileNumbersList[9];
 
-            worksheet.Cells[2, 4] = fileNumbersList[10];
-            worksheet.Cells[3, 4] = fileNumbersList[11];
-            worksheet.Cells[4, 4] = fileNumbersList[12];
-            worksheet.Cells[5, 4] = fileNumbersList[13];
-            worksheet.Cells[6, 4] = fileNumbersList[14];
+            _Worksheet.Cells[2, 4] = fileNumbersList[10];
+            _Worksheet.Cells[3, 4] = fileNumbersList[11];
+            _Worksheet.Cells[4, 4] = fileNumbersList[12];
+            _Worksheet.Cells[5, 4] = fileNumbersList[13];
+            _Worksheet.Cells[6, 4] = fileNumbersList[14];
 
-            worksheet.Cells[2, 5] = fileNumbersList[15];
-            worksheet.Cells[3, 5] = fileNumbersList[16];
-            worksheet.Cells[4, 5] = fileNumbersList[17];
-            worksheet.Cells[5, 5] = fileNumbersList[18];
-            worksheet.Cells[6, 5] = fileNumbersList[19];
+            _Worksheet.Cells[2, 5] = fileNumbersList[15];
+            _Worksheet.Cells[3, 5] = fileNumbersList[16];
+            _Worksheet.Cells[4, 5] = fileNumbersList[17];
+            _Worksheet.Cells[5, 5] = fileNumbersList[18];
+            _Worksheet.Cells[6, 5] = fileNumbersList[19];
 
-            worksheet.Cells[2, 6] = fileNumbersList[20];
-            worksheet.Cells[3, 6] = fileNumbersList[21];
-            worksheet.Cells[4, 6] = fileNumbersList[22];
-            worksheet.Cells[5, 6] = fileNumbersList[23];
-            worksheet.Cells[6, 6] = fileNumbersList[24];
+            _Worksheet.Cells[2, 6] = fileNumbersList[20];
+            _Worksheet.Cells[3, 6] = fileNumbersList[21];
+            _Worksheet.Cells[4, 6] = fileNumbersList[22];
+            _Worksheet.Cells[5, 6] = fileNumbersList[23];
+            _Worksheet.Cells[6, 6] = fileNumbersList[24];
 
             //Gemmer det vi lige har gjort og lukker vores projekt
-            workbook.SaveAs(pathname, Excel.XlFileFormat.xlOpenXMLWorkbook, null, null, false, false, Excel.XlSaveAsAccessMode.xlShared, false, false, null, null, null);
+            _Workbook.SaveAs(_Pathname, Excel.XlFileFormat.xlOpenXMLWorkbook, null, null, false, false, Excel.XlSaveAsAccessMode.xlShared, false, false, null, null, null);
 
-            workbook.Close();
+            _Workbook.Close();
         }
     }
 }

@@ -8,9 +8,9 @@ namespace Model
 {
     public class StatisticHandler
     {
-        SQLDatabaseConnectionPoint sqlDatabaseConnectionPoint = new SQLDatabaseConnectionPoint();
-        StatisticRepository statisticRepo = StatisticRepository.GetInstance();
-        FileExporter fileExporter = new FileExporter();
+        SQLDatabaseConnectionPoint _SQLDatabaseConnectionPoint = new SQLDatabaseConnectionPoint();
+        StatisticRepository _StatisticRepo = StatisticRepository.GetInstance();
+        FileExporter _FileExporter = new FileExporter();
         private static StatisticHandler _Instance;
         public static StatisticHandler GetInstance()
         {
@@ -26,13 +26,13 @@ namespace Model
         }
         public void StatisticRepoUpdate()
         {
-            List<Statistic> statisticFromDB = sqlDatabaseConnectionPoint.UpdateStatistic();
-            statisticRepo.RefreshStatisticsFromDB(statisticFromDB);
+            List<Statistic> statisticFromDB = _SQLDatabaseConnectionPoint.UpdateStatistic();
+            _StatisticRepo.RefreshStatisticsFromDB(statisticFromDB);
         }
 
         public string AddStatisticToDB(Statistic statistic)
         {
-           return sqlDatabaseConnectionPoint.AddStatisticToDB(statistic);
+           return _SQLDatabaseConnectionPoint.AddStatisticToDB(statistic);
         }
 
 
@@ -44,7 +44,7 @@ namespace Model
             int Konditionstræning = 0;
             int KomGodtIgang = 0;
             List<int> FileNumbersList = new List<int>();
-            List<Statistic> StatisticListFromRepo =statisticRepo.GetStatisticFromRepo();
+            List<Statistic> StatisticListFromRepo =_StatisticRepo.GetStatisticFromRepo();
 
             List<Statistic> AgeGroup1 = new List<Statistic>(); //18-25
             List<Statistic> AgeGroup2 = new List<Statistic>(); //26-35
@@ -248,7 +248,7 @@ namespace Model
             Konditionstræning = 0;
             KomGodtIgang = 0;
 
-            fileExporter.UpdateStatisticToExcel(FileNumbersList);
+            _FileExporter.UpdateStatisticToExcel(FileNumbersList);
 
         }
 

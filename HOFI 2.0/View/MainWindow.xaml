@@ -13,7 +13,6 @@
         <Button x:Name="btn_BookingMenu" Content="Booking" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="10,10,0,0"  Height="34" Click="Btn_BookingMenu_Click"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="421" Stroke="Black" VerticalAlignment="Top" Width="1" Margin="119,0,0,-0.333"/>
         <Button Content="Log ud" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,377,0,0" Height="34" Click="Btn_LogOff_Click"/>
-        <Image HorizontalAlignment="Left" Source="C:\Users\royga\source\repos\Hojby-Fitness-2.0\HOFI 2.0\bigshaq.png" Height="281" VerticalAlignment="Top" Width="281" Margin="329,82,0,0"/>
 
     </Grid>
 </Window>

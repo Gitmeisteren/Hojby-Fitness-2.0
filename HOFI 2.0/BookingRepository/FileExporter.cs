@@ -84,7 +84,7 @@ namespace Model
             _Worksheet.Cells[5, 1] = "Konditionstræning";
             _Worksheet.Cells[6, 1] = "Kom-Godt-Igang";
 
-            _Worksheet.Cells[1, 2] = "18-25";
+            _Worksheet.Cells[1, 2] = "15-25";
             _Worksheet.Cells[1, 3] = "26-35";
             _Worksheet.Cells[1, 4] = "36-45";
             _Worksheet.Cells[1, 5] = "46-55";

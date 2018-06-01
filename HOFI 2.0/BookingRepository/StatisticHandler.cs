@@ -26,8 +26,8 @@ namespace Model
         }
         public void StatisticRepoUpdate()
         {
-            List<Statistic> statisticFromDB = _SQLDatabaseConnectionPoint.UpdateStatistic();
-            _StatisticRepo.RefreshStatisticsFromDB(statisticFromDB);
+            List<Statistic> _StatisticFromDB = _SQLDatabaseConnectionPoint.UpdateStatistic();
+            _StatisticRepo.RefreshStatisticsFromDB(_StatisticFromDB);
         }
 
         public string AddStatisticToDB(Statistic statistic)
@@ -46,7 +46,7 @@ namespace Model
             List<int> FileNumbersList = new List<int>();
             List<Statistic> StatisticListFromRepo =_StatisticRepo.GetStatisticFromRepo();
 
-            List<Statistic> AgeGroup1 = new List<Statistic>(); //18-25
+            List<Statistic> AgeGroup1 = new List<Statistic>(); //15-25
             List<Statistic> AgeGroup2 = new List<Statistic>(); //26-35
             List<Statistic> AgeGroup3 = new List<Statistic>(); //36-45
             List<Statistic> AgeGroup4 = new List<Statistic>(); //46-55
@@ -54,7 +54,7 @@ namespace Model
 
             foreach (Statistic statistic in StatisticListFromRepo)
             {
-                if (statistic.Age > 18 && statistic.Age < 25)
+                if (statistic.Age > 15 && statistic.Age < 25)
                 {
                     AgeGroup1.Add(statistic);
                 }else if(statistic.Age > 26 && statistic.Age < 35)

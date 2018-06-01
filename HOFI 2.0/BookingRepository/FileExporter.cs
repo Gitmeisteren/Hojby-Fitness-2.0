@@ -20,11 +20,11 @@ namespace Model
         public void CreateJournal(Booking booking, Member member, BookingJournal bookingJournal)
         {
 
-            string _Folderpath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            string _PrimaryFoldername = _Folderpath + "\\HOFI";
-            string _SessionFoldername = _PrimaryFoldername + "\\Forløb";
-            string _MemberNumberFoldername = _SessionFoldername + "\\" + booking.MemberNumber;
-            string _GoalFoldername = _MemberNumberFoldername + "\\" + bookingJournal.Goal;
+            string _FolderPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            string _PrimaryFolderName = _FolderPath + "\\HOFI";
+            string _SessionFolderName = _PrimaryFolderName + "\\Forløb";
+            string _MemberNumberFolderName = _SessionFolderName + "\\" + booking.MemberNumber;
+            string _GoalFoldername = _MemberNumberFolderName + "\\" + bookingJournal.Goal;
             Directory.CreateDirectory(_GoalFoldername);
               
             //Creates application

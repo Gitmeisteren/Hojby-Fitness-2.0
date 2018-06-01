@@ -1023,9 +1023,9 @@ namespace Controller
         }
         public void SaveStatistics(string goal)
         {
-            DateTime dayOfJournalCreation = DateTime.Today;
+            DateTime _DayOfJournalCreation = DateTime.Today;
             
-            Statistic _Statistic = new Statistic(NewMember.Age,dayOfJournalCreation.ToShortDateString(), goal);
+            Statistic _Statistic = new Statistic(NewMember.Age,_DayOfJournalCreation.ToShortDateString(), goal);
 
             string _ExceptionMessage = _StatisticHandler.AddStatisticToDB(_Statistic);
             if ( _ExceptionMessage == "") {

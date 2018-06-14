@@ -15,9 +15,6 @@ using Controller;
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for BookingMenu.xaml
-    /// </summary>
     public partial class BookingWindow : Window
     {
         Controller.Controller _Controller = Controller.Controller.GetInstance();

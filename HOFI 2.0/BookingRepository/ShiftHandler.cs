@@ -54,7 +54,7 @@ namespace Model
         public void ExportShiftList(string shiftList, string shiftStartDate, string shiftEndDate)
         {
             string folderpath = Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory);
-            string primaryFoldername = folderpath + "\\HøjRegistrering";
+            string primaryFoldername = folderpath + "\\HOFI";
             string shiftFoldername = primaryFoldername + "\\Vagter";
             if (!Directory.Exists(primaryFoldername))
             {

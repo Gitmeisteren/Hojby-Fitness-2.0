@@ -998,7 +998,7 @@ namespace Controller
             DateTime dateToday = DateTime.Today;
 
             string _IDClone;
-            if(LoginCredentials == "hofi353")
+            if(LoginCredentials == "hofi353" || LoginCredentials == "hofi0")
             {
                 dateToday = DateTime.Parse(Shift.Date);
                 _IDClone = Instructor.InstructorID;

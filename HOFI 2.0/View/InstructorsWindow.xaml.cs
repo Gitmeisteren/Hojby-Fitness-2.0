@@ -45,7 +45,7 @@ namespace View
             EditInstructorWindow _EditInstructorWindow = new EditInstructorWindow();
             AdminEditInstructorWindow _AdminEditInstructorWindow = new AdminEditInstructorWindow();
 
-            if(_Controller.LoginCredentials == "hofi353")
+            if(_Controller.LoginCredentials == "hofi353" || _Controller.LoginCredentials == "hofi0")
             {
                 _AdminEditInstructorWindow.Show();
                 

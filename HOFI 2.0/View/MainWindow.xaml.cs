@@ -45,7 +45,7 @@ namespace View
         private void Btn_ShiftWindow_Click(object sender, RoutedEventArgs e)
         {
 
-            if(_Controller.LoginCredentials == "hofi353")
+            if(_Controller.LoginCredentials == "hofi353" || _Controller.LoginCredentials == "hofi0")
             {
                 AdminRegisterShift _AdminRegisterShift = new AdminRegisterShift();
                 _AdminRegisterShift.Show();

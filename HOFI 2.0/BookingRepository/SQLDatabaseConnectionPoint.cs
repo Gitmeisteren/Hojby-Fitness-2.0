@@ -642,8 +642,8 @@ namespace Model
 
                     mail.From = new MailAddress("hofiregistrering@gmail.com");
                     mail.To.Add(instructorEmail);
-                    mail.Subject = "Kvittering for registrering af vagt d. " + date;
-                    mail.Body = "Din vagt er nu registreret";
+                    mail.Subject = "Kvittering for registrering af vagt";
+                    mail.Body = "Din vagt er nu registreret for datoen " + date;
 
                     SmtpServer.Port = 587;
                     SmtpServer.Credentials = new System.Net.NetworkCredential("Hofiregistrering@gmail.com", "hsgfitness");

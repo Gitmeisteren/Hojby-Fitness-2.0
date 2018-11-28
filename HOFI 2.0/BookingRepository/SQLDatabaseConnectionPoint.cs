@@ -663,12 +663,12 @@ namespace Model
             }
         }
 
-        public bool CheckDate(string _IDClone)
+        public bool CheckDate(string _IDClone, DateTime ShiftDateTime)
         {
             List<string> _InstructorRegistration = new List<string>();
             bool _DateAlreadyRegistered = false;
             DateTime _CheckIfDateIsToday;
-            string _Date = "";
+            string _Date = ShiftDateTime.ToString();
             string _InstructorID = "";
             
 
@@ -691,7 +691,7 @@ namespace Model
                         _InstructorID = reader["Medlemsnr"].ToString();
                             _Date = reader["Dato"].ToString();
                         _CheckIfDateIsToday = DateTime.Parse(_Date);
-                        if (DateTime.Today == _CheckIfDateIsToday && _InstructorID == _IDClone)
+                        if (ShiftDateTime == _CheckIfDateIsToday && _InstructorID == _IDClone)
                         {
                         _InstructorRegistration.Add(_Date);
                         }
@@ -720,7 +720,7 @@ namespace Model
             string hireDate = instructor.HireDate;
             DateTime ShiftDateTime = DateTime.Parse(dateToday.ToString());
 
-            bool _DateRegistered = CheckDate(_IDClone);
+            bool _DateRegistered = CheckDate(_IDClone, ShiftDateTime);
 
             if (_DateRegistered == true)
             {

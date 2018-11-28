@@ -995,18 +995,18 @@ namespace Controller
         }
         public void RegisterShift(string shiftType)
         {
-            DateTime dateToday = DateTime.Today;
 
             string _IDClone;
             if(LoginCredentials == "hofi353" || LoginCredentials == "hofi0")
             {
-                dateToday = DateTime.Parse(Shift.Date);
+                DateTime dateToday = DateTime.Parse(Shift.Date);
                 _IDClone = Instructor.InstructorID;
                 ReturnMessageRegisterShiftWindow = _ShiftHandler.RegisterShift(Shift, Instructor, shiftType, _IDClone, dateToday);
             }
             else
             {
                  
+                DateTime dateToday = DateTime.Today;
                 _IDClone = LoginCredentials;
                 ReturnMessageRegisterShiftWindow = _ShiftHandler.RegisterShift(Shift, Instructor, shiftType, _IDClone, dateToday);
             }
